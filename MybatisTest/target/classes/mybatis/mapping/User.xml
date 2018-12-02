@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mybatis.mapping.User">
+	
+	<!-- 根据传入的Id值，到数据库中查询记录 -->
+	<select id="getByID" parameterType="int" resultType="User">
+		SELECT user_id, user_name, user_password, nick_name, email, is_valid, created_time, updated_time
+		FROM sys_user WHERE user_id = #{id} 
+	</select>
+	
+	<!-- 按用户名进行模糊查询 -->
+	<select id="queryByName" parameterType="User" resultType="User">
+		SELECT user_id, user_name, user_password, nick_name, email, is_valid, created_time, updated_time
+		FROM sys_user
+		<where>
+			<if test="userName != null"> user_name like '%' #{userName} </if>
+		</where>
+	</select>
+	
+	<!-- 创建新用户，并写入到数据表中 -->
+	<!-- 写入新记录并返回主键值，注意，这里的KeyProperty应该时Java类里的属性名称，而非数据表中的字段名 -->
+	<insert id="insertUser" parameterType="User" useGeneratedKeys="true" keyProperty="userId">
+		INSERT INTO sys_user(user_name, user_password, nick_name, user_type_id, is_valid, created_time, email)
+		VALUES(#{userName}, #{userPassword}, #{nickName}, #{userTypeId}, #{isValid}, #{createdTime}, #{email})
+	</insert>
+	
+	<!-- 更新用户信息，并写回到数据表中 -->
+	<update id="updateUser" parameterType="User">
+		UPDATE sys_user
+		SET 
+		user_name = #{userName}, user_password = #{userPassword}, nick_name = #{nickName}, user_type_id = #{userTypeId},
+		is_valid = #{isValid} WHERE user_id = #{userId}
+	</update>
+	
+	<!-- 根据Id删除单条记录 -->
+	<delete id="deleteById" parameterType="int">
+		DELETE FROM sys_user WHERE user_id = #{id}
+	</delete>
+	
+	<!-- 根据Id列表删除多条记录 -->
+	<delete id="deleteBatch" parameterType="java.util.List">
+		DELETE FROM sys_user WHERE user_id in 
+		<foreach collection="list" item="item" index="index" open="(" close=")" separator=",">
+			#{item}
+		</foreach>
+	</delete>
+</mapper>
