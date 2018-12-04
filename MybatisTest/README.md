@@ -4,5 +4,8 @@ ALTER TABLE cs ADD COLUMN id2 int NOT NULL AUTO_INCREMENT FIRST ,ADD PRIMARY KEY
 ALTER TABLE cs DROP COLUMN id;【删除id列】
 ALTER TABLE cs CHANGE COLUMN id2 id int(11) NOT NULL AUTO_INCREMENT FIRST ;【把id2改为id1】
 
-二、学习链接
+二、mybatis简单示例学习链接
 https://blog.csdn.net/chris_mao/article/details/48805243
+
+三、mybatis映射文件
+https://blog.csdn.net/chris_mao/article/details/48811507

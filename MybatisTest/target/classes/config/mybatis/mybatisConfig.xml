@@ -28,6 +28,6 @@
 	
 	<mappers>
 		<mapper resource="mybatis/mapping/User.xml"/>
-		
+		<mapper class="mybatis.dao.ICommunicatorDao"/>
 	</mappers>
 </configuration>
