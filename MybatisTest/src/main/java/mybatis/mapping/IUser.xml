@@ -59,4 +59,14 @@
 			#{item}
 		</foreach>
 	</delete>
+	
+	<!-- 批量新增 -->
+	<insert id="insertListUser" keyProperty="userId" parameterType="java.util.List">
+		INSERT INTO sys_user 
+		(<include refid="columns"/>)
+		VALUES
+		<foreach collection="list" item="u" separator=",">
+		(#{u.userName}, #{u.userPassword}, #{u.nickName}, #{u.userTypeId}, #{u.isValid}, #{u.createdTime})
+		</foreach>
+	</insert>
 </mapper>
