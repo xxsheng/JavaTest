@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mybatis.dao.ISalesDao">
+	<resultMap type="mybatis.pojo.Sales" id="salesResultMap">
+		<id property="salesId" column="sales_id"/>
+		<result property="salesName" column="sales_name"/>
+		<result property="phone" column="sales_phone"/>
+		<result property="fax" column="sales_fax"/>
+		<result property="email" column="sales_email"/>
+		<result property="reportTo" column="report_to"/>
+		
+		<!-- 定义多对一关联信息（每个销售人员对应一个登录帐号） -->
+		<association property="userinfo" column="user_id" javaType="User" select="selectUser" >
+			<id property="userId" column="user_id"/>
+			<result property="userPassword" column="user_password"/>
+			<result property="userName" column="user_name"/>
+			<result property="nickName" column="nick_name"/>
+			<result property="userTypeId" column="user_type_id"/>
+			<result property="email" column="email"/>
+			<result property="isValid" column="is_valid"/>
+			<result property="createdTime" column="created_time"/>
+			<result property="updatedTime" column="updated_time"/>
+		</association>
+	</resultMap>
+	
+	<select id="selectUser" resultType="User">
+		SELECT
+		user_id, user_name, user_password, nick_name, user_type_id, email, is_valid, created_time, updated_time
+		FROM sys_user
+		WHERE user_id = #{id}
+	</select>
+	
+	<select id="getById" resultMap="salesResultMap" parameterType="int">
+		SELECT 
+		sales_id, sales_name, sales_phone, sales_fax, sales_email, user_id, is_valid, created_time, updated_time
+		FROM salesman
+		WHERE sales_id = #{id}
+	</select>
+	
+	<select id="getAll" resultMap="salesResultMap" parameterType="int">
+		SELECT 
+		sales_id, sales_name, sales_phone, sales_fax, sales_email, user_id, is_valid, created_time, updated_time
+		FROM salesman
+	</select>
+	
+</mapper>

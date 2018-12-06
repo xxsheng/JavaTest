@@ -6,6 +6,7 @@
 	
 	<settings>
 		<setting name="mapUnderscoreToCamelCase" value="true"/>
+		<setting name="logImpl" value="STDOUT_LOGGING"/>
 	</settings>
 
 	<typeAliases>
@@ -29,5 +30,7 @@
 	<mappers>
 		<mapper resource="mybatis/mapping/User.xml"/>
 		<mapper class="mybatis.dao.ICommunicatorDao"/>
+		<mapper resource="mybatis/mapping/ISalesDao.xml"/>
+		<mapper resource="mybatis/mapping/ISalesMapper.xml"/>
 	</mappers>
 </configuration>

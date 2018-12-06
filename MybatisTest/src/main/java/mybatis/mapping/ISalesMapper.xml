@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mybatis.dao.ISalesDaoMapper">
+	<resultMap type="mybatis.pojo.Sales" id="salesResultMap">
+		<id property="salesId" column="sales_id"/>
+		<result property="salesName" column="sales_name"/>
+		<result property="phone" column="sales_phone"/>
+		<result property="fax" column="sales_fax"/>
+		<result property="email" column="sales_email"/>
+		<result property="isValid" column="is_valid"/>
+		<result property="createdTime" column="created_time"/>
+		<result property="updatedTime" column="updated_time" jdbcType="TIMESTAMP"/>
+		<result property="reportTo" column="report_to"/>
+		
+		<association property="userinfo" resultMap="userResult"/>
+	</resultMap>
+	
+	<resultMap type="User" id="userResult">
+		<id property="userId" column="user_id"/>
+		<result property="userPassword" column="user_password"/>
+		<result property="userName" column="user_name"/>
+		<result property="userTypeId" column="user_type_id"/>
+		<result property="nickName" column="nick_name"/>
+		<result property="email" column="user_email"/>
+		<result property="isValid" column="user_is_valid"/>
+		<result property="createdTime" column="user_created_time"/>
+		<result property="updatedTime" column="user_updated_time"/>
+	</resultMap>
+	
+	<select id="getSalesmanById" resultType="mybatis.pojo.Sales" parameterType="int">
+		SELECT
+		sales_id, sales_name, sales_phone, sales_fax, sales_email, salesman.is_valid, salesman.created_time, salesman.updated_time,
+		sys_user.user_id as user_id,
+		sys_user.user_name as user_name,
+		sys_user.user_password as user_password,
+		nick_name,
+		email as user_email,
+		sys_user.is_valid as user_is_valid,
+		sys_user.created_time as user_created_time,
+		sys_user.updated_time as user_udpated_time
+		FROM 
+		salesman left outer join sys_user using(user_id)
+		WHERE sales_id=#{id}
+	</select>
+</mapper>

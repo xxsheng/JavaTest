@@ -81,7 +81,7 @@ public class UserMappingTest {
 			User user = new User();
 			user.setEmail("1558281773@qq.com");
 			user.setNickName("xueyouzhang");
-			user.setUserName("xx2");
+			user.setUserName("xxdsa");
 			user.setIsValid(1);
 			user.setUserPassword("5f4dcc3b5aa765d61d8327deb882cf99");
 			

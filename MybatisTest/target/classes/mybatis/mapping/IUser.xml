@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mybatis.mapping.IUser">
+	<sql id="columns">
+		user_name, user_password, nick_name, email, user_type_id, is_valid, created_time
+	</sql>
+	
+	<!-- 根据传入的id 去数据库中查找记录 -->
+	<select id="getUserById" parameterType="int" resultType="User">
+		SELECT 
+		<include refid="columns"/> 
+		FROM sys_user WHERE user_id = #{id}
+	</select>
+	
+	<!-- 根据用户名 user_name 进行模糊查询 -->
+	<select id="queryUserByName" parameterType="User" resultType="User">
+		SELECT 
+		<include refid="columns"/>
+		FROM sys_user
+		<where>
+			<if test="userName != null">user_name like '%' #{userName} '%'</if>
+		</where>
+	</select>
+	
+	<!-- 创建新用户，并写入到数据库中 -->
+	<!-- 写入新记录并返回主键，注意keyProperty是实体类User中的属性 -->
+	<insert id="insertUser" keyProperty="userId" useGeneratedKeys="true" parameterType="User">
+		INSERT INTO sys_user (<include refid="columns"/>)
+		VALUES(
+		#{userName}, #{userPassword}, #{nickName}, #{email}, #{userTypeId}, #{isValid}, #{createdTime}
+		)
+	</insert>
+	
+	<!-- 更新用户信息，并写回到数据表中 -->
+	<update id="updateUser" parameterType="User">
+		UPDATE sys_user
+		<set>
+			<if test="userName !=null">user_name = #{userName},</if>
+			<if test="userPassword !=null">user_password = #{userPassword},</if>
+			<if test="nickName != null">nick_name = #{nickName},</if>
+			<if test="email != null">email = #{email,}</if>
+			<if test="userTypeId != null">user_type_id = #{userTypeId},</if>
+			<if test="isValid != null">is_valid = #{isValid}</if>
+		</set>
+			WHERE user_id = #{userId}
+	</update>
+	
+	<!-- 根据传入的id删除某条记录 -->
+	<delete id="deleteById" parameterType="int">
+		DELETE FROM sys_user
+		WHERE user_id = #{id}
+	</delete>
+	
+	<!-- 根据传入的id列表，删除多条记录 -->
+	<delete id="deleteByIdlist" parameterType="java.util.List">
+		DELETE FROM sys_user
+		WHERE user_id in
+		<foreach collection="list" item="item" index="index" open="(" close=")" separator=",">
+			#{item}
+		</foreach>
+	</delete>
+	
+	<!-- 批量新增 -->
+	<insert id="insertListUser" keyProperty="userId" parameterType="java.util.List">
+		INSERT INTO sys_user 
+		(<include refid="columns"/>)
+		VALUES
+		<foreach collection="list" item="u" separator=",">
+		(#{u.userName}, #{u.userPassword}, #{u.nickName}, #{u.userTypeId}, #{u.isValid}, #{u.createdTime})
+		</foreach>
+	</insert>
+</mapper>
