@@ -23,7 +23,7 @@
 		</association>
 	</resultMap>
 	
-	<select id="selectUser" resultType="User">
+	<select id="selectUser" resultType="User" >
 		SELECT
 		user_id, user_name, user_password, nick_name, user_type_id, email, is_valid, created_time, updated_time
 		FROM sys_user

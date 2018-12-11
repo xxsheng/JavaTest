@@ -4,6 +4,8 @@
 package mybatis.pojo;
 
 import java.sql.Timestamp;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @author xxq_1
@@ -21,9 +23,11 @@ public class Sales {
 	private Timestamp createdTime;
 	private Timestamp updatedTime;
 	private User userinfo;
+	private List<Customer> customers;
 
 	public Sales() {
 		this.createdTime = new Timestamp(System.currentTimeMillis());
+		this.setCustomers(new ArrayList<Customer>());
 	}
 
 	public int getSalesId() {
@@ -104,6 +108,14 @@ public class Sales {
 
 	public void setUserinfo(User userinfo) {
 		this.userinfo = userinfo;
+	}
+
+	public List<Customer> getCustomers() {
+		return customers;
+	}
+
+	public void setCustomers(List<Customer> customers) {
+		this.customers = customers;
 	}
 
 	@Override

@@ -13,6 +13,15 @@
 		<result property="reportTo" column="report_to"/>
 		
 		<association property="userinfo" resultMap="userResult"/>
+		
+		<!-- 集合映射的定义与关联映射定义很相似，除了关键字不同外，还多了两个属性JavaType和ofType
+			property用于指定在Java实体类是保存集合关系的属性名称
+			JavaType用于指定在Java实体类中使用什么类型来保存集合数据，多数情况下这个属性可以省略的。
+			column用于指定数据表中的外键字段名称。
+			ofType用于指定集合中包含的类型。
+			select用于指定查询语句。
+ 		-->
+		<collection property="customers" javaType="ArrayList" ofType="mybatis.pojo.Customer" column="sales_id" select="getCustomerForSales"/>
 	</resultMap>
 	
 	<resultMap type="User" id="userResult">
@@ -27,7 +36,16 @@
 		<result property="updatedTime" column="user_updated_time"/>
 	</resultMap>
 	
-	<select id="getSalesmanById" resultType="mybatis.pojo.Sales" parameterType="int">
+	<!-- 需要注意的是，无论是关联还是集合，在嵌套查询的时候，查询语句的定义都不需要使用parameterType属性定义传入的参数类型，
+	因为通常作为外键的，都是简单数据类型，
+	查询语句会自动使用定义在association或是collection元素上column属性作为传入参数的。 -->
+	<select id="getCustomerForSales" resultType="mybatis.pojo.Customer">
+		SELECT c.customer_id, c.customer_name, c.user_id, c.is_valid, c.created_time, c.updated_time
+		FROM customer c INNER JOIN customer_sales s using(customer_id)
+		WHERE s.sales_id = #{id}
+	</select>
+	
+	<select id="getSalesmanById" resultMap="salesResultMap" parameterType="int">
 		SELECT
 		sales_id, sales_name, sales_phone, sales_fax, sales_email, salesman.is_valid, salesman.created_time, salesman.updated_time,
 		sys_user.user_id as user_id,
