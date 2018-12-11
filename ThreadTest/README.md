@@ -11,3 +11,11 @@ https://www.cnblogs.com/mujingyu/p/7856388.html
 
 springmvc获取页面参数
 https://blog.csdn.net/itguangit/article/details/78305285
+
+1、mybatis
+2、springmvc Java aio bio nio
+3、mangodb redis
+4、MQ dubbo zok 
+5、netty
+
+https://blog.csdn.net/u011961421/article/details/79416510 springboot
