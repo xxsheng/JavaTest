@@ -1,0 +1,2997 @@
+/* 猎头类型 icon */
+#im-root .webim-icons {
+  display: inline-block;
+  *display: inline;
+  *zoom: 1;
+  vertical-align: middle;
+  background-repeat: no-repeat;
+  overflow: hidden;
+}
+#im-root .webim-icons-htype {
+  display: inline-block;
+  *display: inline;
+  *zoom: 1;
+  vertical-align: middle;
+  background-repeat: no-repeat;
+  overflow: hidden;
+  width: 50px;
+  height: 14px;
+  line-height: 24px;
+  margin-top: -1px;
+  margin-right: .3em;
+  background-image: url(//concat.lietou-static.com/fe-c-pc/v5/images/plugins/im-cconfig-pc/message/icons-htype.da9236fe.png);
+  /* 如果服务端返回字段错误, 默认不展示icon */
+  background-position: 999px 0;
+}
+#im-root .webim-icons-htype.icons-htype-person {
+  background-position: 0 -14px;
+}
+#im-root .webim-icons-htype.icons-htype-comp {
+  background-position: 0 0;
+}
+#im-root .webim-icon-star {
+  width: 22px;
+  height: 21px;
+  background-image: url(//concat.lietou-static.com/fe-c-pc/v5/images/plugins/im-cconfig-pc/icon/icon-star.85ae3e2d.png);
+}
+#im-root .webim-icon-nostar {
+  width: 22px;
+  height: 21px;
+  background-image: url(//concat.lietou-static.com/fe-c-pc/v5/images/plugins/im-cconfig-pc/icon/icon-star.85ae3e2d.png);
+  background-position: 0 -21px;
+}
+/* icons */
+#im-root .webim-c-icons16, #im-root .webim-c-icons24 {
+  display: inline-block;
+  *display: inline;
+  *zoom: 1;
+  vertical-align: middle;
+  background-repeat: no-repeat;
+  overflow: hidden;
+}
+/* icons16 */
+#im-root .webim-c-icons16 {
+  width: 16px;
+  height: 16px;
+  line-height: 16px;
+  margin-top: -1px;
+  margin-right: .3em;
+  background-image: url(//concat.lietou-static.com/fe-c-pc/v5/images/plugins/im-cconfig-pc/icons/icons16.e74eaa4f.png);
+}
+#im-root .webim-c-icons16.icons16-star-orange {
+  background-position: 0 0px;
+}
+#im-root .webim-c-icons16.icons16-star {
+  background-position: 0 -16px;
+}
+#im-root .chatwin .chat-list .message {
+  /* 接收/拒绝按钮样式 */
+}
+#im-root .chatwin .chat-list .message .webim-confirm-card {
+  padding: 11px 48px;
+  background: #fff;
+  text-align: center;
+}
+#im-root .chatwin .chat-list .message .webim-confirm-card .webim-confirm-title {
+  padding: 11px 0;
+  color: #333;
+  font-size: 14px;
+}
+#im-root .chatwin .chat-list .message .webim-confirm-card .webim-confirm-content {
+  text-align: center;
+}
+#im-root .chatwin .chat-list .message .webim-confirm-card .webim-confirm-content .webim-btn {
+  font-size: 12px;
+  width: 88px;
+  height: 26px;
+  border: 1px solid #f64;
+  background: #fff;
+  border-radius: 2px;
+}
+#im-root .chatwin .chat-list .message .webim-confirm-card .webim-confirm-content .webim-btn:focus {
+  outline: none;
+}
+#im-root .chatwin .chat-list .message .webim-confirm-card .webim-confirm-content .webim-btn-cancel {
+  color: #f64;
+  margin-right: 10px;
+}
+#im-root .chatwin .chat-list .message .webim-confirm-card .webim-confirm-content .webim-btn-confirm {
+  color: #fff;
+  background: #f64;
+}
+#im-root .chatwin .chat-list .message .webim-confirm-card .webim-confirm-content .btn-disabled {
+  cursor: default;
+  background-color: #e6e6e6;
+  background-image: none;
+  color: #999;
+  border: 1px #e0e0e0 solid;
+}
+/* 图片无效时宽度不对的问题 */
+#im-root .main-content .contact-list ul li .contact-info .photo img {
+  display: inline-block;
+  *display: inline;
+  *zoom: 1;
+}
+#im-root .main-content .contact-list ul li .contact-card .target-info .name .hunter-name > span {
+  padding-right: 8px;
+}
+#im-root .main-content .contact-list ul li .contact-card .target-info .hunter-level .webim-icon-hlevel {
+  display: inline-block;
+  *display: inline;
+  *zoom: 1;
+  vertical-align: middle;
+  background-repeat: no-repeat;
+  overflow: hidden;
+  width: 14px;
+  height: 11px;
+  line-height: 24px;
+  margin-top: -2px;
+  margin-right: .3em;
+  background-image: url(//concat.lietou-static.com/fe-c-pc/v5/images/plugins/im-cconfig-pc/message/icon-hlevel.36df8758.png);
+  background-position: 0px 0px;
+}
+#im-root .chatwin .chat-title .attention-drop {
+  background: #fff;
+  padding: 0 8px;
+  -webkit-box-shadow: 0 0 7px rgba(0, 0, 0, .5);
+          box-shadow: 0 0 7px rgba(0, 0, 0, .5);
+  position: absolute;
+  right: 0;
+  top: 94px;
+  z-index: 1;
+}
+#im-root .chatwin .chat-title .attention-drop:before {
+  content: '';
+  border-width: 8px;
+  border-style: solid;
+  border-color: transparent transparent #ddd transparent;
+  width: 0;
+  height: 0;
+  position: absolute;
+  top: -16px;
+  left: 34px;
+}
+#im-root .chatwin .chat-title .attention-drop:after {
+  content: '';
+  border-style: solid;
+  border-width: 8px;
+  border-color: transparent transparent #fff transparent;
+  position: absolute;
+  top: -15px;
+  left: 34px;
+}
+#im-root .chatwin .chat-title .attention-drop a {
+  width: 72px;
+  line-height: 22px;
+  text-align: center;
+  color: #2c99fe;
+  border: 1px solid #2c99fe;
+  border-radius: 2px;
+  margin: 8px 0;
+  display: block;
+}
+#im-root .chatwin .chat-list .message .resume-card .resume-card-main {
+  text-decoration: none;
+  color: #666;
+}
+#im-root .chatwin .chat-list .message .resume-card .resume-card-main dl {
+  background: #fff;
+  position: relative;
+}
+#im-root .chatwin .chat-list .message .resume-card .resume-card-main dl dt {
+  position: absolute;
+  height: 100%;
+  background: #fc5943;
+  width: 50px;
+  text-align: center;
+}
+#im-root .chatwin .chat-list .message .resume-card .resume-card-main dl dt .icons32-resume {
+  display: inline-block;
+  *display: inline;
+  *zoom: 1;
+  position: absolute;
+  top: 50%;
+  left: 11px;
+  margin-top: -16px;
+}
+#im-root .chatwin .chat-list .message .resume-card .resume-card-main dl dd {
+  margin-left: 50px;
+  min-width: 180px;
+  padding: 10px;
+}
+#im-root .chatwin .chat-list .message .resume-card .resume-card-main dl dd ul li {
+  cursor: pointer;
+  display: inline-block;
+  *display: inline;
+  *zoom: 1;
+  position: relative;
+  width: 100%;
+  line-height: 15px;
+}
+#im-root .chatwin .chat-list .message .resume-card .resume-card-main dl dd ul li em {
+  text-decoration: underline;
+  color: #0096e0;
+  float: left;
+}
+#im-root .chatwin .chat-list .message .resume-card .resume-card-main dl dd ul li span {
+  display: inline-block;
+  *display: inline;
+  *zoom: 1;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  word-wrap: normal;
+  margin-right: 0.5em;
+}
+#im-root .chatwin .chat-list .message .resume-card .resume-card-main dl dd ul li span:last-child {
+  margin-right: 0;
+}
+#im-root .chatwin .chat-list .message .resume-card .resume-card-main dl dd ul li span.title {
+  max-width: 70px;
+  font-size: 14px;
+  color: #0096e0;
+}
+#im-root .chatwin .chat-list .message .resume-card .resume-card-main dl dd ul li span.edulevel {
+  max-width: 60px;
+}
+#im-root .chatwin .chat-list .message .resume-card .resume-card-main dl dd ul li span.job-tit {
+  max-width: 40%;
+}
+#im-root .chatwin .chat-list .message .resume-card .resume-card-main dl dd ul li span.cpy-tit {
+  max-width: 50%;
+}
+#im-root .chatwin .chat-list .message .resume-card .resume-card-main dl dd ul li span.dq-name {
+  max-width: 35px;
+}
+#im-root .chatwin .chat-list .message .resume-card .resume-card-main dl dd ul li span.separator {
+  padding: 0 0.5em;
+}
+#im-root .chatwin .chat-list .message .resume-card .resume-card-main dl dd ul li .apply-feedback {
+  cursor: pointer;
+  float: right;
+  border-radius: 2px;
+  border: 1px solid #f95a4a;
+  padding: 0px 10px;
+  font-size: 12px;
+  color: #f95a4a;
+  line-height: 20px;
+  height: 20px;
+}
+#im-root .chatwin .chat-list .message .resume-card .feedbackSelect {
+  position: absolute;
+  bottom: 38px;
+  right: -26px;
+}
+#im-root .chatwin .chat-list .message .resume-card .resume-card-main dl dd .feedback-btn {
+  text-align: center;
+  padding: 10px;
+  background: #fff;
+  border: 1px solid #cce0eb;
+  filter: url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg"><filter id="filter"><feGaussianBlur in="SourceAlpha" stdDeviation="3" /><feOffset dx="1" dy="1" result="offsetblur" /><feFlood flood-color="rgba(204,224,235,1)" /><feComposite in2="offsetblur" operator="in" /><feMerge><feMergeNode /><feMergeNode in="SourceGraphic" /></feMerge></filter></svg>#filter');
+  filter: drop-shadow(0px 0 3px #cce0eb);
+  -webkit-filter: drop-shadow(0px 0 3px #cce0eb);
+}
+#im-root .chatwin .chat-list .message .resume-card .resume-card-main dl dd .feedback-btn:before {
+  content: '';
+  width: 0;
+  height: 0;
+  border-width: 8px;
+  border-style: solid;
+  border-color: #cce0eb transparent transparent transparent;
+  position: absolute;
+  left: 51px;
+  bottom: -17px;
+}
+#im-root .chatwin .chat-list .message .resume-card .resume-card-main dl dd .feedback-btn:after {
+  content: '';
+  width: 0;
+  height: 0;
+  border-width: 8px;
+  border-style: solid;
+  border-color: #fff transparent transparent transparent;
+  position: absolute;
+  left: 51px;
+  bottom: -16px;
+}
+#im-root .chatwin .chat-list .message .resume-card .resume-card-main dl dd .feedback-btn p {
+  margin: 0;
+}
+#im-root .chatwin .chat-list .message .resume-card .resume-card-main dl dd .feedback-btn p.title {
+  line-height: 16px;
+}
+#im-root .chatwin .chat-list .message .resume-card .resume-card-main dl dd .feedback-btn p .btn {
+  padding: 6px 12px;
+  background: #359bfb;
+  border-radius: 2px;
+  color: #fff;
+}
+#im-root .chatwin .chat-list .message .resume-card .resume-card-main dl dd .feedback-btn p .btn:hover {
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=80)";
+  opacity: 0.8;
+}
+#im-root .chatwin .chat-list .message .resume-card-new .resume-card-main-new {
+  display: inline-block;
+  *display: inline;
+  *zoom: 1;
+  text-decoration: none;
+  padding: 10px;
+  min-width: 265px;
+  max-width: 265px;
+  background: #fff;
+}
+#im-root .chatwin .chat-list .message .resume-card-new .resume-card-main-new dl p {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+#im-root .chatwin .chat-list .message .resume-card-new .resume-card-main-new dl a {
+  /* 重置文本超出省略号的颜色 */
+  color: #999;
+}
+#im-root .chatwin .chat-list .message .resume-card-new .resume-card-main-new dl dt {
+  border-bottom: 1px solid #efefef;
+}
+#im-root .chatwin .chat-list .message .resume-card-new .resume-card-main-new dl dt .separator {
+  padding: 0 0.5em;
+}
+#im-root .chatwin .chat-list .message .resume-card-new .resume-card-main-new dl dt .resume-card-title .separator {
+  color: #999;
+}
+#im-root .chatwin .chat-list .message .resume-card-new .resume-card-main-new dl dt .resume-card-title .resume-name {
+  color: #0782ff;
+  font-size: 14px;
+}
+#im-root .chatwin .chat-list .message .resume-card-new .resume-card-main-new dl dt .resume-card-title .resume-job {
+  color: #999;
+}
+#im-root .chatwin .chat-list .message .resume-card-new .resume-card-main-new dl dt .resume-card-company {
+  padding-bottom: 6px;
+}
+#im-root .chatwin .chat-list .message .resume-card-new .resume-card-main-new dl dt .resume-card-company .resume-company {
+  color: #666;
+}
+#im-root .chatwin .chat-list .message .resume-card-new .resume-card-main-new dl dd .separator {
+  padding: 0 0.5em;
+}
+#im-root .chatwin .chat-list .message .resume-card-new .resume-card-main-new dl dd .resume-card-experience {
+  color: #999;
+  padding: 10px 0 0;
+}
+/* #im-root .chatwin .chat-list .message{
+  .job-card{
+    h3.hsend{
+      color:#666;
+    }
+    .chat-job {
+      display: block;
+      width: 279px;
+      text-decoration: none;
+    }
+    .chat-job dl {
+      padding: 9px 8px 12px;
+      line-height: 20px;
+      background: #fff;
+    }
+    .chat-job dl dt {
+      font-size: 14px;
+      color:#0096e0;
+    }
+    .chat-job dl dd {
+      color: #666;
+    }
+    .chat-job dl dd span {
+      float: left;
+    }
+    .chat-job dl dd em {
+      float: right;
+      color: #0077ba;
+      text-decoration: underline;
+    }
+    .chat-job dl dd em.no-thank{
+      border-radius: 2px;
+      padding: 0px 10px;
+      font-size: 12px;
+      color: #333;
+      line-height: 20px;
+      margin-left: 10px;
+      text-decoration: none;
+    }
+    .chat-job dl dd em.no-thank.active {
+      border: 1px solid #f95a4a;
+      color: #f95a4a;
+      cursor: pointer;
+      margin-top: -2px;
+    }
+  }
+  ul.feed-back a.job-link{
+    text-decoration: underline;
+  }
+  ul.feed-back a.cjob{
+    color:#fff;
+  }
+}
+#im-root .chatwin .refusejob-dialog-box{
+  padding:0 15px;
+  p{
+    margin-right:-8px;
+    a{
+      float: left;
+      padding:5px 15px;
+      line-height:28px;
+      font-size:12px;
+      border:1px solid #666;
+      color:#666;
+      white-space:nowrap;
+      text-decoration:none;
+      margin: 0 20px 10px 0;
+      &:focus{
+        outline:none;
+      }
+    }
+    a:hover{
+      color:#2c99fe;
+      border:1px solid #2c99fe;
+    }
+  }
+  .btns-group{
+    text-align:center;
+    font-size:12px;
+    margin-top:25px;
+  }
+  a.btn{
+    color:#fff;
+    margin-left:10px;
+  }
+} */
+#im-root .chatwin .chat-list .message .job-card-new .job-card-main-new {
+  color: #999;
+  display: inline-block;
+  *display: inline;
+  *zoom: 1;
+  text-decoration: none;
+  padding: 10px;
+  min-width: 265px;
+  max-width: 265px;
+  background: #fff;
+}
+#im-root .chatwin .chat-list .message .job-card-new .job-card-main-new dl dt, #im-root .chatwin .chat-list .message .job-card-new .job-card-main-new dl dd {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+#im-root .chatwin .chat-list .message .job-card-new .job-card-main-new dl a {
+  /* 重置文本超出省略号的颜色 */
+  color: #999;
+}
+#im-root .chatwin .chat-list .message .job-card-new .job-card-main-new dl dt {
+  font-size: 14px;
+}
+#im-root .chatwin .chat-list .message .job-card-new .job-card-main-new dl dt .job-title {
+  float: left;
+  color: #0782ff;
+}
+#im-root .chatwin .chat-list .message .job-card-new .job-card-main-new dl dt .job-salary {
+  float: right;
+}
+#im-root .chatwin .chat-list .message .job-card-new .job-card-main-new dl dd.job-card-company {
+  color: #666;
+  padding-bottom: 4px;
+}
+#im-root .chatwin .chat-list .message .job-card-new .job-card-main-new dl dd.job-card-company .separator {
+  padding: 0 0.5em;
+}
+#im-root .chatwin .chat-list .message .job-card-new .job-card-main-new dl dd.job-card-term span {
+  display: inline-block;
+  *display: inline;
+  *zoom: 1;
+  padding: 0 4px;
+  margin-left: 5px;
+  background: #f4f4f4;
+}
+#im-root .chatwin .chat-list .message .job-card-new .job-card-main-new dl dd.job-card-term span:first-child {
+  margin-left: 0;
+}
+/* 拒绝猎头推荐职位 */
+#im-root .chatwin .refusejob-dialog-box {
+  padding: 0 15px;
+}
+#im-root .chatwin .refusejob-dialog-box p {
+  margin-right: -8px;
+}
+#im-root .chatwin .refusejob-dialog-box p a {
+  float: left;
+  padding: 2px 10px;
+  line-height: 28px;
+  font-size: 12px;
+  border: 1px solid #666;
+  color: #666;
+  white-space: nowrap;
+  text-decoration: none;
+  margin: 0 20px 10px 0;
+}
+#im-root .chatwin .refusejob-dialog-box p a:focus {
+  outline: none;
+}
+#im-root .chatwin .refusejob-dialog-box p a:hover {
+  color: #2c99fe;
+  border: 1px solid #2c99fe;
+}
+#im-root .chatwin .refusejob-dialog-box .btns-group {
+  text-align: center;
+  font-size: 12px;
+  margin-top: 25px;
+}
+#im-root .chatwin .refusejob-dialog-box a.btn {
+  color: #fff;
+  margin-left: 10px;
+}
+#im-root .chatwin .chat-form .top-options .link-appraise {
+  float: right;
+  color: #7f8d99;
+  padding-right: 10px;
+  text-decoration: none;
+}
+#im-root .chatwin .chat-form .top-options .link-appraise:hover {
+  color: #ff5600;
+}
+/* 评价猎头 */
+#chat-dialog-container-appraiseHunter .im-dialog-content .appraise-dialog-box .appraise-level ul {
+  padding-bottom: 10px;
+}
+#chat-dialog-container-appraiseHunter .im-dialog-content .appraise-dialog-box .appraise-level ul li {
+  padding: 0 0 10px 18px;
+  line-height: 30px;
+}
+#chat-dialog-container-appraiseHunter .im-dialog-content .appraise-dialog-box .appraise-level ul li dl dt {
+  float: left;
+  color: #0077ba;
+  font-size: 16px;
+  padding: 0 10px;
+}
+#chat-dialog-container-appraiseHunter .im-dialog-content .appraise-dialog-box .appraise-level ul li dl dd {
+  float: left;
+}
+#chat-dialog-container-appraiseHunter .im-dialog-content .appraise-dialog-box .appraise-level ul li dl dd.appraise-star span {
+  cursor: pointer;
+  padding-right: 10px;
+}
+#chat-dialog-container-appraiseHunter .im-dialog-content .appraise-dialog-box .appraise-level ul li dl dd.appraise-star span i.webim-icons {
+  margin-top: -2px;
+}
+#chat-dialog-container-appraiseHunter .im-dialog-content .appraise-dialog-box .appraise-level ul li dl dd.appraise-desc {
+  color: #7f8d99;
+  padding-left: 10px;
+}
+#chat-dialog-container-appraiseHunter .im-dialog-content .appraise-dialog-box .appraise-tags h3 {
+  color: #333;
+  font-size: 14px;
+  line-height: 50px;
+  font-weight: normal;
+  margin: 0;
+}
+#chat-dialog-container-appraiseHunter .im-dialog-content .appraise-dialog-box .appraise-tags ul {
+  text-align: left;
+  padding-left: 15px;
+}
+#chat-dialog-container-appraiseHunter .im-dialog-content .appraise-dialog-box .appraise-tags ul li {
+  /* TODO: 父容器控制 */
+  display: inline-block;
+  *display: inline;
+  *zoom: 1;
+  width: 98px;
+  height: 28px;
+  margin: 0 0 10px 10px;
+}
+#chat-dialog-container-appraiseHunter .im-dialog-content .appraise-dialog-box .appraise-tags ul li a {
+  display: inline-block;
+  *display: inline;
+  *zoom: 1;
+  width: 100%;
+  height: 100%;
+  color: #7f8d99;
+  font-size: 12px;
+  line-height: 28px;
+  text-align: center;
+  cursor: pointer;
+  border: 1px solid #7f8d99;
+}
+#chat-dialog-container-appraiseHunter .im-dialog-content .appraise-dialog-box .appraise-tags ul li a.active {
+  color: #2c99fe;
+  border-color: #2c99fe;
+}
+#chat-dialog-container-appraiseHunter .im-dialog-content .appraise-dialog-box .appraise-tags ul li.margin-left-none {
+  margin-left: 0;
+}
+#chat-dialog-container-appraiseHunter .im-dialog-content .appraise-dialog-box .appraise-attach {
+  padding-top: 10px;
+}
+#chat-dialog-container-appraiseHunter .im-dialog-content .appraise-dialog-box .appraise-attach textarea {
+  width: 297px;
+  height: 60px;
+  padding: 5px 12px;
+  border: none;
+  outline: none;
+  resize: none;
+  background-color: #e7edf3;
+}
+#chat-dialog-container-appraiseHunter .im-dialog-content .appraise-dialog-box .appraise-attach p {
+  color: #ccc;
+  font-size: 12px;
+  line-height: 30px;
+  padding: 0 20px 18px 0;
+  text-align: right;
+}
+#chat-dialog-container-appraiseHunter .im-dialog-content .appraise-dialog-box .appraise-btn {
+  text-align: center;
+}
+#chat-dialog-container-appraiseHunter .im-dialog-content .appraise-dialog-box .appraise-btn button {
+  width: 85px;
+  line-height: 22px;
+  color: #fff;
+  font-size: 12px;
+  text-align: center;
+  background: #2c99fe;
+  border-radius: 2px;
+  border: none;
+  outline: none;
+}
+#chat-dialog-container-appraiseHunter .im-dialog-content .appraise-dialog-box .appraise-btn button:hover {
+  background: #1575ce;
+}
+#im-root .chatwin .chat-history .historymsg .content .job span.label {
+  color: #666;
+  padding-right: 0.5em;
+}
+#im-root .shield-box {
+  position: absolute;
+  right: 15px;
+  top: 35px;
+  padding: 5px 8px;
+  background-color: #fff;
+  -webkit-box-shadow: 0px 1px 3px 0px rgba(66, 123, 152, .53);
+          box-shadow: 0px 1px 3px 0px rgba(66, 123, 152, .53);
+  z-index: 1;
+}
+#im-root .shield-box a {
+  display: block;
+  width: 55px;
+  height: 19px;
+  border: 1px solid #0077ba;
+  border-radius: 1px;
+  color: #0077ba;
+  font-size: 12px;
+  line-height: 19px;
+  text-align: center;
+  margin-bottom: 4px;
+  outline: none;
+}
+#im-root .shield-box a:hover {
+  border: 1px solid #fa0;
+  color: #fa0;
+}
+#im-root .shield-box a:last-child {
+  margin-bottom: 0;
+}
+#im-root .shield-dialog-box {
+  padding: 0 15px;
+}
+#im-root .shield-dialog-box p {
+  font-size: 12px;
+  line-height: 20px;
+}
+#im-root .shield-dialog-box .btns-group {
+  text-align: center;
+  font-size: 12px;
+  margin-top: 25px;
+}
+#im-root .shield-dialog-box a.btn {
+  color: #fff;
+  margin-left: 10px;
+}
+#im-root .report-dialog-box {
+  padding: 0 15px;
+}
+#im-root .report-dialog-box p {
+  margin-left: -8px;
+}
+#im-root .report-dialog-box p a {
+  padding: 5px 15px;
+  line-height: 28px;
+  font-size: 12px;
+  border: 1px solid #666;
+  color: #666;
+  white-space: nowrap;
+  text-decoration: none;
+  margin-left: 8px;
+}
+#im-root .report-dialog-box p a:focus {
+  outline: none;
+}
+#im-root .report-dialog-box p a.active {
+  color: #2c99fe;
+  border: 1px solid #2c99fe;
+}
+#im-root .report-dialog-box .btns-group {
+  text-align: center;
+  font-size: 12px;
+  margin-top: 25px;
+}
+#im-root .report-dialog-box a.btn {
+  color: #fff;
+  margin-left: 10px;
+}
+#im-root .im-dialog .im-dialog-mask {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #000;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=55)";
+  opacity: 0.55;
+  filter: alpha(opacity=55);
+  z-index: 10;
+}
+#im-root .im-dialog .im-dialog-main {
+  position: absolute;
+  background: #fff none repeat scroll 0 0;
+  border-radius: 5px;
+  left: 50%;
+  top: 50%;
+  margin: -45px 0 0 -100px;
+  width: 200px;
+  z-index: 11;
+}
+#im-root .im-dialog a.btn-close {
+  position: absolute;
+  padding: 5px;
+  right: 0;
+  top: 0;
+  color: #444;
+  font-family: 'simsun';
+  text-decoration: none;
+  white-space: nowrap;
+  outline: none;
+}
+#im-root .im-dialog.im-dialog-bottom .im-dialog-main {
+    top: auto;
+    bottom: 0;
+    background: #fff;
+  }
+#im-root .chatwin .im-dialog .im-dialog-mask {
+    top: 5px;
+    bottom: 5px;
+    left: 5px;
+    right: 5px;
+  }
+#im-root .im-dialog .im-dialog-header {
+  border-bottom: 1px solid #eee;
+  line-height: 40px;
+  height: 40px;
+  padding: 0 40px;
+}
+#im-root .im-dialog .im-dialog-header .title {
+  display: block;
+  overflow: hidden;
+  text-align: center;
+  font-size: 14px;
+  text-overflow: ellipsis;
+}
+#im-root .im-dialog .im-dialog-header a.btn-back {
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 0;
+  text-decoration: none;
+  padding: 0 2px;
+  color: #000;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=30)";
+  opacity: .3;
+}
+#im-root .im-dialog .im-dialog-content {
+  padding: 15px;
+  font-size: 14px;
+  text-align: center;
+}
+#im-root .im-dialog .im-dialog-footer {
+  height: 40px;
+  border-top: 1px solid #f6f6f6;
+}
+#im-root .im-dialog .im-dialog-footer a {
+  float: left;
+  width: 50%;
+  line-height: 40px;
+  text-align: center;
+  font-size: 12px;
+  border-left: 1px solid #f6f6f6;
+  text-decoration: none;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  outline: none;
+}
+#im-root .im-dialog .im-dialog-footer a:first-child {
+  border-left: 0;
+}
+#im-root .im-dialog .im-dialog-footer .btn-cancel {
+  color: #999;
+}
+#im-root .im-dialog .im-dialog-alert-footer a:first-child {
+  width: 100%;
+}
+#im-root .im-dialog a {
+  color: #0782ff;
+}
+#im-root .im-dialog .confirm-msg {
+  padding: 10px 0;
+}
+.im-chat-icon {
+  display: inline-block;
+  *display: inline;
+  *zoom: 1;
+  background-image: url(//concat.lietou-static.com/fe-c-pc/v5/images/plugins/im/chat.27b88caa.png);
+  background-repeat: no-repeat;
+  width: 24px;
+  height: 24px;
+  vertical-align: middle;
+  overflow: hidden;
+  position: relative;
+  top: 2px;
+}
+#im-root .main-content .contact-list ul li .contact-info, #im-root .main-content .history-contact-list ul li .contact-info {
+  padding: 12px 15px 12px 25px;
+}
+#im-root .main-content .contact-list ul li .contact-info .photo, #im-root .main-content .history-contact-list ul li .contact-info .photo {
+  float: left;
+  position: relative;
+  margin-right: 10px;
+}
+#im-root .main-content .contact-list ul li .contact-info .photo img, #im-root .main-content .history-contact-list ul li .contact-info .photo img {
+  width: 40px;
+  height: 40px;
+}
+#im-root .main-content .contact-list ul li .contact-info .photo .dot, #im-root .main-content .history-contact-list ul li .contact-info .photo .dot {
+  position: absolute;
+  left: 27px;
+  top: -8px;
+  min-width: 7px;
+  height: 16px;
+  line-height: 15px;
+  background: #f00;
+  border: 2px solid #fff;
+  border-radius: 100px;
+  text-align: center;
+  padding: 0 4px;
+  color: #fff;
+}
+#im-root .main-content .contact-list ul li .contact-info .photo em.connected, #im-root .main-content .history-contact-list ul li .contact-info .photo em.connected {
+  position: absolute;
+  background-color: #29c;
+  color: #fff;
+  padding: 0 3px;
+  top: 28px;
+  left: -3px;
+  width: 40px;
+  text-align: center;
+}
+#im-root .main-content .contact-list ul li .contact-info .user-name, #im-root .main-content .history-contact-list ul li .contact-info .user-name {
+  color: #333;
+}
+#im-root .main-content .contact-list ul li .contact-info .user-name em, #im-root .main-content .history-contact-list ul li .contact-info .user-name em {
+  margin-left: 6px;
+}
+#im-root .main-content .contact-list ul li .contact-info .user-name:hover, #im-root .main-content .history-contact-list ul li .contact-info .user-name:hover {
+  color: #333;
+}
+#im-root .main-content .contact-list ul li .contact-info .info, #im-root .main-content .history-contact-list ul li .contact-info .info {
+  float: left;
+  width: 135px;
+}
+#im-root .main-content .contact-list ul li .contact-info .info time, #im-root .main-content .history-contact-list ul li .contact-info .info time {
+  float: right;
+  margin-right: -10px;
+  color: #cecece;
+}
+#im-root .main-content .contact-list ul li .contact-info .info .last, #im-root .main-content .history-contact-list ul li .contact-info .info .last {
+  width: 135px;
+  min-height: 20px;
+  color: #999;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+#im-root .main-content .contact-list ul li .contact-info .info .job-title, #im-root .main-content .history-contact-list ul li .contact-info .info .job-title {
+  padding-left: 8px;
+}
+#im-root .main-content .contact-list ul li .contact-card, #im-root .main-content .history-contact-list ul li .contact-card {
+  display: none;
+  padding: 10px 15px 15px;
+  width: 290px;
+  position: absolute;
+  margin: 0;
+  top: 0px;
+  left: -330px;
+  background-color: #fff;
+  -webkit-box-shadow: -1px -1px 16px #b8d3e1;
+          box-shadow: -1px -1px 16px #b8d3e1;
+  z-index: 203;
+  -webkit-animation-name: fadeInRight;
+  animation-name: fadeInRight;
+}
+#im-root .main-content .contact-list ul li .contact-card a:hover, #im-root .main-content .history-contact-list ul li .contact-card a:hover {
+  text-decoration: none;
+}
+#im-root .main-content .contact-list ul li .contact-card:before, #im-root .main-content .history-contact-list ul li .contact-card:before {
+  content: '';
+  position: absolute;
+  top: 28px;
+  right: -19px;
+  width: 0;
+  height: 0;
+  border: 10px solid transparent;
+  border-left-color: #fff;
+}
+#im-root .main-content .contact-list ul li .contact-card .target-info, #im-root .main-content .history-contact-list ul li .contact-card .target-info {
+  position: relative;
+}
+#im-root .main-content .contact-list ul li .contact-card .target-info img, #im-root .main-content .history-contact-list ul li .contact-card .target-info img {
+  position: absolute;
+  top: 0px;
+  left: 4px;
+  width: 40px;
+  height: 40px;
+}
+#im-root .main-content .contact-list ul li .contact-card .target-info a, #im-root .main-content .history-contact-list ul li .contact-card .target-info a {
+  color: #007eff;
+  text-decoration: none;
+}
+#im-root .main-content .contact-list ul li .contact-card .target-info dd, #im-root .main-content .history-contact-list ul li .contact-card .target-info dd {
+  padding-left: 56px;
+  width: 230px;
+  padding-left: 60px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  color: #898c8f;
+}
+#im-root .main-content .contact-list ul li .contact-card .target-info .name, #im-root .main-content .history-contact-list ul li .contact-card .target-info .name {
+  font-size: 16px;
+  margin-right: 8px;
+  color: #007eff;
+}
+#im-root .main-content .contact-list ul li .contact-card .target-info .job-info span, #im-root .main-content .history-contact-list ul li .contact-card .target-info .job-info span {
+  height: 11px;
+  line-height: 9px;
+  padding: 0 4px;
+}
+#im-root .main-content .contact-list ul li .contact-card .target-info .job-info span:first-child, #im-root .main-content .history-contact-list ul li .contact-card .target-info .job-info span:first-child {
+  padding-left: 0px;
+}
+#im-root .main-content .contact-list ul li .contact-card .last-full-msg, #im-root .main-content .history-contact-list ul li .contact-card .last-full-msg {
+  padding: 10px 12px;
+  background-color: #e7edf3;
+  color: #333;
+  max-height: 58px;
+  margin-top: 10px;
+  word-wrap: break-word;
+}
+@-webkit-keyframes fadeInRight {
+  from {
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+    opacity: 0;
+    -webkit-transform: translate3d(-10%, 0, 0);
+    transform: translate3d(-10%, 0, 0);
+  }
+  to {
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+    opacity: 1;
+    -webkit-transform: none;
+    transform: none;
+  }
+}
+@keyframes fadeInRight {
+  from {
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+    opacity: 0;
+    -webkit-transform: translate3d(-10%, 0, 0);
+    transform: translate3d(-10%, 0, 0);
+  }
+  to {
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+    opacity: 1;
+    -webkit-transform: none;
+    transform: none;
+  }
+}
+#im-root .main-content .contacts .search-wrap {
+  padding: 8px 0 8px 8px;
+  border-bottom: 1px solid #efefef;
+}
+#im-root .main-content .contacts .search-wrap .search {
+  position: relative;
+  display: inline-block;
+  *display: inline;
+  *zoom: 1;
+}
+#im-root .main-content .contacts .search-wrap input.search-input {
+  position: relative;
+  border: 1px solid #999;
+  display: inline-block;
+  *display: inline;
+  *zoom: 1;
+  border-radius: 25px;
+  padding: 0px 22px 0 10px;
+  outline: none;
+  width: 146px;
+}
+#im-root .main-content .contacts .search-wrap input.search-input:focus {
+  border-color: #647fbd;
+}
+#im-root .main-content .contacts .search-wrap input::-ms-clear {
+  display: none;
+}
+#im-root .main-content .contacts .search-wrap i.empty {
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  border-radius: 50%;
+  background: #b2b2b2;
+  color: #fff;
+  line-height: 15px;
+  cursor: pointer;
+  width: 16px;
+  text-align: center;
+  height: 16px;
+  font-size: 14px;
+}
+#im-root .main-content .contacts .search-wrap i.empty:hover {
+  background: #d1cfcf;
+}
+#im-root .main-content .contacts .search-wrap .search-btn {
+  margin-left: 8px;
+  background: #647fbd;
+  border: 1px solid #647fbd;
+  border-radius: 25px;
+  color: #fff;
+  outline: none;
+  padding: 0px 8px;
+}
+#im-root .main-content .contacts .search-wrap .search-btn:hover {
+  background: #798ebd;
+  border-color: #798ebd;
+}
+#im-root .main-content .search-list ul li .search-info {
+  padding: 12px 15px 12px 25px;
+}
+#im-root .main-content .search-list ul li .search-info .photo {
+  float: left;
+  position: relative;
+  margin-right: 10px;
+}
+#im-root .main-content .search-list ul li .search-info .photo img {
+  width: 40px;
+  height: 40px;
+}
+#im-root .main-content .search-list ul li .search-info .photo .dot {
+  position: absolute;
+  left: 27px;
+  top: -8px;
+  min-width: 7px;
+  height: 16px;
+  line-height: 15px;
+  background: #f00;
+  border: 2px solid #fff;
+  border-radius: 100px;
+  text-align: center;
+  padding: 0 4px;
+  color: #fff;
+}
+#im-root .main-content .search-list ul li .search-info .photo em.connected {
+  position: absolute;
+  background-color: #29c;
+  color: #fff;
+  padding: 0 3px;
+  top: 28px;
+  left: -3px;
+  width: 40px;
+  text-align: center;
+}
+#im-root .main-content .search-list ul li .search-info .user-name {
+  color: #333;
+}
+#im-root .main-content .search-list ul li .search-info .user-name em {
+  margin-left: 6px;
+}
+#im-root .main-content .search-list ul li .search-info .user-name:hover {
+  color: #333;
+}
+#im-root .main-content .search-list ul li .search-info .info {
+  float: left;
+  width: 135px;
+}
+#im-root .main-content .search-list ul li .search-info .info time {
+  float: right;
+  margin-right: -10px;
+  color: #cecece;
+}
+#im-root .main-content .search-list ul li .search-info .info .last {
+  width: 135px;
+  min-height: 20px;
+  color: #999;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+#im-root .main-content ul.search-list li:hover {
+  background: #f0f5fd;
+}
+#im-root .main-content .contacts .search-list {
+  height: 92%;
+}
+#im-root .main-content .contacts .search-list ul {
+  height: 100%;
+  overflow-y: auto;
+  padding: 0;
+}
+#im-root .main-content .contacts .search-list ul li {
+  border-bottom: 1px solid #f6f6f6;
+  cursor: pointer;
+  position: relative;
+}
+#im-root .main-content .contacts .search-list ul li:hover {
+  background: #f2f7ff;
+}
+#im-root .main-content .contacts .search-list .no-contacts {
+  padding-top: 62px;
+  top: 0;
+  margin: 0;
+  height: 100px;
+}
+#im-root .main-content .contacts .search-list .no-contacts span {
+  margin: 0;
+}
+#im-root .contacts {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  /*置顶*/
+}
+#im-root .contacts .no-contacts {
+  position: relative;
+  height: 40%;
+}
+#im-root .contacts .contactlist-with-recent-contacts .no-contacts {
+  height: -22%;
+}
+#im-root .contacts .no-contacts span {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  margin-top: -45px;
+  padding-top: 70px;
+  text-align: center;
+  font-size: 16px;
+  color: #999;
+  background: url(//concat.lietou-static.com/fe-c-pc/v5/images/plugins/im/no-msg.20ef7bba.png) center 0 no-repeat;
+}
+#im-root .contacts .msg-list {
+  overflow-y: auto;
+}
+#im-root .contacts .msg-list::-webkit-scrollbar {
+  width: 0;
+}
+#im-root .contacts .contacts-wrap {
+  overflow-y: auto;
+}
+#im-root .contacts .contact-list {
+  height: 100%;
+  width: 100%;
+}
+#im-root .contacts .contact-list .btn-recent-contacts {
+  border-bottom: 1px solid #f6f6f6;
+  display: block;
+  cursor: pointer;
+  font-size: 14px;
+  margin-left: 8px;
+  padding: 10px;
+  color: #333;
+  vertical-align: middle;
+}
+#im-root .contacts .contact-list .btn-recent-contacts .recent-contacts {
+  background: url(//concat.lietou-static.com/fe-c-pc/v5/images/plugins/im/recent-contacts.a63bdfb6.png) no-repeat scroll center 0;
+  cursor: pointer;
+  display: inline-block;
+  *display: inline;
+  *zoom: 1;
+  height: 40px;
+  margin-right: 10px;
+  vertical-align: middle;
+  width: 40px;
+}
+#im-root .contacts .contact-list .btn-recent-contacts:hover {
+  color: #333;
+  text-decoration: none;
+}
+#im-root .contacts .lihover {
+  padding-left: 340px;
+  margin-left: -340px;
+}
+#im-root .contacts .contact-list ul {
+  padding-bottom: 60px;
+}
+#im-root .contacts .contact-list ul li {
+  border-bottom: 1px solid #f6f6f6;
+  cursor: pointer;
+  position: relative;
+}
+#im-root .contacts .contact-list ul li .close {
+  display: none;
+  position: absolute;
+  padding: 5px;
+  left: 0;
+  top: 16px;
+  font-family: 'simsun';
+  color: #000;
+  text-decoration: none;
+  outline: none;
+  z-index: 2;
+}
+#im-root .contacts .contact-list ul li:hover .close {
+  display: block;
+}
+#im-root .contacts .contact-list .contacts-wrap.lihover li:hover .contact-card {
+  display: block;
+  -webkit-animation-duration: .4s;
+          animation-duration: .4s;
+  -webkit-animation-name: fadeInRight;
+          animation-name: fadeInRight;
+}
+#im-root .contacts .search-part {
+  height: 100%;
+}
+#im-root .contacts .contact-list ul li .stick {
+  display: none;
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  right: 0;
+  top: 0;
+  color: #fff;
+}
+#im-root .contacts .contact-list ul li .stick:before {
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: -1;
+  content: '';
+  width: 0;
+  height: 0;
+  border: 15px solid;
+  border-color: #f8a173 #f8a173 transparent transparent;
+}
+#im-root .contacts .contact-list ul li .stick i.icon-arrow-top {
+  position: absolute;
+  right: 2px;
+  top: 4px;
+  font-size: 12px;
+}
+#im-root .contacts .contact-list ul li:hover .stick, #im-root .contacts .contact-list ul li .stick.active {
+  display: block;
+}
+#im-root .contacts .contact-list ul li:hover .stick.active:before, #im-root .contacts .contact-list ul li .stick.active.active:before {
+  border-color: #f86626 #f86626 transparent transparent;
+}
+#im-root .historycontacts {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+#im-root .historycontacts .no-message {
+  position: relative;
+  height: 100%;
+}
+#im-root .historycontacts .no-message span {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  margin-top: -45px;
+  padding-top: 70px;
+  text-align: center;
+  font-size: 16px;
+  color: #999;
+  background: url(//concat.lietou-static.com/fe-c-pc/v5/images/plugins/im/no-msg.20ef7bba.png) center 0 no-repeat;
+}
+#im-root .historycontacts h4 {
+  font-size: 14px;
+  font-weight: normal;
+  padding: 4px 20px;
+  border-bottom: 1px solid #f6f6f6;
+  -webkit-box-shadow: 0px 1px 4px 0px rgba(153, 153, 153, .1);
+          box-shadow: 0px 1px 4px 0px rgba(153, 153, 153, .1);
+  margin: 0;
+}
+#im-root .historycontacts .msg-list {
+  overflow-y: auto;
+}
+#im-root .historycontacts .msg-list::-webkit-scrollbar {
+  width: 0;
+}
+#im-root .historycontacts .history-contact-list {
+  height: 100%;
+  overflow-y: auto;
+}
+#im-root .historycontacts .history-contact-list.lihover, #im-root .historycontacts .contact-list ul.lihover {
+  padding-left: 340px;
+  margin-left: -340px;
+}
+#im-root .historycontacts .history-contact-list ul li {
+  border-bottom: 1px solid #f6f6f6;
+  cursor: pointer;
+  position: relative;
+}
+#im-root .historycontacts .history-contact-list ul li .close {
+  display: none;
+  position: absolute;
+  padding: 5px;
+  left: 0;
+  top: 16px;
+  font-family: 'simsun';
+  color: #000;
+  text-decoration: none;
+  outline: none;
+  z-index: 2;
+}
+#im-root .historycontacts .history-contact-list ul li:hover .close {
+  display: block;
+}
+#im-root .historycontacts .history-contact-list.lihover ul li:hover .contact-card {
+  display: block;
+  -webkit-animation-duration: .4s;
+          animation-duration: .4s;
+  -webkit-animation-name: fadeInRight;
+          animation-name: fadeInRight;
+}
+#im-root .historycontacts .to-old-version {
+  position: absolute;
+  bottom: 0;
+  padding: 8px 15px;
+  text-align: right;
+  left: 0;
+  right: 0;
+}
+#im-root .historycontacts .to-old-version a {
+  color: #007eff;
+}
+#im-root .historycontacts .to-old-version a .webim-icons16 {
+  margin-left: 10px;
+}
+#im-root .scroll-dialog-main {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+#im-root .scroll-dialog-main .sd-close {
+  left: 50%;
+  position: absolute;
+  text-decoration: none;
+  top: 70px;
+}
+#im-root .scroll-dialog-main .sd-no-padding {
+  border: 0;
+  border-radius: 0;
+}
+#im-root .scroll-dialog-main article {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-top: -60px;
+  min-width: 48px;
+  border-radius: 4px;
+  background-color: #2c99fe;
+  text-align: center;
+  color: #fff;
+}
+#im-root .scroll-dialog-main article .change-page {
+  height: 44px;
+  text-align: center;
+  line-height: 69px;
+}
+#im-root .scroll-dialog-main article .change-page a {
+  display: inline-block;
+  *display: inline;
+  *zoom: 1;
+}
+#im-root .scroll-dialog-main article span {
+  border-bottom: 1px solid #1684e9;
+  border-top: 1px solid #1684e9;
+  display: block;
+  line-height: 30px;
+  width: 100%;
+}
+#im-root .scroll-dialog-modal {
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  position: fixed;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=60)";
+  opacity: .6;
+  background-color: #000;
+  filter: alpha(opacity=60);
+}
+#im-root .scroll-dialog-main .scroll-box {
+  position: absolute;
+  top: 0px;
+  left: 50%;
+  padding-top: 70px;
+}
+#im-root .scroll-dialog-main .scroll-box .scroll-item {
+  font-family: "Microsoft Yahei";
+  color: #333;
+  min-height: 300px;
+  padding-bottom: 20px;
+  height: 70%;
+  background-color: #fff;
+  border-radius: 4px;
+  margin-bottom: 20px;
+}
+#im-root .scroll-dialog-main .scroll-box .scroll-item .title {
+  border-bottom: 1px solid #f6f6f6;
+  font-size: 16px;
+  padding: 0 16px;
+  line-height: 50px;
+}
+#im-root .scroll-dialog-main .scroll-box .scroll-item .content-box {
+  margin: 0 20px;
+  padding: 16px 10px;
+  min-height: 216px;
+  height: 72%;
+  overflow-y: auto;
+}
+#im-root .scroll-dialog-main .scroll-box .scroll-item .content-box .time {
+  text-align: center;
+  color: #999;
+  font-size: 12px;
+  line-height: 30px;
+}
+#im-root .scroll-dialog-main .scroll-box .scroll-item .content-box .content-main {
+  margin: 10px 0;
+}
+#im-root .scroll-dialog-main .scroll-box .scroll-item .content-box .content-main img {
+  max-width: 100%;
+}
+#im-root .scroll-dialog-main .scroll-box .scroll-item .content-box .content-main p {
+  text-indent: 2em;
+  margin-top: 5px;
+}
+#im-root .scroll-dialog-main .scroll-box .scroll-item .content-box .content-main p:first-child {
+  text-indent: 0;
+  font-size: 14px;
+}
+#im-root .notice {
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+  opacity: 1;
+  overflow-y: auto;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+#im-root .notice .noticeWrap {
+  overflow-y: auto;
+  height: 100%;
+}
+#im-root .notice ul.notice-list::-webkit-scrollbar {
+  width: 0;
+}
+#im-root .notice ul.notice-list li {
+  padding: 12px 15px 12px 7px;
+  border-bottom: 1px solid #f6f6f6;
+  cursor: pointer;
+}
+#im-root .notice ul.notice-list li:hover {
+  background: #f6f6f6;
+}
+#im-root .notice ul.notice-list li .close {
+  display: none;
+  float: left;
+  margin-top: 10px;
+  font-family: 'simsun';
+  color: #000;
+  text-decoration: none;
+  outline: none;
+}
+#im-root .notice ul.notice-list li:hover .close {
+  display: block;
+}
+#im-root .notice ul.notice-list li dl {
+  margin-left: 18px;
+}
+#im-root .notice ul.notice-list li dl dd {
+  float: left;
+  width: 100%;
+}
+#im-root .notice ul.notice-list li dl dd span label {
+  float: left;
+  font-size: 14px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+#im-root .notice ul.notice-list li dl dd span label em {
+  padding: 0 3px;
+  color: #fff;
+  background: #fe9c5b;
+}
+#im-root .notice ul.notice-list li dl dd span label em.back-primary {
+  background: #3689b3;
+}
+#im-root .notice ul.notice-list li dl dd span i.dot {
+  background-color: #fc5943;
+  border-radius: 10px;
+  color: #fff;
+  float: left;
+  font-size: 12px;
+  height: 12px;
+  line-height: 11px;
+  margin: 2px 0 0 8px;
+  padding: 2px 4px;
+  text-align: center;
+}
+#im-root .notice ul.notice-list li dl dd span time {
+  color: #cecece;
+}
+#im-root .notice ul.notice-list li dl dd p {
+  word-wrap: break-word;
+  color: #999;
+  padding-top: 4px;
+  line-height: 18px;
+}
+#im-root .notice ul.notice-list li time {
+  float: right;
+}
+#im-root .notice ul.notice-list .item-simple dd {
+  margin: 0;
+  line-height: 40px;
+  font-size: 16px;
+}
+#im-root .notice ul.notice-list dl dt span {
+  display: inline-block;
+  *display: inline;
+  *zoom: 1;
+  width: 40px;
+  line-height: 40px;
+  text-align: center;
+  border-radius: 50%;
+}
+#im-root .notice ul.notice-list dl dt span .webim-icons24 {
+  margin-right: 0;
+}
+#im-root .notice .back-blue {
+  background-color: #5e7fc2;
+}
+#im-root .notice .back-orange {
+  background-color: #fd9a70;
+}
+#im-root .notice .fail-loading {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  font-size: 14px;
+  color: #999;
+  text-align: center;
+}
+#im-root .no-message {
+  height: 100%;
+}
+#im-root .no-message span {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  margin-top: -45px;
+  padding-top: 70px;
+  text-align: center;
+  font-size: 16px;
+  color: #999;
+  background: url(//concat.lietou-static.com/fe-c-pc/v5/images/plugins/im/no-msg.20ef7bba.png) center 0 no-repeat;
+}
+/*icons16*/
+.icons16-arr-gray { background-position: 0 0px;}
+.icons16-arr-orange { background-position: 0 -16px;}
+.icons16-arrow-right-red { background-position: 0 -32px;}
+.icons16-arrow-right { background-position: 0 -48px;}
+.icons16-arrow { background-position: 0 -64px;}
+.icons16-checkbox-checked { background-position: 0 -80px;}
+.icons16-checkbox-disabled-checked { background-position: 0 -96px;}
+.icons16-checkbox-disabled { background-position: 0 -112px;}
+.icons16-checkbox { background-position: 0 -128px;}
+.icons16-error-red { background-position: 0 -144px;}
+.icons16-fold { background-position: 0 -160px;}
+.icons16-history-gray { background-position: 0 -176px;}
+.icons16-history-orange { background-position: 0 -192px;}
+.icons16-mail-open-gray { background-position: 0 -208px;}
+.icons16-mail-open { background-position: 0 -224px;}
+.icons16-picture { background-position: 0 -240px;}
+.icons16-radio-checked { background-position: 0 -256px;}
+.icons16-radio-disabled-checked { background-position: 0 -272px;}
+.icons16-radio-disabled { background-position: 0 -288px;}
+.icons16-radio { background-position: 0 -304px;}
+.icons16-recommend-orange { background-position: 0 -320px;}
+.icons16-recommend-resume { background-position: 0 -336px;}
+.icons16-setting-white { background-position: 0 -352px;}
+.icons16-smile-orange { background-position: 0 -368px;}
+.icons16-smile { background-position: 0 -384px;}
+/*icons16*/
+/*icons24*/
+.icons24-announcement { background-position: 0 0px;}
+.icons24-back { background-position: 0 -24px;}
+.icons24-building { background-position: 0 -48px;}
+.icons24-concern { background-position: 0 -72px;}
+.icons24-history { background-position: 0 -96px;}
+.icons24-hr { background-position: 0 -120px;}
+.icons24-job { background-position: 0 -144px;}
+.icons24-lietou { background-position: 0 -168px;}
+.icons24-message { background-position: 0 -192px;}
+.icons24-msg { background-position: 0 -216px;}
+.icons24-notice { background-position: 0 -240px;}
+.icons24-person-add { background-position: 0 -264px;}
+.icons24-person-arr { background-position: 0 -288px;}
+.icons24-person-arrow { background-position: 0 -312px;}
+.icons24-person { background-position: 0 -336px;}
+.icons24-recruit { background-position: 0 -360px;}
+.icons24-resume { background-position: 0 -384px;}
+.icons24-sns { background-position: 0 -408px;}
+/*icons24*/
+/*icons32*/
+.icons32-detail-close { background-position: 0 0px;}
+.icons32-name-card { background-position: 0 -32px;}
+.icons32-next-btn-disabled { background-position: 0 -64px;}
+.icons32-next-btn { background-position: 0 -96px;}
+.icons32-prev-btn-disabled { background-position: 0 -128px;}
+.icons32-prev-btn { background-position: 0 -160px;}
+.icons32-resume { background-position: 0 -192px;}
+.icons32-shield-act { background-position: 0 -224px;}
+.icons32-shield { background-position: 0 -256px;}
+.icons32-star { background-position: 0 -288px;}
+.icons32-starno { background-position: 0 -320px;}
+/*icons32*/
+#im-root {
+  position: fixed;
+  top: 0;
+  right: -290px;
+  bottom: 0;
+  z-index: 210;
+  width: 290px;
+  font-family: 'Microsoft Yahei';
+  background: #fff;
+  -webkit-box-shadow: 0 0 7px #475359;
+          box-shadow: 0 0 7px #475359;
+  -webkit-transition: right 0.4s ease-in-out;
+  transition: right 0.4s ease-in-out;
+  /* icons */
+}
+#im-root .webim-icons16, #im-root .webim-icons24 {
+  display: inline-block;
+  *display: inline;
+  *zoom: 1;
+  vertical-align: middle;
+  background-repeat: no-repeat;
+  overflow: hidden;
+}
+#im-root .webim-icons16 {
+  width: 16px;
+  height: 16px;
+  line-height: 16px;
+  margin-top: -1px;
+  margin-right: .3em;
+  background-image: url(//concat.lietou-static.com/fe-c-pc/v5/images/plugins/im/icons/icons16.fc5cf245.png);
+}
+#im-root .webim-icons24 {
+  width: 24px;
+  height: 24px;
+  line-height: 24px;
+  margin-top: -3px;
+  margin-right: .3em;
+  background-image: url(//concat.lietou-static.com/fe-c-pc/v5/images/plugins/im/icons/icons24.d93a0e81.png);
+}
+#im-root .webim-icons32 {
+  width: 32px;
+  height: 32px;
+  line-height: 32px;
+  background-image: url(//concat.lietou-static.com/fe-c-pc/v5/images/plugins/im/icons/icons32.0bd974bd.png);
+}
+#im-root .side-icon {
+  display: inline-block;
+  *display: inline;
+  *zoom: 1;
+  width: 24px;
+  height: 24px;
+  background: url(//concat.lietou-static.com/fe-c-pc/v5/images/plugins/im/panel-side.3687aa29.png) no-repeat;
+  vertical-align: middle;
+  position: relative;
+}
+#im-root .side-icon-contacts {
+  background-position: 0 0;
+}
+#im-root .side-icon-contacts.active {
+  background-position: 0 -24px;
+}
+#im-root .side-icon-sns {
+  background-position: 0 -48px;
+}
+#im-root .side-icon-sns.active {
+  background-position: 0 -72px;
+}
+#im-root .side-icon-notice {
+  background-position: 0 -96px;
+}
+#im-root .side-icon-notice.active {
+  background-position: 0 -120px;
+}
+#im-root .side-icon-historycontacts {
+  background-position: 0 -48px;
+}
+#im-root .side-icon-historycontacts.active {
+  background-position: 0 -72px;
+}
+#im-root.move-to-show {
+  right: 0;
+}
+#im-root .sns .back-blue {
+  background-color: #5e7fc2;
+}
+#im-root .sns .back-brown {
+  background-color: #cd9d89;
+}
+#im-root .sns .back-red {
+  background-color: #ff5600;
+}
+#im-root .sns .back-pink {
+  background-color: #f38787;
+}
+#im-root .sns ul.contact-list li a {
+  display: block;
+  padding: 9px 15px 9px 7px;
+  color: #333;
+  border-bottom: 1px solid #f6f6f6;
+}
+#im-root .sns ul.contact-list li a:hover {
+  background: #f6f6f6;
+}
+#im-root .sns ul.contact-list li dl {
+  margin-left: 18px;
+}
+#im-root .sns ul.contact-list li dl dt {
+  position: relative;
+  float: left;
+  margin-right: 10px;
+}
+#im-root .sns ul.contact-list li dl dt span {
+  display: inline-block;
+  *display: inline;
+  *zoom: 1;
+  width: 40px;
+  line-height: 40px;
+  text-align: center;
+  border-radius: 50%;
+}
+#im-root .sns ul.contact-list li dl dt span .webim-icons24 {
+  margin-right: 0;
+}
+#im-root .sns ul.contact-list li dl dd {
+  float: left;
+  width: 50%;
+  line-height: 40px;
+  font-size: 14px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+#im-root .sns ul.contact-list li dl .number {
+  width: 42px;
+  text-align: right;
+  font-size: 14px;
+}
+#im-root .chatwin .chat-form {
+  padding: 6px 14px 14px;
+  border-radius: 0 0 4px 4px;
+}
+#im-root .chatwin .chat-form .top-options .upload-wrap {
+  float: left;
+  margin-left: 8px;
+  position: relative;
+  width: 20px;
+  height: 20px;
+  overflow: hidden;
+}
+#im-root .chatwin .chat-form .top-options .upload-wrap .file {
+  font-size: 100px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 2;
+  width: 20px;
+  height: 20px;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+  opacity: 0;
+  /*filter:alpha(opactiy=0);
+*/
+}
+#im-root .chatwin .chat-form .top-options .emoji-wrap {
+  float: left;
+  position: relative;
+  cursor: pointer;
+}
+#im-root .chatwin .chat-form .top-options .emoji-wrap ul {
+  position: absolute;
+  bottom: 30px;
+  left: -30px;
+  z-index: 3;
+  width: 340px;
+  height: 138px;
+  padding: 7px;
+  background: #fff;
+  -webkit-box-shadow: 0 3px 12px #666;
+          box-shadow: 0 3px 12px #666;
+}
+#im-root .chatwin .chat-form .top-options .emoji-wrap ul:after {
+  content: '';
+  position: absolute;
+  bottom: -9px;
+  left: 28px;
+  width: 0;
+  height: 0;
+  border: 10px solid #fff;
+  border-left-color: transparent;
+  border-right-color: transparent;
+  border-bottom: 0;
+}
+#im-root .chatwin .chat-form .top-options .emoji-wrap ul li {
+  float: left;
+  width: 32px;
+  height: 32px;
+  margin: 1px;
+  background: #fff;
+  cursor: pointer;
+}
+#im-root .chatwin .chat-form .top-options .emoji-wrap ul li img {
+  width: 32px;
+  height: 32px;
+  transition: all .2s ease;
+  -webkit-transition: all .2s ease;
+}
+#im-root .chatwin .chat-form .top-options .emoji-wrap ul li:hover img {
+  margin-top: -5px;
+}
+#im-root .chatwin .chat-form .top-options .emoji-wrap-ie9 ul {
+  left: -14px;
+}
+#im-root .chatwin .chat-form .top-options .emoji-wrap-ie9 ul:after {
+  left: 14px;
+}
+#im-root .chatwin .chat-form .top-options .link-history, #im-root .chatwin .chat-form .top-options .link-entrust, #im-root .chatwin .chat-form .top-options .link-recommend {
+  float: right;
+  color: #7f8d99;
+  text-decoration: none;
+}
+#im-root .chatwin .chat-form .top-options .link-history {
+  margin-left: 10px;
+}
+#im-root .chatwin .chat-form .top-options .link-history:hover, #im-root .chatwin .chat-form .top-options .link-entrust:hover, #im-root .chatwin .chat-form .top-options .link-recommend:hover, #im-root .chatwin .chat-form .top-options .link-history:hover em, #im-root .chatwin .chat-form .top-options .link-entrust:hover em, #im-root .chatwin .chat-form .top-options .link-recommend:hover em {
+  color: #ff5600;
+}
+#im-root .chatwin .chat-form .fake-textarea {
+  display: none;
+  width: 342px;
+  min-height: 40px;
+  max-height: 176px;
+  margin: 4px 0;
+  overflow: hidden;
+  overflow-y: auto;
+  word-break: break-all;
+  font-family: Tahoma, "\5B8B\4F53", Arial, Helvetica, Arial, sans-serif;
+}
+#im-root .chatwin .chat-form .textarea {
+  width: 342px;
+  min-height: 40px;
+  max-height: 176px;
+  resize: none;
+  outline: none;
+  border: 0;
+  line-height: 20px;
+  font-size: 12px;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  margin: 4px 0;
+  padding: 0;
+  background: transparent;
+}
+#im-root .chatwin .chat-form .textarea:focus {
+  outline: none;
+}
+#im-root .chatwin .chat-form .send-wrap {
+  text-align: right;
+  position: relative;
+}
+#im-root .chatwin .chat-form .send-wrap .dialog-setting-box {
+  position: absolute;
+  bottom: 25px;
+  right: 0px;
+  width: 168px;
+  background-color: #fefefe;
+  border-radius: 2px;
+  -webkit-box-shadow: 0px 0px 4px #999;
+          box-shadow: 0px 0px 4px #999;
+  padding-top: 8px;
+  text-align: left;
+}
+#im-root .chatwin .chat-form .send-wrap .dialog-setting-box ul li {
+  padding: 0 9px 8px 9px;
+}
+#im-root .chatwin .chat-form .send-wrap .btn-send {
+  display: inline-block;
+  *display: inline;
+  *zoom: 1;
+  width: 48px;
+  height: 22px;
+  margin-right: -4px;
+  font-size: 12px;
+  line-height: 22px;
+  color: #fff;
+  background-color: #f64;
+  vertical-align: middle;
+  text-align: center;
+  text-decoration: none;
+}
+#im-root .chatwin .chat-form .send-disabled .btn-send {
+  background-color: #ddd;
+  cursor: auto;
+}
+#im-root .chatwin .chat-form .send-wrap span {
+  width: 22px;
+  height: 22px;
+  border-left: 1px solid #F7F7FA;
+  background-color: #f64;
+  line-height: 22px;
+  vertical-align: middle;
+  cursor: pointer;
+  position: relative;
+  display: inline-block;
+  *display: inline;
+  *zoom: 1;
+}
+#im-root .chatwin .chat-form .send-disabled span {
+  background-color: #ddd;
+  cursor: auto;
+  border-left-color: #f1f1f1;
+}
+#im-root .chatwin .chat-form .send-wrap span em {
+  width: 0;
+  height: 0;
+  border-left: 4px solid transparent;
+  border-right: 4px solid transparent;
+  border-top: 4px solid #fff;
+  top: 50%;
+  margin-top: -2px;
+  left: 50%;
+  margin-left: -4px;
+  position: absolute;
+}
+#im-root .chatwin .chat-form .placeholderui {
+  z-index: 0 !important;
+  word-break: break-all !important;
+  white-space: normal !important;
+}
+#im-root .chatwin .chat-form .clipboard-img-wrap {
+  position: relative;
+  text-align: center;
+  outline: 2px solid #83bffc;
+  outline: -webkit-focus-ring-color auto 5px;
+  margin: 4px 0;
+}
+#im-root .chatwin .chat-form .clipboard-img-wrap .close-btn {
+  position: absolute;
+  top: 0px;
+  right: 4px;
+  z-index: 1;
+  font-size: 14px;
+  font-family: 'simsun';
+  color: #666;
+  text-decoration: none;
+  display: block;
+  width: 20px;
+  height: 20px;
+  background: rgba(255, 255, 255, .4);
+  border-radius: 50%;
+}
+#im-root .chatwin .chat-form .clipboard-img-wrap img {
+  max-width: 100%;
+  max-height: 100px;
+}
+#im-root .chatwin .chat-form iframe {
+  position: absolute !important;
+  top: 0 !important;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+  opacity: 0;
+  filter: alpha(opacity=0);
+  left: 0 !important;
+  z-index: 9999 !important;
+  visibility: visible !important;
+  display: block!important;
+}
+#im-root .chatwin .chat-form .ie9-placeholder {
+  position: absolute;
+  top: 4px;
+  bottom: 4px;
+  left: 0;
+  width: 100%;
+  color: #999;
+}
+#im-root .chatwin .chat-title {
+  position: relative;
+  padding: 18px 10px 16px 14px;
+  border-bottom: 4px solid #2c99fe;
+  background-color: #fff;
+  margin-bottom: 5px;
+  border-radius: 4px;
+  -webkit-box-shadow: 0 0 3px rgba(124, 155, 170, .6);
+          box-shadow: 0 0 3px rgba(124, 155, 170, .6);
+  line-height: 18px;
+}
+#im-root .chatwin .chat-title .link-img {
+  float: left;
+}
+#im-root .chatwin .chat-title .target-info {
+  margin-left: 60px;
+}
+#im-root .chatwin .chat-title .target-info h3 {
+  margin: -2px 0 0;
+  line-height: 22px;
+  font-size: 18px;
+  font-weight: normal;
+}
+#im-root .chatwin .chat-title .target-info h3 a {
+  color: #333;
+}
+#im-root .chatwin .chat-title .target-info h3 em {
+  margin-left: 10px;
+}
+#im-root .chatwin .chat-title .target-info h3 em.hr {
+  background: #ff9d5a;
+}
+#im-root .chatwin .chat-title .target-info h3 em.hunter {
+  background: #0099e6;
+}
+#im-root .chatwin .chat-title .target-info h3 .usersetting-btn {
+  position: absolute;
+  top: 12px;
+  right: 40px;
+  padding: 10px 0;
+  outline: none;
+  cursor: pointer;
+}
+#im-root .chatwin .chat-title .target-info h3 .usersetting-btn em {
+  display: block;
+  width: 25px;
+  height: 5px;
+  font-size: 0;
+  background: url(//concat.lietou-static.com/fe-c-pc/v5/images/plugins/im/user-setting.2955ea1f.png) no-repeat 0 0;
+}
+#im-root .chatwin .chat-title .target-info h3 .usersetting-btn:hover em {
+  background: url(//concat.lietou-static.com/fe-c-pc/v5/images/plugins/im/user-setting.2955ea1f.png) no-repeat 0 -5px;
+}
+#im-root .chatwin .chat-title .target-info h3 .job-info em {
+  padding-left: 0px;
+  font-size: 12px;
+}
+#im-root .chatwin .chat-title .target-info .title-company a {
+  display: inline-block;
+  *display: inline;
+  *zoom: 1;
+  max-width: 290px;
+  vertical-align: middle;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: #999;
+}
+#im-root .chatwin .chat-title .target-info .title-company i {
+  padding: 0 4px;
+}
+#im-root .chatwin .chat-title .target-info .title-company i:first-child {
+  padding-left: 0px;
+}
+#im-root .chatwin .chat-title .target-info .btn-controller {
+  position: absolute;
+  right: 15px;
+  bottom: 8px;
+  width: 50px;
+  line-height: 18px;
+  padding: 2px 8px;
+  text-align: center;
+  color: #2c99fe;
+  border: 1px solid #2c99fe;
+  border-radius: 2px;
+  text-decoration: none;
+}
+#im-root .chatwin .chat-title .target-info .btn-attention-cancel {
+  color: #999;
+  border-color: #999;
+}
+#im-root .chatwin .chat-title .target-info .btn-controller:hover {
+  background-color: #eef7ff;
+  border-color: #0482f7;
+}
+#im-image-preview-dialog .im-image-preview-container {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  z-index: 300;
+  background: #ffffff;
+  background: rgba(255, 255, 255, .9);
+  text-align: center;
+}
+#im-image-preview-dialog a.close-preview {
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  font-size: 40px;
+  color: #999;
+  text-decoration: none;
+}
+#im-image-preview-dialog img {
+  margin: 30px auto;
+  border: 1px solid #cfd2d3;
+  padding: 10px;
+  max-height: 100%;
+  max-width: 100%;
+  max-height: auto\9\0;
+}
+#im-image-preview-dialog .im-image-preview-wrap {
+  height: 100%;
+  width: 100%;
+  overflow: auto;
+}
+#im-root .chatwin .chat-history .historymsg {
+  line-height: 18px;
+  padding: 0 20px;
+}
+#im-root .chatwin .chat-history .historymsg margin-top:\10px .send {
+  color: #ff5600;
+}
+#im-root .chatwin .chat-history .historymsg .receive {
+  color: #2c99fe;
+}
+#im-root .chatwin .chat-history .historymsg h4 {
+  margin: 0;
+  text-align: center;
+  color: #bbb;
+  font-weight: normal;
+  font-size: 12px;
+}
+#im-root .chatwin .chat-history .historymsg p label, #im-root .chatwin .chat-history .historymsg p time {
+  line-height: 24px;
+  vertical-align: middle;
+}
+#im-root .chatwin .chat-history .historymsg p time {
+  display: inline-block;
+  *display: inline;
+  *zoom: 1;
+  margin-left: 10px;
+}
+#im-root .chatwin .chat-history .historymsg .content {
+  word-break: break-all;
+}
+#im-root .chatwin .chat-history .historymsg .content a.preview-image img {
+  max-width: 150px;
+  height: auto;
+  vertical-align: top;
+}
+#im-root .chatwin .chat-history .historymsg .content .job label {
+  color: #666;
+  padding-right: 0.5em;
+}
+#im-root .chatwin .chat-history {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background-color: #f3fcff;
+  z-index: 2;
+}
+#im-root .chatwin .chat-history .close-history {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  line-height: 40px;
+  background: #369efe;
+  color: #fff;
+  text-align: center;
+  z-index: 10;
+}
+#im-root .chatwin .chat-history .history-content {
+  height: 60%;
+  overflow-y: auto;
+}
+#im-root .chatwin .chat-history a {
+  color: #2c99fe;
+}
+#im-root .chatwin .chat-history .no-history {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  top: 50%;
+  bottom: 0;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  font-size: 16px;
+  color: #bbb;
+  margin-top: -40px;
+  padding-top: 60px;
+  background: url(//concat.lietou-static.com/fe-c-pc/v5/images/plugins/im/empty-history.a7e3f4cd.png) center 0 no-repeat;
+}
+#im-root .chatwin .chat-history .history-nomore, #im-root .chatwin .chat-history .history-more, #im-root .chatwin .chat-history .history-loading {
+  line-height: 30px;
+  text-align: center;
+  color: #bbb;
+  padding-top: 10px;
+}
+#im-root .chatwin .chat-history .history-loading em {
+  vertical-align: middle;
+  width: 16px;
+  height: 16px;
+  display: inline-block;
+  *display: inline;
+  *zoom: 1;
+  background: url(//concat.lietou-static.com/fe-c-pc/v5/images/plugins/im/loading1.4f323667.gif) center 0 no-repeat;
+}
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+  /* IE10-specific styles go here */
+  #im-root .chatwin .chat-history {
+    background-color: rgba(243, 252, 255, .9);
+  }
+}
+#im-root .chatwin .chat-list .message {
+  margin-top: 17px;
+  margin-bottom: 17px;
+  position: relative;
+  /*发送接收气泡样式展示start*/
+  /*发送接收气泡样式展示end*/
+  /*职位卡片默认样式*/
+  /*简历卡片默认样式*/
+  /*接收拒绝卡片默认样式*/
+  /*系统消息默认样式*/
+}
+#im-root .chatwin .chat-list .message .body .user-img {
+  position: absolute;
+  top: 0;
+}
+#im-root .chatwin .chat-list .message .body .user-img img {
+  width: 40px;
+  height: 40px;
+}
+#im-root .chatwin .chat-list .message .body .user-img.send-img {
+  right: 0;
+}
+#im-root .chatwin .chat-list .message .body .user-img.receive-img {
+  left: 0;
+}
+#im-root .chatwin .chat-list .message .body .content {
+  float: left;
+  max-width: 220px;
+  padding: 10px;
+  color: #333;
+  border-radius: 12px;
+  word-wrap: break-word;
+  position: relative;
+}
+#im-root .chatwin .chat-list .message .body .content a, #im-root .chatwin .chat-list .message .body .content a:hover {
+  text-decoration: none;
+  outline: none;
+}
+#im-root .chatwin .chat-list .message .body .loadingicon {
+  width: 16px;
+  height: 16px;
+  background: url(//concat.lietou-static.com/fe-c-pc/v5/images/plugins/im/loading1.4f323667.gif) no-repeat center;
+}
+#im-root .chatwin .chat-list .message .body .sendloading {
+  position: absolute;
+  left: -27px;
+  top: 50%;
+  margin-top: -6px;
+}
+#im-root .chatwin .chat-list .message .body .receiveloading {
+  float: left;
+  margin: 10px 0 0 10px;
+}
+#im-root .chatwin .chat-list .message .body p.opposite-readed {
+  position: absolute;
+  left: -34px;
+  top: 50%;
+  margin-top: -10px;
+  color: #4d97f6;
+  padding-right: 10px;
+}
+#im-root .chatwin .chat-list .message .body p.has-readed {
+  color: #999;
+}
+#im-root .chatwin .chat-list .message .body .content.img-wrap {
+  padding: 0;
+  border: 1px solid #DDD;
+}
+#im-root .chatwin .chat-list .message .body .content.img-wrap a.preview-image img {
+  max-width: 170px;
+  max-height: 170px;
+  vertical-align: top;
+  border-radius: 12px;
+}
+#im-root .chatwin .chat-list .message.send .body .content-wrap {
+  position: relative;
+  float: right;
+}
+#im-root .chatwin .chat-list .message.receive .body .content-wrap {
+  position: relative;
+  float: left;
+}
+#im-root .chatwin .chat-list .message.send .body .content {
+  float: right;
+  margin-right: 50px;
+  color: #fff;
+  border-top-right-radius: unset;
+}
+#im-root .chatwin .chat-list .message.send .body .content.text {
+  background: #66AAE9;
+}
+#im-root .chatwin .chat-list .message.send .body .content.img-wrap a.preview-image img {
+  border-top-right-radius: unset;
+}
+#im-root .chatwin .chat-list .message.receive .body .content {
+  border-top-left-radius: unset;
+  margin-left: 50px;
+}
+#im-root .chatwin .chat-list .message.receive .body .content.text {
+  background: #FFF;
+}
+#im-root .chatwin .chat-list .message.receive .body .content.img-wrap a.preview-image img {
+  border-top-left-radius: unset;
+}
+#im-root .chatwin .chat-list .message .err-msg {
+  color: #f37e67;
+  padding: 0 20px;
+}
+#im-root .chatwin .chat-list .message .err-msg a {
+  text-decoration: underline;
+}
+#im-root .chatwin .chat-list .message .footer {
+  margin: 2px;
+}
+#im-root .chatwin .chat-list .message .footer p.tips {
+  color: #f37e67;
+  text-align: center;
+}
+#im-root .chatwin .chat-list .message .footer p.resend {
+  text-align: right;
+  color: #666;
+  padding-bottom: 10px;
+}
+#im-root .chatwin .chat-list .message .footer p.resend a {
+  text-decoration: underline;
+}
+#im-root .chatwin .chat-list .message .footer p.resend .disabled {
+  color: #999;
+}
+#im-root .chatwin .chat-list .message.receive .resume-card h3 {
+  color: #666;
+}
+#im-root .chatwin .chat-list .message .body .job-msg-card {
+  padding: 18px;
+  width: 206px;
+  background: #fff;
+}
+#im-root .chatwin .chat-list .message .body .job-msg-card dl dt {
+  font-size: 14px;
+  line-height: 20px;
+  color: #333;
+  position: relative;
+}
+#im-root .chatwin .chat-list .message .body .job-msg-card dl dt .tip-info {
+  position: absolute;
+  top: 0;
+  right: 0;
+  color: #FF805F;
+}
+#im-root .chatwin .chat-list .message .body .job-msg-card dl dd {
+  color: #666;
+}
+#im-root .chatwin .chat-list .message .body .job-msg-card dl dd.second-item {
+  margin-bottom: 6px;
+}
+#im-root .chatwin .chat-list .message .body .job-msg-card dl dd.last-item span {
+  margin-right: 6px;
+  padding: 2px 6px;
+  background: #F6F6F6;
+}
+#im-root .chatwin .chat-list .message .body .resume-msg-card {
+  padding: 16px;
+  width: 248px;
+  background: #fff;
+}
+#im-root .chatwin .chat-list .message .body .resume-msg-card dl dt {
+  font-size: 14px;
+  line-height: 20px;
+  color: #333;
+  position: relative;
+  margin-bottom: 4px;
+}
+#im-root .chatwin .chat-list .message .body .resume-msg-card dl dt .tip-info {
+  color: #666;
+  font-size: 12px;
+}
+#im-root .chatwin .chat-list .message .body .resume-msg-card dl dd.second-item {
+  color: #666;
+  padding-bottom: 8px;
+}
+#im-root .chatwin .chat-list .message .body .resume-msg-card dl dd.last-item {
+  border-top: 1px solid #E8E8E8;
+  margin-right: 6px;
+  padding: 8px 6px 0 0;
+  color: #999;
+}
+#im-root .chatwin .chat-list .message .body .confirm-msg-card {
+  background: #fff;
+  padding: 18px;
+  width: 206px;
+}
+#im-root .chatwin .chat-list .message .body .confirm-msg-card .container {
+  font-size: 14px;
+  color: #333;
+  margin-bottom: 10px;
+}
+#im-root .chatwin .chat-list .message .body .confirm-msg-card .action a {
+  padding: 6px 14px;
+  margin-right: 6px;
+  border: 1px solid #F64;
+  display: inline-block;
+  *display: inline;
+  *zoom: 1;
+  min-width: 60px;
+  text-align: center;
+}
+#im-root .chatwin .chat-list .message .body .confirm-msg-card .action .btn-cancel {
+  color: #F64;
+}
+#im-root .chatwin .chat-list .message .body .confirm-msg-card .action .btn-cancel.btn-disabled {
+  border-color: #DDD;
+  color: #DDD;
+  background: #fff;
+}
+#im-root .chatwin .chat-list .message .body .confirm-msg-card .action .btn-ok {
+  background: #F64;
+  color: #fff;
+}
+#im-root .chatwin .chat-list .message .body .confirm-msg-card .action .btn-ok.btn-disabled {
+  background: #DDD;
+  border-color: #DDD;
+}
+#im-root .chatwin .chat-list .message .body .sysmsg {
+  text-align: center;
+}
+#im-root .chatwin .chat-list .message .body .sysmsg .sysmsg-tips {
+  background: #d1d1d1;
+  border-radius: 3px;
+  color: #fff;
+  display: inline-block;
+  *display: inline;
+  *zoom: 1;
+  line-height: 18px;
+  margin-top: 5px;
+  padding: 5px 10px;
+  text-align: center;
+}
+#im-root .toast {
+  width: 130px;
+  min-width: 130px;
+  min-height: 20px;
+  padding: 10px;
+  text-align: center;
+  background-color: rgba(0, 0, 0, .55);
+  color: #fff;
+  position: absolute;
+  left: 0;
+  top: 150px;
+  right: 0;
+  /*bottom: 0;*/
+  margin: auto;
+  border-radius: 5px;
+  z-index: 98;
+}
+#im-root .im-wrap .chatwin {
+  position: fixed;
+  z-index: 200;
+  top: 0;
+  right: 300px;
+  bottom: 10px;
+  padding: 4px;
+  margin: 5px auto;
+  width: 380px;
+  max-height: 580px;
+  background: #f1f1f1;
+  -webkit-box-shadow: 0 0 6px rgba(0, 0, 0, .5);
+          box-shadow: 0 0 6px rgba(0, 0, 0, .5);
+  border-radius: 6px;
+  overflow: hidden;
+}
+#im-root .im-wrap .chatwin .chatwin-loading {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-left: -8px;
+  margin-bottom: -8px;
+  width: 16px;
+  height: 16px;
+}
+#im-root .im-wrap .chatwin .chatwin-loading em {
+  width: 16px;
+  height: 16px;
+  display: block;
+  background: url(//concat.lietou-static.com/fe-c-pc/v5/images/plugins/im/loading1.4f323667.gif) center 0 no-repeat;
+}
+#im-root .im-wrap .chatwin .msg-list-loading {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-left: -8px;
+  margin-bottom: -8px;
+  width: 16px;
+  height: 16px;
+}
+#im-root .im-wrap .chatwin .msg-list-loading em {
+  width: 16px;
+  height: 16px;
+  display: block;
+  background: url(//concat.lietou-static.com/fe-c-pc/v5/images/plugins/im/loading1.4f323667.gif) center 0 no-repeat;
+}
+#im-root .im-wrap .chatwin .chatheader {
+  background: #fff;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+  -webkit-box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .5);
+          box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .5);
+  position: relative;
+  z-index: 1;
+}
+#im-root .im-wrap .chatwin .chatheader .header-action {
+  padding: 8px;
+  text-align: right;
+  border-bottom: 1px solid #F8F8F8;
+  line-height: 18px;
+}
+#im-root .im-wrap .chatwin .chatheader .chatwin-more {
+  display: inline-block;
+  *display: inline;
+  *zoom: 1;
+  position: relative;
+}
+#im-root .im-wrap .chatwin .chatheader .chatwin-more .drop-list {
+  position: absolute;
+  top: 25px;
+  right: 0;
+  z-index: 2;
+  background: #fff;
+  text-align: center;
+  color: #666;
+  border-radius: 4px;
+  -webkit-box-shadow: 0 0 4px 0 rgba(0, 0, 0, .1);
+          box-shadow: 0 0 4px 0 rgba(0, 0, 0, .1);
+}
+#im-root .im-wrap .chatwin .chatheader .chatwin-more .drop-list a {
+  font-size: 12px;
+  font-weight: normal;
+  display: inline-block;
+  *display: inline;
+  *zoom: 1;
+  padding: 8px 14px;
+  margin: 0;
+  min-width: 72px;
+  border-bottom: 1px solid #eee;
+}
+#im-root .im-wrap .chatwin .chatheader .chatwin-more .drop-list a:last-child {
+  border-bottom: none;
+}
+#im-root .im-wrap .chatwin .chatheader .chatwin-more .drop-list a:hover {
+  background: #f5f5f5;
+}
+#im-root .im-wrap .chatwin .chatheader .chatwin-more a, #im-root .im-wrap .chatwin .chatheader .close-chat {
+  font-size: 18px;
+  margin-left: 8px;
+  font-weight: bold;
+  color: #979797;
+  text-decoration: none;
+  outline: none;
+}
+#im-root .im-wrap .chatwin .chatheader .chatwin-more a:hover, #im-root .im-wrap .chatwin .chatheader .close-chat:hover {
+  outline: none;
+}
+#im-root .im-wrap .chatwin .chatheader .chat-title {
+  border-radius: unset;
+  padding: 10px;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  border: none;
+  margin: 0;
+}
+#im-root .im-wrap .chatwin .chatheader.loading {
+  text-align: right;
+  background: transparent;
+  border: none;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+#im-root .im-wrap .chatwin .chatheader.loading .close-chat {
+  margin: 6px 8px;
+  display: inline-block;
+  *display: inline;
+  *zoom: 1;
+}
+#im-root .im-wrap .chatwin .chat-main {
+  height: -14%;
+  background: #F7F7FA;
+}
+#im-root .im-wrap .chatwin .chat-main .chat-list {
+  padding: 10px 16px 16px;
+  overflow-y: auto;
+  background: #F7F7FA;
+  margin-bottom: 1px;
+  border-radius: 4px 4px 0 0;
+  height: 100%;
+}
+#im-root .im-wrap .chatwin .chat-main .chat-list .check-all-history {
+  text-align: center;
+  line-height: 26px;
+  color: #bfbfbf;
+}
+#im-root .im-wrap .chatwin .chat-list .tinyFace {
+  width: 40px;
+  height: 40px;
+}
+#im-root .im-wrap .chatwin .chat-list .time, #im-root .im-wrap .chatwin .chat-list .all-history, #im-root .im-wrap .chatwin .chat-list .more-history {
+  margin: 10px 0 -7px;
+  text-align: center;
+  line-height: 26px;
+  color: #bfbfbf;
+}
+#im-root .im-wrap .chatwin .chat-list .all-history, #im-root .im-wrap .chatwin .chat-list .more-history {
+  margin-top: 0;
+}
+#im-root .im-wrap .chatwin .chat-main .chat-form {
+  border-top: 1px solid #d8d8d8;
+}
+#im-root .chatwin a:hover {
+  text-decoration: none;
+}
+#im-root .chatwin a {
+  color: #2c99fe;
+}
+#im-root .chatwin .blur {
+  filter: url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg"><filter id="filter"><feGaussianBlur stdDeviation="15" /></filter></svg>#filter');
+  -webkit-filter: blur(15px);
+          filter: blur(15px);
+  filter: progid:DXImageTransform.Microsoft.Blur(PixelRadius=15, MakeShadow=false);
+}
+#im-root .chatwin span.btn-select-feedback {
+  background-color: #359bfb;
+  color: #fff;
+  padding: 5px;
+  line-height: 20px;
+}
+#im-root .chatwin img.emoji {
+  width: 32px;
+  height: 32px;
+}
+#im-root .set-box {
+  position: absolute;
+  left: 3px;
+  bottom: 40px;
+  width: 168px;
+  padding-top: 8px;
+  background-color: #fefefe;
+  -webkit-box-shadow: 0px 0px 4px #999;
+          box-shadow: 0px 0px 4px #999;
+  text-align: left;
+  z-index: 4;
+}
+#im-root .set-box a {
+  display: inline;
+  margin-left: 5px;
+  padding-bottom: 5px;
+}
+#im-root .set-box dl {
+  border-top: 1px solid #f6f6f6;
+  padding-top: 5px;
+}
+#im-root .set-box dl:first-child {
+  border: none;
+}
+#im-root .set-box dl dt {
+  font-size: 12px;
+  color: #666;
+  padding: 0 9px;
+  margin-bottom: 8px;
+}
+#im-root .set-box dl dd .radio {
+  margin: -2px 10px 0px 0px;
+}
+#im-root .set-box dl dd {
+  padding: 0 9px;
+  margin-bottom: 8px;
+}
+#im-root .set-box dl dd a {
+  vertical-align: middle;
+}
+#im-root .set-box dl dd a.muted:hover {
+  color: #999;
+}
+#im-root .set-box .triangle {
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-top: 8px solid #f8f7f7;
+  bottom: -8px;
+  left: 7px;
+}
+#im-root .greeting-box {
+  padding: 0 10px;
+  text-align: left;
+}
+#im-root .greeting-box ul li {
+  font-size: 12px;
+  margin-bottom: 10px;
+}
+#im-root .greeting-box ul li:last-child {
+  margin-bottom: 0;
+}
+/*icons16*/
+.icons16-arr-gray { background-position: 0 0px;}
+.icons16-arr-orange { background-position: 0 -16px;}
+.icons16-arrow-right-red { background-position: 0 -32px;}
+.icons16-arrow-right { background-position: 0 -48px;}
+.icons16-arrow { background-position: 0 -64px;}
+.icons16-checkbox-checked { background-position: 0 -80px;}
+.icons16-checkbox-disabled-checked { background-position: 0 -96px;}
+.icons16-checkbox-disabled { background-position: 0 -112px;}
+.icons16-checkbox { background-position: 0 -128px;}
+.icons16-error-red { background-position: 0 -144px;}
+.icons16-fold { background-position: 0 -160px;}
+.icons16-history-gray { background-position: 0 -176px;}
+.icons16-history-orange { background-position: 0 -192px;}
+.icons16-mail-open-gray { background-position: 0 -208px;}
+.icons16-mail-open { background-position: 0 -224px;}
+.icons16-picture { background-position: 0 -240px;}
+.icons16-radio-checked { background-position: 0 -256px;}
+.icons16-radio-disabled-checked { background-position: 0 -272px;}
+.icons16-radio-disabled { background-position: 0 -288px;}
+.icons16-radio { background-position: 0 -304px;}
+.icons16-recommend-orange { background-position: 0 -320px;}
+.icons16-recommend-resume { background-position: 0 -336px;}
+.icons16-setting-white { background-position: 0 -352px;}
+.icons16-smile-orange { background-position: 0 -368px;}
+.icons16-smile { background-position: 0 -384px;}
+/*icons16*/
+/*icons24*/
+.icons24-announcement { background-position: 0 0px;}
+.icons24-back { background-position: 0 -24px;}
+.icons24-building { background-position: 0 -48px;}
+.icons24-concern { background-position: 0 -72px;}
+.icons24-history { background-position: 0 -96px;}
+.icons24-hr { background-position: 0 -120px;}
+.icons24-job { background-position: 0 -144px;}
+.icons24-lietou { background-position: 0 -168px;}
+.icons24-message { background-position: 0 -192px;}
+.icons24-msg { background-position: 0 -216px;}
+.icons24-notice { background-position: 0 -240px;}
+.icons24-person-add { background-position: 0 -264px;}
+.icons24-person-arr { background-position: 0 -288px;}
+.icons24-person-arrow { background-position: 0 -312px;}
+.icons24-person { background-position: 0 -336px;}
+.icons24-recruit { background-position: 0 -360px;}
+.icons24-resume { background-position: 0 -384px;}
+.icons24-sns { background-position: 0 -408px;}
+/*icons24*/
+/*icons32*/
+.icons32-detail-close { background-position: 0 0px;}
+.icons32-name-card { background-position: 0 -32px;}
+.icons32-next-btn-disabled { background-position: 0 -64px;}
+.icons32-next-btn { background-position: 0 -96px;}
+.icons32-prev-btn-disabled { background-position: 0 -128px;}
+.icons32-prev-btn { background-position: 0 -160px;}
+.icons32-resume { background-position: 0 -192px;}
+.icons32-shield-act { background-position: 0 -224px;}
+.icons32-shield { background-position: 0 -256px;}
+.icons32-star { background-position: 0 -288px;}
+.icons32-starno { background-position: 0 -320px;}
+/*icons32*/
+#im-root {
+  position: fixed;
+  top: 0;
+  right: -290px;
+  bottom: 0;
+  z-index: 210;
+  width: 290px;
+  font-family: 'Microsoft Yahei';
+  background: #fff;
+  -webkit-box-shadow: 0 0 7px #475359;
+          box-shadow: 0 0 7px #475359;
+  -webkit-transition: right 0.4s ease-in-out;
+  transition: right 0.4s ease-in-out;
+  /* icons */
+}
+#im-root .webim-icons16, #im-root .webim-icons24 {
+  display: inline-block;
+  *display: inline;
+  *zoom: 1;
+  vertical-align: middle;
+  background-repeat: no-repeat;
+  overflow: hidden;
+}
+#im-root .webim-icons16 {
+  width: 16px;
+  height: 16px;
+  line-height: 16px;
+  margin-top: -1px;
+  margin-right: .3em;
+  background-image: url(//concat.lietou-static.com/fe-c-pc/v5/images/plugins/im/icons/icons16.fc5cf245.png);
+}
+#im-root .webim-icons24 {
+  width: 24px;
+  height: 24px;
+  line-height: 24px;
+  margin-top: -3px;
+  margin-right: .3em;
+  background-image: url(//concat.lietou-static.com/fe-c-pc/v5/images/plugins/im/icons/icons24.d93a0e81.png);
+}
+#im-root .webim-icons32 {
+  width: 32px;
+  height: 32px;
+  line-height: 32px;
+  background-image: url(//concat.lietou-static.com/fe-c-pc/v5/images/plugins/im/icons/icons32.0bd974bd.png);
+}
+#im-root .side-icon {
+  display: inline-block;
+  *display: inline;
+  *zoom: 1;
+  width: 24px;
+  height: 24px;
+  background: url(//concat.lietou-static.com/fe-c-pc/v5/images/plugins/im/panel-side.3687aa29.png) no-repeat;
+  vertical-align: middle;
+  position: relative;
+}
+#im-root .side-icon-contacts {
+  background-position: 0 0;
+}
+#im-root .side-icon-contacts.active {
+  background-position: 0 -24px;
+}
+#im-root .side-icon-sns {
+  background-position: 0 -48px;
+}
+#im-root .side-icon-sns.active {
+  background-position: 0 -72px;
+}
+#im-root .side-icon-notice {
+  background-position: 0 -96px;
+}
+#im-root .side-icon-notice.active {
+  background-position: 0 -120px;
+}
+#im-root .side-icon-historycontacts {
+  background-position: 0 -48px;
+}
+#im-root .side-icon-historycontacts.active {
+  background-position: 0 -72px;
+}
+#im-root.move-to-show {
+  right: 0;
+}
+#im-root aside {
+  position: absolute;
+  top: 0;
+  width: 44px;
+  height: 100%;
+  text-align: center;
+  background: #007eff;
+  background: -webkit-gradient(linear, left top, left bottom, from(#007eff), to(#2c99fe));
+  background: linear-gradient(to bottom, #007eff, #2c99fe);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff007eff', endColorstr='#ff2c99fe', GradientType=0);
+  min-height: 256px;
+  z-index: 3;
+}
+#im-root aside a {
+  display: block;
+  outline: none;
+}
+#im-root aside a.link-close-panel {
+  padding: 10px 0 11px;
+  border-bottom: 1px solid #0073ea;
+}
+#im-root aside a.link-open-setting {
+  position: absolute;
+  bottom: 0;
+  padding: 12px 0;
+  width: 100%;
+  text-align: center;
+}
+#im-root aside ul li a {
+  color: #fff;
+  line-height: 36px;
+  height: 36px;
+  margin-top: 18px;
+  position: relative;
+}
+#im-root aside ul li a i {
+  margin: 6px 0;
+}
+#im-root aside ul li a span, #im-root aside ul li a:hover i {
+  display: none;
+}
+#im-root aside ul li a:hover span, #im-root aside ul li a i {
+  display: block;
+}
+#im-root aside ul li a .dot {
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  width: 8px;
+  height: 8px;
+  background: #f00;
+  border-radius: 50%;
+}
+#im-root aside ul li a .contactsdot {
+  position: absolute;
+  top: -1px;
+  left: 24px;
+  min-width: 9px;
+  height: 16px;
+  background: #f00;
+  border-radius: 100px;
+  line-height: 15px;
+  padding: 0 4px;
+}
+#im-root .main-content {
+  position: absolute;
+  left: 44px;
+  right: 0;
+  top: 0;
+  bottom: 0;
+}
+#im-root .main-content .list-loading {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-left: -8px;
+  margin-bottom: -8px;
+  width: 16px;
+  height: 16px;
+}
+#im-root .main-content .list-loading em {
+  width: 16px;
+  height: 16px;
+  display: block;
+  background: url(//concat.lietou-static.com/fe-c-pc/v5/images/plugins/im/loading1.4f323667.gif) center 0 no-repeat;
+}
