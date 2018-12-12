@@ -20,3 +20,8 @@ https://blog.csdn.net/itguangit/article/details/78305285
 
 https://blog.csdn.net/u011961421/article/details/79416510 springboot
 https://www.cnblogs.com/shijiaoyun/p/7458341.html spring原理
+https://www.cnblogs.com/ygj0930/p/6543960.html 	nio bio aio
+https://www.cnblogs.com/yyjie/p/7788413.html 	深入理解sql左连接
+https://www.cnblogs.com/xiaoxi/p/6164383.html	springmvc工作原理
+https://www.cnblogs.com/chengxiao/p/6528109.html 谈谈Java中的volatile
+https://www.cnblogs.com/whtydn/p/4965966.html JavaEE面试
