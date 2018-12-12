@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="mybatis.dao.ISalesDaoMapper">
-	<resultMap type="mybatis.pojo.Sales" id="salesResultMap">
+	<resultMap type="mybatis.pojo.Sales" id="cu_salesResultMap">
 		<id property="salesId" column="sales_id"/>
 		<result property="salesName" column="sales_name"/>
 		<result property="phone" column="sales_phone"/>
@@ -13,7 +13,7 @@
 		<result property="reportTo" column="report_to"/>
 		
 		<!-- 定义一对多关联信息（嵌套结果查询） -->
-		<association property="userinfo" resultMap="userResult"/>
+		<association property="userinfo" resultMap="cu_userResult"/>
 		
 		<!-- 集合映射的定义与关联映射定义很相似，除了关键字不同外，还多了两个属性JavaType和ofType
 			property用于指定在Java实体类是保存集合关系的属性名称
@@ -27,17 +27,17 @@
 		<collection property="customers" ofType="mybatis.pojo.Customer">
 			<id property="customerId" column="customer_id"/>
 			<result property="customerName" column="customer_name"/>
-			<result property="isValid" column="is_valid"/>
-			<result property="createdTime" column="created_time"/>
-			<result property="updatedTime" column="updated_time"/>
+			<result property="isValid" column="customer_is_valid"/>
+			<result property="createdTime" column="customer_created_time"/>
+			<result property="updatedTime" column="customer_updated_time"/>
 			<!-- 映射客户与登录用户的关联联系，请注意columnPrefix属性 -->
-			<association property="userInfo" resultMap="userResult" columnPrefix="cu_"/>
+			<association property="userInfo" resultMap="cu_userResult" columnPrefix="cu_"/>
 		</collection>
 			
 		
 	</resultMap>
 	
-	<resultMap type="User" id="userResult">
+	<resultMap type="User" id="cu_userResult">
 		<id property="userId" column="user_id"/>
 		<result property="userPassword" column="user_password"/>
 		<result property="userName" column="user_name"/>
@@ -58,7 +58,7 @@
 		WHERE s.sales_id = #{id}
 	</select> -->
 	
-	<select id="getSalesmanById" resultMap="salesResultMap" parameterType="int">
+	<select id="cu_getSalesmanById" resultMap="salesResultMap" parameterType="int">
 		SELECT
 		sales_id, sales_name, sales_phone, sales_fax, sales_email, salesman.is_valid, salesman.created_time, salesman.updated_time,
 		sys_user.user_id as user_id,
@@ -74,5 +74,27 @@
 		WHERE sales_id=#{id}
 	</select>
 	
+	<select id="getById" parameterType="int" resultMap="cu_salesResultMap">
+		SELECT 
+			s.sales_id, s.sales_name, s.sales_phone, s.sales_fax, s.sales_email,
+			s.is_valid, s.report_to, s.created_time, s.updated_time,
+			su.user_id as user_id, su.user_name, su.user_password, su.nick_name, 
+			su.email as user_email,
+			su.is_valid as user_is_valid,
+			su.created_time as user_created_time,
+			su.updated_time as user_updated_time,
+			c.customer_id, c.customer_name, c.is_valid as customer_is_valid,
+			c.created_time as customer_created_time,
+			c.updated_time as customer_updated_time,
+			cu.user_id as cu_user_id, cu.user_name as cu_user_name, cu.user_password as cu_user_password,
+			cu.nick_name as cu_nick_name, cu.email as cu_user_email, cu.is_valid as cu_user_is_valid,
+			cu.created_time as cu_user_created_time, cu.updated_time as cu_user_updated_time
+		FROM
+			salesman s LEFT OUTER JOIN sys_user su ON s.user_id = su.user_id
+			INNER JOIN customer_sales cs USING(sales_id)
+			LEFT OUTER JOIN customer c USING(customer_id)
+			LEFT OUTER JOIN sys_user cu ON c.user_id = cu.user_id 
+		WHERE s.sales_id = #{id}		
+	</select>
 	
 </mapper>

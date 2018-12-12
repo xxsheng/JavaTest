@@ -1,0 +1,224 @@
+#resume-view .icons32 {
+  vertical-align: top;
+  margin-right: 2px;
+}
+#resume-view .view-wrap {
+  width: 800px;
+}
+#resume-view .wrap .tip {
+  padding: 27px 30px 0px;
+  height: 64px;
+  background: #c2e2f2;
+  color: #2483b3;
+}
+#resume-view .wrap .tip .tip-main {
+  width: 400px;
+  float: left;
+}
+#resume-view .wrap .tip a {
+  font-size: 14px;
+  margin-left: 10px;
+}
+#resume-view .wrap .view-main {
+  border: 1px solid #d9d9d9;
+  border-top: 0 none;
+}
+#resume-view .wrap .view-main .view-content {
+  background: #fff;
+  padding: 30px 50px 15px;
+  border-bottom: 1px dotted #dadada;
+}
+#resume-view .wrap .view-main .view-content .view-area {
+  padding-left: 30px;
+  line-height: 28px;
+  word-break: break-all;
+}
+#resume-view .wrap .view-main .view-content .view-area .skill-tag {
+  float: left;
+  background: #fff;
+  line-height: 28px;
+  padding: 0 10px;
+  border: 1px solid #e6e6e6;
+  margin: 0 10px 10px 0;
+  white-space: nowrap;
+}
+#resume-view .wrap .view-main .view-content .view-table {
+  margin-left: 30px;
+}
+#resume-view .wrap .view-main .view-content .view-table td {
+  line-height: 28px;
+  padding-right: 50px;
+}
+#resume-view .wrap .view-main .view-content .view-table dl {
+  border-top: 1px solid #d9d9d9;
+  margin-bottom: 15px;
+  padding-top: 15px;
+}
+#resume-view .wrap .view-main .view-content .view-table dl.nobd {
+  border: 0 none;
+}
+#resume-view .wrap .view-main .view-content .view-table dt {
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+#resume-view .wrap .view-main .view-content .view-table dd span {
+  float: left;
+  width: 30%;
+  padding-right: 3%;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  display: block;
+  overflow: hidden;
+}
+#resume-view .wrap .view-main .list li {
+  float: left;
+  line-height: 28px;
+  width: 100%;
+}
+#resume-view .wrap .view-main .list li .list-title {
+  width: 70px;
+  word-wrap: break-word;
+  float: left;
+  color: #999999;
+  padding-right: 5px;
+  text-align: right;
+}
+#resume-view .wrap .view-main .list li .list-main {
+  padding-left: 75px;
+}
+#resume-view .wrap .view-main-en .list li .list-title {
+  width: 125px;
+  word-wrap: break-word;
+  float: left;
+  color: #999999;
+  padding-right: 5px;
+  text-align: right;
+}
+#resume-view .wrap .view-main-en .list li .list-main {
+  padding-left: 127px;
+}
+#resume-view .wrap .view-main .resume-title {
+  height: 32px;
+  line-height: 32px;
+  font-family: "Microsoft yahei";
+  font-size: 16px;
+  margin: 0 0 5px 0;
+}
+#resume-view .wrap .view-main .view-card {
+  background: #fafafa;
+  border-bottom: 0 none;
+  font-size: 14px;
+}
+#resume-view .wrap .view-main .view-card .card-main {
+  padding-left: 120px;
+  font-size: 14px;
+}
+#resume-view .wrap .view-main .view-card .card-main h3 {
+  font-size: 22px;
+  line-height: 24px;
+  font-family: "\5FAE\8F6F\96C5\9ED1";
+  margin: 0 0 15px;
+}
+#resume-view .wrap .view-main .view-card .card-main h3 span {
+  font-size: 14px;
+  font-weight: normal;
+  margin-left: 10px;
+  font-family: "\5B8B\4F53";
+}
+#resume-view .wrap .view-main .view-card .card-main .list li {
+  width: 272px;
+  margin-right: 16px;
+  margin-bottom: 10px;
+}
+#resume-view .wrap .view-main-en .view-card .card-main .list li {
+  width: 288px;
+  margin-right: 0;
+}
+#resume-view .wrap .view-main .view-user-info-list {
+  padding-left: 30px;
+}
+#resume-view .wrap .view-main .view-user-info-list li {
+  width: 298px;
+  margin-right: 35px;
+}
+#resume-view .wrap .view-main .view-job-want-list {
+  padding-left: 30px;
+}
+#resume-view .wrap .view-main .view-company {
+  margin-bottom: 10px;
+}
+#resume-view .wrap .view-main .view-company .company-name {
+  padding-left: 10px;
+  background: #e6e6e6;
+  border-left: 3px solid #ff9900;
+  color: #333;
+  font-size: 14px;
+  height: 27px;
+  line-height: 26px;
+  margin: 0 0 10px 0;
+}
+#resume-view .wrap .view-main .view-company .company-name b {
+  margin-right: 20px;
+  color: #333;
+  font-size: 14px;
+  line-height: 26px;
+  font-weight: normal;
+}
+#resume-view .wrap .view-main .view-company .view-company-main {
+  padding-left: 30px;
+}
+#resume-view .wrap .view-main .view-company .job-main {
+  margin-bottom: 10px;
+}
+#resume-view .wrap .view-main .view-company .job-main h4 {
+  background: #e6e6e6;
+  font-size: 12px;
+  padding: 0 10px;
+  line-height: 26px;
+  margin-bottom: 10px;
+}
+#resume-view .wrap .view-main .view-company .job-main h4 b {
+  float: right;
+  font-weight: normal;
+}
+#resume-view .wrap .view-main .view-company .company-name .icon-resume-integrity-approved {
+  cursor: pointer;
+  margin-left: 5px;
+}
+#resume-view .wrap .view-main .view-project-list {
+  padding-left: 30px;
+}
+#resume-view .wrap .view-main .view-project-title {
+  background: #e6e6e6;
+  font-size: 12px;
+  padding: 0 10px;
+  line-height: 26px;
+  margin-bottom: 10px;
+  margin-left: 30px;
+}
+#resume-view .wrap .view-main .view-project-title b {
+  float: right;
+  font-weight: normal;
+}
+#resume-view .bubbles-medium .bubble-content {
+  padding: 10px 0px 10px 10px;
+}
+#resume-view .approved-main {
+  max-width: 580px;
+}
+#resume-view .approved-main li {
+  width: 48px;
+  height: 58px;
+  float: left;
+  margin: 0 10px 8px 0;
+  text-align: center;
+}
+#resume-view .approved-main li img, #resume-view .approved-main li span {
+  display: block;
+  margin: 0 auto;
+  font-size: 12px;
+  font-weight: normal;
+}
+#resume-view .view-content .jobs, #resume-view .view-content .education, #resume-view .view-content .projects {
+  padding-left: 30px;
+}

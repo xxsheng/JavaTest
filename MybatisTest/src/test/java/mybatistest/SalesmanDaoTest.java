@@ -90,5 +90,25 @@ public class SalesmanDaoTest {
 			session.close();
 		}
 	}
+	
+	@Test
+	public void getByIdCollection() {
+		SqlSession session =  sqlSessionFactory.openSession();
+		
+		try {
+			ISalesDaoMapper isdm = session.getMapper(ISalesDaoMapper.class);
+			Sales se = isdm.getById(1);
+			System.out.println(se.getCustomers().get(0).getCreatedTime());
+			System.out.println(se.getCustomers().get(0).getUpdatedTime());
+			System.out.println(se);
+		}catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		} 
+		finally {
+			// TODO: handle finally clause
+			session.close();
+		}
+	}
 }
 

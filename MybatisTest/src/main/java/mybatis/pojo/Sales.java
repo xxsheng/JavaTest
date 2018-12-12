@@ -122,7 +122,10 @@ public class Sales {
 	public String toString() {
 		return "Sales [salesId=" + salesId + ", salesName=" + salesName + ", phone=" + phone + ", fax=" + fax
 				+ ", email=" + email + ", isValid=" + isValid + ", reportTo=" + reportTo + ", createdTime="
-				+ createdTime + ", updatedTime=" + updatedTime + ", userinfo=" + userinfo + "]";
+				+ createdTime + ", updatedTime=" + updatedTime + ", userinfo=" + userinfo + ", customers=" + customers
+				+ "]";
 	}
+
+
 
 }

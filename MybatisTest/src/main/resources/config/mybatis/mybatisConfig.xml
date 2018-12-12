@@ -32,5 +32,6 @@
 		<mapper class="mybatis.dao.ICommunicatorDao"/>
 		<mapper resource="mybatis/mapping/ISalesDao.xml"/>
 		<mapper resource="mybatis/mapping/ISalesMapper.xml"/>
+		<mapper resource="mybatis/mapping/ISalesMapperCustomer.xml"/>
 	</mappers>
 </configuration>
