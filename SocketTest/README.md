@@ -6,3 +6,6 @@ serverSocket.accept();//serverSocket.accept();的这一方法可以说是阻塞�
 如果把监听写进while()循环里便可实现不断的监听.
 
 1 https://blog.csdn.net/acmman/article/details/80039159 netty入门
+https://blog.csdn.net/acmman/article/details/80039201 nio
+https://www.cnblogs.com/xiaoxi/p/6576588.html io nio的区别
+https://www.cnblogs.com/xiaoxi/p/6576588.html 选择器
