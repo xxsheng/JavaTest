@@ -8,11 +8,14 @@
 
 多线程 sync锁线程对象
 死锁的解决方案
-静态类 和普通类的区别
+https://blog.csdn.net/m0_38126177/article/details/78587845
+我们可以使用ReentrantLock.tryLock()方法，在一个循环中，如果tryLock()返回失败，那么就释放以及获得的锁，并睡眠一小段时间。这样就打破了死锁的闭环。
+ 因此避免死锁的一个通用的经验法则是:当几个线程都要访问共享资源A、B、C时,保证使每个线程都按照同样的顺序去访问它们,比如都先访问A,在访问B和C。 
+
 
 https://zhidao.baidu.com/question/144956417.html 
 
-https://www.cnblogs.com/mujingyu/p/7856388.html
+https://www.cnblogs.com/mujingyu/p/7856388.html 多线程例子
 
 springmvc获取页面参数
 https://blog.csdn.net/itguangit/article/details/78305285
