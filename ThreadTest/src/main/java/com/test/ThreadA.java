@@ -9,6 +9,8 @@ public class ThreadA {
         synchronized(b) {  
             try {  
                 System.out.println("Waiting for b to complete...");  
+                System.out.println("666");
+                b.notify();
                 b.wait();//这一句是什么意思，究竟谁等待?  
                 System.out.println("ThreadB is Completed. Now back to main thread");  
                 }catch (InterruptedException e){}  
@@ -20,7 +22,13 @@ public class ThreadA {
 class ThreadB extends Thread {  
         int total;  
         public void run() {  
-            synchronized(this) {  
+            synchronized(this) { 
+            	try {
+					this.wait();
+				} catch (InterruptedException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
                 System.out.println("ThreadB is running..");  
                 for (int i=0; i<=1000000; i++ ) {  
                     total += i;  
