@@ -1,7 +1,7 @@
 设计模式
 
-1
-代理模式 https://blog.csdn.net/tanggao1314/column/info/javadesignmodel
+1、代理模式 
+https://blog.csdn.net/tanggao1314/column/info/javadesignmodel
 总结：
  
 静态代理 事先写好代理类 
@@ -15,3 +15,4 @@ jdk动态代理 实现InvocationHandler接口
 spring cglib代理 实现MethodInterceptor接口
 优点：spring动态代理，无需有共同的接口，局限性较小，只需将目标类作为父类就可以进行代理。
 
+静态类 和普通类的区别
