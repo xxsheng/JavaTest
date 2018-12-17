@@ -9,6 +9,12 @@ import java.nio.channels.ServerSocketChannel;
 import java.nio.channels.SocketChannel;
 import java.util.Iterator;
 
+/**
+ * 
+ * https://blog.csdn.net/acmman/article/details/80039201
+ * @author xxq_1
+ *
+ */
 public class New_IO_Server {
 
 	//通信通道
