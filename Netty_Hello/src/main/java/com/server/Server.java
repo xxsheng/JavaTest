@@ -19,6 +19,7 @@ public class Server {
 		 * ServerBootstrap 是一个启动NIO服务的辅助启动类
 		 * 你可以在这个服务中直接使用Channel
 		 * */
+		
 		ServerBootstrap bootstrap = new ServerBootstrap();
 		
 		//2、创建俩个线程池
