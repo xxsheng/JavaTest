@@ -70,8 +70,8 @@ public class HelloHandler extends SimpleChannelHandler {
 		System.out.println(e.getMessage());;
 		
 		//回写数据（需要用ChannelBuffer包装回复的字节流信息）
-		ChannelBuffer channelBuff = ChannelBuffers.copiedBuffer("hi".getBytes());
-		ctx.getChannel().write(channelBuff);
+		//ChannelBuffer channelBuff = ChannelBuffers.copiedBuffer("hi".getBytes());
+		//ctx.getChannel().write(channelBuff);
 		super.messageReceived(ctx, e);
 	}
 }
