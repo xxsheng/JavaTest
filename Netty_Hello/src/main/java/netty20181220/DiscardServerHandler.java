@@ -1,6 +1,7 @@
 package netty20181220;
 
 import io.netty.buffer.ByteBuf;
+import io.netty.channel.ChannelHandlerAdapter;
 import io.netty.channel.ChannelHandlerAppender;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.util.CharsetUtil;
@@ -23,7 +24,7 @@ public class DiscardServerHandler extends ChannelHandlerAppender {
 	public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) throws Exception {
 		// TODO Auto-generated method stub
 		cause.printStackTrace();
-		super.exceptionCaught(ctx, cause);
+		ctx.close();
 	}
 
 	/* (non-Javadoc)
@@ -35,15 +36,15 @@ public class DiscardServerHandler extends ChannelHandlerAppender {
 	public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
 		// TODO Auto-generated method stub
 		try {
+			System.out.println("接收到的信息-----");
 			ByteBuf in = (ByteBuf) msg;
 			//打印客户端输入，传输过来的字符
 			System.out.println(in.toString(CharsetUtil.UTF_8));
-
 		} finally {
 			// TODO: handle finally clause
 			ReferenceCountUtil.release(msg);
 		}
-			super.channelRead(ctx, msg);
+			
 	}
 
 	
