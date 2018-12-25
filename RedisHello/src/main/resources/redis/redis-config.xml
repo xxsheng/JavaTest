@@ -101,7 +101,16 @@
 			ref="sentinelConfiguration" />
 	</bean> -->
 
+	<!-- redis单节点配置 -->
+	<bean id="jedisConnectionFactory" class="org.springframework.data.redis.connection.jedis.JedisConnectionFactory">
+		<property name="hostName" value="${redis.host}"/>
+		<property name="port" value="${redis.port}"/>
+		<property name="password" value="${redis.password}"/>
+		<property name="poolConfig" ref="jedisPoolConfig"/>
+	</bean>
 
-
-
+	<!-- redisTemplate配置，redisTemplate是对redis的扩展，有更多的操作，封装使操作更便捷 -->
+	<bean id="redisTemplate" class="org.springframework.data.redis.core.StringRedisTemplate">
+		<property name="connectionFactory" ref="jedisConnectionFactory"/>
+	</bean>
 </beans>
