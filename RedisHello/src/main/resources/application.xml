@@ -19,6 +19,7 @@
 	</bean>
 	
 	<!-- 配置数据源 -->
+	<!-- 非连接池 -->
 	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 		<!-- 使用properties配置 -->
 		<property name="driverClassName">
