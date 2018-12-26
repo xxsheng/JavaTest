@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+	<!-- 引入jdbc配置文件 -->
+	<bean id="propertyConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="locations">
+			<list>
+				<value>classpath:properties/jdbc.properties</value>
+				<value>classpath:redis/redis.properties</value>
+				<!-- 有多个配置文件，只需在这里继续添加即可 -->
+			</list>
+		</property>
+	</bean>
+	
+	<!-- 配置数据源 -->
+	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<!-- 使用properties配置 -->
+		<property name="driverClassName">
+			<value>${jdbc_driverClassName}</value>
+		</property>
+		<property name="url">
+			<value>${jdbc_url}</value>
+		</property>
+		<property name="username">
+			<value>${jdbc_username}</value>
+		</property>
+		<property name="password">
+			<value>${jdbc_password}</value>
+		</property>
+	</bean>
+	
+	<!-- 自动扫描了所有的xxMapper.xml对应的mapper.xml接口文件 -->
+	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+		<property name="basePackage" value="com.xxq.springmvc.dao"/>
+	</bean>
+	 
+	 <!-- 配置mybatis文件,mapperLocations配置**Mapper.xml文件位置，configLocation配置mybatis-config文件位置 --> 
+	<bean id="sqlSessionFactoy" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="dataSource"/>
+		<property name="mapperLocations" value="classpath*:com/xxq/springmvc/mapper/**/*.xml"/>
+		<property name="configLocation" value="classpath:mybatis/mybatis-config.xml"/>
+	</bean>
+	
+	<!-- redis相关注入 -->
+	<bean id="redisDao" class="com.xxq.springmvc.dao.daoImpl.RedisDaoImpl"/>
+	<import resource="redis/redis-config.xml"/>
+	
+	<!-- 自动扫描注解的bean -->
+	<context:component-scan base-package="com.xxq.springmvc.service"/>
+</beans>

@@ -12,3 +12,6 @@ https://blog.csdn.net/Mars13889146832/article/details/79534981
 2、springmvc源码解析
 https://www.cnblogs.com/yangzhilong/p/3725849.html
 https://blog.csdn.net/abc997995674/article/details/80511545
+
+3、mysql和redis结合方案
+https://www.cnblogs.com/daydaynobug/p/6649960.html
