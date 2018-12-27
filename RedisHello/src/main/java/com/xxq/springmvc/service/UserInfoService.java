@@ -35,4 +35,27 @@ public interface UserInfoService {
 	 * @return
 	 */
 	public String getValueByRedisKey(String key);
+	
+	/**
+	 * 通过redis存入key和value 
+	 * @param key
+	 * @param value
+	 * @return
+	 */
+	public long setnx(String key, String value);
+	
+	/**
+	 * 存入redis对象key-value
+	 * @param key
+	 * @param value
+	 * @return
+	 */
+	public String setByteKeyValueByRedis(byte[] key, byte[] value);
+	
+	/**
+	 * 通过key取得byte数组value
+	 * @param key
+	 * @return
+	 */
+	public byte[] getByteValueByRedis(byte[] key);
 }

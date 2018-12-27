@@ -19,4 +19,27 @@ public interface RedisDao {
 	 * @return value
 	 */
 	String get(String key);
+	
+	/**
+	 * 通过redis存入键值对
+	 * @param key
+	 * @param value
+	 * @return
+	 */
+	long setnx(String key, String value);
+	
+	/**
+	 * 存入byte数组键值对
+	 * @param key
+	 * @param value
+	 * @return
+	 */
+	String setKeyValue(byte[] key, byte[] value);
+	
+	/**
+	 * 通过key取得redis中的value
+	 * @param key
+	 * @return
+	 */
+	byte[] getByteValue(byte[] key);
 }

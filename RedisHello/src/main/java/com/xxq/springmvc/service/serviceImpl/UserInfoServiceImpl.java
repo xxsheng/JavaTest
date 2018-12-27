@@ -27,31 +27,46 @@ public class UserInfoServiceImpl implements UserInfoService {
 	@Resource
 	RedisDao redisDao;
 	
-	/* (non-Javadoc)
-	 * @see com.xxq.springmvc.service.UserInfoService#getUserInfos()
-	 */
+	
 	@Override
 	public List<UserInfo> getUserInfos() {
 		// TODO Auto-generated method stub
 		return userInfoDao.getUserInfos();
 	}
 
-	/* (non-Javadoc)
-	 * @see com.xxq.springmvc.service.UserInfoService#getUserInfoById(int)
-	 */
+	
 	@Override
 	public UserInfo getUserInfoById(int id) {
 		// TODO Auto-generated method stub
 		return userInfoDao.getUserInfoById(id);
 	}
 
-	/* (non-Javadoc)
-	 * @see com.xxq.springmvc.service.UserInfoService#getValueByRedisKey(java.lang.String)
-	 */
+
 	@Override
 	public String getValueByRedisKey(String key) {
 		// TODO Auto-generated method stub
 		return redisDao.get(key);
+	}
+
+	@Override
+	public long setnx(String key, String value) {
+		// TODO Auto-generated method stub
+		
+		return redisDao.setnx(key, value);
+	}
+
+	@Override
+	public String setByteKeyValueByRedis(byte[] key, byte[] value) {
+		// TODO Auto-generated method stub
+		
+		return redisDao.setKeyValue(key, value);
+	}
+
+
+	@Override
+	public byte[] getByteValueByRedis(byte[] key) {
+		// TODO Auto-generated method stub
+		return redisDao.getByteValue(key);
 	}
 
 }

@@ -12,6 +12,6 @@
 姓名：${user.name}<br>
 年龄：${user.age }<br>
 性别：${user.sex ==0 ? "女":"男" }<br>
-地址：${user.add }<br>
+地址：${user.address }<br>
 </body>
 </html>

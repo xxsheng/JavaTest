@@ -3,12 +3,19 @@
  */
 package com.xxq.springmvc.model;
 
+import java.io.Serializable;
+
 /**
  * @author xxq_1
  *
  */
-public class UserInfo {
+public class UserInfo implements Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 6613761564873892162L;
+	
 	private int id;
 	private String name;
 	private int age;
