@@ -33,6 +33,10 @@ https://mp.weixin.qq.com/s/ZJQJRDpWw2KvS6vJZf_PyQ
 mysql需要掌握的技术
 https://mp.weixin.qq.com/s/F4GwkemXWoZQyEimdJYflQ
 
+1，待学习点 了解redis原理
+2，redis怎么做缓存
+3，redis怎么做队列
+
 
 java高级开发
 
