@@ -53,7 +53,8 @@ public class UserInfoTest extends SpringTestCase {
 		UserInfo userInfo = userInfoService.getUserInfoById(1);
 		
 		byte [] userInfobytes = SerializeUtil.seriaJlize(userInfo);
-		String result = userInfoService.setByteKeyValueByRedis("user1".getBytes(), userInfobytes);
+		System.out.println(userInfobytes.length);
+		String result = userInfoService.setByteKeyValueByRedis("user".getBytes(), userInfobytes);
 		
 		System.out.println(result);
 		logger.debug(result.equals("OK") ? "插入成功":"插入失败");
@@ -62,8 +63,17 @@ public class UserInfoTest extends SpringTestCase {
 	@Test
 	public void getByteValueByRedis() {
 		byte [] userInfoByte = userInfoService.getByteValueByRedis("user".getBytes());
-		
+		System.out.println(userInfoByte.length);
 		UserInfo userInfo = (UserInfo) SerializeUtil.deserialize(userInfoByte);
 		System.out.println(userInfo.toString());
+	}
+	
+	@Test
+	public void seyByteKeyValueByRedisTest() {
+		
+		String result = userInfoService.setByteKeyValueByRedis("xiaxiuqiang".getBytes(), "xiaxiansheng".getBytes());
+		
+		System.out.println(result);
+		logger.debug(result.equals("OK") ? "插入成功":"插入失败");
 	}
 }
