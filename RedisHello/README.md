@@ -76,3 +76,9 @@ Java底层
 其实准备的底层代码未必要多，而且也不限于在哪个方面，比如集合里基于红黑树的TreeSet，基于NIO的开源框架，甚至分布式组件的Dubbo，都可以准备。而且准备时未必要背出所有的底层（事实上很难做到），你只要能结合一些重要的类和方法，讲清楚思路即可（比如讲清楚HashMap如何通过hashCode快速定位）。
 
 Treeset hashset
+
+解答 hashmap
+https://blog.csdn.net/wangxin1982314/article/details/51225566
+采用数组加链表结构
+能够在快速查找的同时，快速增加和删除 兼用arraylist和linkedlist
+采用key的hashcode比对内部类entry的size的余数进行存取。如果即将到达满，扩容长度的俩倍
