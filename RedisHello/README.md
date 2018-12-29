@@ -35,6 +35,7 @@ https://mp.weixin.qq.com/s/F4GwkemXWoZQyEimdJYflQ
 
 1，待学习点 了解redis原理
 2，redis怎么做缓存
+https://blog.csdn.net/liuxiao723846/article/details/52424802
 3，redis怎么做队列
 
 
