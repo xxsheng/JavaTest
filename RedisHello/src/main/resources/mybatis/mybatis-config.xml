@@ -1,5 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
-
+	<!-- 全局配置文件 -->
+	<settings>
+		<setting name="logImpl" value="STDOUT_LOGGING"/>
+		<setting name="mapUnderscoreToCamelCase" value="true"/>
+		<!-- 全局映射器启动缓存， -->
+		<setting name="cacheEnabled" value="true"/>
+		<!-- mybatis延迟加载关闭 提高性能 -->
+		<setting name="lazyLoadingEnabled" value="false"/>
+		<!-- 提高性能 -->
+		<setting name="aggressiveLazyLoading" value="true"/>
+	</settings>
+	
+	
 </configuration>

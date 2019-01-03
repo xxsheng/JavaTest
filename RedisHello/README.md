@@ -45,6 +45,9 @@ java高级开发
 ⚪虚拟机内存优化 
 ⚪数据库性能调优 
 ⚪分布式高并发架构 
+	分布式事务
+	不做事务，延后校对
+	用消息中间件
 ⚪一些热门组件，比如redis,nginx等 
 ⚪大数据方向的用法 
 ⚪java core（比如集合或多线程）方面的底层实现代码 
@@ -84,3 +87,6 @@ https://blog.csdn.net/wangxin1982314/article/details/51225566
 采用数组加链表结构
 能够在快速查找的同时，快速增加和删除 兼用arraylist和linkedlist
 采用key的hashcode比对内部类entry的size的余数进行存取。如果即将到达满，扩容长度的俩倍
+
+几种数据库对比
+http://www.mamicode.com/info-detail-1242126.html
