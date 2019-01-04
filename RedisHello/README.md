@@ -37,6 +37,8 @@ https://mp.weixin.qq.com/s/F4GwkemXWoZQyEimdJYflQ
 2，redis怎么做缓存
 https://blog.csdn.net/liuxiao723846/article/details/52424802
 https://www.cnblogs.com/fuchuanzhipan1209/p/7204756.html
+https://www.cnblogs.com/fqwsndc1314-5207788/p/7594924.html
+https://www.cnblogs.com/springlight/p/6374372.html
 3，redis怎么做队列
 
 
@@ -90,3 +92,8 @@ https://blog.csdn.net/wangxin1982314/article/details/51225566
 
 几种数据库对比
 http://www.mamicode.com/info-detail-1242126.html
+
+git 
+https://blog.csdn.net/u011534057/article/details/77505770
+https://www.cnblogs.com/wangmingshun/p/5425150.html
+https://www.cnblogs.com/mengdd/p/3585038.html

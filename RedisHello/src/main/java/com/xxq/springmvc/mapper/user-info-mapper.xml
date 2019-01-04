@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.xxq.springmvc.dao.UserInfoDao">
-
+	
+	<!-- 缓存设置 -->
+	<cache eviction="LRU"/>
+	
 	<!-- 设置domain类和数据库中表的字段一致 -->
 	<resultMap type="com.xxq.springmvc.model.UserInfo" id="BaseResultMap">
 		<id column="id" property="id" jdbcType="INTEGER"/>
@@ -10,6 +13,11 @@
 		<result column="sex" property="sex" jdbcType="INTEGER"/>
 		<result column="address" property="address" jdbcType="VARCHAR"/>
 	</resultMap>
+	
+	<!-- 列名 -->
+	<sql id="columns">
+		name, age, sex, address
+	</sql>
 	
 	<!-- 查询单条记录 -->
 	<select id="getUserInfoById" resultMap="BaseResultMap" parameterType="int">
@@ -21,4 +29,14 @@
 	<select id="getUserInfos" resultMap="BaseResultMap" >
 		SELECT * FROM userinfo
 	</select>
+	
+	<!-- 插入多条记录 -->
+	<insert id="addUserInofo">
+		INSERT INTO userinfo
+		(<include refid="columns"/>)
+		VALUES
+		<foreach collection="list" separator="," item="userInfo">
+		(#{userInfo.name}, #{userInfo.age}, #{userInfo.sex}, #{userInfo.address})
+		</foreach>
+	</insert>
 </mapper>
