@@ -86,6 +86,7 @@ Treeset hashset
 
 解答 hashmap
 https://blog.csdn.net/wangxin1982314/article/details/51225566
+https://blog.csdn.net/vking_wang/article/details/14166593
 采用数组加链表结构
 能够在快速查找的同时，快速增加和删除 兼用arraylist和linkedlist
 采用key的hashcode比对内部类entry的size的余数进行存取。如果即将到达满，扩容长度的俩倍

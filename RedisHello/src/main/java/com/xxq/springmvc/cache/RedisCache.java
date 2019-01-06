@@ -110,6 +110,9 @@ public class RedisCache implements Cache {
 		try {
 			connection = jedisConnectionFactory.getConnection();
 			RedisSerializer<Object> redisSerializer = new JdkSerializationRedisSerializer();
+			System.out.println(key);
+			System.out.println("---------------------");
+			System.out.println(redisSerializer.serialize(key));
 			object = redisSerializer.deserialize(connection.get(redisSerializer.serialize(key)));
 		} catch (Exception e) {
 			// TODO: handle exception

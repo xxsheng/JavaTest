@@ -3,7 +3,7 @@
 <mapper namespace="com.xxq.springmvc.dao.UserInfoDao">
 	
 	<!-- 缓存设置 -->
-	<cache eviction="LRU"/>
+	<cache eviction="LRU" type="com.xxq.springmvc.cache.RedisCache"/>
 	
 	<!-- 设置domain类和数据库中表的字段一致 -->
 	<resultMap type="com.xxq.springmvc.model.UserInfo" id="BaseResultMap">

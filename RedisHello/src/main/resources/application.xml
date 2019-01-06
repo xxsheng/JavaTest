@@ -70,7 +70,7 @@
 	</tx:advice>
 	
 	<aop:config>
-		<aop:advisor advice-ref="txAdvice" pointcut="execution *(* com.xxq.springmvc.service.serviceimpl.*.*(..))"/>
+		<aop:advisor advice-ref="txAdvice" pointcut="execution(* com.xxq.springmvc.service.serviceimpl.*.*(..))"/>
 	</aop:config>
 	
 	<!-- redis相关注入 -->

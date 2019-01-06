@@ -74,9 +74,11 @@
 		<property name="poolConfig" ref="jedisPoolConfig" />
 	</bean>
 
+	<!-- 使用中间类解决RedisCache.jedisConnectionFactory的静态注入，从而使Mybatis实现第三方缓存 -->
 	<bean id="redisCacheTransfer" class="com.xxq.springmvc.cache.RedisCacheTransfer">
-		
+		<property name="jedisConnectionFactory" ref="jedisConnectionFactory"/>
 	</bean>
+	
 	<!-- redisTemplate配置，redisTemplate是对redis的扩展，有更多的操作，封装使操作更便捷 -->
 	<!-- <bean id="redisTemplate" class="org.springframework.data.redis.core.StringRedisTemplate"> 
 		<property name="connectionFactory" ref="jedisConnectionFactory"/> </bean> -->
