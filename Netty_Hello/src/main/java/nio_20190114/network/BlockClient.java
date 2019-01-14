@@ -14,7 +14,7 @@ public class BlockClient {
 		// TODO Auto-generated method stub
 
 		//2.发送一张图片给服务端
-		FileChannel channel = FileChannel.open(Paths.get("D:\\eclipse_workspace\\Netty_Hello\\target\\classes\\nio_20190114\\network\\1.jpg"), StandardOpenOption.READ);
+		FileChannel channel = FileChannel.open(Paths.get("1.jpg"), StandardOpenOption.READ);
 		
 		//1.获取通道
 		SocketChannel socketChannel = SocketChannel.open(new InetSocketAddress("127.0.0.1", 6666));
@@ -28,8 +28,21 @@ public class BlockClient {
 			buf.clear();
 		}
 		
+		//告诉服务器已经写完了
+		socketChannel.shutdownInput();
+		
+		int len = 0;
+		while((len = socketChannel.read(buf)) != -1) {
+			//切换读模式
+			buf.flip();
+			System.out.println(new String(buf.array(),0,len));
+			//切换写模式
+			buf.clear();
+		}
+		
 		socketChannel.close();
 		channel.close();
+		System.out.println("123");
 		
 	}
 

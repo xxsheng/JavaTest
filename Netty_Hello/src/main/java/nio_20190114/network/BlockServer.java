@@ -31,9 +31,16 @@ public class BlockServer {
 			buf.clear();
 		}
 		
+		//告诉客户端已经收到图片
+		buf.put("image is success".getBytes());
+		buf.flip();
+		client.write(buf);
+		buf.clear();
+		
 		serverChannel.close();
 		outChannel.close();
 		client.close();
+		System.out.println("---------");
 	}
 
 }
