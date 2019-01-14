@@ -17,6 +17,8 @@ https://blog.csdn.net/qq_33666373/article/details/78870294
 https://www.cnblogs.com/SUNSHINEC/p/8302540.html
 https://www.cnblogs.com/linjiqin/p/8003838.html
 https://blog.csdn.net/wgwgnihao/article/details/52098805
+5、redis跳跃表解析
+http://blog.jobbole.com/111731/
 
 2、springmvc源码解析
 https://www.cnblogs.com/yangzhilong/p/3725849.html
