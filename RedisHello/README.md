@@ -44,8 +44,10 @@ https://www.cnblogs.com/fuchuanzhipan1209/p/7204756.html
 https://www.cnblogs.com/fqwsndc1314-5207788/p/7594924.html
 https://www.cnblogs.com/springlight/p/6374372.html
 3，redis怎么做队列
-
-
+https://blog.csdn.net/fengsigaoju/article/details/72628414
+4、redis发布订阅
+https://blog.csdn.net/qq_34187522/article/details/85092857
+https://www.cnblogs.com/linjiqin/p/6277537.html
 java高级开发
 
 ⚪虚拟机内存优化 

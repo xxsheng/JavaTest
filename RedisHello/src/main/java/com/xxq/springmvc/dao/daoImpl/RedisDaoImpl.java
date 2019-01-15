@@ -18,7 +18,7 @@ import redis.clients.jedis.JedisPool;
 public class RedisDaoImpl implements RedisDao {
 
 	@Resource
-	JedisPool jedisPool;
+	public JedisPool jedisPool;
 	
 	public Strings getStringsByRedis() {
 		JedisUtil jedisUtil = new JedisUtil(jedisPool);

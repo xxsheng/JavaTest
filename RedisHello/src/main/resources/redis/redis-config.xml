@@ -82,4 +82,49 @@
 	<!-- redisTemplate配置，redisTemplate是对redis的扩展，有更多的操作，封装使操作更便捷 -->
 	<!-- <bean id="redisTemplate" class="org.springframework.data.redis.core.StringRedisTemplate"> 
 		<property name="connectionFactory" ref="jedisConnectionFactory"/> </bean> -->
+		
+	<bean id="redisTemplate" class="org.springframework.data.redis.core.RedisTemplate">
+		<property name="connectionFactory" ref="jedisConnectionFactory"/>
+		<property name="keySerializer">
+			<bean class="org.springframework.data.redis.serializer.StringRedisSerializer"/>
+		</property>
+		
+		<property name="hashKeySerializer">
+			<bean class="org.springframework.data.redis.serializer.StringRedisSerializer"></bean>
+		</property>
+		
+		<property name="valueSerializer">
+			<bean class="org.springframework.data.redis.serializer.JdkSerializationRedisSerializer"/>
+		</property>
+	</bean>
+	
+	<!-- 消息接受类 -->
+	
+	<context:component-scan base-package="com.xxq.springmvc"/>
+	
+	<bean id="redisContainer" class="org.springframework.data.redis.listener.RedisMessageListenerContainer">
+		<property name="connectionFactory" ref="jedisConnectionFactory"/>
+		<property name="taskExecutor">
+			<bean class="org.springframework.scheduling.concurrent.ThreadPoolTaskScheduler">
+				<property name="poolSize" value="2"></property>
+			</bean>
+		</property>
+		<property name="messageListeners">
+			<map>
+				<entry key-ref="redisTestMessageListener">
+					<list>
+						<!-- 普通订阅，订阅具体的频道 -->
+						<bean class="org.springframework.data.redis.listener.ChannelTopic">
+							<constructor-arg value="${redis.test.channel1}"/>
+						</bean>
+						<bean class="org.springframework.data.redis.listener.ChannelTopic">
+							<constructor-arg value="${redis.test.channel2}"/>
+						</bean>
+					</list>
+				</entry>
+			</map>
+		</property>
+	</bean>	
+	
+	<bean id="stringRedisSerializer" class="org.springframework.data.redis.serializer.StringRedisSerializer"></bean>
 </beans>

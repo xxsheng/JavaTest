@@ -14,6 +14,8 @@ import com.xxq.springmvc.model.UserInfo;
 import com.xxq.springmvc.service.UserInfoService;
 import com.xxq.springmvc.util.SerializeUtil;
 
+import redis.clients.jedis.JedisPool;
+
 /**
  * @author Olympus_Pactera
  *
@@ -22,6 +24,10 @@ public class UserInfoTest extends SpringTestCase {
 
 	@Resource
 	UserInfoService userInfoService;
+	
+	
+	@Resource
+	JedisPool jedisPool;
 	
 	@Test
 	public void selectUserByIdTest() {
@@ -80,6 +86,6 @@ public class UserInfoTest extends SpringTestCase {
 	
 	@Test
 	public void setListObjectByRedisTest() {
-		
+		System.out.println(jedisPool);
 	}
 }
