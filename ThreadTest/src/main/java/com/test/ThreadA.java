@@ -16,7 +16,7 @@ public class ThreadA {
                 }catch (InterruptedException e){}  
         }  
         System.out.println("Total is :" + b.total);  
-        }  
+    }  
 }  
    
 class ThreadB extends Thread {  

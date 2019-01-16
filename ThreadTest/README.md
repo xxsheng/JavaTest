@@ -33,3 +33,6 @@ https://www.cnblogs.com/yyjie/p/7788413.html 	深入理解sql左连接
 https://www.cnblogs.com/xiaoxi/p/6164383.html	springmvc工作原理
 https://www.cnblogs.com/chengxiao/p/6528109.html 谈谈Java中的volatile
 https://www.cnblogs.com/whtydn/p/4965966.html JavaEE面试
+
+ThreadLocal
+https://www.iteye.com/topic/103804 详细解析
