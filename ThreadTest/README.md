@@ -36,3 +36,6 @@ https://www.cnblogs.com/whtydn/p/4965966.html JavaEE面试
 
 ThreadLocal
 https://www.iteye.com/topic/103804 详细解析
+线程池解析
+jdk8以前 https://www.cnblogs.com/dolphin0520/p/3932921.html
+jdk8 https://www.cnblogs.com/cjsblog/p/8214921.html
