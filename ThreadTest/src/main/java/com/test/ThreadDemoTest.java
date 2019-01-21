@@ -16,7 +16,7 @@ public class ThreadDemoTest {
 		// TODO Auto-generated method stub
 
 		Acount account = new Acount();
-		
+		System.err.println(account);
 		Card card = new Card("card",account);
 		Paper pp = new Paper("paper", account);
 		

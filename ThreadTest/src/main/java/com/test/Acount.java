@@ -23,6 +23,7 @@ public class Acount {
 	 */
 	public void addAcount(String name, int money) {
 		synchronized (this) {
+			System.out.println(this);
 			count += money;
 			System.out.println(name + "...存入：" + money + "..." + Thread.currentThread().getName());
 			getAcount(name);
@@ -32,7 +33,7 @@ public class Acount {
 
 	public void subAcount(String name, int money) {
 		synchronized (this) {
-			System.out.println(this.getClass().getName());
+			System.out.println(this);
 			// 先判断当前余额是否够取钱金额
 			if (count - money < 0) {
 				System.out.println("余额不足");
