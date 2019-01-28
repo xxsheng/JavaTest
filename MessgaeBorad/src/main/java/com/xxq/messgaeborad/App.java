@@ -1,4 +1,4 @@
-package com.xxq.MessgaeBorad;
+package com.xxq.messgaeborad;
 
 /**
  * Hello world!
