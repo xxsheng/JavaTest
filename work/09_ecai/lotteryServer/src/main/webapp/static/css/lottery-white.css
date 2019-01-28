@@ -1,0 +1,577 @@
+/*彩票投注*/
+.container{text-align: center;}
+.content-lottery{display: inline-block; margin-top: 1%; width: 1280px;text-align: left;}
+@media (max-width: 1390px){
+.content-lottery{width: 1080px;}
+}
+.betting{width: 100%;}
+.betting_title{ height:50px; background-color:#9ea3a9; overflow:hidden; padding:0 20px;border-left: solid 1px #585e64;}
+.betting_title .bet_1{ float:left; font-size:14px; color:#fff; line-height:50px;}
+
+.betting_title .bet_1 span{ display:inline-block; }
+.betting_title .bet_1 .no-tag{ margin-left: 10px; }
+
+.betting_title .bet_2{ float:left; width:auto; height:32px; margin:9px 0 0 10px; line-height:32px; background-color:#62686e; color:#fff; text-align:center; border-radius:25px;padding: 0 14px;}
+.betting_title .bet_2 i{ font-style:normal; margin-right:6px;color: #fff;}
+.betting_title .bet_2 span{font-weight: 600;font-size: 14px;}
+.betting_title .bet_3{ float:right; margin-top:8px;}
+.betting_title .bet_3 a{ display:inline-block; color:#bec1c4; font-size:12px; padding:8px 14px; margin-left:6px; border:solid 1px #62686f; border-radius:2px;}
+.betting_title .bet_3 a:hover{color: #fff;;}
+.betting_left .lottery{width: 100px;height: 42px;;display: inline-block;margin-left: 6px;transition: 0.3s;display: none;}
+.betting_left .lottery:hover .lottery_xl{display:block!important;}
+.betting_left .lottery .bt-text{font-size: 12px;color: #fff;width: 100px;height: 34px;line-height: 34px;background: rgba(243, 15, 50, 0.75);display: inline-block;text-align: center;border-radius: 2px;transition: 0.3s;}
+.betting_left .lottery .bt-text:hover{background: #f30d31;}
+.betting_left .s_his{display: none;}
+.betting_left .s_his a{color: #fff;}
+.betting_left .s_his .bt-text{font-size: 12px;color: #fff;width: 100px;height: 34px;line-height: 34px;background: rgba(243, 15, 50, 0.75);display: inline-block;text-align: center;border-radius: 2px;transition: 0.3s;}
+.betting_left .s_his .bt-text:hover{background: #f30d31;}
+.betting_left .lottery_xl{width: 280px;height: 300px;background-color:#fff;border-radius: 4px;position: absolute;top: 50px;z-index: 10000;right: 10px;box-shadow: 0 4px 10px 0 rgba(0,0,0,.1);}
+.betting_left .lottery_xl .lottery-jg .jt-top{ width: 0;height: 0;border-bottom: 5px solid #ffffff;border-right: 5px solid transparent;border-left: 5px solid transparent;position: absolute;top: -5px;right: 55px;}
+
+.lottery .lottery_xl .lottery-jg{padding: 10px 6px 10px 14px;height: auto;position: relative;font-size: 12px;color: #777d83;}
+.lottery .lottery_xl .lottery-jg .history-codes{height: 280px;overflow: hidden;}
+.lottery .lottery_xl .lottery-jg ul li{border-bottom: 1px dashed #e9e9e9;margin-right: 10px;}
+
+/*5球*/
+.lottery .lottery_xl .lottery-jg .date{display: inline-block;padding-left: 10px;width: 100px;}
+.lottery  .lottery_xl .lottery-jg .nub{padding:12px 0;display: inline-block;text-align: center;width: 120px}
+.lottery  .lottery_xl .lottery-jg .nub span{margin:0 3px; color: #db4848;}
+
+
+/*10-20球*/
+.lottery  .lottery_xl .lottery-jg .date10{display: inline-block;padding-left: 10px;width: 100px;}
+.lottery  .lottery_xl .lottery-jg .nub10{padding:12px 0;display: inline-block;text-align: center;width: 130px;word-break:break-all;vertical-align: middle;}
+.lottery  .lottery_xl .lottery-jg .nub10 span{margin:4px; color: #db4848;height: 22px;}
+
+
+
+.prize .prize_tt{ width:100%;  height:2px; background-color:#fff; position:relative;}
+.prize .prize_tt span{width:0%;  height:2px; background-color:#70cb6b; position:absolute; left:0; top:0;}
+.prize .prize_box{width: 500px; background-size: 100%; background-repeat: initial; float: left; text-align: left;}
+.prize .prize_box ul li{ text-align:center;}
+/*.prize .prize_box ul li:nth-child(n+2){display: none;}*/
+.prize .prize_box  .prize_1{     font-size: 14px; color: #39393e; padding-top: 15px; display: inline-block; text-align: right; padding-right: 10px; vertical-align: middle;}
+.prize .prize_box .prize_1 span{ color:#db4848;}
+.prize .prize_box .prize_2{ margin-top: 15px; display: inline-block; vertical-align: middle;margin-left: 25px;}
+.prize .prize_box .prize_2.bjkl8{width: 101%;}
+.prize .prize_box  .prize_2 span{ display: inline-block;
+    background: -webkit-linear-gradient(top,#e76262,#7a2323);
+    background: -o-linear-gradient(top,#e76262,#7a2323);
+    background: -moz-linear-gradient(top,#e76262,#7a2323);
+    background: -ms-linear-gradient(top,#e76262,#7a2323);
+    background: linear-gradient(top,#e76262,#7a2323);
+    border-radius: 100%;
+    border: 1px solid #fff;
+    width: 48px;
+    height: 48px;
+    color: #fff;
+    font-size: 24px;
+    line-height: 48px;
+    text-align: center;
+    margin-right: 6px;}
+.prize .prize_box  .bjpk10{width: 330px;margin-left:15px;}
+.prize .prize_box  .prize_2 span.bjpk10{font-size:18px!important; margin-right:10px!important;width: 30px; height: 30px;line-height: 30px;}
+.prize .prize_box  .xyft{width: 330px;margin-left:15px;}
+.prize .prize_box  .prize_2 span.xyft{font-size:18px!important; margin-right:10px!important;width: 30px; height: 30px;line-height: 30px;}
+.prize .prize_box  .xyffc{width: 330px;margin-left:15px;}
+.prize .prize_box  .prize_2 span.xyffc{font-size:18px!important; margin-right:10px!important;width: 30px; height: 30px;line-height: 30px;}
+.prize .prize_box  .jssm{width: 330px;margin-left:15px;}
+.prize .prize_box  .prize_2 span.jssm{font-size:18px!important; margin-right:10px!important;width: 30px; height: 30px;line-height: 30px;}
+.prize .prize_box  .prize_2.bjkl8 span.bjkl8{font-size:16px!important; margin-right:13px!important;width: 28px; height: 28px;line-height: 28px;}
+.prize .prize_box  .prize_2 span:last-child{ margin-right:0;}
+.prize .pr_l{ background:url(../images/index/prize_pive.png) no-repeat; width:30px; height:60px; position:absolute; left:20px; top:20px; cursor:pointer;}
+.prize .pr_r{ background:url(../images/index/prize_pive.png) no-repeat -30px 0; width:30px; height:60px; position:absolute; right:20px; top:20px; cursor:pointer;}
+.pick_box .pick_tab{ background-color:#fff; height:46px;border-bottom: 1px solid #ebebeb;}
+.pick_box .pick_tab span{ display:inline-block; width:auto; padding:0 20px;height:44px; line-height:44px; text-align:center; font-size:13px; color:#777d83; cursor:pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;}
+@media (max-width: 1570px){.pick_box .pick_tab_ssc span{padding: 0 13px!important;}.pick_box .pick_tab_ssc span:hover{padding: 0 13px!important;}.pick_box .pick_tab_ssc span.cur{ padding:0 13px!important;}}
+@media (max-width: 1390px){.pick_box .pick_tab_ssc span{padding: 0 20px!important;}.pick_box .pick_tab_ssc span:hover{padding: 0 20px!important;}.pick_box .pick_tab_ssc span.cur{padding: 0 20px!important;}}
+@media (max-width: 1330px){.pick_box .pick_tab_ssc span{padding: 0 13px!important;}.pick_box .pick_tab_ssc span:hover{padding: 0 13px!important;}.pick_box .pick_tab_ssc span.cur{padding: 0 13px!important;}.pick_box .pick_tab_ssc span{font-size: 12px;}}
+.pick_box .pick_tab span.cur{ background:#f0f2f5; width:auto; padding:0 20px;height:44px; border-top:solid 2px #f20f3c; color:#f20f3c;}
+.pick_box .pick_tab span:hover{width:auto; height:44px;color:#f20f3c;padding:0 20px;border-top:solid 2px #f20f3c;}
+.pick_box .pick_cen .elec{ border-bottom:solid 1px #e8e8e8; padding:12px 20px 7px 20px; background-color:#fff;position: relative;}
+/*.pick_box .pick_cen .elec .elec_l{ float:left;}*/
+.pick_box .pick_cen .elec .elec_l dl{margin: 4px 0;overflow:hidden;}
+.pick_box .pick_cen .elec .elec_l dl dt{ font-size:12px; color:#777d83; float:left;  margin-top:10px;margin-right: 15px;}
+.pick_box .pick_cen .elec .elec_l dl dd{ float:left;}
+
+
+@media (max-width: 1560px){.pick_box .pick_cen .elec .elec_l dl dd{width: 500px;}}
+
+
+.pick_box .pick_cen .elec .elec_l dl dd span{ display:inline-block; cursor:pointer; margin:3px 15px 3px 0; width:auto; height:28px; font-size:12px; color:#9ea3a9; text-align:center; line-height:28px;padding: 0 10px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;}
+.pick_box .pick_cen .elec .elec_l dl dd span.cur{ border:solid 1px #f20f3c; color:#f20f3c; border-radius:3px;}
+.pick_box .pick_cen .elec .elec_l dl dd span:hover{color:#f20f3c;}
+.pick_box .pick_cen .elec .elec_r{ right: 20px;bottom: 15px;position: absolute;z-index: 999}
+.pick_box .pick_cen .elec .elec_r .prize{ font-size:12px; color:#777d83;}
+.pick_box .pick_cen .elec .elec_r i{ font-size:12px; color:#f20f3c; font-style:normal;}
+.pick_box .pick_cen .elec .elec_r .banner-btn{display:inline-block; margin-left:12px; width:69px; height:34px; line-height:34px;}
+.pick_box .pick_cen .elec .elec_r .banner-btn:hover .tips{display: block!important;}
+.pick_box .pick_cen .elec .elec_r .tips{
+    min-width: 400px;
+    max-width: 500px;
+    font-size: 12px;
+    position: absolute;
+    border: 1px solid #efefef;
+    background-color: #FFFFff;
+    padding: 10px 15px;
+    line-height: 24px;
+    box-shadow: 0 4px 10px 0 rgba(0,0,0,.1);
+    right: 0px;
+    top:44px;
+    display: none;
+    color: #777d83;
+    text-align: left;
+}
+.pick_box .pick_cen .elec .elec_r .tips .tip-arrow{
+    background:url(../images/arrow-top-white.png) no-repeat;
+    position: absolute;
+    width: 29px;
+    height: 14px;
+    background-size: 44%;
+    top: -6px;
+    right: 13px;
+}
+
+
+.pick_box .pick_cen .betting-area{}
+
+/*任选checkbox*/
+.pick_box .pick_cen .betting-area .betting-checkbox{padding: 10px 0 5px 65px;height: 30px; line-height: 30px;background: #FFFFff;border-bottom: solid 1px #e8e8e8;}
+.pick_box .pick_cen .betting-area .betting-checkbox .places{}
+.pick_box .pick_cen .betting-area .betting-checkbox dl dt {float: left;color: #333333;font-size: 14px;padding-left: 25px;}
+.pick_box .pick_cen .betting-area .betting-checkbox dl dd {float: left;padding-left: 20px;position: relative;}
+.pick_box .pick_cen .betting-area .betting-checkbox dl dd label{margin-left: 10px;vertical-align: -2px;color: #9ea3a9;}
+
+/*选择类*/
+.pick_box .pick_cen .betting-area .betting-select{ background-color:#fff;}
+.pick_box .pick_cen .betting-area .betting-select li{height: 66px;clear: left;}
+.pick_box .pick_cen .betting-area .betting-select:nth-child(odd)  li{background: #f0f2f5;}
+
+.pick_box .pick_cen .betting-area .betting-select dl dt{float: left;color: #808090;font-size: 14px;line-height: 65px;padding-left: 25px;}
+.pick_box .pick_cen .betting-area .betting-select dl dd{float: left;line-height: 66px;padding-left: 10px; position:relative;}
+.pick_box .pick_cen.pick_cen_ssc .betting-area .betting-select dl dd{padding-left: 20px;}
+.pick_box .pick_cen.pick_cen_ssc .betting-area .betting-select dl dd.fast-big{padding-left: 35px!important;}
+
+/*选择球类*/
+.pick_box .pick_cen .betting-area .ball{
+    background: -webkit-linear-gradient(top,#9d99be,#696582);
+    background: -o-linear-gradient(top,#9d99be,#696582);
+    background: -moz-linear-gradient(top,#9d99be,#696582);
+    background: -ms-linear-gradient(top,#9d99be,#696582);
+    background: linear-gradient(top,#9d99be,#696582);
+    width: 36px;
+    height: 36px;
+    border-radius: 100%;
+    border: 1px solid #837ea1;
+    cursor: pointer;
+    display: inline-block;
+    color: #fff;
+    font-size: 16px;
+    font-weight: bold;
+    line-height: 36px;
+    text-align: center;
+    margin: 0px 2px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+.pick_box .pick_cen .betting-area .ball.text{width: auto;border-radius: 4px;padding: 0 20px;}
+.pick_box .pick_cen .betting-area .ball:hover{
+       background: -webkit-linear-gradient(top,#9390b4,#5a5670);
+    background: -o-linear-gradient(top,#9390b4,#5a5670);
+    background: -moz-linear-gradient(top,#9390b4,#5a5670);
+    background: -ms-linear-gradient(top,#9390b4,#5a5670);
+    background: linear-gradient(top,#9390b4,#5a5670);
+}
+.pick_box .pick_cen .betting-area .ball.active{
+    color: #FFFFff;
+    border-color: #c93930;
+    background: -webkit-linear-gradient(top,#ff7f7f,#db4848);
+    background: -o-linear-gradient(top,#ff7f7f,#db4848);
+    background: -moz-linear-gradient(top,#ff7f7f,#db4848);
+    background: -ms-linear-gradient(top,#ff7f7f,#db4848);
+    background: linear-gradient(top,#ff7f7f,#db4848);
+}
+
+.pick_box .pick_cen .betting-area .betting-select dl dd em{
+    background: -webkit-linear-gradient(top,#9d99be,#696582);
+    background: -o-linear-gradient(top,#9d99be,#696582);
+    background: -moz-linear-gradient(top,#9d99be,#696582);
+    background: -ms-linear-gradient(top,#9d99be,#696582);
+    background: linear-gradient(top,#9d99be,#696582);
+    border: 1px solid #837ea1;
+    width: 28px;
+    height: 28px;
+    display: inline-block;
+    color: #fff;
+    font-size: 12px;
+    line-height: 28px;
+    text-align: center;
+    margin: 0px 4px;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+     font-style: inherit;
+}
+.pick_box .pick_cen .betting-area .betting-select dl dd em:hover{
+	background: -webkit-linear-gradient(top,#9390b4,#5a5670);
+    background: -o-linear-gradient(top,#9390b4,#5a5670);
+    background: -moz-linear-gradient(top,#9390b4,#5a5670);
+    background: -ms-linear-gradient(top,#9390b4,#5a5670);
+    background: linear-gradient(top,#9390b4,#5a5670);}
+.pick_box .pick_cen .betting-area .betting-select dl dd .fast-btn{display: inline-block;line-height: 0px!important;height: 49px;}
+.pick_box .pick_cen .betting-area .betting-select dl dd .fast-btn span{cursor:pointer;border: 1px solid #e5e5e5;border-radius: 3px;width:86px;height:32px;display: inline-block;color: #666666;font-size: 12px;line-height:30px;text-align: center;margin: 0px 4px;-webkit-user-select: none;-moz-user-select: none;-ms-user-select: none;user-select: none;}
+.pick_box .pick_cen .betting-area .betting-select dl dd .fast-btn span:hover{ border: 1px solid #f20f3c;color: #f20f3c;}
+.pick_box .pick_cen .betting-area .betting-select dl dd .fast-btn span:hover i{color: #f20f3c;}
+.pick_box .pick_cen .betting-area .betting-select dl dd .fast-btn span i{font-size: 12px;margin-left: 5px;}
+.pick_box .pick_cen .betting-area .betting-select dl dd .ks{display: none; position:absolute; right:0; top:60px; width:200px; height:36px; background-color:#fff; line-height:36px; z-index:1000; box-shadow:0px 6px 20px 0px #cdd0d4;padding: 0 10px;border-radius: 3px;border-top:1px solid #f20f3c;}
+.pick_box .pick_cen .betting-area .betting-select dl dd .ks i{ width: 0;height: 0;border-bottom: 5px solid #f20f3c;border-right: 5px solid transparent;border-left: 5px solid transparent;position: absolute;top: -5px;right: 18px;}
+.pick_box .pick_cen .betting-area .betting-select dl dd .ks em{margin: 0 2px;width: 24px!important;}
+.fast-btn:hover .ks{ display: block!important;}
+
+/*快乐8*/
+.many-codes {height: auto!important;}
+.many-codes .choose-pannel{float: none!important;padding-left: 50px!important;padding-right: 10px;}
+
+
+/*和值*/
+.pick_box .pick_cen .betting-area .betting-fieldset{padding: 10px 20px 20px 20px;background: #FFFFff;}
+.pick_box .pick_cen .betting-area .betting-fieldset fieldset{border: solid 1px #e8e8e8;  border-radius: 5px;  padding: 10px 20px 10px 20px;}
+.pick_box .pick_cen .betting-area .betting-fieldset fieldset legend{border: 0;font-size: 14px;color: #333333;line-height: 30px;width: auto;margin: 0 20px;padding: 0 10px;}
+.pick_box .pick_cen .betting-area .betting-fieldset fieldset .ball{margin: 6px 6px!important;}
+
+/*输入框*/
+.pick_box .pick_cen .betting-area .betting-textarea{ overflow:hidden; padding:20px; height:149px; background-color:#fff;}
+.pick_box .pick_cen .betting-area .betting-textarea textarea{ width:100%; height:149px; font-size:12px; border:0; background:none; outline:none;}
+
+
+
+/*.bt-close{ position:absolute; right:20px; top:10px; width:18px; height:18px; cursor:pointer;color: #dee0e1;}*/
+.bt-close{ position:relative; right:0px; top:-156px; float: right; width:18px; height:18px; cursor:pointer;color: #dee0e1;}
+.bt-close:hover{color: #9fa4a7;}
+.pick_box .tations{ padding:14px 20px;border-top:solid 1px #eee; background-color:#fff;margin-top: 2px;}
+.pick_box .tations .tat_1{ display: inline-block;vertical-align: top;margin-top: 10px;}
+.pick_box .tations .tat_1 .sst{ float:left; color:#808090 ; font-size:13px; margin-top:10px; margin-right:5px;}
+.pick_box .tations .tat_1 .ssc{ float:left;transition: 0.3s;}
+
+.pick_box .tations .tat_1 .ssc:hover i{color: #f20f3c;}
+.pick_box .tations .tat_1 .ssc em{ color:#606070;float: left;font-style:normal; width:20px; height:20px;cursor:pointer; text-align:center; line-height:18px;font-size:14px;border-radius: 100%;border: 1px solid #e5e5e5;margin-top: 10px;transition: 0.3s;background: -webkit-linear-gradient(top,#9d99be,#696582);
+    background: -webkit-linear-gradient(top,#f7f7f7,#e4e3e7);
+    background: -o-linear-gradient(top,#f7f7f7,#e4e3e7);
+    background: -moz-linear-gradient(top,#f7f7f7,#e4e3e7);
+    background: -ms-linear-gradient(top,#f7f7f7,#e4e3e7);
+    background: linear-gradient(top,#f7f7f7,#e4e3e7);}
+.pick_box .tations .tat_1 .ssc em:hover{background: -webkit-linear-gradient(top,#f7f7f7,#cfced0); background: -o-linear-gradient(top,#f7f7f7,#cfced0); background: -moz-linear-gradient(top,#f7f7f7,#cfced0); background: -ms-linear-gradient(top,#f7f7f7,#cfced0); background: linear-gradient(top,#f7f7f7,#cfced0);}
+.pick_box .tations .tat_1 .ssc .input-multiple{ float:left; width:60px; height:38px; text-align:center; line-height:38px; color:#9ea3a9; font-size:12px; font-style:normal;background: none;border: none; border:solid 1px #e5e5e5; border-radius:3px; background-color:#fff;margin: 0 8px;    box-shadow: 2px 2px 4px 0px rgba(51, 57, 65, 0.07) inset;}
+.pick_box .tations .tat_1 .ssc:hover .input-multiple{color: #f20f3c;transition: 0.3s;}
+.pick_box .tations .tat_2 .sst{ float:left; color:#9ea3a9 ; font-size:12px; margin-right:2px;line-height: 58px;}
+.pick_box .tations .tat_2 .model_bt{width: 152px;display: inline-block;}
+.pick_box .tations .tat_2 .ssc{ float:left;transition: 0.3s;}
+.pick_box .tations .tat_2{ display: inline-block;height:38px;}
+.pick_box .tations .tat_2 span{    
+	float: left;
+    text-align: center;
+    font-size: 12px;
+    margin: 3px 3px;
+    border-radius: 3px;
+    transition: 0.3s;
+    background: -webkit-linear-gradient(top,#f7f7f7,#e4e3e7);
+    background: -o-linear-gradient(top,#f7f7f7,#e4e3e7);
+    background: -moz-linear-gradient(top,#f7f7f7,#e4e3e7);
+    background: -ms-linear-gradient(top,#f7f7f7,#e4e3e7);
+    background: linear-gradient(top,#f7f7f7,#e4e3e7);
+    width: 30px;
+    height: 24px;
+    color: #606070;
+    line-height: 24px;
+    text-align: center;
+    margin: 2px 1px;
+    display: inline-block;
+    cursor: pointer;
+    border: 1px solid #d9d9d9;}
+.pick_box .tations .tat_2 span:hover{color: #f20f3c; border:1px solid #f20f3c;}
+.pick_box .tations .tat_2 span.cur{background: -webkit-linear-gradient(top,#f96560,#ab3530);
+    background: -o-linear-gradient(top,#f96560,#ab3530);
+    background: -moz-linear-gradient(top,#f96560,#ab3530);
+    background: -ms-linear-gradient(top,#f96560,#ab3530);
+    background: linear-gradient(top,#f96560,#ab3530);
+    color: #FFF;}
+.pick_box .tations .tat_3{ border-radius:3px;display: inline-block; margin-left:10px; border:solid 1px #e5e5e5; height:38px; position:relative;vertical-align: top;margin-top: 10px;}
+.pick_box .tations .tat_3 .yuan{ overflow:hidden;}
+.pick_box .tations .tat_3 .yuan:hover span{color: #f20f3c;}
+.pick_box .tations .tat_3 .tt_box{height: auto;width: auto;padding-top: 10px;right: -10px;}
+.pick_box .tations .tat_3:hover .tt_box{position: absolute;z-index: 100;}
+.pick_box .tations .tat_3:hover .tt_box{display: block!important;}
+.pick_box .tations .tat_3:hover .tt_box .tt{display: block!important;}
+.pick_box .tations .tat_3 .yuan span{ float:left; width:89px; height:38px; border-right:solid 1px #e5e5e5; text-align:center; line-height:38px; font-size:12px; color:#9ea3a9;box-shadow: 2px 2px 4px 0px rgba(51, 57, 65, 0.07) inset;}
+.pick_box .tations .tat_3 .yuan span b{font-weight: normal;}
+.pick_box .tations .tat_3 .yuan i{ float:left; width:28px; height:38px;cursor:pointer;font-size: 12px;text-align: center;line-height: 38px;}
+.pick_box .tations .tat_3 .tt{ display:none; right:-10px; top:50px; width:240px; height:40px; z-index:1000; box-shadow:0px 6px 20px 0px #cdd0d4; background-color:#fff;border-top: 1px solid #f20f3c;border-radius: 4px;}
+.pick_box .tations .tat_3 .tt span{ display:block; width:200px;  height:5px; background-color:#d7d7d7; border-radius:10px; position:relative;}
+.pick_box .tations .tat_3 .tt span .ui-slider-range{ position:absolute; left:0; top:0; width:0%;  height:5px; background-color:#f20f3c; border-radius:10px; }
+.pick_box .tations .tat_3 .tt i{width: 0;height: 0;border-bottom: 5px solid #f20f3c;border-right: 5px solid transparent;border-left: 5px solid transparent;position: absolute;top: 6px;right: 18px;}
+
+.pick_box .tations .tat_3 .tt .progress{width: 200px;margin: 0 auto; margin-top:18px;}
+
+/*历史记录*/
+.pick_box {position: relative; background-color: #fff; border: 1px solid #d9dde1; border-radius: 5px;border-bottom: none;}
+.pick_box .betting_left{margin-right: 300px;}
+.pick_box .betting_right{position: absolute;width: 300px;right: 0px;top: 0px;}
+.pick_box .betting_right .betting-theme{height: 45px;line-height: 45px;border-left: 1px solid #ebebeb;border-bottom: 1px solid #ebebeb;}
+.pick_box .betting_right .betting-theme span{color: #777d83;font-size: 13px;}
+.pick_box .betting_right .betting-theme .pull-left{padding-left: 14px;float: left;}
+.pick_box .betting_right .betting-theme .pull-left i{font-size: 16px;margin-right: 5px;}
+.pick_box .betting_right .betting-theme .pull-right{padding-right: 20px;float: right;color:#777d83}
+.pick_box .betting_right .betting-theme .pull-right a{color:#777d83}
+.pick_box .betting_right .betting-theme .pull-right:hover{color:#fff;}
+.pick_box .betting_right .betting-prize{overflow: hidden;width: 98%;height: 30px;background-color:#fff;border-left: solid 1px #e8e8e8;}
+.pick_box .betting_right .history-list{width: 100%;height: 100%;overflow:hidden;}
+.pick_box .betting_right .history-code{width: 100%;height: 100%;overflow:hidden;}
+.pick_box .betting_right .history-code table{border-collapse: collapse;width: 100%;}
+.pick_box .betting_right .history-code table .history-code-expect{width: 100px;display: inline-block;padding-left: 14px;color: #777d83;text-align: center;}
+.pick_box .betting_right .history-code table tr{width: 100%;border-bottom: 1px dashed #ebebeb;font-size: 12px;padding: 15px 0;}
+
+/*5球*/
+.pick_box .betting_right .history-code table .history-code-5number{width: 130px;display: inline-block;text-align: center;color: #db4848;padding: 15px 0;}
+.pick_box .betting_right .history-code table .history-code-5number span{margin: 0 3px;}
+
+/*10球*/
+.pick_box .betting_right .history-code table .history-code-10number{width: 130px;display: inline-block;text-align: center;color: #db4848;word-wrap: break-word; word-break: normal;padding: 15px 0 15px 0px;}
+.pick_box .betting_right .history-code table .history-code-10number span{margin: 0 3px;}
+
+.adjust-prize>.slider{width:170px;display:inline-block;margin:0 15px 0 2px}
+.adjust-prize .noUi-target{height:2px;border:0;background-color:#f20f3c;border-radius:6px}
+.adjust-prize .noUi-target .noUi-background{background-color:#d7d7d7;border-radius:6px}
+.adjust-prize .noUi-target .noUi-handle{width:14px;height:14px;border-radius:100%;left:-7px;background-color:#fff;border:4px solid #f20f3c;cursor:default;top:-6px}
+
+.pick_box .tations .tat_3 .tt b{ position:absolute; right:16px; top:-7px; background:url(../images/index/jt_1.png) no-repeat; width:12px; height:8px;}
+.pick_box .tations .tat_4{display: inline-block; vertical-align:top; color:#9ea3a9; font-size:12px; line-height:58px;margin-right: 10px;}
+.pick_box .tations .tat_4 span{ color:#f20f3c; font-size:16px; margin:0 2px;}
+.pick_box .tations .tat_5 {float: right;margin-top: 10px;margin-right: 5%}
+.pick_box .tations .tat_5 .button_1{ width:84px; height:42px; font-size:12px; outline:none; 
+	border-radius: 4px;
+    border: 1px solid #d9d9d9;
+    color: #606070;
+    background: -webkit-linear-gradient(top,#f7f7f7,#e4e3e7);
+    background: -o-linear-gradient(top,#f7f7f7,#e4e3e7);
+    background: -moz-linear-gradient(top,#f7f7f7,#e4e3e7);
+    background: -ms-linear-gradient(top,#f7f7f7,#e4e3e7);
+    background: linear-gradient(top,#f7f7f7,#e4e3e7);
+    cursor: pointer;}
+.pick_box .tations .tat_5 .button_1:hover{ background: -webkit-linear-gradient(top,#f7f7f7,#cfced0); background: -o-linear-gradient(top,#f7f7f7,#cfced0); background: -moz-linear-gradient(top,#f7f7f7,#cfced0); background: -ms-linear-gradient(top,#f7f7f7,#cfced0); background: linear-gradient(top,#f7f7f7,#cfced0);}
+.pick_box .tations .tat_5 .button_2{ width:68px; height:42px; font-size:12px; outline:none; margin-left:8px;
+border-radius: 4px;
+    border: 1px solid #d9d9d9;
+    color: #606070;
+    background: -webkit-linear-gradient(top,#f7f7f7,#e4e3e7);
+    background: -o-linear-gradient(top,#f7f7f7,#e4e3e7);
+    background: -moz-linear-gradient(top,#f7f7f7,#e4e3e7);
+    background: -ms-linear-gradient(top,#f7f7f7,#e4e3e7);
+    background: linear-gradient(top,#f7f7f7,#e4e3e7);
+    cursor: pointer;}
+.pick_box .tations .tat_5 .button_2:hover{background: -webkit-linear-gradient(top,#f7f7f7,#cfced0); background: -o-linear-gradient(top,#f7f7f7,#cfced0); background: -moz-linear-gradient(top,#f7f7f7,#cfced0); background: -ms-linear-gradient(top,#f7f7f7,#cfced0); background: linear-gradient(top,#f7f7f7,#cfced0);}
+.pick_box .tations .tat_5 .bt-unavailable{ display:inline-block; width:120px; height:44px; text-align:center; line-height:44px; background-color:#d1d2d4; color:#fff; font-size:13px; border-radius:4px; margin-left:10px; }
+.pick_box .tations .tat_5 .bt-unavailable:hover{background: #bdc1c4;}
+.pick_box .tations .tat_5 .bt-normal{display:inline-block; width:120px; height:44px; text-align:center; line-height:44px;border: 1px solid #f20f3c;color:#f20f3c; font-size:13px; border-radius:4px; margin-left:8px;cursor: pointer;transition: 0.3s;
+    color: #fff;
+    background: -webkit-linear-gradient(top,#f96560,#ab3530);
+    background: -o-linear-gradient(top,#f96560,#ab3530);
+    background: -moz-linear-gradient(top,#f96560,#ab3530);
+    background: -ms-linear-gradient(top,#f96560,#ab3530);
+    background: linear-gradient(top,#f96560,#ab3530);
+    border: 1px solid #c8645f;
+    cursor: pointer;}
+.pick_box .tations .tat_5 .bt-normal:hover{background: -webkit-linear-gradient(top,#f36763,#992c26);
+    background: -o-linear-gradient(top,#f36763,#992c26);
+    background: -moz-linear-gradient(top,#f36763,#992c26);
+    background: -ms-linear-gradient(top,#f36763,#992c26);
+    background: linear-gradient(top,#f36763,#992c26);
+}
+.bet_list{ padding: 20px 0; background-color: #fff; border: 1px solid #d9dde1; border-top: none;}
+.bet_list .bet_tab{ border-bottom:solid 1px #e5e5e5;}
+.bet_list .bet_tab span{ font-size:14px; color:#bec1c4; display:inline-block; margin-left:30px; padding:0 8px; text-align:center; padding-bottom:14px; cursor:pointer;}
+.bet_list .bet_tab span.cur{ color:#777d83; border-bottom:solid 2px #f10735;}
+.bet_list .tab-list{ padding:0 20px; margin-top:20px;}
+.bet_list .tab-list table{width:100%; white-space :nowrap; border-collapse:collapse;table-layout: fixed;}
+
+
+.bet_list .tab-list table thead tr th{ line-height:44px; background-color:#e6e4e8; white-space:nowrap; color:#9ea3a9; text-align:center; font-size:12px; font-weight:normal;}
+.bet_list .tab-list table tbody tr td{ white-space: nowrap; text-align:center; line-height:46px; color:#777d83; font-size:12px;text-overflow: ellipsis; padding: 0 6px;overflow: hidden;}
+.bet_list .tab-list table tbody tr:nth-child(even){ background-color:#e6e4e8;}
+.bet_list .tab-list table tbody tr:nth-child(odd){ background-color:#fff;}
+.bet_list .tab-list table tbody tr td .w{ width:100%; text-align:center; font-size:12px; color:#777d83;}
+.bet_list .tab-list table tbody tr td .w i{ margin-right:6px;font-size: 14px;}
+
+/*彩票右侧*/
+.ticket_dd{ background-color: #fff; border-left: 1px solid #d9dde1; border-right: 1px solid #d9dde1;}
+.ticket_dd .ticket_title{ height:35px; background-color:#fff; overflow:hidden; line-height:35px; padding:0 15px;border-top: 1px solid #ebebeb;}
+.ticket_dd .ticket_title span{ float:left; color:#bec1c4; font-size:14px;}
+.ticket_dd .ticket_title .clear-btn{ float:right; color:#777d83; font-size:12px;cursor: pointer;}
+.ticket_dd .ticket_title .clear-btn i{ vertical-align:middle; margin-right:5px;font-size: 14px;color: #777d83;cursor: pointer;}
+.ticket_dd .ticket_title .clear-btn:hover{color: #f20f3c;}
+.ticket_dd .ticket_title .clear-btn:hover i{color: #f20f3c;}
+.ticket_dd .w_dd{background:#f4f5f7;position: relative;width: 66%;margin-left: 1%; border-radius: 5px;display: inline-block;vertical-align: bottom;}
+.ticket_dd .w_ddd{background:#f4f5f7;position: relative;width: 98%;margin-left: 1%; border-radius: 5px;}
+.ticket_dd .w_dd .w_dd_box{ height:120px; text-align:center; color:#777d83; padding-top:50px;}
+.ticket_dd .w_dd .w_dd_box i{ font-size:28px;color: #777d82;}
+.ticket_dd .w_dd .w_dd_box span{ display:block; font-size:12px; margin-top:15px;}
+
+.ticket_dd .w_ddd .w_dd_box{ height:70px; text-align:center; color:#777d83; padding-top:15px;}
+.ticket_dd .w_ddd .w_dd_box i{ font-size:28px;color: #777d82;}
+.ticket_dd .w_ddd .w_dd_box span{ display:block; font-size:12px; margin-top:15px;}
+
+
+.ticket_dd .w_dd .bg-quan1{width: 16px;height: 16px;background: #ffffff;position: absolute;left:-8px;top: -8px;border-radius: 100% }
+.ticket_dd .w_dd .bg-quan2{width: 16px;height: 16px;background: #ffffff;position: absolute;right:-8px;top: -8px;border-radius: 100% }
+.ticket_dd .w_dd .bg-quan3{width: 16px;height: 16px;background: #ffffff;position: absolute;left:-8px;bottom: -8px;border-radius: 100% }
+.ticket_dd .w_dd .bg-quan4{width: 16px;height: 16px;background: #ffffff;position: absolute;right:-8px;bottom: -8px;border-radius: 100% }
+
+.ticket_dd .ticket_btom{ background:url(../images/index/ticket_botm_bg.png) no-repeat; width:310px; height:105px;}
+.ticket_dd .ticket_btom .ssop{ text-align:center;}
+.ticket_dd .ticket_btom .ssop .none-btn{ font-size:12px; color:#777d83; line-height:105px;background: none;border: none;}
+.ticket_dd .ticket_btom .ssop .bet-btn{ width:270px; height:44px; border-radius:4px; color:#fff; font-size:14px; background-color:#f20f3c; border:0; margin-top:35px;cursor: pointer;}
+.ticket_dd .w_dd .y_cc_box{overflow: hidden;}
+.ticket_dd .w_dd .y_cc_box ul .mCSB_scrollTools_vertical{height: 90%; margin-top: 15px;}
+.ticket_dd .w_dd .y_cc_box ul li{ padding:0px 20px 10px 20px; border-bottom:solid 1px #e9e9e9;}
+.ticket_dd .w_dd .y_cc_box ul li:last-child{border-bottom: none;}
+.ticket_dd .w_dd .y_cc_box ul li .ycc_1{ overflow:hidden; padding-top:8px;}
+.ticket_dd .w_dd .y_cc_box ul li .ycc_1 .expect{ float:left; color:#bec1c4; font-size:13px;}
+/*.ticket_dd .w_dd .y_cc_box ul li .ycc_1 .close{ float:left; color:#3e444c; font-size:13px;}*/
+.ticket_dd .w_dd .y_cc_box ul li .ycc_1 .close i{ margin-top: 2px; color: #8e8e94; cursor: pointer; position: absolute; right: 10px;}
+.ticket_dd .w_dd .y_cc_box ul li .ycc_1 .close i:hover{ color: #9fa4a7;}
+.ticket_dd .w_dd .y_cc_box ul li .ycc_2{ margin-top:4px; color:#777d83; font-size:12px;width: 270px; display: inline-block;vertical-align:middle;}
+.ticket_dd .w_dd .y_cc_box ul li .text-elip{ width: 50%}
+.ticket_dd .w_dd .y_cc_box ul li .ycc_3{ vertical-align:middle; color:#777d83; font-size:12px; overflow:hidden;line-height: 22px; display: inline-block;}
+.ticket_dd .w_dd .y_cc_box ul li .ycc_3 .order-money{ float:left;}
+.ticket_dd .w_dd .y_cc_box ul li .ycc_3 .order-money i{ color:#ffc000; font-style:normal;}
+.ticket_dd .w_dd .y_cc_box ul li .ycc_3 .details{ float:right; width:56px; height:24px; text-align:center; line-height:24px; color:#fff; font-size:12px; border-radius:2px; background-color:#f20f3c;cursor: pointer;}
+.ticket_dd .ticket_zz{ overflow: hidden; padding: 0px 20px; background-color: #fff; display: inline-block;vertical-align: top;}
+.ticket_dd .ticket_zz .zz_l{ text-align: center; padding: 10px;padding-top: 0px;}
+.ticket_dd .ticket_zz .zz_l span{ display:inline-block; font-size:12px; color:#777d83;vertical-align: middle;}
+.ticket_dd .ticket_zz .zz_l i{ display:inline-block; font-size:18px; color:#ffc000; font-style:normal; margin-top:10px;}
+.ticket_dd .ticket_zz .zz_l i em{ font-size:18px; color:#ffc000; font-style:normal;}
+.ticket_dd .ticket_zz .zz_r{ float:right;}
+.ticket_dd .ticket_zz .zz_r .btn{width:98px; height:42px; border:solid 1px #e5e5e5; border-radius:4px; color:#777d83; margin-top:5px; font-size:13px; outline:none;margin-right: 5px;
+color: #606070;
+    background: -webkit-linear-gradient(top,#f7f7f7,#e4e3e7);
+    background: -o-linear-gradient(top,#f7f7f7,#e4e3e7);
+    background: -moz-linear-gradient(top,#f7f7f7,#e4e3e7);
+    background: -ms-linear-gradient(top,#f7f7f7,#e4e3e7);
+    background: linear-gradient(top,#f7f7f7,#e4e3e7);
+    cursor: pointer;}
+.ticket_dd .ticket_zz .zz_r .btn:hover{background: -webkit-linear-gradient(top,#f7f7f7,#cfced0);
+    background: -o-linear-gradient(top,#f7f7f7,#cfced0);
+    background: -moz-linear-gradient(top,#f7f7f7,#cfced0);
+    background: -ms-linear-gradient(top,#f7f7f7,#cfced0);
+    background: linear-gradient(top,#f7f7f7,#cfced0);
+}
+
+.ticket_dd  .ssop{ text-align:center;float: right;}
+.ticket_dd  .ssop .none-btn{ font-size:12px; color:#777d83; line-height:105px;background: none;border: none;}
+.ticket_dd  .ssop .bet-btn{ width:270px; height:44px; border-radius:4px; color:#fff; font-size:14px; border:0; margin-top:5px;
+color: #fff;
+    background: -webkit-linear-gradient(top,#f96560,#ab3530);
+    background: -o-linear-gradient(top,#f96560,#ab3530);
+    background: -moz-linear-gradient(top,#f96560,#ab3530);
+    background: -ms-linear-gradient(top,#f96560,#ab3530);
+    background: linear-gradient(top,#f96560,#ab3530);
+    border: 1px solid #c8645f;
+    cursor: pointer;}
+.ticket_dd  .ssop .bet-btn:hover{    background: -webkit-linear-gradient(top,#f36763,#992c26);
+    background: -o-linear-gradient(top,#f36763,#992c26);
+    background: -moz-linear-gradient(top,#f36763,#992c26);
+    background: -ms-linear-gradient(top,#f36763,#992c26);
+    background: linear-gradient(top,#f36763,#992c26);
+}
+
+/*彩票追号弹窗*/
+.swal2-modal.chase{padding: 0px!important;}
+.swal2-modal.chase  .swal2-title{display: none;}
+.swal2-modal.chase  .swal2-close{ text-indent: -9999px;  background:url(../images/cw/none.png) no-repeat; width:34px; height:22px; position:absolute; right:0; top:15px; cursor:pointer;outline: none;}
+
+.swal2-modal.chase{padding: 0 0 20px 0 !important;background-color:#fff;}
+.swal2-modal.chase .swal2-buttonswrapper{margin-top: 0px !important;}
+.swal2-modal.chase .swal2-spacer{display: none!important;}
+
+.lottery-chase{ background-color:#fff; border-radius:5px;}
+.lottery-chase .chase-top{ height:54px; line-height:54px; border-bottom:solid 1px #e5e5e5; padding-left:20px; position:relative;text-align: left;color: #777d83;}
+.lottery-chase .chase-top .main-title{ font-size: 14px;font-weight: 600;color: #bec1c4;}
+.lottery-chase .chase-top .none{ background:url(../images/cw/none.png) no-repeat; width:34px; height:22px; position:absolute; right:0; top:20px; cursor:pointer;}
+.lottery-chase .chase-top span{ font-size:13px; color:#777d83; margin-left:10px;}
+.lottery-chase .chase-top span i{font-size:13px; color:#db4848; font-style:normal;}
+
+.lottery-chase .chase-box{ padding:20px;}
+.lottery-chase .chase-box .chase-tab{ border-bottom:solid 1px #e5e5e5;text-align: left;}
+.lottery-chase .chase-box .chase-tab span{ font-size:13px; color:#777d83; display:inline-block; margin:0 15px; padding:0 8px; text-align:center; padding-bottom:14px; cursor:pointer;}
+.lottery-chase .chase-box .chase-tab span.cur{ color:#f10735; border-bottom:solid 2px #f10735;}
+.lottery-chase .chase-box .chase-text{ margin-top:20px;text-align: left;}
+.lottery-chase .chase-box .chase-text .text_tt{ margin-bottom:10px;}
+.lottery-chase .chase-box .chase-text .text_tt span{ display:inline-block; margin-right:12px; color:#777d83; font-size:12px;}
+.lottery-chase .chase-box .chase-text .text_tt span .text{width:78px; margin-left:5px; height:38px;box-shadow: 2px 2px 4px 0px rgba(51, 57, 65, 0.07) inset; font-size:12px; border:solid 1px #e5e5e5; border-radius:2px; text-indent:1em; outline:none; line-height:38px;}
+.lottery-chase .chase-box .chase-text .text_tt span .text_cc{width:58px; margin-left:5px; margin-right:5px; height:38px;box-shadow: 2px 2px 4px 0px rgba(51, 57, 65, 0.07) inset; font-size:12px; border:solid 1px #e5e5e5; border-radius:2px; text-indent:1em; outline:none; line-height:38px;}
+.lottery-chase .chase-box .chase-text .text_tt span i{color:#777d83; font-size:13px; font-style:normal;}
+.lottery-chase .chase-box .chase-text .text_tt span .checkbox{ width:15px; height:15px; vertical-align:middle; margin-right:5px;}
+.lottery-chase .chase-box .chase-text .text_tt span .operation{width:58px; height:38px;box-shadow: 2px 2px 4px 0px rgba(51, 57, 65, 0.07) inset;font-size:13px; border:solid 1px #e5e5e5;border-radius:2px; text-indent:1em; outline:none; line-height:38px;background: #fff;}
+.lottery-chase .chase-box .chase-text .btn-group{position: absolute; right: 15px;top: 180px;}
+
+.lottery-chase .chase-box .tab-list{ width:100%; margin-top:20px;height: 270px;white-space :nowrap; border-collapse:collapse; border-spacing: 0px; border:solid 1px #e5e5e5;  border-top:solid 2px #bec1c4;overflow: hidden;}
+.lottery-chase .chase-box .tab-list table{width:100%; border-collapse:collapse; border-spacing: 0px;table-layout: fixed;}
+
+.lottery-chase .chase-box .tab-list table thead tr{background-color:#fff; border-bottom:solid 1px #e5e5e5;height: 44px; line-height:44px; }
+.lottery-chase .chase-box .tab-list table thead tr th{white-space:nowrap; color:#777d83; text-align:center; font-size:13px; font-weight:normal; border-right:solid 1px #e5e5e5; }
+.lottery-chase .chase-box .tab-list table thead tr th:last-child{border-right: none;}
+
+.lottery-chase .chase-box .tab-list table tbody tr{border-bottom:solid 1px #e5e5e5;height: 44px; line-height:44px; }
+.lottery-chase .chase-box .tab-list table tbody tr:nth-child(n+5){border-bottom: none;}
+.lottery-chase .chase-box .tab-list table tbody tr:nth-child(even){ background-color:#fff;}
+.lottery-chase .chase-box .tab-list table tbody tr:nth-child(odd){ background-color:#f9f9f9;}
+
+.lottery-chase .chase-box .tab-list table tbody tr td{white-space: nowrap;text-align:center; line-height:44px; color:#777d83; font-size:12px; border-right:solid 1px #e5e5e5; }
+.lottery-chase .chase-box .tab-list table tbody tr td:last-child{border-right: none;}
+
+
+.lottery-chase .chase-box .tab-list table tr td .checkbox{ width:15px; height:15px;}
+.lottery-chase .chase-box .tab-list table tr td .text{ width:48px; margin-right:8px; height:26px; text-align:center;box-shadow: 2px 2px 4px 0px rgba(51, 57, 65, 0.07) inset; font-size:13px; border:solid 1px #e5e5e5; border-radius:2px; outline:none; line-height:26px;}
+.lottery-chase .chase-box .btn-group{ text-align:center;}
+.lottery-chase .mCSB_inside .mCSB_container{margin-right: 0px;}
+
+@media (min-width: 850px) and (max-width: 1400px){
+    .pick_box .tations {text-align: center;}
+    .pick_box .tations .tat_5{float: right;}
+}
+
+@media (max-width: 1520px){
+    .fast-big{display: none!important;}
+    .fast-small{display: block!important;}
+}
+
+@media (max-width: 1390px){
+    .fast-big{display: block!important;}
+    .fast-small{display: none!important;}
+    .pick_box .betting_left{margin-right: 0px;}
+    .pick_box .betting_right{display: none;}
+    .betting_left .lottery{display: inline-block;}
+    .betting_left .s_his{display: inline-block;}
+    .ticket_dd .w_dd .y_cc_box ul li .ycc_2{width: 230px !important;}
+    .ticket_dd .w_dd{width:60%;}
+}
+
+@media (max-width: 1260px){
+    .fast-big{display: none!important;}
+    .fast-small{display: block!important;}
+    .ticket_dd .w_dd .y_cc_box ul li .ycc_2{width: 230px !important;}
+    .ticket_dd .w_dd{width:60%;}
+}
+
+.noUi-target.noUi-connect,.noUi-target,.noUi-connect{box-shadow: none}

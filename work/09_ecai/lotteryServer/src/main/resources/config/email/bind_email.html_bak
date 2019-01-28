@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="zh-CN" >
+<head>
+	<meta charset="utf-8"/>
+	<style type="text/css">/** * Eric Meyer's Reset CSS v2.0 (http://meyerweb.com/eric/tools/css/reset/) * http://cssreset.com */html, body, div, span, applet, object, iframe,h1, h2, h3, h4, h5, h6, p, blockquote, pre,a, abbr, acronym, address, big, cite, code,del, dfn, em, img, ins, kbd, q, s, samp,small, strike, strong, sub, sup, tt, var,b, u, i, center,dl, dt, dd, ol, ul, li,fieldset, form, label, legend,table, caption, tbody, tfoot, thead, tr, th, td,article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary,time, mark, audio, video {	margin: 0;	padding: 0;	border: 0;	font-size: 100%;	font: inherit;	vertical-align: baseline;}/* HTML5 display-role reset for older browsers */article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {	display: block;}body {	line-height: 1;}ol, ul {	list-style: none;}blockquote, q {	quotes: none;}blockquote:before, blockquote:after,q:before, q:after {	content: '';	content: none;}table {	border-collapse: collapse;	border-spacing: 0;}</style>
+	<style type="text/css">
+	html, body {
+		font-size: 13px;
+	}
+	.page-container {
+		width: 800px;
+		margin: 10px auto;
+		border: 1px solid #ccc;
+	}
+	.page-header {
+		height: 30px;
+	}
+	.page-content {
+		padding: 20px;
+		font-size: 14px;
+	}
+	.page-content .title {
+		line-height: 36px;
+	}
+	.page-content .title .user {
+		color: #064977;
+		font-weight: bold;
+		font-size: 16px;
+		cursor: pointer;
+		font-family: Microsoft YaHei;
+	}
+	.page-content .title .user:hover {
+		color: #00A2CA;
+		text-decoration: underline;
+	}
+	.page-content .text {
+		padding: 1em 0;
+	}
+	.page-content .text > p {
+		text-indent: 2em;
+		line-height: 2em;
+	}
+	.page-content .text .time {
+		color: #dc0000;
+		font-weight: bold;
+	}
+	.page-content .text .code {
+		color: #dc0000;
+		font-weight: bold;
+	}
+	.page-content .notice {
+		color: #888;
+		font-size: 13px;
+		border-top: 1px dashed #888;
+		line-height: 30px;
+	}
+	.page-footer {
+		color: #555;
+		padding: 20px;
+		background-color: #f4f4f4;
+		text-align: right;
+	}
+	</style>
+</head>
+<body>
+	<div class="page-container">
+		<div class="page-header">
+		</div>
+		<div class="page-content">
+			<div class="title">尊敬的会员<a class="user">${username}</a>：</div>
+			<div class="text">
+				<p>您于北京时间<span class="time">${time}</span>，申请绑定邮箱服务！</p>
+				<p>您的验证码为：<span class="code">${code}</span>（该验证码有效时间为10分钟）</p>
+			</div>
+			<div class="notice">这是一封系统自动发送的邮件，请不要回复。</div>
+		</div>
+		<div class="page-footer">
+			Copyright &copy; 红杉娱乐 2016 All Right Reserved
+		</div>
+	</div>
+</body>
+</html>

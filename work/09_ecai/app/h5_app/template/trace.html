@@ -1,0 +1,127 @@
+<div class="traceContainer" ng-controller="traceController as traceCtrl">
+    <div class="bar bar-header bar-positive">
+        <button class="button button-icon icon ion-arrow-left-a" on-tap="traceCtrl.back()"></button>
+        <h1 class="title">我要追号</h1>
+    </div>
+    <ion-content class="has-header" overflow-scroll="false" has-bouncing="true">
+        <div class="bethis-tab-c" id="traceType">
+            <ul>
+                <li class="active" data-type="same" on-tap="traceCtrl.setType('same')">同倍追号</li>
+                <li data-type="double" on-tap="traceCtrl.setType('double')">翻倍追号</li>
+            </ul>
+        </div>
+        <div class="bet-cart-open">
+            <span>{{traceCtrl.currentObj.cpname}}</span>&nbsp;距&nbsp;<span id="issue" class="cart-cur-issue text-red">{{traceCtrl.currentObj.issue}}</span> &nbsp;期截止:&nbsp;&nbsp;
+            <span class="cart-open-time  text-red">{{timer}}</span>
+        </div>
+        <div class="chase-same-top chase-top1" ng-if="!traceCtrl.issame" data-tap-disabled="true">
+            <ul>
+                <li>快速选择：</li>
+                <li>
+                    <ul class="chase-select-times" id="quickul">
+                        <li on-tap="traceCtrl.quickpick(2)">
+                            <div data-value="2" class="">2期</div>
+                        </li>
+                        <li on-tap="traceCtrl.quickpick(5)">
+                            <div data-value="5" class="active">5期</div>
+                        </li>
+                        <li on-tap="traceCtrl.quickpick(10)">
+                            <div data-value="10">10期</div>
+                        </li>
+                        <li on-tap="traceCtrl.quickpick(15)">
+                            <div data-value="15">15期</div>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+            <ul>
+                <li>手动输入：</li>
+                <li>
+                    <div class="chase-input-times">
+                        <input id="issueNums" value="5">期（最大<span id="maxissue" class="total-sale">{{traceCtrl.traceMax}}</span>期）
+                    </div>
+                </li>
+            </ul>
+            <ul>
+                <li>起始期号：</li>
+                <li>
+                    <select class="chase-same-select">
+                        <option ng-repeat="item in traceCtrl.traceIssues" value="{{item.expect}}">{{item.expect}}</option>
+                    </select>
+                </li>
+            </ul>
+            <ul>
+                <li>追号倍数：</li>
+                <li>
+                    <div class="chase-same-mult">
+                        <span on-tap="traceCtrl.plusTime()">-</span>
+                        <input value="1" id="tracetimes">
+                        <span on-tap="traceCtrl.plusTime()">+</span>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="chase-same-top chase-multiple-top chase-top2" ng-if="traceCtrl.issame" data-tap-disabled="true">
+        <ul>
+            <li>追号期数：</li>
+            <li>
+                <div class="chase-input-times">
+                    <input id="issueNums" value="5">期（最大<span id="maxissue" class="total-sale">{{traceCtrl.traceMax}}</span>期）
+                </div>
+            </li>
+        </ul>
+        <ul data-tap-disabled="true">
+            <li>起始期号：</li>
+            <li data-tap-disabled="true">
+                <select class="chase-same-select">
+                    <option ng-repeat="item in traceCtrl.traceIssues" value="{{item.expect}}">{{item.expect}}</option>
+                </select>
+            </li>
+        </ul>
+        <div class="chase-mlt-l">
+            起始倍数&nbsp;&nbsp;<input value="1" id="start_times" class="sep-times">
+            隔&nbsp;&nbsp;<input value="1" id="lt_trace_diff" class="sep-times">&nbsp;期&nbsp;&nbsp;&nbsp;倍数x&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <input value="2" class="sep-multiple" id="tracetimes">&nbsp;倍
+        </div>
+    </div>
+        <div class="row">
+            <div class="col col-full">
+                <button class="button  button-small button-block button-positive center-block" on-tap="traceCtrl.createTrace()"><i class="icon ion-arrow-graph-up-right"></i> 生成追号</button>
+            </div>
+        </div>
+        <div class="chase-order-list clearfix">
+            <ul class="chase-order-list-title">
+                <li>追号期次</li>
+                <li>追号倍数</li>
+                <li>追号金额</li>
+            </ul>
+            <div class="chase-order-notice" ng-if="!traceCtrl.isCreate" style="">暂未生成追号计划</div>
+            <div class="chase-order-list-c" ng-if="traceCtrl.isCreate">
+                <ul ng-repeat="item in traceCtrl.traceList">
+                    <li><span class="lotexp">{{item.expect}}</span></li>
+                    <li>
+                        <div>
+                            <input class="manulTimes" value="{{item.multiple}}">倍</div>
+                    </li>
+                    <li><span class="rowmoney" initm="{{item.multiple}}" initval="{{item.money}}">{{item.money}}</span>&nbsp;元</li>
+                </ul>
+            </div>
+        </div>
+        <div class="chase-total">
+            <div class="chase-bot-1"><img src="/static/images/chase/xxx.jpg" width="15" height="18"> 共追号&nbsp;
+                <span class="chase-total-nums" id="chase-total-nums">0</span>&nbsp;期<span class="displayinline60"></span>
+            </div>
+            <div class="chase-bot-1">
+                <img src="/static/images/chase/ddd.jpg" width="15" height="18"> 总投注金额&nbsp;
+                <span class="chase-total-money" id="chase-total-money">0</span>&nbsp;元<span class="displayinline60"></span>
+                <input type="hidden" value="" id="chase-total-money-base">
+            </div>
+            <ion-list>
+                <ion-checkbox id="checkstop" ng-model="traceCtrl.isStop" on-tap="traceCtrl.isTraceStop()">中奖后停止追号</ion-checkbox>
+            </ion-list>
+            <div class="chase-bot-1">
+                <button class="button  button-small button-block button-positive" on-tap="traceCtrl.confirmbet()">确定追号方案</button>
+            </div>
+        </div>
+    </ion-content>
+</div>

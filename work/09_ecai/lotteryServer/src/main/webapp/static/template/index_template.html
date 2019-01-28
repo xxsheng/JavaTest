@@ -1,0 +1,164 @@
+<script type="text/template" id="lottery_menu_tpl">
+    <div class="menu-list">
+		<div class="sidebar-user clearfix">
+                <div class="pull-left">
+                    <img src="<#=cdnDomain#>static/images/index/vip.png" class="icon"/>
+					<span class="txt">会员账户</span>
+                </div>
+        </div>
+		<div class="menu-user" id="menu-userInfo">
+            <div class="box recent">
+				<div class="pic"><img src="<#=cdnDomain#>static/images/head.jpg"></div>
+                <div class="text-elip"><label data-field="nickname" title="test001">欢迎您，Loading...</label><span data-command="refresh" style="    position: absolute; margin-top: 4px; margin-left: 5px;"><i class="refresh-btn" data-command="refreshBalance"></i></span> </div>
+				<div class="text-elip"><label>总余额：</label><span class="c-red" data-command="refreshBalance" data-property="balanceCash" title="0.0">0.0</span></div>
+				<!--<div class="text-elip"><label>彩票余额：</label><span class="c-red" data-command="refreshBalance" data-property="lotteryBalance" title="0.0">0.0</span></div>
+				<div class="text-elip"><label>未结算金额：</label><span class="c-red" data-command="refreshBalance" data-property="unSettleMoney" title="0.0">0.0</span></div>
+				<div class="text-elip"><label>今日投注：</label><span class="c-red" data-command="refreshBalance" data-property="lotteryBet" title="0.0">0.0</span></div>-->
+         	</div>
+			<div class="cashinfo" id="summary">
+                    <ul>                        
+						<li><span class="ctitle">彩票余额：</span><span data-property="lotteryBalance" class="text-elip ccont" data-command="refreshBalance" title="0.00">0.00</span></li>
+                        <li><span class="ctitle">未结算金额：</span><span data-property="unSettleMoney" class="text-elip ccont" data-command="refreshBalance" title="0.00">0.00</span></li>
+                        <li><span class="ctitle">今日投注：</span><span data-property="lotteryBet" class="text-elip ccont" data-command="refreshBalance" title="0.00">0.00</span></li>
+                    </ul>
+            </div>
+		</div>
+		<div class="sidebar-panel" id="bjoper">
+                <ul class="clearfix">
+                    <li class="select-none"><a href="fund-recharge" target="iframe"><span class="green">存</span><p>存款</p></a></li>
+                    <li class="select-none"><a href="fund-withdraw" target="iframe"><span class="yellow">取</span><p>提款</p></a></li>
+                    <li class="select-none"><a href="fund-transfer" target="iframe"><span class="blue">转</span><p>转换</p></a></li>
+                    <li class="confirm-exit cursor select-none"><a href="#" data-command="btnExit"><span class="red btn-exit">退</span><p>退出</p></a></li>
+                </ul>
+            </div>
+
+        <dl class="menu lottery" data-type="hot">
+            <dt>
+                <img  src="<#=cdnDomain#>static/images/kkc.png">
+                <span>热门彩种</span>
+                <em><i class="icon iconfont nv-right">&#xe515;</i></em>
+            </dt>
+            <dd>
+                <# for (var i = 0; i < hots.length; i++) { #>
+                    <#if(hots[i].display == 1) {#>
+                        <a  href="lottery-<#=hots[i].shortName#>" target="iframe"><#=hots[i].showName#></a>
+                    <#}#>
+                <#}#>
+            </dd>
+        </dl>
+
+        <dl class="menu lottery" data-type="1">
+            <dt>
+                <img  src="<#=cdnDomain#>static/images/ssc.png">
+                <span>时时彩</span>
+                <em><i class="icon iconfont nv-right">&#xe515;</i></em>
+            </dt>
+            <dd>
+                <# for (var i = 0; i < sscs.length; i++) { #>
+                    <#if(sscs[i].display == 1) {#>
+                        <a  href="lottery-<#=sscs[i].shortName#>" target="iframe"><#=sscs[i].showName#></a>
+                    <#}#>
+                <#}#>
+            </dd>
+        </dl>
+
+        <dl class="menu lottery" data-type="2">
+            <dt>
+                <img  src="<#=cdnDomain#>static/images/11x5.png">
+                <span>11选5</span>
+                <em><i class="icon iconfont nv-right">&#xe515;</i></em>
+            </dt>
+            <dd>
+                <# for (var i = 0; i < x5s.length; i++) { #>
+                    <#if(x5s[i].display == 1) {#>
+                        <a href="lottery-<#=x5s[i].shortName#>" target="iframe"><#=x5s[i].showName#></a>
+                    <#}#>
+                <#}#>
+            </dd>
+        </dl>
+
+        <dl class="menu lottery" data-type="3">
+            <dt>
+                <img  src="<#=cdnDomain#>static/images/k3.png">
+                <span>快3</span>
+                <em><i class="icon iconfont nv-right">&#xe515;</i></em>
+            </dt>
+            <dd>
+                <# for (var i = 0; i < k3s.length; i++) { #>
+                    <#if(k3s[i].display == 1) {#>
+                        <a href="lottery-<#=k3s[i].shortName#>" target="iframe"><#=k3s[i].showName#></a>
+                    <#}#>
+                <#}#>
+            </dd>
+        </dl>
+
+        <dl class="menu lottery" data-type="6">
+            <dt>
+                <img  src="<#=cdnDomain#>static/images/pk10.png">
+                <span>PK10</span>
+                <em><i class="icon iconfont nv-right">&#xe515;</i></em>
+            </dt>
+            <dd>
+                <# for (var i = 0; i < pk10s.length; i++) { #>
+                    <#if(pk10s[i].display == 1) {#>
+                        <a href="lottery-<#=pk10s[i].shortName#>" target="iframe"><#=pk10s[i].showName#></a>
+                    <#}#>
+                <#}#>
+            </dd>
+        </dl>
+
+        <dl class="menu lottery" data-type="4">
+            <dt>
+                <img  src="<#=cdnDomain#>static/images/fc3d.png">
+                <span>3D</span>
+                <em><i class="icon iconfont nv-right">&#xe515;</i></em>
+            </dt>
+            <dd>
+                <# for (var i = 0; i < sds.length; i++) { #>
+                    <#if(sds[i].display == 1) {#>
+                        <a href="lottery-<#=sds[i].shortName#>" target="iframe"><#=sds[i].showName#></a>
+                    <#}#>
+                <#}#>
+            </dd>
+        </dl>
+
+        <!--<dl class="menu lottery" data-type="5">
+            <dt>
+                <img  src="<#=cdnDomain#>static/images/kl8.png">
+                <span>快乐8</span>
+                <em><i class="icon iconfont nv-right">&#xe515;</i></em>
+            </dt>
+            <dd>
+                <# for (var i = 0; i < kl8s.length; i++) { #>
+                    <#if(kl8s[i].display == 1) {#>
+                        <a href="lottery-<#=kl8s[i].shortName#>" target="iframe"><#=kl8s[i].showName#></a>
+                    <#}#>
+                <#}#>
+            </dd>
+        </dl>-->
+
+		<dl class="menu" data-type="99" >
+            <dt><img  src="<#=cdnDomain#>static/images/m_06.png"><span><a href="real" target="iframe" class="zhenren">真人视讯</a></span></dt>
+        </dl>
+		
+		<dl class="menu" data-type="99" id="appupload" class="appupload">
+                <dt><img  src="<#=cdnDomain#>static/images/sjtz.png"><span>手机投注</span></dt>
+        </dl>
+		<dl class="menu" data-type="99">
+            <dt><img src="<#=cdnDomain#>static/images/zz.png"><span data-command="transfer"><a href="transfer-account" target="iframe">转账中心</a></span></dt>
+        </dl>
+		<dl class="menu" data-type="99">
+                <dt>
+					<img  src="<#=cdnDomain#>static/images/help.png">
+					<span data-command="showQuestion" data-id="recharge">常见问题</span>
+				</dt>
+        </dl>
+		<dl class="menu" data-type="99">
+				 <dt>
+					<img  src="<#=cdnDomain#>static/images/info.png">
+					<span data-command="showAboutUS" data-id="intro">关于我们</span>
+				</dt>
+        </dl>
+		
+    </div>
+</script>

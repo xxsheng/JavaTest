@@ -1,0 +1,45 @@
+<div class="" ng-controller="googleController as googleCtrl">
+    <div class="bar bar-header bar-positive">
+        <div class="buttons">
+            <button class="button" on-tap="appCtrl.goback()"><i class="icon ion-arrow-left-a"></i></button>
+        </div>
+        <h1 class="title">绑定谷歌身份验证器</h1>
+    </div>
+
+<ion-content class="has-header has-footer" overflow-scroll="false" has-bouncing="true">
+    <div class="card text-center">
+        <div class="item">
+            <p class="p101">使用谷歌验证器扫描二维码后填写信息进行绑定</p>
+        </div>
+        <img src="{{googleCtrl.googleInfo.qr}}" alt="">
+    </div>
+    <div class="list">
+        <div class="item item-input">
+            <span class="input-label">密保问题：</span>
+            <span>{{googleCtrl.googleInfo.key}}</span>
+        </div>
+        <div class="item item-input">
+            <span class="input-label">密保答案:</span>
+            <input type="text" id="keyAnswer">
+        </div>
+        <div class="item item-input">
+            <span class="input-label">谷歌口令：</span>
+            <input type="text" id="vCode">
+        </div>
+        <div class="item item-input">
+            <span class="input-label">密钥：</span>
+            <span class="text-red">{{googleCtrl.googleInfo.secretKey}}</span>
+        </div>
+    </div>
+    <div class="card">
+        <p class="p510">二维码不显示或手机扫描有问题？</p>
+        <p class="p101">
+            您也可在谷歌身份验证器中输入您的平台账号及上方显示的密钥进行绑定，绑定后请在下方点击确定
+        </p>
+        <div class="item">
+            <button class="button button-positive button-block" on-tap="googleCtrl.bindGoogle()">确定</button>
+        </div>
+    </div>
+</ion-content>
+</div>
+<commonfooter></commonfooter>

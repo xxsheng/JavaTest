@@ -1,0 +1,26 @@
+<div class="ssc-container" ng-controller="agentController as agentCtrl">
+    <div class="bar bar-header bar-positive">
+        <div class="buttons">
+            <button class="button" on-tap="appCtrl.goback()"><i class="icon ion-arrow-left-a"></i></button>
+        </div>
+        <h1 class="title">在线会员</h1>
+    </div>
+
+    <ion-content class="has-header has-footer" overflow-scroll="false" has-bouncing="true">
+        <!--下拉刷新-->
+        <ion-refresher pulling-text="下拉刷新" on-refresh="agentCtrl.reflesh()"></ion-refresher>
+        <div class="recordContainer">
+            <ul class="list">
+                <li class="item item-icon-right" ng-repeat="item in agentCtrl.contentList">
+                    <p>用户名：{{item.username}}</p>
+                    <p>昵称：{{item.nickname}}</p>
+                    <p>余额：{{item.totalMoney+item.lotteryMoney|number:2}}</p>
+                    <p>层级：<span ng-repeat="upper in item.levelUsers">{{upper}}<span ng-if="$last == false"><</span></span></p>
+                    <p>最后登录：{{item.loginTime}}</p>
+                </li>
+            </ul>
+        </div>
+        <ion-infinite-scroll ng-if="!agentCtrl.noMorePage" immediate-check="false" on-infinite="agentCtrl.onlineMemberLoadmore(agentCtrl.page)" distance="10%"></ion-infinite-scroll>
+    </ion-content>
+    <commonfooter></commonfooter>
+</div>

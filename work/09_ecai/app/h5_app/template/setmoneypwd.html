@@ -1,0 +1,29 @@
+<div class="pwdContainer" ng-controller='pwdController as pwdCtrl'>
+    <div class="bar bar-header bar-positive">
+        <button class="button button-icon icon ion-arrow-left-a" on-tap="appCtrl.goback()"></button>
+        <h1 class="title">设置资金密码</h1>
+    </div>
+    <ion-content class="has-header has-footer" overflow-scroll="false" has-bouncing="false">
+        <div class="list">
+            <form id="set-money-pwd">
+                <div>
+                    <label class="item item-input">
+                        <span class="input-label">设置资金密码：</span>
+                        <input type="password" placeholder="设置资金密码" ng-model="pwdCtrl.fundobj.fund_password">
+                    </label>
+                    <label class="item item-input">
+                        <span class="input-label">确定资金密码：</span>
+                        <input type="password" placeholder="确定资金密码" ng-model="pwdCtrl.fundobj.fund_password_confirmation">
+                    </label>
+                    <p class="paddingcolor">6-16位字符，必须包含字母和数字，不允许连续三位相同，不能和登录密码相同</p>
+                </div>
+            </form>
+            <div class="row">
+                <div class="col col-full">
+                    <button class="button button-block button-assertive" on-tap="pwdCtrl.setmoneypwd()">确定修改</button>
+                </div>
+            </div>
+        </div>
+    </ion-content>
+</div>
+<commonfooter></commonfooter>

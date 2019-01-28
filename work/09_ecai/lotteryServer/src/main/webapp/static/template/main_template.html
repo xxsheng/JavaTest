@@ -1,0 +1,549 @@
+<script type="text/template" id="app_download_tpl">
+    <div class="none_cc" data-command="close"></div>
+    <div class="phone_1"><img src="<#=cdnDomain#>static/images/logo-black.png"></div>
+    <div class="phone_2">
+        <h6>WINonline手机客户端</h6>
+        <span>支持安卓、苹果移动设备，走到哪玩到哪。</span>
+    </div>
+    <div class="phone_3">
+        <img src="<#=cdnDomain#>static/images/ewm.png?v=<#=cdnVersion#>">
+    </div>
+    <div class="phone_4"><a href="#"><i class="icon iconfont">&#xf01ff;</i>下载PC客户端</a></div>
+</script>
+
+<script type="text/template" id="promotion_tpl">
+    <div class="tcc_box clear" >
+        <div class="tcc_left">
+            <div class="c_top">
+                <i class="icon iconfont">&#xe610;</i><span>优惠活动<em>Promotions</em></span>
+            </div>
+            <div class="yh_l">
+                <ul>
+                    <li data-group="wheel">
+                        <div class="pic"><span class="title">幸运大转盘</span><span class="time">发布时间：12-01</span></div>
+                        <div class="pac"><span data-property="status" class="enable">进行中</span></div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="tcc_right">
+            <div class="r_top">幸运大转盘<div class="none" data-command="close"></div></div>
+            <div class="r_box">
+                <div class="yh_img"><img src="<#=cdnDomain#>static/images/index/xydzp-s.jpg"></div>
+                <div class="yh_title">
+                    <h3>活动详情</h3>
+                    <p>会员消费满10000元，即可参与“幸运大转盘”抽奖活动，最高2888等您拿！</p>
+                    <p>活动时间：2017年12月1日 - 2018年12月31日</p>
+                </div>
+                <div class="yh-list">
+                    <table>
+                        <tbody>
+                            <tr>
+                                <td><span>当前消费：<i data-property="todayCost">Loading...</i></span></td>
+                                <td><span>剩余消费：<i data-property="remainCost">Loading...</i></span></td>
+                                <td><span>中奖金额：<i data-property="todayPrize">Loading...</i></span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="yh-btn">
+                        <span class="btn-gray-big disabled" data-command="drawWheel">Loading...</span>
+                    </div>
+                </div>
+                <div class="bt-a" data-group="draw" style="display: none;">
+                    <div class="zhuanpan" style="display:block;">
+                        <div class="zp">
+                            <img class="zp2" src="<#=cdnDomain#>static/images/index/zp2.png?v=<#=cdnVersion#>">
+                            <img class="zp3" src="<#=cdnDomain#>static/images/index/zp3.png" data-command="startDraw">
+                        </div>
+                        <span class="close-btn" data-command="closeWheel">关闭</span>
+                    </div>
+                </div>
+                <div class="yh_text">
+                    <h3>活动说明</h3>
+                    <p>1. 会员消费10,000元以上即可参与幸运大转盘抽奖活动，100%中奖，抽奖金额18-2888不等。</p>
+                    <p>2. 满足活动要求后，必须在当天参与活动，隔天则自动清零并重新计算。</p>
+                    <p>3. 禁止同IP多账户参与此活动（同一IP只限一个账户参与此活动）。</p>
+                    <p>4. 活动只针对彩票流水，真人视讯和老虎机流水不计算在内。</p>
+                    <p>5. WINonline保留对活动的最终解释权和修改权，祝大家游戏愉快。</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</script>
+
+<script type="text/template" id="notice_banner_tpl">
+    <div class="sbox">
+        <div class="notice_top"><span class="notice_top_tip">您有<i class="nb-color"> <#=unReadCount#> </i>条未读公告</span><span class="setallread banner-btn" data-command="setAllRead">全部设为已读</span><div class="jy-top"></div></div>
+        <div class="notice_box">
+            <ul>
+                <# for (var i = 0; i < notices.length; i++) { #>
+                    <li data-id="<#=notices[i].id#>">
+                        <p class="notice_title">
+                            <span class="title_content text-elip link-red" data-id="<#=notices[i].id#>" data-command="details"><#=notices[i].title#></span>
+                            <# if (!notices[i].read) { #>
+                                <em class="unread"></em>
+                            <# } #>
+                        </p>
+                        <# if (!notices[i].simpleContent) { #>
+                            <span class="content text-elip"><#=notices[i].simpleContent#></span>
+                        <# } else { #>
+                            <span class="content text-elip"><#=notices[i].title#></span>
+                        <# } #>
+                        <i class="time"><#=notices[i].date#></i>
+                    </li>
+                <#}#>
+            </ul>
+        </div>
+        <div class="notice_btn"><span class="link-red" data-command="more">查看全部公告 ></span></div>
+    </div>
+</script>
+
+<script type="text/template" id="notice_popup_tpl">
+    <div class="notice_popup">
+        <ul>
+            <#for(var i = 0; i < notices.length; i++){#>
+                <#if (chkId && notices[i].id == chkId) {#>
+                    <li class="current" data-id="<#=notices[i].id#>">
+                        <div class="notice_popup_title" data-command="expand">
+                            <span class="notice_popup_title_word text-elip"><#=notices[i].title#></span>
+                            <i class="title_time"><#=notices[i].date#></i>
+                        </div>
+                        <div class="notice_popup_content">
+                            <#=notices[i].content#>
+                            <p class="content-time"><#=notices[i].date#></p>
+                        </div>
+                    </li>
+                <#} else {#>
+                    <#if (notices[i].read == false) {#>
+                        <li data-id="<#=notices[i].id#>">
+                            <div class="notice_popup_title" data-command="expand">
+                                <span class="notice_popup_title_word text-elip"><#=notices[i].title#></span>
+                                <em class="unread"></em>
+                                <i class="title_time"><#=notices[i].date#></i>
+                            </div>
+                            <div class="notice_popup_content">
+                                <#=notices[i].content#>
+                                <p class="content-time"><#=notices[i].date#></p>
+                            </div>
+                        </li>
+                    <# } else {#>
+                        <li data-id="<#=notices[i].id#>">
+                            <div class="notice_popup_title" data-command="expand">
+                                <span class="notice_popup_title_word text-elip"><#=notices[i].title#></span>
+                                <i class="title_time"><#=notices[i].date#></i>
+                            </div>
+                            <div class="notice_popup_content">
+                                <#=notices[i].content#>
+                                <p class="content-time"><#=notices[i].date#></p>
+                            </div>
+                        </li>
+                    <#}#>
+
+                <#}#>
+            <#}#>
+        </ul>
+    </div>
+</script>
+
+<script type="text/template" id="top_balance_tpl">
+    <div class="balance_top">
+        <span class="total_balance_field">总余额：</span>
+        <i data-property="totalBalance" class="total_balance_money text-elip">Loading...</i>
+        <div class="refresh-balance-btn">
+            <i class="refresh-btn" data-command="refreshGlobal"></i>
+        </div>
+        <div class="refresh-balance-spin">
+            <i class="refresh-spin"></i>
+        </div>
+        <span class="banner-btn" data-command="transferAll">资金归集</span>
+        <div class="jt-top"></div>
+    </div>
+    <div class="balance_box">
+        <ul>
+            <li>
+                <span class="field">主账户：</span>
+                <span data-property="mainBalance" class="balance text-elip">Loading...</span>
+            </li>
+            <li class="cur">
+                <span class="field">彩票：</span>
+                <span data-property="lotteryBalance" class="balance text-elip">Loading...</span>
+            </li>
+            <li>
+                <span class="field">AG：</span>
+                <span data-property="agBalance" class="balance text-elip">
+                    <span class="link-red" data-command="refreshPlatformBalance" data-platform="4" title="点击查看余额">点击查看</span>
+                </span>
+            </li>
+            <li class="cur">
+                <span class="field">BBIN：</span>
+                <span data-property="bbinBalance" class="balance text-elip">
+                    <span class="link-red" data-command="refreshPlatformBalance" data-platform="5" title="点击查看余额">点击查看</span>
+                </span>
+            </li>
+            <li>
+                <span class="field">PT：</span>
+                <span data-property="ptBalance" class="balance text-elip">
+                    <span class="link-red" data-command="refreshPlatformBalance" data-platform="11" title="点击查看余额">点击查看</span>
+                </span>
+            </li>
+            <li class="cur">
+                <span class="field">QT：</span>
+                <span data-property="qtBalance" class="balance text-elip">
+                    <span class="link-red" data-command="refreshPlatformBalance" data-platform="14" title="点击查看余额">点击查看</span>
+                </span>
+            </li>
+            <li>
+                <span class="field">体育：</span>
+                <span data-property="ibcBalance" class="balance text-elip">
+                    <span class="link-red" data-command="refreshPlatformBalance" data-platform="13" title="点击查看余额">点击查看</span>
+                </span>
+            </li>
+            <li class="cur">
+                <span class="field">幸运分：</span>
+                <span data-property="diceGameBalance" class="balance text-elip">
+                    <span class="link-red">0.00</span>
+                </span>
+            </li>
+        </ul>
+    </div>
+    <div class="balance_btn">
+        <a href="manager?link=fund-recharge" class="banner-btn" target="mainiframe">充值</a>
+        <a href="manager?link=fund-withdraw" class="banner-btn" target="mainiframe">提款</a>
+        <a href="manager?link=fund-transfer" class="banner-btn" target="mainiframe">资金转换</a>
+        <!--<input type="button" class="button" value="充值">-->
+        <!--<input type="button" class="button" value="提款">-->
+        <!--<input type="button" class="button button_cur" value="资金转换">-->
+    </div>
+</script>
+
+<script type="text/template" id="about_us_tpl">
+    <div class="tcc_box">
+        <div class="tcc_left">
+            <div class="c_top">
+                <span>关于我们<em>About US</em></span>
+            </div>
+            <div class="About_l">
+                <ul>
+                    <li data-id="intro" data-command="changeTab"><span class="screen-left-btn" class="cur">平台简介</span></li>
+                    <li data-id="privacy" data-command="changeTab"><span class="screen-left-btn">隐私政策</span></li>
+                    <li data-id="responsibility" data-command="changeTab"><span class="screen-left-btn">BC责任</span></li>
+                    <li data-id="terms" data-command="changeTab"><span class="screen-left-btn">明细与条款</span></li>
+                </ul>
+            </div>
+        </div>
+        <div class="tcc_right" data-id="intro" style="display: none;">
+            <div class="r_top">平台简介<div class="none" data-command="close"></div></div>
+            <div class="About_box">
+                <ul>
+                    <li>
+                        <p>WINonline是世界领先的在线游戏供应商，一直以来与世界多家顶级游戏软件供应商保持良好的合作关系。WINonline作为知名的在线BC公司，总部成立于2009年8月，位于菲律宾国并接受与认真执行遵守当地相关法律，自成立以来致力提供最广范围并最具竞争力的产品。</p>
+                    </li>
+                    <li>
+                        <h3>WINonline的承诺</h3>
+                        <p>作为国际专业的网上游戏运营企业，我们为每一位客户提供最及时、最安全、最准确的数据，以及全方位的国际化服务。 同时，WINonline全部游戏设计均采用世界最领先的软件。我们更聘请了多位资深计算机专家给公司设计和提供软硬件设施维护服务，以提供最佳的技术支援，确保客户能无时无刻享受到最优质的游戏服务。 我们承诺，置身于WINonline平台的客户，不论参与的是真人游戏，还是其他网上游戏，也能享有极具价值的BC回报，同时，每名客的资讯户保密性对我们来说是最重要的。我们承诺，将继续不遗余力地坚持严格实行保密和隐私制度。</p>
+                    </li>
+                    <li>
+                        <h3>最佳选择</h3>
+                        <p>我们向广大的会员提供包括 时时彩、体育BC、真人娱乐城、快乐彩、棋牌游戏和PT电子游戏。我们为您提供最好的彩票奖金及BC赔率。彩票游戏更是提供多项大型第三方公证类彩种，包括重庆时时彩、江西时时彩、新疆时时彩，11选5与福彩3D等。</p>
+                        <p>我们是首家提供全方位BC娱乐的线上公司。</p>
+                    </li>
+                    <li>
+                        <h3>更具网络BC娱乐价值</h3>
+                        <p>我们承诺提供给您最具价值的娱乐BC无论您在玩什么样的游戏。如果您相信您有这方面的知识可以预测出您喜爱的彩票类开奖的正确结果 – 那么您将在WINonline找到您BC的最佳价值。</p>
+                    </li>
+                    <li>
+                        <h3>WINonline的建议</h3>
+                        <p>WINonline提倡您有节制的BC行为，我们建议阁下遵守以下一些基本规则：</p>
+                        <p><i></i>禁止未满18岁的人士参与BC游戏。在加入游戏前，请您确认您已满18周岁。</p>
+                        <p><i></i>自定BC预算，并按照预算下注，遵守您当地的法律规定。</p>
+                        <p><i></i>本站由亚洲及世界上最大的游戏软件公司提供技术合作。</p>
+                    </li>
+                    <li>
+                        <p>我们的真人娱乐城同知名线上真人娱乐公司 BBIN 与 AG 平台进行技术合作。</p>
+                        <p>PT 电子游戏供应商亦是全球知名 PT 公司，我们将紧密携手合作，带给您全新线上娱乐体验。</p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="tcc_right" data-id="privacy" style="display: none;">
+            <div class="r_top">隐私政策<div class="none" data-command="close"></div></div>
+            <div class="About_box">
+                <ul>
+                    <li>
+                        <p>1.我们致力为客户保护隐私并提供一个最安全的游戏平台，我们在此网站搜集的资料将会为您提供最卓越的服务，我们不会出卖或租赁您的个人资料给第三方， 客户所提供的个人资料均经过SSL2048加密技术处理，并储存在安全的、非公开的作业系统，对于有机会接触客户的个人资料的协助伙伴也必需遵守我们订立的隐私保密规则。</p>
+                    </li>
+                    <li>
+                        <p>2.您需要保管好您的帐号和密码安全。不得允许任何其他人或协力厂商，包括任何未成年人使用或重复使用您的WINonline帐户进行任何网站访问及投注操作。WINonline将有权拒绝支付由此产生的任何奖励或奖金。您将独自为协力厂商在帐户中产生的所有损失负责。</p>
+                    </li>
+                    <li>
+                        <p>3.您可能会收到一些定期的电邮，向您更新有关WINonline产品的资讯与服务，当本网推出新颖，好玩和有趣的推广活动，这些电邮就可帮助您充分享受到本网的服务。</p>
+                    </li>
+                    <li>
+                        <p>4.我们的系统会自动记录浏览者的网路IP地址，但我们决不会记录网站访问者的电邮位址，而此项主要是用作网站流量统计之用。</p>
+                    </li>
+                    <li>
+                        <p>5.WINonline保留权力可自行对隐私政策做出任何修改，此政策如有任何更改均具有约束力，并立即生效。</p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="tcc_right" data-id="responsibility" style="display: none;">
+            <div class="r_top">BC责任<div class="none" data-command="close"></div></div>
+            <div class="About_box">
+                <ul>
+                    <li>
+                        <h3>BC调查问卷</h3>
+                        <p>WINonline正在积极努力为玩家提供一个优质的娱乐平台。这些问题设置的目的在于，我们已经设置升级了多项安全设施来确保我们游戏的公平公正。我们鼓励客户通过回答我们的问卷来了解客户对BC的危害问</p>
+                    </li>
+                    <li>
+                        <h4>问题的状况：</h4>
+                        <p><i></i>您会因为躲避工作和学习来进行赌博吗？</p>
+                        <p><i></i>您会因为无聊或者不开心来进行赌博吗？</p>
+                        <p><i></i>您在注金投注完时，是否感觉钱已经丢掉或者说要尽快的再次下注？</p>
+                        <p><i></i>您会一直赌博直到您的钱都输完吗？</p>
+                        <p><i></i>您是否有说谎言借钱，甚至盗窃来进行BC？</p>
+                        <p><i></i>您是否刻意隐瞒过您在BC中会费的时间和资金吗？</p>
+                        <p><i></i>您是否不愿意花费您的赌金在其他方面呢？</p>
+                        <p><i></i>您是否已经对家人，朋友和爱好失去了兴趣？</p>
+                        <p><i></i>假如您的注金全部投注完，您是否会感到尽快赢回您输掉的资金？</p>
+                    </li>
+                    <li>
+                        <h4>如果您的大部分答案选择为“是”，您可能已经沉迷于赌博，我们建议您：</h4>
+                        <p><i></i>把BC当做一种娱乐休闲项目</p>
+                        <p><i></i>避免连续的损失</p>
+                        <p><i></i>对BC有自己的认识</p>
+                        <p><i></i>合理安排自己在BC中的时间和精力</p>
+                    </li>
+                    <li>
+                        <p>您也能往GamCare的网址www.gamcare.org.uk查寻更多关于赌博问题的解决以开导方式。</p>
+                    </li>
+                    <li>
+                        <h3>自我隔离</h3>
+                        <p>对于一些客户希望暂时远离BC，我们将提供一个自我排除的功能，您可以申请六个月到五年的账户关闭。请联系在线客服，我们的客服人员会为您带来更多资讯。</p>
+                    </li>
+                    <li>
+                        <h3>年龄限制</h3>
+                        <p>18岁以下的人群是禁止赌博的，WINonline将保有对顾客所提供年龄信息证明的查询，如有发现年龄证明与客户所提供的不符，我们将关闭客户的账号以及冻结所剩余的资金。由于各地的法令条款不同，因此我们建议客户在进行BC游戏前，翻阅当地法律进行查询。</p>
+                        <p>WINonline建议禁止您开设多重账号，匿名用户名，以及密码的滥用。</p>
+                    </li>
+                    <li>
+                        <h3>家长的监控</h3>
+                        <p><i></i>有来自很多父母以及监护人要求对网络进行过滤，我们推荐以下网站:</p>
+                        <p><i></i>Net Nanny 软件能保护孩子远离不适当网站: www.netnanny.com</p>
+                        <p><i></i>CYBERsitter 将允许父母设置隔离的网站: www.cybersitter.com</p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="tcc_right" data-id="terms" style="display: none;">
+            <div class="r_top">明细条款<div class="none" data-command="close"></div></div>
+            <div class="About_box">
+                <ul>
+                    <li>
+                        <p>1.为避免于本网站投注时之争议，请会员务必于进入网站前详阅本公司所定之各项规则，客户一经“我同意”进入本网站进行投注时，即被视为已接受本公司的所有协议与规则。</p>
+                    </li>
+                    <li>
+                        <p>2.请定期修改自己的登录密码及资金密码，会员有责任确保自己的帐户以及登入资料的保密性，以会员帐号及密码进行的任何网上投注，将被视为有效。敬请不定时做密码变更之动作。若帐号密码被盗用，进行的投注，本公司一概不负赔偿责任。</p>
+                    </li>
+                    <li>
+                        <p>3.投注相关条款：</p>
+                        <p><i></i>网上投注如未能成功提交，投注将被视为无效。</p>
+                        <p><i></i>凡玩家于开奖途中且尚无结果前自动或强制断线时，并不影响开奖结算之结果。</p>
+                        <p><i></i>若遇官网未开奖或开奖结果错误，本平台将根据实际情况做退奖退买处理；</p>
+                        <p><i></i>如遇发生不可抗拒之灾害，骇客入侵，网络问题造成数据丢失的情况，以本公司公告为最终方案。</p>
+                        <p><i></i>本公司将会对所有的电子交易进行记录，如有任何争议，本公司将会以注单记录为准。</p>
+                    </li>
+                    <li>
+                        <p>4.若经本公司发现会员以不正当手法<strong>利用外挂程式</strong>进行投注或以任何非正常方式进行的个人、团体投注有损公司利益之投注情事发生，本公司保留权利取消该类注单以及注单产生之红利，并停用该会员帐号。无论代理还是会员，发现漏洞隐瞒不报，利用漏洞恶意刷钱、通过非法手段作弊、或造谣污蔑，攻击平台者，经平台核实后一律无条件永久冻结账号处理，账号所有金钱概不退还。</p>
+                    </li>
+                    <li>
+                        <p>5.若本公司发现会员有重复申请帐号行为时，保留取消、收回会员所有优惠红利，以及优惠红利所产生的盈利之权利。每位玩家、每一住址、每一电子邮箱、每一电话号码、相同支付卡/信用卡号码，以及共享电脑环境 (例如:网吧、其他公共用电脑等)只能够拥有一个会员帐号，各项优惠只适用于每位客户在本公司唯一的帐户。</p>
+                    </li>
+                    <li>
+                        <p>6.本平台单个账户高频彩种每期最高奖金限额300000.00元，超出按300000.00元计算，超出的奖金无效并清0；</p>
+                        <p><i></i>低频彩种每期最高奖金限额150000.00元，超出按150000.00元计算，超出的奖金无效并清0。</p>
+                        <p><i></i>如果有多个账户恶意投注同一号码行为，平台有权取消其所有注单。（低频彩为 福彩3D ，体彩P3/5，香港六合彩；其余彩种皆为高频彩票）。</p>
+                        <p><i></i>例：后三直选投注500注，单注200倍，单注金额400元，总投注金额200000元，假设中奖其奖金已超过奖金限额，投注后将提示投注失败，超过奖金限额。</p>
+                    </li>
+                    <li>
+                        <p>7.本平台任何彩种每期单挑奖金限额20000.00元，超出按20000.00元计算，超出的奖金无效并清0，如果有多个账户恶意投注同一号码行为，平台有权取消其所有注单。</p>
+                        <p><i></i>单挑模式说明：彩种和玩法通过换算后属于单挑规定之内的，中奖概率低于2% 的均为单挑模式。</p>
+                        <p><i></i>判定规则：投注金额除以中奖金额等于或小于2%（0.02）的均为单挑行为。</p>
+                        <p><i></i>例：[五星直选]2000注以下，[四星直选]200注以下，[三星直选]20注以下，[二星直选]4注以下.......（包括任选玩法及五星组合小概率中奖的玩法等）建议会员投注时注意自己的投注注数，如超过奖金限制，平台概不负责。如有争议，以本平台处理为准。
+                        </p>
+                    </li>
+                    <li>
+                        <p>8.平台取款时间为上午10:00-凌晨2:00，每日十次，每次最低100元,最高50000.00元，由于自身绑定账号错误或者提款自行取消等自身问题造成的取款次数减少失效，平台慨不负责。对于日量较大的客户，根据自身情况可向平台申请绿色VIP通道，增加提款次数和提款额度。</p>
+                    </li>
+                    <li>
+                        <p>9.平台严禁内招，首次发现冻结账号30天处理，期间不允许任何开号和招商。第二次发现直接封号或降级处理。情形严重，扰乱市场者，直接驱逐出平台，拉入平台黑名单，永久不再接纳。</p>
+                    </li>
+                    <li>
+                        <p>10.为了防止有人恶意洗钱，会员提款必须要消费充值的30%方可进行，否则财务不予受理。</p>
+                    </li>
+                    <li>
+                        <p>11.平台客服没有任何QQ及其他联系方式，唯一途经点击菜单栏客服热线跳转至在线客服， 其他均为假冒，请牢记，因此类问题上当受骗公司概不负责。</p>
+                    </li>
+                    <li>
+                        <p>12.不经核实乱放高点，恶意利用手中配额扰乱市场者，广告词中以超高返点分红为诱饵，回收全部配额处理，严重的降级或者封号。</p>
+                    </li>
+                    <li>
+                        <p>13.平台所有充值账号将不定期更换，请每次充值前务必打开充值界面获取最新收款账号，如自己充错造成的任何损失自由承担，与平台无关。</p>
+                    </li>
+                    <li>
+                        <p>14.本公司保留不定时修改或增加本协定或游戏规则或保密条例等的操作权利，更改之条款将从更改发生后立即生效，并保留一切有争议事项及最后的决策权。</p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</script>
+
+<script type="text/template" id="question_tpl">
+    <div class="tcc_box">
+        <div class="tcc_left">
+            <div class="c_top">
+                <span>常见问题<em>About US</em></span>
+            </div>
+            <div class="About_l">
+                <ul>
+                    <li data-id="recharge" data-command="changeTab"><span class="screen-left-btn" class="cur">如何充值</span></li>
+                    <li data-id="withdraw" data-command="changeTab"><span class="screen-left-btn">如何提款</span></li>
+                    <li data-id="question" data-command="changeTab"><span class="screen-left-btn">账号问题</span></li>
+                    <li data-id="safety" data-command="changeTab"><span class="screen-left-btn">帐号安全</span></li>
+                    <li data-id="platform" data-command="changeTab"><span class="screen-left-btn">平台问题</span></li>
+                    <li data-id="revoke" data-command="changeTab"><span class="screen-left-btn">账户冻结/回收</span></li>
+                </ul>
+            </div>
+        </div>
+        <div class="tcc_right" data-id="recharge" style="display: none;">
+            <div class="r_top">如何充值<div class="none" data-command="close"></div></div>
+            <div class="About_box">
+                <ul>
+                    <li>
+                        <h3>银行卡充值</h3>
+                        <p>我们有支持银联转帐，请与线上客服联系取得划款资讯。目前提供中国建设银行、中国工商银行、中国农业银行三间银行可选择，同行互转充值到帐时间约为五到十分钟，跨行划款需依据银行划款作业
+                            时间为基准，我们将于确认到帐后立刻为您游戏帐户充值。</p>
+                    </li>
+                    <li>
+                        <h3>线上支付</h3>
+                        <p>会员登入后点选”线上付款”。择入款额度 ，如有任何问题，与WINonline客服第一时间与您联系；</p>
+                        <p>选择"支付银行"；</p>
+                        <p>支持借记卡：中国民生银行总行,中国工商银行,中国建设银行,兴业银行,中国光大银行,深圳发展银行,中国邮政华夏银行,上海浦东发展银行,中国银行,上海银行,交通银行,广东发展银行,北京银行,中信银行,深
+                            圳平安银行,中国农业银行,招商银行</p>
+                        <p>确认送出后﹐将请您确认您的支付订单无误，并建议您记录您的支付订单号后，确认送出，并耐心等待载入网络银行页面﹐传输中已将您账户数据加密﹐请耐心等待。进入网络银行页面﹐请确实填写您银行账号信息﹐支付成功﹐额度将在5分钟内系统处理完成，立即加入您的WINonline会员账户。</p>
+                    </li>
+                    <li>
+                        <h3>充值须知</h3>
+                        <p>中国民生银行总行,中国工商银行,中国建设银行,兴业银行,中国光大银行,深圳发展银行,中国邮政华夏银行,上海浦东发展银行,中国银行,上海银行,交通银行,广东发展银行,北京银行,中信银行,深圳平安银行,中国农业银行,招商银行。确认送出后﹐将请您确认您的支付订单无误，并建议您记录您的支付订单号后，确认送出，并耐心等待载入网络银行页面﹐传输中已将您账户数据加密﹐请耐心等待。进入网络银行页面﹐请确实填写您银行账号信息﹐支付成功﹐额度将在5分钟内系统处理完成，立即加入您的WINonline会员账户。WINonline单笔最低充值为￥50元人民币，平台单笔最高充值5万，每日充值资金不限。未开通网银的会员，请到您的银行柜台办理。如有任何问题，请您联系在线客服。
+                        </p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="tcc_right" data-id="withdraw" style="display: none;">
+            <div class="r_top">如何提款<div class="none" data-command="close"></div></div>
+            <div class="About_box">
+                <ul>
+                    <li>
+                        <h3>提款方法</h3>
+                        <p>输入提款密码，确认提款人姓名与您银行账号持有人相符； </p>
+                        <p>会员登入后点选”在线提款”；</p>
+                        <p>输入出款额度，以及有效的手机号码，如有任何问题，请您联系银行在线客服，我们将在第一时间为您解答问题； </p>
+                        <p>确认提款银行账号正确；</p>
+                        <p>选择公司金流方式出款；</p>
+                        <p>绑定工商银行、农业银行、建设银行、招商银行、中国银行、交通银行、中信银行、光大银行、华夏银行、民生银行、广东发展银行、深圳发展银行、邮政储蓄为出款银行的会员，提款￥1000000RMB以内，可24小时提出申请，并享受3小时内到帐。</p>
+                    </li>
+                    <li>
+                        <h3>提款须知</h3>
+                        <p>WINonline最低提款为￥100元人民币，单笔最高提款上限￥50,000.00元人民币。提款时间：10:00至次日凌晨02:00。  </p>
+                        <p>玩家每日提款次数10次，免费5次。手续费：自动付款软件支付，手续费：自动付款软件支付，从第6次提款开始每次则按照提款金额收取1%最高不超过25元的手续费</p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="tcc_right" data-id="question" style="display: none;">
+            <div class="r_top">账号问题<div class="none" data-command="close"></div></div>
+            <div class="About_box">
+                <ul>
+                    <li>
+                        <p>资料绑定注意事项  </p>
+                        <p>会员登入后点选”在线提款”；</p>
+                        <p>在绑定个人银行资料时，本平台允许您绑定五张不同帐号的银行卡，但持卡人姓名必须一致，同时持卡人姓名一旦绑定不得再进行任何更改，切记。 </p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="tcc_right" data-id="safety" style="display: none;">
+            <div class="r_top">帐号安全<div class="none" data-command="close"></div></div>
+            <div class="About_box">
+                <ul>
+                    <li>
+                        <p>1.首次获得账户之后, 请修改初始登陆密码并设定资金密码, 并及时设定您的密保, 同时绑定您需要用来充值或者提款的银行账号信息。 </p>
+                    </li>
+                    <li>
+                        <p>2.妥善保管您的登录密码和资金密码，平时切勿相信他人以任何理由索要平台账号的登录密码及资金密码以及密保信息，定期对电脑进行安全检查，避免电脑中病毒和木马导致账户被盗。</p>
+                    </li>
+                    <li>
+                        <h3>忘记密码怎么办？</h3>
+                        <p><i></i>登录密码遗忘，请点击登录界面右方的《忘记密码》按钮，输入您的邮箱或Google动态密码即可找回。 </p>
+                        <p><i></i>建议您初始拿到账号请到平台"我的账户-绑定资料"进行登录密码、资金密码、绑定邮箱、密保问题的设定。</p>
+                        <p><i></i>请妥善保管好您的资金密码，如果资金密码，登录密码和绑定邮箱遗忘将无法再修改和找回密码。</p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="tcc_right" data-id="platform" style="display: none;">
+            <div class="r_top">平台问题<div class="none" data-command="close"></div></div>
+            <div class="About_box">
+                <ul>
+                    <li>
+                        <h3>平台对于提款有何规定？</h3>
+                        <p>充值后总投注额小于总充值额30%的提款将不予受理，如有特殊情况，请咨询在线客服申请处理。</p>
+                    </li>
+                    <li>
+                        <h3>在线客服服务时间是什么时候？</h3>
+                        <p>在线客服服务时间为：早上10点到晚上2点。</p>
+                    </li>
+                    <li>
+                        <h3>第3方开奖机构不开奖，投注单如何处理？</h3>
+                        <p>所有游戏，如遇第3方开奖机构不开奖，平台会对未获得开奖号码的期数进行撤单返款。撤单后无论第三方以任何形式补开，平台均维持撤单处理。 </p>
+                    </li>
+                    <li>
+                        <h3>关于网站以及其他方面的还有许多问题需要向谁询问？</h3>
+                        <p>请点击网页右上方的【在线客服】，本公司独家研发的在线客服系统备有最亲切，最专业的客服人员随时为您服务。 </p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="tcc_right" data-id="revoke" style="display: none;">
+            <div class="r_top">账户冻结/回收<div class="none" data-command="close"></div></div>
+            <div class="About_box">
+                <ul>
+                    <li>
+                        <p>为了保障会员的资金账号安全和清除服务器无用缓存，给广大用户带去更加快捷稳定流畅的游戏体验，系统将对满足以下条件的账号进行自动冻结、清除资金和删除账号操作。 </p>
+                    </li>
+                    <li>
+                        <h3>冻结帐号</h3>
+                        <p>（联系在线客服提供资料核实无误，确认没有任何被盗情形即可解冻）</p>
+                        <p><i></i>条件一： 连续6次登录密码输入错误的账号；</p>
+                        <p><i></i>条件二： 当日修改任何密码超过3次的账号；</p>
+                        <p><i></i>条件三： 超过30天未登录的账号；</p>
+                        <p><i></i>条件四： 当日登录IP变更超过两次的账号；</p>
+                    </li>
+                    <li>
+                        <h3>清除金额账号</h3>
+                        <p>（清理账户上的所有资金，包括各账户的与分红， 类型记录为“提款”） </p>
+                        <p><i></i>条件一：冻结超过十天，十天内无登录、无帐变的。 </p>
+                        <p><i></i>条件二：超过三个月未登录、无帐变的。 </p>
+                    </li>
+                    <li>
+                        <h3>删除账号</h3>
+                        <p>条件一： 注册后一周未登录且未绑定资料的账号。 </p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+</script>

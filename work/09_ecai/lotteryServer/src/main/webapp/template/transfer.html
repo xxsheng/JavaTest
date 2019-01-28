@@ -1,0 +1,43 @@
+<div class="memberContainer" ng-controller="transController as transCtrl" >
+    <div class="bar bar-header bar-positive">
+        <button class="button icon ion-arrow-left-c" on-tap="appCtrl.goback()"></button>
+        <h1 class="title">余额转入</h1>
+    </div>
+    <ion-content class="has-header has-footer" overflow-scroll="false" has-bouncing="true">
+        <div class="list">
+            <div class="item item-input">
+                <label class="input-label">&nbsp;主账余额：</label>
+                <span>{{transCtrl.transferData.totalMoney|number:0}}</span>
+                <div class="item-button-right inline" data-tap-disabled="true">
+                    <button class="button button-assertive button-small" on-tap="transCtrl.blur()">资金归集</button>
+                </div>
+            </div>
+            <div class="item item-input">
+                <label class="input-label">&nbsp;彩账余额：</label>
+                <span>{{transCtrl.transferData.lotteryMoney|number:0}}</span>
+            </div>
+            <div class="item item-input item-select" data-tap-disabled="true">
+                <label class="input-label">&nbsp;转出：</label>
+                <select ng-model="transCtrl.transObj.fromAccount" ng-init="transCtrl.transObj.fromAccount='1'">
+                    <option value="{{item.id}}" ng-repeat="item in transCtrl.platform">{{item.name}}</option>
+                </select>
+            </div>
+            <div class="item item-input item-select" data-tap-disabled="true">
+                <label class="input-label">&nbsp;转入:</label>
+                <select ng-model="transCtrl.transObj.toAccount" ng-init="transCtrl.transObj.toAccount='2'">
+                    <option value="{{item.id}}" ng-repeat="item in transCtrl.platform"> {{item.name}}</option>
+                </select>
+            </div>
+            <div class="item item-input">
+                <label class="input-label">&nbsp;金额:</label>
+                <input type="text" ng-model="transCtrl.transObj.amount">
+            </div>
+        </div>
+        <div class="row">
+        	<div class="col col-full">
+        		<button class="button button-block button-positive" on-tap="transCtrl.submitTrans()">提交</button>
+        	</div>
+        </div>
+    </ion-content>
+    <commonfooter></commonfooter>
+</div>

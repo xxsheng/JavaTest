@@ -1,0 +1,74 @@
+<div class="ssc-container" ng-controller="mainReportController as mainReportCtrl">
+    <div class="bar bar-header bar-positive">
+        <button class="button button-icon icon ion-arrow-left-a" on-tap="appCtrl.goback()"></button>
+        <h1 class="title">主账户记录</h1>
+        <button class="button button-positive button-small" on-tap="mainReportCtrl.searchRecord()">查询</button>
+    </div>
+    <ion-content class="has-header has-footer" overflow-scroll="false" has-bouncing="true">
+        <!--下拉刷新-->
+        <ion-refresher pulling-text="下拉刷新" on-refresh="mainReportCtrl.reflesh()"></ion-refresher>
+        <div class="recordContainer">
+            <div class="list">
+                <div class="item item-input">
+                    <span class="input-label">用户查询</span>
+                    <input type="text" ng-model="mainReportCtrl.searchObj.username" placeholder="用户名">
+                </div>
+                <div class="item item-icon-left">
+                    <i class="icon ion-ios-calendar positive"></i>
+                    <input type="date" ng-model="mainReportCtrl.searchObj.sTime">
+                </div>
+                <div class="item item-icon-left">
+                    <i class="icon ion-ios-calendar positive"></i>
+                    <input type="date" ng-model="mainReportCtrl.searchObj.eTime">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <p><span class="p05" ng-bind-html="mainReportCtrl.lotteryData.ups"></span></p>
+                </div>
+            </div>
+            <div class="list">
+                <div class="item" ng-repeat="record in mainReportCtrl.records">
+                    <!-- <p>用户名: {{record.name}}</p>
+                    <p>充值：{{record.recharge}}</p>
+                    <p>取款：{{record.withdrawals}}</p>
+                    <p>转入：{{record.transIn}}</p>
+                    <p>转出：{{record.transOut}}</p>
+                    <p>上下级转账(存):{{record.transIn}}</p>
+                    <p>上下级转账(取):{{record.accountOut}}</p> -->
+                    <table class="table_bordered text-center">
+                        <tbody>
+                            <tr>
+                                <td>用户名</td>
+                                <td>充值</td>
+                                <td>取款</td>
+                                <td>转入</td>
+                            </tr>
+                            <tr>
+                                <td ng-if="record.name!='总计'"><button on-tap="mainReportCtrl.checkchild(record.name)" class="button button-positive button-small">{{record.name}}</button></td>
+                                <td ng-if="record.name=='总计'">{{record.name}}</td>
+                                <td>{{record.recharge|number:2}}</td>
+                                <td>{{record.withdrawals|number:2}}</td>
+                                <td>{{record.transIn|number:2}}</td>
+                            </tr>
+                            <tr>
+                                <td>转出</td>
+                                <td>上下级转账(存)</td>
+                                <td>上下级转账(取)</td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>{{record.transOut|number:2}}</td>
+                                <td>{{record.accountIn|number:2}}</td>
+                                <td>{{record.accountOut|number:2}}</td>
+                                <td></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <!-- <ion-infinite-scroll ng-if="!mainReportCtrl.noMorePage" immediate-check="false" on-infinite="mainReportCtrl.loadmore(mainReportCtrl.page)" distance="10%"></ion-infinite-scroll> -->
+    </ion-content>
+    <commonfooter></commonfooter>
+</div>

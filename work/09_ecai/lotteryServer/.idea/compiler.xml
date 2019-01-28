@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="adminManager" />
+        <module name="lotteryCapture" />
+        <module name="lotteryOpen" />
+        <module name="lotteryServer" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="adminManager" target="1.8" />
+      <module name="lotteryCapture" target="1.8" />
+      <module name="LotteryOpen" target="1.8" />
+      <module name="lotteryOpen" target="1.8" />
+      <module name="lotteryServer" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

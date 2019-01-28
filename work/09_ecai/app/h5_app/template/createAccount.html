@@ -1,0 +1,133 @@
+<div class="ssc-container" ng-controller="agentController as agentCtrl">
+    <div class="bar bar-header bar-positive">
+        <div class="buttons">
+            <button class="button" on-tap="appCtrl.goback()"><i class="icon ion-arrow-left-a"></i></button>
+        </div>
+        <h1 class="title">开户中心</h1>
+    </div>
+    <div class="tabs tabs-top record-top" id="account">
+        <a class="tab-item active manul" on-tap="agentCtrl.switchTab('manul')">人工开户</a>
+        <a class="tab-item link" on-tap="agentCtrl.switchTab('link')">链接开户</a>
+        <a class="tab-item mobileLinkManage" on-tap="agentCtrl.switchTab('mobileLinkManage')">手机链接</a>
+        <a class="tab-item webLinkManage" on-tap="agentCtrl.switchTab('webLinkManage')">网页链接</a>
+    </div>
+    <ion-content class="has-bet-header has-footer" overflow-scroll="false" has-bouncing="true">
+        <div class="manulContainer" ng-if="agentCtrl.manulshow">
+            <div class="card">
+                <p class="p5">会员初始密码为“a123456”。
+                    为提高服务器效率，系统将自动清理注册一个月没有充值，或两个月未登录，并且金额低于10元的账户。</p>
+            </div>
+            <div class="list">
+                <label for="" class="item item-input item-select" data-tap-disabled="true">
+                    <span class="input-label">类型:</span>
+                    <select ng-model="agentCtrl.accountObj.type" ng-init="agentCtrl.accountObj.type=1">
+                        <option value="1" ng-selected='true'>代理</option>
+                        <option value="2">玩家</option>
+                    </select>
+                </label>
+                <label class="item item-input">
+                    <span class="input-label">用户名:</span>
+                    <input type="text" ng-model="agentCtrl.accountObj.username">
+                </label>
+                <label class="item item-input">
+                    <span class="input-label">账号返点:</span>
+                    <input type="number" ng-model="agentCtrl.accountObj.code">
+                </label>
+                <label for="item">
+                    <span id="pointtips">（可分配范围 {{agentCtrl.uCode.minCode}} ~ <span>{{agentCtrl.uCode.maxCode}}</span>）</span>
+                </label>
+            </div>
+            <div class="row">
+                <div class="col-full">
+                    <button class="button button-positive button-block" on-tap="agentCtrl.createAccount()">立即开户</button>
+                </div>
+            </div>
+        </div>
+        <div class="linkContainer" ng-if="agentCtrl.linkopen">
+            <div class="list">
+                <label for="" class="item item-input item-select" data-tap-disabled="true">
+                    <span class="input-label">用户类型:</span>
+                    <select ng-model="agentCtrl.linkObj.type" ng-init="agentCtrl.linkObj.type=1">
+                        <option value="1" ng-selected='true'>代理</option>
+                        <option value="2">玩家</option>
+                    </select>
+                </label>
+                <label for="" class="item item-input item-select" data-tap-disabled="true">
+                    <span class="input-label">设备类型:</span>
+                    <select ng-model="agentCtrl.linkObj.deviceType" ng-init="agentCtrl.linkObj.deviceType=2">
+                        <option value="2" ng-selected='true'>手机</option>
+                        <option value="1">网页</option>
+                    </select>
+                </label>
+                <label class="item item-input item-select" data-tap-disabled="true">
+                    <span class="input-label">链接有效期:</span>
+                    <select ng-model="agentCtrl.linkObj.days" ng-init="agentCtrl.linkObj.days=0">
+                        <option value="0" ng-selected='true'>永久有效</option>
+                        <option value="1">1天</option>
+                        <option value="7">7天</option>
+                        <option value="30">30天</option>
+                    </select>
+                </label>
+                <label class="item item-input">
+                    <span class="input-label">使用次数:</span>
+                    <input type="text" ng-model="agentCtrl.linkObj.amount" ng-init="agentCtrl.linkObj.amount=9999">
+                </label>
+                <label class="item item-input">
+                    <span class="input-label">账号返点:</span>
+                    <input type="number" ng-model="agentCtrl.linkObj.code">
+                </label>
+                <label for="item">
+                    <span id="pointtips">（可分配范围 {{agentCtrl.uCode.minCode}} ~ <span>{{agentCtrl.uCode.maxCode}}</span>）</span>
+                </label>
+            </div>
+            <div class="row">
+                <div class="col-full">
+                    <button class="button button-positive button-block" on-tap="agentCtrl.createLink()">生成链接</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="team_work" ng-if="agentCtrl.webLinkManage">
+            <div class="row" ng-repeat="item in agentCtrl.linkList" on-finish-render="ngRepeatFinished">
+                <div class="col col-75">
+                    <p>链接：<input type="text" value="{{item.code}}" class="noninput"></p>
+                    <p>用户类别：{{item.type|typeFilter}}</p>
+                    <p>账号返点：{{item.locatePoint * 20 + 1800}}</p>
+                    <p>过期时间：{{item.expTime == null ? '永久有效' : item.expTime}}</p>
+                    <p>剩余个数：{{item.amount}}</p>
+                </div>
+                <div class="col lpt">
+                    <button class="button button-assertive button-small" on-tap='agentCtrl.delLink(item.id)'>删除</button>
+                </div>
+            </div>
+            <!--<div class="row" ng-repeat="item in agentCtrl.linkList" on-finish-render="ngRepeatFinished">-->
+                <!--<div class="col col-75">-->
+                    <!--<p>链接：<input type="text" value="{{item.code}}" class="noninput"></p>-->
+                    <!--<p>用户类别：{{item.type|typeFilter}}</p>-->
+                    <!--<p>账号返点：{{item.locatePoint * 20 + 1800}}</p>-->
+                    <!--<p>过期时间：{{item.expTime == null ? '永久有效' : item.expTime}}</p>-->
+                    <!--<p>剩余个数：{{item.amount}}</p>-->
+                <!--</div>-->
+                <!--<div class="col lpt">-->
+                    <!--<button class="button button-assertive button-small" on-tap='agentCtrl.delLink(item.id)'>删除</button>-->
+                <!--</div>-->
+            <!--</div>-->
+        </div>
+
+        <div class="team_work" ng-if="agentCtrl.mobileLinkManage">
+            <div class="row" ng-repeat="item in agentCtrl.linkList" on-finish-render="ngRepeatFinished">
+                <div class="col col-75">
+                    <p>用户类别：{{item.type|typeFilter}}</p>
+                    <p>账号返点：{{item.locatePoint * 20 + 1800}}</p>
+                    <p>过期时间：{{item.expTime == null ? '永久有效' : item.expTime}}</p>
+                    <p>剩余个数：{{item.amount}}</p>
+                </div>
+                <div class="col lpt">
+                    <button class="button button-assertive button-small" on-tap='agentCtrl.delLink(item.id)'>删除</button>
+                    <div class="qr-code-btn" on-tap="agentCtrl.showQRCode(item.qrCode)"></div>
+                </div>
+            </div>
+        </div>
+    </ion-content>
+    <commonfooter></commonfooter>
+</div>

@@ -1,0 +1,128 @@
+/*首页*/
+.center_box{ overflow:hidden; background-color:#777d83;}
+.index_box{background-color:#fff;}
+.banner{ width:100%; position:relative;}
+.banner .ban_text{ position:absolute; left:80px; top:130px;z-index: 1000;}
+.banner .ban_text h3{ color:#fff; font-size:32px;}
+.banner .ban_text p{ font-size:18px; color:#fff; margin-top:10px; line-height:28px;}
+.banner .ban_text a{ display:inline-block; margin-top:45px; width:116px; height:36px; text-align:center; line-height:36px; border:solid 2px #f30d31; border-radius:2px; font-size:14px; color:#fff;}
+.index_list{ padding:40px 20px;}
+.index_list ul{ overflow:hidden;}
+.index_list ul li{ float:left; width:20%; text-align:center; }
+.index_list ul li p{color:#777d83; line-height:22px; margin: 22px 30px 0px;}
+.newest_notice{min-width: 300px; width: auto;padding: 0 20px;cursor: pointer;transform: translate(0,0);transition:all .2s ease-in 0s;}
+.newest_notice:hover{color: #FFFFff}
+
+.banner ul li img{width: 100%;height: 460px;}
+@media (max-width:850px) {
+    .banner ul li img{width: 100%;height: 100%;}
+}
+@media (min-width: 850px) and (max-width: 1149px) {
+    .banner ul li img{width: 100%;height: 100%;}
+}
+
+@media (min-width: 1150px) and (max-width: 1449px) {
+    .banner ul li img{width: 100%;height: 100%;}
+}
+@media (min-width:1450px) {
+    .banner ul li img{width: 100%;height: 100%;}
+}
+
+@media (max-width: 1400px){
+    .index_list ul li p{font-size: 12px;}
+}
+
+/*热门游戏推荐*/
+.hot_box{ padding:0 20px; padding-top:40px; background-color:#f2f2f2; padding-bottom:20px;}
+.hot_cen .hot_top{ font-size:16px; color:#3e444c; font-weight:bold; padding-left:20px;}
+
+.hot_cen .hot{overflow:hidden; padding:24px 0 10px 10px;}
+.hot_cen .hot ul{ width: 1830px; overflow:hidden;}
+
+.hot_cen .hot ul li{ float:left; width:340px; border:solid 1px #e8e8e8; border-radius:4px; background-color:#fff; margin-right:24px;}
+.hot_cen .hot ul li:hover{box-shadow: 0px 4px 14px 0 rgba(0, 0, 0, 0.05);transition: 0.3s;}
+.hot_cen .hot ul li .hot_1{ overflow:hidden; padding:20px 16px 16px 20px; border-bottom:solid 1px #e8e8e8;}
+.hot_cen .hot ul li .hot_1 .pic_1{ float:left;}
+.hot_cen .hot ul li .hot_1 .pic_1 img{ width: 45px;}
+.hot_cen .hot ul li .hot_1 .pic_2{ float:left; margin-left:15px;}
+.hot_cen .hot ul li .hot_1 .pic_2 span{ font-size:14px; color:#3e444c;}
+.hot_cen .hot ul li .hot_1 .pic_2 p{ font-size:12px; color:#777d83; margin-top:5px;}
+.hot_cen .hot ul li .hot_1 .pic_2 p i{ display:inline-block; width:44px; font-style:normal; height:20px; text-align:center; line-height:20px; margin-left:6px; background-color:#42c977; color:#fff; border-radius:2px;}
+.hot_cen .hot ul li .hot_1 .pic_3{ float:right; font-size:16px; color:#333333; margin-top:24px;}
+.hot_cen .hot ul li .hot_2{ padding:14px 0; border-bottom:solid 1px #e8e8e8; padding-left:20px;}
+.hot_cen .hot ul li .hot_2 span{ font-size:13px; color:#777d83; display:inline-block;}
+.hot_cen .hot ul li .hot_2 i{ display:inline-block; width:28px; margin-left:8px; font-style:normal; height:28px; text-align:center; line-height:28px; color:#fff; font-size:12px; background-color:#f10735; border-radius:100%;}
+.hot_cen .hot ul li .hot_3 a{ display:inline-block; width:169px; height:44px; line-height:42px; text-align:center; color:#777d83; font-size:12px;}
+.hot_cen .hot ul li .hot_3 a.cur{ width:170px; border-left:solid 1px #e8e8e8;}
+.hot_cen .hot ul li .hot_3 a:hover{ background-color:#f6f6f6;color: #ee002f;}
+
+/*优惠活动*/
+.treatment{ margin-top:40px;}
+.treatment .treatment_top{font-size:16px; color:#3e444c; font-weight:bold; padding-left:20px;}
+.treatment_box ul{ overflow:hidden; padding:24px 10px 30px 10px;}
+.treatment_box ul li:hover{-webkit-transform: scale(1.1);transform: scale(1.1);opacity: 1;z-index: 1000;}
+.treatment_box ul li{ float:left; width:18%; margin-right:2%; transition: all .8s; position:relative;}
+.treatment_box ul li:hover .pac{ display:block;}
+.treatment_box ul li .pic{ width:100%; text-align:center; margin:0 auto;}
+.treatment_box ul li .pic img{ width:100%;}
+.treatment_box ul li .pac{ width:100%; height:100%; background:url(../images/index/pac_bg.png) no-repeat; position:absolute; left:0; top:0; text-align:center; display:none;}
+.treatment_box ul li .pac a{ display:inline-block; width:88px; height:38px; text-align:center; margin-top:22%; line-height:38px; color:#bec1c4; font-size:14px; border:solid 1px #72575f; border-radius:2px;}
+.treatment_box ul li .pac a:hover{ background-color:#2e84dc; border:solid 1px #2e84dc; color:#fff;}
+
+/*页面底部*/
+.footer{ padding:0 30px; padding-top:40px; padding-bottom:25px;}
+.footer .font{ overflow:hidden; padding-bottom:30px; border-bottom:solid 1px #e8e8e8;}
+.footer .font .font_1{ float:left;width: 20%}
+.footer .font .font_1 span{ display:block;}
+.footer .font .font_1 em{ display:block; width:24px; height:2px; background-color:#f20f3c; margin-top:20px;margin-left: 3px;}
+.footer .font .font_1 p{ margin-top:30px; color:#777d83; font-size:13px; line-height:24px; width:auto;font-size: 12px;}
+.footer .font .font_1 img{width: 110px;height: auto;}
+.footer .font .font_2{ float:right;width: 80%}
+.footer .font .font_2 dl{ float:right; width:20%;}
+.footer .font .font_2 dl dt{ color:#323840; font-size:14px; font-weight:bold; padding-bottom:5px;}
+.footer .font .font_2 dl dd{ margin-top:16px; font-size:12px; color:#777d83;}
+.footer .font .font_2 dl dd a{color:#777d83;}
+.footer .font .font_2 dl dd a:hover{color:#f30f32;}
+.footer .font_text{ padding-top:20px; overflow:hidden;font-size: 12px;}
+.footer .font_text .font_cc{ float:left;margin-top: 2px;}
+.footer .font_text .font_cc img{width: 42px;height: 42px;}
+.footer .font_text .font_tt{ float:none; font-size:12px; color:#777d83; margin-left:60px; margin-top:4px;}
+.footer .font_text .font_tt p{ margin-bottom:4px;}
+
+.pr_left{color: #FFFFff;font-size: 20px;position: absolute;top: 50%;left: 20px;margin-top: -10px;z-index: 1000;}
+.pr_right{color: #FFFFff;font-size: 20px;position: absolute;top: 50%;right: 20px;margin-top: -10px;z-index: 1000;}
+
+/*最近登录地址*/
+.recent{ margin-top:30px;}
+.recent .recent_top{ overflow:hidden; font-size:12px; color:#bec1c4; padding:0 10px; padding-bottom:18px; border-bottom:solid 1px #83898e;}
+.recent .recent_top .re_1{ float:left; font-size:14px;}
+.recent .recent_top .re_1 i{ margin-right:5px;color: #bec1c4;}
+.recent .recent_top .re_2{ float:right; margin-top:2px;}
+.recent .recent_top .re_2 i{ cursor:pointer;}
+.recent .recent_top .re_2 i.c_1{ background:url(../images/index/sse.png) no-repeat; display:inline-block; width:20px; height:12px; margin-left:5px; vertical-align:middle;}
+.recent .recent_top .re_2 i.c_1.active{ background:url(../images/index/sse.png) no-repeat -20px 0; display:inline-block; width:20px; height:12px; margin-left:5px; vertical-align:middle;}
+.recent .recent_box .recent_title{ line-height:39px; border-bottom:solid 1px #83898e; padding-left:20px; font-size:12px; color:#bec1c4;margin-bottom: 10px;}
+.recent .recent_box .recent_title span{ display:inline-block; text-align: left;}
+.recent .recent_box .recent_title span:nth-child(1){ width:135px; }
+.recent .recent_box .recent_title span:nth-child(2){ width:150px; }
+.recent .recent_box .recent_title i{ display:inline-block; font-style:normal;}
+.recent .recent_box ul li{line-height:40px; height: 40px; color:#bec1c4; font-size:12px; padding-left:20px; transition: 0.3s;}
+.recent .recent_box ul li:hover{ background-color:#62686f;}
+.recent .recent_box ul li span{ display:inline-block;text-align: left;}
+.recent .recent_box ul li span:nth-child(1){ width:135px;}
+.recent .recent_box ul li span:nth-child(2){ width:150px;}
+.recent .recent_box ul li i{ display:inline-block; font-style:normal;}
+
+/*幸运大奖玩家*/
+.luck{ margin:30px 0;}
+.luck .luck_title{ padding-left:10px; padding-bottom:18px; border-bottom:solid 1px #83898e; color:#bec1c4; font-size:14px;}
+.luck .luck_title i{ margin-right:5px;color: #bec1c4;}
+.luck ul li{ padding:14px 10px; overflow:hidden; border-bottom:solid 1px #83898e;}
+.luck ul li .lu_1{ float:left;}
+.luck ul li .lu_1 img{ display:block;width: 45px;}
+.luck ul li .lu_2{ float:left; margin-left:12px; font-size:12px; color:#bec1c4; margin-top:5px;}
+.luck ul li .lu_2 p{ margin-top:3px;}
+.luck ul li .lu_2 p a{ color: #bec1c4;display: inline-block;}
+.luck ul li .lu_2 p a:hover{ color: #FFFFff;}
+.luck ul li .lu_3{ float:right; font-size:12px; color:#bec1c4; text-align:right; margin-top:5px;}
+.luck ul li .lu_3 i{ font-size:16px; color:#42c977; display:block; font-style:normal;}

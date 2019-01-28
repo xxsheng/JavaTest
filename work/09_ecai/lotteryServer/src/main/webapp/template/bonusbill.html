@@ -1,0 +1,136 @@
+<div class="ssc-container" ng-controller="bonusBillController as bonusBillCtrl">
+    <div class="bar bar-header bar-positive">
+        <div class="buttons">
+            <button class="button" on-tap="appCtrl.goback()"><i class="icon ion-arrow-left-a"></i></button>
+        </div>
+        <h1 class="title">契约分红</h1>
+        <div class="buttons">
+            <button class="button" on-tap="bonusBillCtrl.search()" ng-if="bonusBillCtrl.type == 'bonusbill' || bonusBillCtrl.type == 'bonusmanage' || bonusBillCtrl.type == 'gamebonus'"><i class="icon ion-search"></i>查询</button>
+        </div>
+    </div>
+    <div class="tabs tabs-top record-top">
+        <a ng-class="{true: 'tab-item active', false: 'tab-item'}[bonusBillCtrl.type == 'bonusbill']" href="#/bonus_bill/bonusbill">契约分红账单</a>
+        <a ng-class="{true: 'tab-item active', false: 'tab-item'}[bonusBillCtrl.type == 'bonusmanage']" href="#/bonus_bill/bonusmanage">契约分红管理</a>
+<!--         <a ng-class="{true: 'tab-item active', false: 'tab-item'}[bonusBillCtrl.type == 'startbonus']" href="#/bonus_bill/startbonus">发起契约分红</a> -->
+        <!--<a ng-class="{true: 'tab-item active', false: 'tab-item'}[bonusBillCtrl.type == 'gamebonus']" href="#/bonus_bill/gamebonus">老虎机/真人分红</a>-->
+    </div>
+    <ion-content class="has-bet-header has-footer" overflow-scroll="false" has-bouncing="true">
+        <!--下拉刷新-->
+        <ion-refresher ng-if="bonusBillCtrl.type != 'startbonus'" pulling-text="下拉刷新" on-refresh="bonusBillCtrl.refresh()"></ion-refresher>
+        <div class="recordContainer">
+
+            <div class="row"ng-if="bonusBillCtrl.type == 'bonusbill' || bonusBillCtrl.type == 'bonusmanage' || bonusBillCtrl.type == 'gamebonus'">
+                <div class="col item-input-inset">
+                    <label class="item-input-wrapper">
+                        <i class="icon ion-person placeholder-icon"></i>
+                        <input type="search" ng-model="bonusBillCtrl.searchObj.username" placeholder="用户名">
+                    </label>
+                </div>
+            </div>
+
+            <div class="row" ng-if="bonusBillCtrl.type == 'bonusbill' || bonusBillCtrl.type == 'gamebonus'" data-tap-disabled="true">
+                <div class="item-input-inset">
+                    <label class="item-input-wrapper">
+                        <i class="icon ion-ios-calendar placeholder-icon"></i>
+                        <input type="date" ng-model="bonusBillCtrl.searchObj.sTime"/>
+                    </label>
+                </div>
+                <div class="item-input-inset">
+                    <label class="item-input-wrapper">
+                        <i class="icon ion-ios-calendar placeholder-icon"></i>
+                        <input type="date" ng-model="bonusBillCtrl.searchObj.eTime"/>
+                    </label>
+                </div>
+            </div>
+
+            <div class="row user-hierarchy row-wrap" ng-if="bonusBillCtrl.type == 'bonusbill'">
+                <div class="user-level-btn" ng-repeat="username in bonusBillCtrl.userLevels">
+                    <span class="user-level-name" on-tap="bonusBillCtrl.checkchild(username)">{{username}}</span>
+                    <span class="user-level-tag" ng-if="!$last"><</span>
+                </div>
+            </div>
+
+            <ul class="list" ng-if="bonusBillCtrl.type == 'bonusbill'">
+                <li class="item item-icon-right" ng-repeat="item in bonusBillCtrl.records">
+                    <p>用户名：<button on-tap="bonusBillCtrl.checkchild(item.username)" class="button button-positive button-small btn_small">{{item.username}}<span ng-if="bonusBillCtrl.currentUsername === item.username">(自己)</span></button></p>
+                    <p>投注：{{item.bean.billingOrder}}</p>
+                    <p>亏损：{{item.bean.totalLoss}}</p>
+                    <p>分红比例：{{item.bean.scale|number:0}}%</p>
+                    <p>有效会员：{{item.bean.validUser}}</p>
+                    <p>金额：{{item.bean.userAmount|number:1}}元</p>
+                    <p>下级发放：{{item.bean.lowerTotalAmount|number:1}}</p>
+                    <p>可领取：{{item.bean.availableAmount|number:1}}</p>
+                    <p>周期：{{item.bean.indicateStartDate}}~{{item.bean.indicateEndDate}}</p>
+                    <p>状态：{{item.bean.status|contractFilter}}</p>
+                    <p>
+                    <button class="button button-positive button-small" on-tap="bonusBillCtrl.checkBonusDetail(item)">查看详情</button>
+                    <button class="button button-positive button-small" on-tap="bonusBillCtrl.getBonus(item)" ng-if="item.bean.availableAmount>0&&(item.bean.status===3||item.bean.status===7)&&bonusBillCtrl.currentUsername === item.username">领取</button>
+                    </p>
+                    <!-- <i class="icon ion-ios-arrow-right"></i> -->
+                </li>
+            </ul>
+            <ul class="list" ng-if="bonusBillCtrl.type == 'bonusmanage'">
+                <li class="item item-icon-right" ng-repeat="item in bonusBillCtrl.records">
+                    <p>用户名：<button on-tap="bonusBillCtrl.checkchild(item.username)" class="button button-positive button-small">{{item.username}}<span ng-if="bonusBillCtrl.currentUsername === item.username">(自己)</span></button></p>
+                    <p>结算类型：{{ item.fixed == 0 ? ('浮动比例') : ('固定比例')}}</p>
+                    <p>分红条款：
+                    <ion-list>
+					  <ion-item ng-repeat="sh in item.showHtml">
+					     {{sh.sales}}</br>
+					     {{sh.loss}}</br>
+					     {{sh.user}}</br>
+					     {{sh.scale}}</br>
+					  </ion-item>
+					</ion-list>
+                    </p>
+<!--                     <p>最低有效会员:{{item.minValidUser <= 0 ? '无限制': item.minValidUser}}</p> -->
+                    <p>处理时间:{{item.createTime}}</p>
+                    <p>状态:{{item.status|bonusContractFilter}}</p>
+                    <p ng-if="item.status == 2 && bonusBillCtrl.currentUsername === item.username">
+                        <button class="button button-positive button-small" on-tap="bonusBillCtrl.agree(item)">同意</button>
+                        <button class="button button-positive button-small" on-tap="bonusBillCtrl.deny(item)">拒绝</button>
+                    </p>
+                </li>
+            </ul>
+            <div class="list" ng-if="bonusBillCtrl.type == 'startbonus'">
+                <div class="item item-input">
+                    <span class="input-label">用户名</span>
+                    <input type="text" id="contract_username" value="{{bonusBillCtrl.initData.username}}"  on-tap="bonusBillCtrl.pickuser()" >
+                </div>
+                <div class="item item-input">
+                    <span class="input-label">分红比例(%)</span>
+                    <input type="text" ng-model="bonusBillCtrl.startBonusObj.scale">
+                </div>
+                <div class="item">
+                    <span class="input-label">（可分配范围 <span>{{bonusBillCtrl.initData.minScale|number:0}}</span> ~ <span>{{bonusBillCtrl.initData.maxScale|number:0}}</span>）</span>
+                </div>
+                <div class="item item-input">
+                    <span class="input-label">最低有效人数</span>
+                    <input type="text" ng-model="bonusBillCtrl.startBonusObj.minValidUser">
+                </div>
+                <div class="item">
+                    <span class="input-label">（可分配范围 <span>{{bonusBillCtrl.initData.minValidUser}}</span> ~ <span>{{bonusBillCtrl.initData.maxValidUser}}</span>）</span>
+                </div>
+                <div class="item">
+                    <button class="button button-positive button-block" on-tap="bonusBillCtrl.confirm_dividend()">确定</button>
+                </div>
+            </div>
+            <ul class="list" ng-if="bonusBillCtrl.type == 'gamebonus'">
+                <li class="item item-icon-right" ng-repeat="item in bonusBillCtrl.records">
+                    <p>用户名：<button on-tap="bonusBillCtrl.checkchild(item.username)" class="button button-positive button-small btn_small">{{item.username}}<span ng-if="bonusBillCtrl.currentUsername === item.username">(自己)</span></button></p>
+                    <p>投注：{{item.bean.billingOrder}}</p>
+                    <p>亏损：{{item.bean.totalLoss}}</p>
+                    <p>分红比例：{{item.bean.scale|number:0}}%</p>
+                    <p>分红金额：{{item.bean.userAmount}}元</p>
+                    <p>周期:{{item.bean.indicateStartDate}}~{{item.bean.indicateEndDate}}</p>
+                    <p>状态:{{item.bean.status|contractFilter}}</p>
+                    <p ng-if="item.bean.userAmount>0 && item.bean.status===3 && bonusBillCtrl.currentUsername === item.username">
+                        <button class="button button-positive button-small" on-tap="bonusBillCtrl.getGameBonus(item)">领取</button>
+                    </p>
+                </li>
+            </ul>
+        </div>
+        <ion-infinite-scroll ng-if="bonusBillCtrl.hasMore && bonusBillCtrl.type != 'startbonus'" immediate-check="false" on-infinite="bonusBillCtrl.loadmore(bonusBillCtrl.page)" distance="10%"></ion-infinite-scroll>
+    </ion-content>
+    <commonfooter></commonfooter>
+</div>

@@ -1,0 +1,111 @@
+<ion-modal-view>
+    <div class="bar bar-header bar-positive">
+        <h1 class="title">契约分红详情</h1>
+        <button class="button" on-tap="bonusBillCtrl.closeBonusModal()"><i class="icon ion-close"></i>关闭</button>
+    </div>
+<ion-content class="has-header has-footer" overflow-scroll="false" has-bouncing="true">
+    <div class="list">
+        <div class="item">
+            <span>用户名：</span>
+            <span>{{bonusBillCtrl.currentBonus.username}}</span>
+        </div>
+        <div class="item">
+            <span>分红比例：</span>
+            <span>{{bonusBillCtrl.currentBonus.bean.scale|number:0}}%</span>
+        </div>
+        <div class="item">
+            <span>实际有效会员：</span>
+            <span>{{bonusBillCtrl.currentBonus.bean.validUser}}</span>
+        </div>
+        <div class="item">
+            <span>最低有效会员：</span>
+            <span>{{bonusBillCtrl.currentBonus.bean.minValidUser}}</span>
+        </div>
+        <div class="item">
+            <span>彩票投注：</span>
+            <span>{{bonusBillCtrl.currentBonus.bean.lotteryBillingOrder|number:2}}</span>
+        </div>
+        <div class="item">
+            <span>本次彩票亏损：</span>
+            <span>{{bonusBillCtrl.currentBonus.bean.lotteryThisLoss|number:2}}</span>
+        </div>
+        <div class="item">
+            <span>上半月彩票亏损：</span>
+            <span>{{bonusBillCtrl.currentBonus.bean.lotteryLastLoss|number:2}}</span>
+        </div>
+        <div class="item">
+            <span>累计彩票亏损：</span>
+            <span>{{bonusBillCtrl.currentBonus.bean.lotteryTotalLoss|number:2}}</span>
+        </div>
+        <div class="item">
+            <span>真人老虎机投注：</span>
+            <span>{{bonusBillCtrl.currentBonus.bean.gameBillingOrder|number:2}}</span>
+        </div>
+        <div class="item">
+            <span>本次真人老虎机亏损：</span>
+            <span>{{bonusBillCtrl.currentBonus.bean.gameThisLoss|number:2}}</span>
+        </div>
+        <div class="item">
+            <span>上半月真人老虎机亏损：</span>
+            <span>{{bonusBillCtrl.currentBonus.bean.gameLastLoss|number:2}}</span>
+        </div>
+        <div class="item">
+            <span>累计真人老虎机亏损：</span>
+            <span>{{bonusBillCtrl.currentBonus.bean.gameTotalLoss|number:2}}</span>
+        </div>
+        <div class="item">
+            <span>总投注：</span>
+            <span>{{bonusBillCtrl.currentBonus.bean.billingOrder|number:2}}</span>
+        </div>
+        <div class="item">
+            <span>本次总亏损：</span>
+            <span>{{bonusBillCtrl.currentBonus.bean.thisLoss|number:2}}</span>
+        </div>
+        <div class="item">
+            <span>上半月总亏损：</span>
+            <span>{{bonusBillCtrl.currentBonus.bean.lastLoss|number:2}}</span>
+        </div>
+        <div class="item">
+            <span>累计总亏损：</span>
+            <span>{{bonusBillCtrl.currentBonus.bean.totalLoss|number:2}}</span>
+        </div>
+        <div class="item">
+            <span>下级共需发放：</span>
+            <span>{{bonusBillCtrl.currentBonus.bean.lowerTotalAmount|number:2}}</span>
+        </div>
+        <div class="item">
+            <span>下级累计发放：</span>
+            <span>{{bonusBillCtrl.currentBonus.bean.lowerPaidAmount|number:2}}</span>
+        </div>
+        <div class="item">
+            <span>账单计算金额：</span>
+            <span>{{bonusBillCtrl.currentBonus.bean.calAmount|number:2}}</span>
+        </div>
+        <div class="item">
+            <span>应得金额：</span>
+            <span>{{bonusBillCtrl.currentBonus.bean.userAmount|number:2}}</span>
+        </div>
+        <div class="item">
+            <span>周期：</span>
+            <span>{{bonusBillCtrl.currentBonus.bean.indicateStartDate}}~{{bonusBillCtrl.currentBonus.bean.indicateEndDate}}</span>
+        </div>
+        <div class="item">
+            <span>状态：</span>
+            <span>{{bonusBillCtrl.currentBonus.bean.status|contractFilter}}</span>
+        </div>
+        <div class="item">
+            <span>目前可领取：</span>
+            <span>{{bonusBillCtrl.currentBonus.bean.availableAmount|number:2}}</span>
+        </div>
+        <div class="item">
+            <span>累计领取：</span>
+            <span>{{bonusBillCtrl.currentBonus.bean.totalReceived|number:2}}</span>
+        </div>
+
+        <div class="item">
+            <span>备注：</span>
+            <span>{{bonusBillCtrl.currentBonus.bean.remarks}}</span>
+        </div>
+    </div>
+</ion-content>
+</ion-modal-view>

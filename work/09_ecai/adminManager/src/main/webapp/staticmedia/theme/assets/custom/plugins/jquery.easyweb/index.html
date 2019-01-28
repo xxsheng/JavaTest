@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="utf-8" />
+	<link rel="stylesheet" type="text/css" href="jquery.easyweb.css">
+</head>
+<body>
+
+	<div id="test"></div>
+	<div id="test2"></div>
+	
+	<script type="text/javascript" src="jquery-2.1.1.min.js"></script>
+	<script type="text/javascript" src="jquery.easyweb.js"></script>
+	<script type="text/javascript">
+	$(document).ready(function() {
+		var pagination = $.pagination({
+			render: '#test',
+			ajaxType: 'get',
+			ajaxUrl: 'file:///data.json',
+			ajaxData: {},
+			beforeSend: function() {
+				//alert('beforeSend');
+			},
+			complete: function() {
+				//alert('complete');
+			},
+			success: function(list) {
+				//alert('length' + list.length);
+			},
+			pageError: function(msg) {
+				//alert('sssss' + msg);
+			}
+		});
+		pagination.init();
+		
+		var pagination2 = $.pagination({
+			render: '#test2',
+			ajaxType: 'get',
+			ajaxUrl: 'data.json',
+			ajaxData: {},
+			beforeSend: function() {
+				//alert('beforeSend');
+			},
+			complete: function() {
+				//alert('complete');
+			},
+			success: function(list) {
+				//alert('length' + list.length);
+			},
+			pageError: function(msg) {
+				//alert('sssss' + msg);
+			}
+		});
+		pagination2.init();
+	});
+	</script>
+</body>
+</html>

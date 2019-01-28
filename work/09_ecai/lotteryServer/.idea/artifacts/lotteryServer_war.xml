@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="lotteryServer:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <root id="archive" name="lotteryServer.war">
+      <element id="artifact" artifact-name="lotteryServer:war exploded" />
+    </root>
+  </artifact>
+</component>

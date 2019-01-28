@@ -1,0 +1,32 @@
+<ion-modal-view>
+    <div class="bar bar-header bar-positive">
+        <h1 class="title"><i class="icon ion-information-circled"></i>玩法说明</h1>
+        <div class="buttons">
+            <button class="button" ng-click="betCtrl.closeIntro()"><i class="icon ion-close"></i>关闭</button>
+        </div>
+    </div>
+    <ion-content overflow-scroll="false" has-bouncing="true">
+        <div class="card">
+            <div class="item item-divider">
+                玩法说明
+            </div>
+            <div class="item item-text-wrap">
+                {{betCtrl.currentGame.tips_note}}
+            </div>
+        </div>
+        <div class="card">
+            <div class="item item-divider">
+                玩法示例
+            </div>
+            <div class="item item-text-wrap" ng-bind-html="betCtrl.currentGame.bet_note">
+            </div>
+        </div>
+        <div class="card">
+            <div class="item item-divider">
+                中奖说明
+            </div>
+            <div class="item item-text-wrap" ng-bind-html="betCtrl.currentGame.bonus_note">
+            </div>
+        </div>
+    </ion-content>
+</ion-modal-view>

@@ -1,0 +1,1088 @@
+{
+    "Layout": [{
+        "title": "五星",
+        "rows": [{
+            "title": "五星直选",
+            "parentname": "wxzh",
+            "columns": [{
+                "isrx": 0,
+                "showname": "复式",
+                "parentname": "wxzh",
+                "shortname": "wxzhixfs",
+                "realname": "[五星_复式]",
+                "tips": "从个、十、百、千、万位各选一个号码组成一注。",
+                "example": "投注方案：23456；开奖号码：23456，即中五星直选一等奖。",
+                "help": "从万位、千位、百位、十位、个位中选择一个5位数号码组成一注，所选号码与开奖号码全部相同，且顺序一致，即为中奖。",
+                "selectarea": {
+                    "type": "digital",
+                    "layout": [{
+                        "title": "万位",
+                        "balls": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
+                        "tools": true
+                    }, {
+                        "title": "千位",
+                        "balls": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
+                        "tools": true
+                    }, {
+                        "title": "百位",
+                        "balls": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
+                        "tools": true
+                    }, {
+                        "title": "十位",
+                        "balls": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
+                        "tools": true
+                    }, {
+                        "title": "个位",
+                        "balls": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
+                        "tools": true
+                    }]
+                }
+            }, {
+                "isrx": 0,
+                "showname": "单式",
+                "shortname": "wxzhixds",
+                "parentname": "wxzh",
+                "realname": "[五星_单式]",
+                "tips": "手动输入号码，至少输入1个五位数号码组成一注。",
+                "example": "投注方案：23456； 开奖号码：23456，即中五星直选一等奖",
+                "help": "手动输入一个5位数号码组成一注，所选号码的万位、千位、百位、十位、个位与开奖号码相同，且顺序一致，即为中奖。",
+                "selectarea": {
+                    "type": "input"
+                },
+                "compressed": true
+            }, {
+                "isrx": 0,
+                "showname": "组合",
+                "shortname": "wxzhixzh",
+                "parentname": "wxzh",
+                "realname": "[五星_组合]",
+                "tips": "从个、十、百、千、万位各选一个号码组成五注。",
+                "example": "五星组合示例，如购买：4+5+6+7+8，该票共10元，由以下5注：45678(五星)、5678(四星)、678(三星)、78(二星)、8(一星)构成。开奖号码：45678，即可中五星、四星、三星、二星、一星的一等奖各1注。",
+                "help": "从万位、千位、百位、十位、个位中至少各选一个号码组成1-5星的组合，共五注，所选号码的个位与开奖号码相同，则中1个5等奖；所选号码的个位、十位与开奖号码相同，则中1个5等奖以及1个4等奖，依此类推，最高可中5个奖。",
+                "selectarea": {
+                    "type": "digital",
+                    "layout": [{
+                        "title": "万位",
+                        "balls": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
+                        "tools": true
+                    }, {
+                        "title": "千位",
+                        "balls": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
+                        "tools": true
+                    }, {
+                        "title": "百位",
+                        "balls": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
+                        "tools": true
+                    }, {
+                        "title": "十位",
+                        "balls": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
+                        "tools": true
+                    }, {
+                        "title": "个位",
+                        "balls": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
+                        "tools": true
+                    }]
+                }
+            }]
+        }, {
+            "title": "五星组选",
+            "parentname": "wuzux",
+            "columns": [{
+                "isrx": 0,
+                "showname": "组选120",
+                "shortname": "wxzux120",
+                "parentname": "wuzux",
+                "realname": "[五星_组选120]",
+                "tips": "从0-9中选择5个号码组成一注。",
+                "example": "投注方案：02568，开奖号码的五个数字只要包含0、2、5、6、8，即可中五星组选120一等奖。",
+                "help": "从0-9中任意选择5个号码组成一注，所选号码与开奖号码的万位、千位、百位、十位、个位相同，顺序不限，即为中奖。",
+                "selectarea": {
+                    "type": "digital",
+                    "layout": [{
+                        "title": "选号",
+                        "balls": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
+                        "tools": true
+                    }]
+                }
+            }, {
+                "isrx": 0,
+                "showname": "组选60",
+                "shortname": "wxzux60",
+                "parentname": "wuzux",
+                "realname": "[五星_组选60]",
+                "tips": "从“二重号”选择一个号码，“单号”中选择三个号码组成一注。",
+                "example": "投注方案：二重号：8，单号：0、2、5，只要开奖的5个数字包括 0、2、5、8、8，即可中五星组选60一等奖。",
+                "help": "选择1个二重号码和3个单号号码组成一注，所选的单号号码与开奖号码相同，且所选二重号码在开奖号码中出现了2次，即为中奖。",
+                "selectarea": {
+                    "type": "digital",
+                    "layout": [{
+                        "title": "二重号",
+                        "balls": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
+                        "tools": true
+                    }, {
+                        "title": "单　号",
+                        "balls": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
+                        "tools": true
+                    }]
+                }
+            }, {
+                "isrx": 0,
+                "showname": "组选30",
+                "shortname": "wxzux30",
+                "parentname": "wuzux",
+                "realname": "[五星_组选30]",
+                "tips": "从“二重号”选择两个号码，“单号”中选择一个号码组成一注。",
+                "example": "投注方案：二重号：2、8，单号：0，只要开奖的5个数字包括 0、2、2、8、8，即可中五星组选30一等奖。",
+                "help": "选择2个二重号和1个单号号码组成一注，所选的单号号码与开奖号码相同，且所选的2个二重号码分别在开奖号码中出现了2次，即为中奖。",
+                "selectarea": {
+                    "type": "digital",
+                    "layout": [{
+                        "title": "二重号",
+                        "balls": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
+                        "tools": true
+                    }, {
+                        "title": "单　号",
+                        "balls": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
+                        "tools": true
+                    }]
+                }
+            }, {
+                "isrx": 0,
+                "showname": "组选20",
+                "shortname": "wxzux20",
+                "parentname": "wuzux",
+                "realname": "[五星_组选20]",
+                "tips": "从“三重号”选择一个号码，“单号”中选择两个号码组成一注。",
+                "example": "投注方案：三重号：8，单号：0、2，只要开奖的5个数字包括 0、2、8、8、8，即可中五星组选20一等奖。",
+                "help": "选择1个三重号码和2个单号号码组成一注，所选的单号号码与开奖号码相同，且所选三重号码在开奖号码中出现了3次，即为中奖。",
+                "selectarea": {
+                    "type": "digital",
+                    "layout": [{
+                        "title": "三重号",
+                        "balls": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
+                        "tools": true
+                    }, {
+                        "title": "单　号",
+                        "balls": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
+                        "tools": true
+                    }]
+                }
+            }, {
+                "isrx": 0,
+                "showname": "组选10",
+                "shortname": "wxzux10",
+                "parentname": "wuzux",
+                "realname": "[五星_组选10]",
+                "tips": "从“三重号”选择一个号码，“二重号”中选择一个号码组成一注。",
+                "example": "投注方案：三重号：8，二重号：2，只要开奖的5个数字包括 2、2、8、8、8，即可中五星组选10一等奖。",
+                "help": "选择1个三重号码和1个二重号码，所选三重号码在开奖号码中出现3次，并且所选二重号码在开奖号码中出现了2次，即为中奖。",
+                "selectarea": {
+                    "type": "digital",
+                    "layout": [{
+                        "title": "三重号",
+                        "balls": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
+                        "tools": true
+                    }, {
+                        "title": "二重号",
+                        "balls": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
+                        "tools": true
+                    }]
+                }
+            }, {
+                "isrx": 0,
+                "showname": "组选5",
+                "shortname": "wxzux5",
+                "parentname": "wuzux",
+                "realname": "[五星_组选5]",
+                "tips": "从“四重号”选择一个号码，“单号”中选择一个号码组成一注。",
+                "example": "投注方案：四重号：8，单号：2，只要开奖的5个数字包括 2、8、8、8、8，即可中五星组选5一等奖。",
+                "help": "选择1个四重号码和1个单号号码组成一注，所选的单号号码与开奖号码相同，且所选四重号码在开奖号码中出现了4次，即为中奖。",
+                "selectarea": {
+                    "type": "digital",
+                    "layout": [{
+                        "title": "四重号",
+                        "balls": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
+                        "tools": true
+                    }, {
+                        "title": "单　号",
+                        "balls": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
+                        "tools": true
+                    }]
+                }
+            }]
+        }]
+    }, {
+        "title": "后四",
+        "rows": [{
+            "title": "后四直选",
+            "parentname": "sixzhix",
+            "columns": [{
+                "isrx": 0,
+                "showname": "复式",
+                "shortname": "sixzhixfsh",
+                "parentname": "sixzhix",
+                "realname": "[后四星_复式]",
+                "tips": "从千位、百位、十位、个位中选择一个4位数号码组成一注",
+                "example": "投注方案：3456；开奖号码：*3456，即中四星直选。",
+                "help": "从千位、百位、十位、个位中选择一个4位数号码组成一注，所选号码与开奖号码相同，且顺序一致，即为中奖。",
+                "selectarea": {
+                    "type": "digital",
+                    "layout": [{
+                        "title": "千位",
+                        "balls": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
+                        "tools": true
+                    }, {
+                        "title": "百位",
+                        "balls": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
+                        "tools": true
+                    }, {
+                        "title": "十位",
+                        "balls": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
+                        "tools": true
+                    }, {
+                        "title": "个位",
+                        "balls": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
+                        "tools": true
+                    }]
+                }
+            }, {
+                "isrx": 0,
+                "showname": "单式",
+                "shortname": "sixzhixdsh",
+                "parentname": "sixzhix",
+                "realname": "[后四星_单式]",
+                "tips": "手动输入号码，至少输入1个四位数号码组成一注。",
+                "example": "投注方案：3456； 开奖号码：3456，即中四星直选一等奖。",
+                "help": "手动输入一个4位数号码组成一注，所选号码的千位、百位、十位、个位与开奖号码相同，且顺序一致，即为中奖。",
+                "selectarea": {
+                    "type": "input"
+                },
+                "compressed": true
+            }, {
+                "isrx": 0,
+                "showname": "组合",
+                "shortname": "sixzhixzhh",
+                "parentname": "sixzhix",
+                "realname": "[后四星_组合]",
+                "tips": "在千位，百位，十位，个位任意位置上任意选择1个或1个以上号码。",
+                "example": "5+6+7+8，开奖号码：*5678，即可中四星、三星、二星、一星各1注。",
+                "help": "从千位、百位、十位、个位中至少各选一个号码组成1-4星的组合，共四注，所选号码的个位与开奖号码相同，则中1个4等奖；所选号码的个位、十位与开奖号码相同，则中1个4等奖以及1个3等奖，依此类推，最高可中4个奖。",
+                "selectarea": {
+                    "type": "digital",
+                    "layout": [{
+                        "title": "千位",
+                        "balls": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
+                        "tools": true
+                    }, {
+                        "title": "百位",
+                        "balls": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
+                        "tools": true
+                    }, {
+                        "title": "十位",
+                        "balls": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
+                        "tools": true
+                    }, {
+                        "title": "个位",
+                        "balls": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
+                        "tools": true
+                    }]
+                }
+            }]
+        }, {
+            "title": "后四组选",
+            "parentname": "sixzux",
+            "columns": [{
+                "isrx": 0,
+                "showname": "组选24",
+                "shortname": "sixzux24h",
+                "parentname": "sixzux",
+                "realname": "[后四星_组选24]",
+                "tips": "从0-9中选择4个号码组成一注。",
+                "example": "投注方案：0568，开奖号码的四个数字只要包含0、5、6、8，即可中四星组选24一等奖。",
+                "help": "从0-9中任意选择4个号码组成一注，所选号码与开奖号码的千位、百位、十位、个位相同，且顺序不限，即为中奖。",
+                "selectarea": {
+                    "type": "digital",
+                    "layout": [{
+                        "title": "选号",
+                        "balls": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
+                        "tools": true
+                    }]
+                }
+            }, {
+                "isrx": 0,
+                "showname": "组选12",
+                "shortname": "sixzux12h",
+                "parentname": "sixzux",
+                "realname": "[后四星_组选12]",
+                "tips": "从“二重号”选择一个号码，“单号”中选择两个号码组成一注。",
+                "example": "投注方案：二重号：8，单号：0、6，只要开奖的四个数字包括 0、6、8、8，即可中四星组选12一等奖。",
+                "help": "选择1个二重号码和2个单号号码组成一注，所选单号号码与开奖号码相同，且所选二重号码在开奖号码中出现了2次，即为中奖。选择1个二重号码和2个单号号码组成一注，所选单号号码与开奖号码相同，且所选二重号码在开奖号码中出现了2次，即为中奖。",
+                "selectarea": {
+                    "type": "digital",
+                    "layout": [{
+                        "title": "二重号",
+                        "balls": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
+                        "tools": true
+                    }, {
+                        "title": "单　号",
+                        "balls": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
+                        "tools": true
+                    }]
+                }
+            }, {
+                "isrx": 0,
+                "showname": "组选6",
+                "shortname": "sixzux6h",
+                "parentname": "sixzux",
+                "realname": "[后四星_组选6]",
+                "tips": "从“二重号”选择两个号码组成一注。",
+                "example": "投注方案：二重号：6、8，只要开奖的四个数字从小到大排列为 6、6、8、8，即可中四星组选6。",
+                "help": "选择2个二重号码组成一注，所选的2个二重号码在开奖号码中分别出现了2次，即为中奖。",
+                "selectarea": {
+                    "type": "digital",
+                    "layout": [{
+                        "title": "二重号",
+                        "balls": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
+                        "tools": true
+                    }]
+                }
+            }, {
+                "isrx": 0,
+                "showname": "组选4",
+                "shortname": "sixzux4h",
+                "parentname": "sixzux",
+                "realname": "[后四星_组选4]",
+                "tips": "从“三重号”选择一个号码，“单号”中选择两个号码组成一注。",
+                "example": "投注方案：三重号：8，单号：2，只要开奖的四个数字从小到大排列为 2、8、8、8，即可中四星组选4。",
+                "help": "选择1个三重号码和1个单号号码组成一注，所选单号号码与开奖号码相同，且所选三重号码在开奖号码中出现了3次，即为中奖。",
+                "selectarea": {
+                    "type": "digital",
+                    "layout": [{
+                        "title": "三重号",
+                        "balls": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
+                        "tools": true
+                    }, {
+                        "title": "单　号",
+                        "balls": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
+                        "tools": true
+                    }]
+                }
+            }]
+        }]
+    }, {
+        "title": "前四",
+        "rows": [{
+            "title": "前四直选",
+            "parentname": "qszx",
+            "columns": [{
+                "isrx": 0,
+                "showname": "复式",
+                "shortname": "sixzhixfsq",
+                "parentname": "qszx",
+                "realname": "[前四星_复式]",
+                "tips": "从万位、千位、百位、十位中选择一个4位数号码组成一注",
+                "example": "投注方案：3456；开奖号码：3456*，即中四星直选。",
+                "help": "从万位、千位、百位、十位中选择一个4位数号码组成一注，所选号码与开奖号码相同，且顺序一致，即为中奖。",
+                "selectarea": {
+                    "type": "digital",
+                    "layout": [{
+                        "title": "万位",
+                        "balls": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
+                        "tools": true
+                    }, {
+                        "title": "千位",
+                        "balls": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
+                        "tools": true
+                    }, {
+                        "title": "百位",
+                        "balls": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
+                        "tools": true
+                    }, {
+                        "title": "十位",
+                        "balls": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
+                        "tools": true
+                    }]
+                }
+            }, {
+                "isrx": 0,
+                "showname": "单式",
+                "shortname": "sixzhixdsq",
+                "parentname": "qszx",
+                "realname": "[前四星_单式]",
+                "tips": "手动输入号码，至少输入1个四位数号码组成一注。",
+                "example": "投注方案：3456； 开奖号码：3456，即中四星直选一等奖",
+                "help": "手动输入一个4位数号码组成一注，所选号码的千位、百位、十位、个位与开奖号码相同，且顺序一致，即为中奖。",
+                "selectarea": {
+                    "type": "input"
+                },
+                "compressed": true
+            }, {
+                "isrx": 0,
+                "showname": "组合",
+                "shortname": "sixzhixzhq",
+                "parentname": "qszx",
+                "realname": "[前四星_组合]",
+                "tips": "在万位、千位、百位、十位任意位置上任意选择1个或1个以上号码。",
+                "example": "投注方案：5+6+7+8，开奖号码： 5678*，即可中四星、三星、二星、一星各1注。",
+                "help": "从万位、千位、百位、十位中至少各选一个号码组成1-4星的组合，共四注，所选号码的个位与开奖号码相同，则中1个4等奖；所选号码的个位、十位与开奖号码相同，则中1个4等奖以及1个3等奖，依此类推，最高可中4个奖。",
+                "selectarea": {
+                    "type": "digital",
+                    "layout": [{
+                        "title": "万位",
+                        "balls": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
+                        "tools": true
+                    }, {
+                        "title": "千位",
+                        "balls": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
+                        "tools": true
+                    }, {
+                        "title": "百位",
+                        "balls": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
+                        "tools": true
+                    }, {
+                        "title": "十位",
+                        "balls": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
+                        "tools": true
+                    }]
+                }
+            }]
+        }, {
+            "title": "前四组选",
+            "parentname": "qszux",
+            "columns": [{
+                "isrx": 0,
+                "showname": "组选24",
+                "parentname": "qszux",
+                "shortname": "sixzux24q",
+                "realname": "[前四星_组选24]",
+                "tips": "从0-9中选择4个号码组成一注。",
+                "example": "投注方案：0568，开奖号码的四个数字只要包含0、5、6、8，即可中四星组选24一等奖。",
+                "help": "从0-9中任意选择4个号码组成一注，所选号码与开奖号码的万位、千位、百位、十位相同，且顺序不限，即为中奖。",
+                "selectarea": {
+                    "type": "digital",
+                    "layout": [{
+                        "title": "选号",
+                        "balls": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
+                        "tools": true
+                    }]
+                }
+            }, {
+                "isrx": 0,
+                "showname": "组选12",
+                "shortname": "sixzux12q",
+                "parentname": "qszux",
+                "realname": "[前四星_组选12]",
+                "tips": "从“二重号”选择一个号码，“单号”中选择两个号码组成一注。",
+                "example": "投注方案：二重号：8，单号：0、6，只要开奖的四个数字包括 0、6、8、8，即可中四星组选12一等奖。",
+                "help": "选择1个二重号码和2个单号号码组成一注，所选单号号码与开奖号码相同，且所选二重号码在开奖号码中出现了2次，即为中奖。",
+                "selectarea": {
+                    "type": "digital",
+                    "layout": [{
+                        "title": "二重号",
+                        "balls": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
+                        "tools": true
+                    }, {
+                        "title": "单　号",
+                        "balls": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
+                        "tools": true
+                    }]
+                }
+            }, {
+                "isrx": 0,
+                "showname": "组选6",
+                "shortname": "sixzux6q",
+                "parentname": "qszux",
+                "realname": "[前四星_组选6]",
+                "tips": "从“二重号”选择两个号码组成一注。",
+                "example": "投注方案：二重号：6、8，只要开奖的四个数字从小到大排列为 6、6、8、8，即可中四星组选6。",
+                "help": "选择2个二重号码组成一注，所选的2个二重号码在开奖号码中分别出现了2次，即为中奖。",
+                "selectarea": {
+                    "type": "digital",
+                    "layout": [{
+                        "title": "二重号",
+                        "balls": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
+                        "tools": true
+                    }]
+                }
+            }, {
+                "isrx": 0,
+                "showname": "组选4",
+                "shortname": "sixzux4q",
+                "realname": "[前四星_组选4]",
+                "parentname": "qszux",
+                "tips": "从“三重号”选择一个号码，“单号”中选择两个号码组成一注。",
+                "example": "投注方案：三重号：8，单号：2，只要开奖的四个数字从小到大排列为 2、8、8、8，即可中四星组选4。",
+                "help": "选择1个三重号码和1个单号号码组成一注，所选单号号码与开奖号码相同，且所选三重号码在开奖号码中出现了3次，即为中奖。",
+                "selectarea": {
+                    "type": "digital",
+                    "layout": [{
+                        "title": "三重号",
+                        "balls": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
+                        "tools": true
+                    }, {
+                        "title": "单　号",
+                        "balls": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
+                        "tools": true
+                    }]
+                }
+            }]
+        }]
+    }, {
+        "title": "后三",
+        "isdefault": 1,
+        "rows": [{
+            "title": "后三直选",
+            "parentname": "hszx",
+            "default": "1",
+            "defaultmethod": "sxzhixfsh",
+            "columns": [{
+                "isrx": 0,
+                "showname": "复式",
+                "shortname": "sxzhixfsh",
+                "parentname": "hszx",
+                "realname": "[后三码_复式]",
+                "tips": "从个、十、百位各选一个号码组成一注。",
+                "example": "投注方案：345；开奖号码：345；即中后三直选一等奖",
+                "help": "从百位、十位、个位中选择一个3位数号码组成一注，所选号码与开奖号码后3位相同，且顺序一致，即为中奖。",
+                "selectarea": {
+                    "type": "digital",
+                    "layout": [{
+                        "title": "百位",
+                        "balls": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
+                        "tools": true
+                    }, {
+                        "title": "十位",
+                        "balls": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
+                        "tools": true
+                    }, {
+                        "title": "个位",
+                        "balls": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
+                        "tools": true
+                    }]
+                }
+            }, {
+                "isrx": 0,
+                "showname": "单式",
+                "shortname": "sxzhixdsh",
+                "parentname": "hszx",
+                "realname": "[后三码_单式]",
+                "tips": "手动输入号码，至少输入1个三位数号码组成一注。",
+                "example": "投注方案：345； 开奖号码：345，即中后三直选一等奖。",
+                "help": "手动输入一个3位数号码组成一注，所选号码的百位、十位、个位与开奖号码相同，且顺序一致，即为中奖。",
+                "selectarea": {
+                    "type": "input"
+                }
+            }, {
+                "isrx": 0,
+                "showname": "直选和值",
+                "shortname": "sxzhixhzh",
+                "realname": "[后三码_和值]",
+                "tips": "从0-27中任意选择1个或1个以上号码",
+                "example": "投注方案：和值1；开奖号码后三位：001,010,100,即中后三直选一等奖。",
+                "help": "所选数值等于开奖号码的百位、十位、个位三个数字相加之和，即为中奖。",
+                "selectarea": {
+                    "type": "digital",
+                    "layout": [{
+                        "balls": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27],
+                        "tools": false,
+                        "cls": "hz"
+                    }]
+                }
+            }]
+        }, {
+            "title": "后三组选",
+            "parentname": "hszux",
+            "columns": [{
+                "isrx": 0,
+                "showname": "组三",
+                "shortname": "sxzuxzsh",
+                "parentname": "hszux",
+                "realname": "[后三码_组三]",
+                "tips": "从0-9中任意选择2个或2个以上号码。",
+                "example": "投注方案：5,8,8；开奖号码后三位：1个5，2个8 (顺序不限)，即中后三组选三一等奖。",
+                "help": "从0-9中选择2个数字组成两注，所选号码与开奖号码的百位、十位、个位相同，且顺序不限，即为中奖。",
+                "selectarea": {
+                    "type": "digital",
+                    "layout": [{
+                        "title": "组三",
+                        "balls": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
+                        "tools": true
+                    }]
+                }
+            }, {
+                "isrx": 0,
+                "showname": "组六",
+                "shortname": "sxzuxzlh",
+                "parentname": "hszux",
+                "realname": "[后三码_组六]",
+                "tips": "从0-9中任意选择3个或3个以上号码。",
+                "example": "投注方案：2,5,8；开奖号码后三位：1个2、1个5、1个8 (顺序不限)，即中后三组选六一等奖。",
+                "help": "从0-9中任意选择3个号码组成一注，所选号码与开奖号码的百位、十位、个位相同，顺序不限，即为中奖。",
+                "selectarea": {
+                    "type": "digital",
+                    "layout": [{
+                        "title": "组六",
+                        "balls": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
+                        "tools": true
+                    }]
+                }
+            }, {
+                "isrx": 0,
+                "showname": "混合组选",
+                "parentname": "hszux",
+                "shortname": "sxhhzxh",
+                "realname": "[后三码_混合组选]",
+                "tips": "手动输入号码，至少输入1个三位数号码。",
+                "example": "投注方案：分別投注(0,0,1),以及(1,2,3)，开奖号码后三位包括：(1)0,0,1，顺序不限，即中得组三一等奖；或者(2)1,2,3，顺序不限，即中得组六一等奖。",
+                "help": "手动输入购买号码，3个数字为一注，开奖号码的百位、十位、个位符合后三组三或组六均为中奖。",
+                "selectarea": {
+                    "type": "input"
+                }
+            }]
+        }]
+    }, {
+        "title": "中三",
+        "rows": [{
+            "title": "中三直选",
+            "parentname": "zszx",
+            "columns": [{
+                "isrx": 0,
+                "showname": "复式",
+                "shortname": "sxzhixfsz",
+                "parentname": "zszx",
+                "realname": "[中三码_复式]",
+                "tips": "从千、百、十位各选一个号码组成一注。",
+                "example": "投注方案：456； 开奖号码：3456，即中中三直选一等奖。",
+                "help": "从千位、百位、十位中选择一个3位数号码组成一注，所选号码与开奖号码的中间3位相同，且顺序一致，即为中奖。",
+                "selectarea": {
+                    "type": "digital",
+                    "layout": [{
+                        "title": "千位",
+                        "balls": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
+                        "tools": true
+                    }, {
+                        "title": "百位",
+                        "balls": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
+                        "tools": true
+                    }, {
+                        "title": "十位",
+                        "balls": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
+                        "tools": true
+                    }]
+                }
+            }, {
+                "isrx": 0,
+                "showname": "单式",
+                "parentname": "zszx",
+                "shortname": "sxzhixdsz",
+                "realname": "[中三码_单式]",
+                "tips": "手动输入号码，至少输入1个三位数号码组成一注。",
+                "example": "投注方案：345； 开奖号码：2345，即中中三直选一等奖。",
+                "help": "手动输入一个3位数号码组成一注，所选号码的千位、百位、十位与开奖号码相同，且顺序一致，即为中奖。",
+                "selectarea": {
+                    "type": "input"
+                }
+            }, {
+                "isrx": 0,
+                "showname": "直选和值",
+                "parentname": "zszx",
+                "shortname": "sxzhixhzz",
+                "realname": "[中三码_和值]",
+                "tips": "从0-27中任意选择1个或1个以上号码",
+                "example": "投注方案：和值1；开奖号码中间三位：01001,00010,00100,即中中三直选一等奖",
+                "help": "所选数值等于开奖号码的千位、百位、十位三个数字相加之和，即为中奖。",
+                "selectarea": {
+                    "type": "digital",
+                    "layout": [{
+                        "balls": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27],
+                        "tools": false,
+                        "cls": "hz"
+                    }]
+                }
+            }]
+        }, {
+            "title": "中三组选",
+            "parentname": "zszux",
+            "columns": [{
+                "isrx": 0,
+                "showname": "组三",
+                "shortname": "sxzuxzsz",
+                "parentname": "zszux",
+                "realname": "[中三码_组三]",
+                "tips": "从0-9中任意选择2个或2个以上号码。",
+                "example": "投注方案：5,8,8；开奖号码中间三位：1个5，2个8 (顺序不限)，即中中三组选三一等奖。",
+                "help": "从0-9中选择2个数字组成两注，所选号码与开奖号码的千位、百位、十位相同，且顺序不限，即为中奖。",
+                "selectarea": {
+                    "type": "digital",
+                    "layout": [{
+                        "title": "组三",
+                        "balls": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
+                        "tools": true
+                    }]
+                }
+            }, {
+                "isrx": 0,
+                "showname": "组六",
+                "shortname": "sxzuxzlz",
+                "parentname": "zszux",
+                "realname": "[中三码_组六]",
+                "tips": "从0-9中任意选择3个或3个以上号码。",
+                "example": "投注方案：2,5,8；开奖号码中间三位：1个2、1个5、1个8 (顺序不限)，即中中三组选六一等奖。",
+                "help": "从0-9中任意选择3个号码组成一注，所选号码与开奖号码的千位、百位、十位相同，顺序不限，即为中奖。",
+                "selectarea": {
+                    "type": "digital",
+                    "layout": [{
+                        "title": "组六",
+                        "balls": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
+                        "tools": true
+                    }]
+                }
+            }, {
+                "isrx": 0,
+                "showname": "混合组选",
+                "shortname": "sxhhzxz",
+                "parentname": "zszux",
+                "realname": "[中三码_混合组选]",
+                "tips": "手动输入号码，至少输入1个三位数号码。",
+                "example": "投注方案：分別投注(0,0,1),以及(1,2,3)，开奖号码中间三位包括：(1)0,0,1，顺序不限，即中得组三一等奖；或者(2)1,2,3，顺序不限，即中得组六一等奖。",
+                "help": "手动输入购买号码，3个数字为一注，开奖号码的千位、百位、十位符合中三组三或组六均为中奖。",
+                "selectarea": {
+                    "type": "input"
+                }
+            }]
+        }]
+    }, {
+        "title": "前三",
+        "rows": [{
+            "title": "前三直选",
+            "parentname": "qsanzx",
+            "columns": [{
+                "isrx": 0,
+                "showname": "复式",
+                "shortname": "sxzhixfsq",
+                "parentname": "qsanzx",
+                "realname": "[前三码_复式]",
+                "tips": "从万、千、百位各选一个号码组成一注。",
+                "example": "投注方案：345； 开奖号码：345，即中前三直选一等奖",
+                "help": "从万位、千位、百位中选择一个3位数号码组成一注，所选号码与开奖号码的前3位相同，且顺序一致，即为中奖。",
+                "selectarea": {
+                    "type": "digital",
+                    "layout": [{
+                        "title": "万位",
+                        "balls": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
+                        "tools": true
+                    }, {
+                        "title": "千位",
+                        "balls": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
+                        "tools": true
+                    }, {
+                        "title": "百位",
+                        "balls": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
+                        "tools": true
+                    }]
+                }
+            }, {
+                "isrx": 0,
+                "showname": "单式",
+                "parentname": "qsanzx",
+                "shortname": "sxzhixdsq",
+                "realname": "[前三码_单式]",
+                "tips": "手动输入号码，至少输入1个三位数号码组成一注。",
+                "example": "投注方案：345； 开奖号码：345，即中前三直选一等奖",
+                "help": "手动输入一个3位数号码组成一注，所选号码的万位、千位、百位与开奖号码相同，且顺序一致，即为中奖。",
+                "selectarea": {
+                    "type": "input"
+                }
+            }, {
+                "isrx": 0,
+                "showname": "直选和值",
+                "parentname": "qsanzx",
+                "shortname": "sxzhixhzq",
+                "realname": "[前三码_和值]",
+                "tips": "从0-27中任意选择1个或1个以上号码",
+                "example": "投注方案：和值1；开奖号码前三位：001,010,100,即中前三直选一等奖",
+                "help": "所选数值等于开奖号码的万位、千位、百位三个数字相加之和，即为中奖。",
+                "selectarea": {
+                    "type": "digital",
+                    "layout": [{
+                        "balls": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27],
+                        "tools": false,
+                        "cls": "hz"
+                    }]
+                }
+            }]
+        }, {
+            "title": "前三组选",
+            "parentname": "qsanzux",
+            "columns": [{
+                "isrx": 0,
+                "showname": "组三",
+                "parentname": "qsanzux",
+                "shortname": "sxzuxzsq",
+                "realname": "[前三码_组三]",
+                "tips": "从0-9中任意选择2个或2个以上号码。",
+                "example": "投注方案：5,8,8；开奖号码前三位：1个5，2个8 (顺序不限)，即中前三组选三一等奖。",
+                "help": "从0-9中选择2个数字组成两注，所选号码与开奖号码的万位、千位、百位相同，且顺序不限，即为中奖。",
+                "selectarea": {
+                    "type": "digital",
+                    "layout": [{
+                        "title": "组三",
+                        "balls": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
+                        "tools": true
+                    }]
+                }
+            }, {
+                "isrx": 0,
+                "showname": "组六",
+                "parentname": "qsanzux",
+                "shortname": "sxzuxzlq",
+                "realname": "[前三码_组六]",
+                "tips": "从0-9中任意选择3个或3个以上号码。",
+                "example": "投注方案：2,5,8；开奖号码前三位：1个2、1个5、1个8 (顺序不限)，即中前三组选六一等奖。",
+                "help": "从0-9中任意选择3个号码组成一注，所选号码与开奖号码的万位、千位、百位相同，顺序不限，即为中奖。",
+                "selectarea": {
+                    "type": "digital",
+                    "layout": [{
+                        "title": "组六",
+                        "balls": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
+                        "tools": true
+                    }]
+                }
+            }, {
+                "isrx": 0,
+                "showname": "混合组选",
+                "parentname": "qsanzux",
+                "shortname": "sxhhzxq",
+                "realname": "[前三码_混合组选]",
+                "tips": "手动输入号码，至少输入1个三位数号码。",
+                "example": "投注方案：分別投注(0,0,1),以及(1,2,3)，开奖号码前三位包括：(1)0,0,1，顺序不限，即中得组三一等奖；或者(2)1,2,3，顺序不限，即中得组六一等奖。",
+                "help": "键盘手动输入购买号码，3个数字为一注，开奖号码的万位、千位、百位符合后三组三或组六均为中奖。",
+                "selectarea": {
+                    "type": "input"
+                }
+            }]
+        }]
+    }, {
+        "title": "前二星",
+        "rows": [{
+            "title": "前二星直选",
+            "parentname": "qerzx",
+            "columns": [{
+                "isrx": 0,
+                "showname": "复式",
+                "shortname": "exzhixfsq",
+                "parentname": "qerzx",
+                "realname": "[直选复式]",
+                "tips": "从万位、千位各选一个号码组成一注。",
+                "example": "投注方案：5,8；开奖号码前二位：5,8；即中前二直选一等奖。",
+                "help": "从万位、千位中选择一个2位数号码组成一注，所选号码与开奖号码的前2位相同，且顺序一致，即为中奖。",
+                "selectarea": {
+                    "type": "digital",
+                    "layout": [{
+                        "title": "万位",
+                        "balls": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
+                        "tools": true
+                    }, {
+                        "title": "千位",
+                        "balls": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
+                        "tools": true
+                    }]
+                }
+            }, {
+                "isrx": 0,
+                "showname": "单式",
+                "shortname": "exzhixdsq",
+                "parentname": "qerzx",
+                "realname": "[直选单式]",
+                "tips": "手动输入号码，至少输入1个两位数号码。",
+                "example": "投注方案：58；开奖号码前二位：58，即中前二直选一等奖。",
+                "help": "手动输入一个2位数号码组成一注，所选号码的万位、千位与开奖号码相同，且顺序一致，即为中奖。",
+                "selectarea": {
+                    "type": "input"
+                }
+            }, {
+                "isrx": 0,
+                "showname": "直选和值",
+                "shortname": "exzhixhzq",
+                "realname": "[直选和值]",
+                "parentname": "qerzx",
+                "tips": "从0-18中任意选择1个或1个以上的和值号码。",
+                "example": "投注方案：和值1；开奖号码前二位：01,10，即中前二直选和值。",
+                "help": "所选数值等于开奖号码的万位、千位二个数字相加之和，即为中奖。",
+                "selectarea": {
+                    "type": "digital",
+                    "layout": [{
+                        "balls": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18],
+                        "tools": false,
+                        "cls": "hz"
+                    }]
+                }
+            }, {
+                "isrx": 0,
+                "showname": "大小单双",
+                "parentname": "qerzx",
+                "shortname": "dxdsq",
+                "realname": "[大小单双]",
+                "tips": "从万位、千位中的“大、小、单、双”中至少各选一个组成一注。",
+                "example": "投注方案：小双；开奖号码万位与千位：小双，即中前二大小单双一等奖。",
+                "help": "对万位和千位的“大（56789）小（01234）、单（13579）双（02468）”形态进行购买，所选号码的位置、形态与开奖号码的位置、形态相同，即为中奖。",
+                "selectarea": {
+                    "type": "dxds",
+                    "layout": [{
+                        "title": "万位",
+                        "balls": ["大", "小", "单", "双"],
+                        "tools": false
+                    }, {
+                        "title": "千位",
+                        "balls": ["大", "小", "单", "双"],
+                        "tools": false
+                    }]
+                }
+            }]
+        }, {
+            "title": "前二星组选",
+            "parentname": "qerzux",
+            "columns": [{
+                "isrx": 0,
+                "showname": "复式",
+                "shortname": "exzuxfsq",
+                "parentname": "qerzux",
+                "realname": "[组选复式]",
+                "tips": "从0-9中任意选择2个或2个以上号码。",
+                "example": "投注方案：5,8；开奖号码前二位：1个5，1个8 (顺序不限)，即中前二组选一等奖。",
+                "help": "从0-9中选2个号码组成一注，所选号码与开奖号码的万位、千位相同，顺序不限，即中奖。",
+                "selectarea": {
+                    "type": "digital",
+                    "layout": [{
+                        "title": "组选",
+                        "balls": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
+                        "tools": true
+                    }]
+                }
+            }, {
+                "isrx": 0,
+                "showname": "单式",
+                "shortname": "exzuxdsq",
+                "parentname": "qerzux",
+                "realname": "[组选单式]",
+                "tips": "手动输入号码，至少输入1个两位数号码。",
+                "example": "投注方案：5,8；开奖号码后前位：1个5，1个8 (顺序不限)，即中前二组选一等奖。",
+                "help": "手动输入一个2位数号码组成一注，所选号码的万位、千位与开奖号码相同，顺序不限，即为中奖。",
+                "selectarea": {
+                    "type": "input"
+                }
+            }]
+        }]
+    }, {
+        "title": "后二星",
+        "rows": [{
+            "title": "后二星直选",
+            "parentname": "herzx",
+            "columns": [{
+                "isrx": 0,
+                "showname": "复式",
+                "shortname": "exzhixfsh",
+                "parentname": "herzx",
+                "realname": "[直选复式]",
+                "tips": "从十、个位各选一个号码组成一注。",
+                "example": "投注方案：58；开奖号码后二位：58，即中后二直选一等奖。",
+                "help": "从十位、个位中选择一个2位数号码组成一注，所选号码与开奖号码的十位、个位相同，且顺序一致，即为中奖。",
+                "selectarea": {
+                    "type": "digital",
+                    "layout": [{
+                        "title": "十位",
+                        "balls": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
+                        "tools": true
+                    }, {
+                        "title": "个位",
+                        "balls": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
+                        "tools": true
+                    }]
+                }
+            }, {
+                "isrx": 0,
+                "showname": "单式",
+                "shortname": "exzhixdsh",
+                "parentname": "herzx",
+                "realname": "[直选单式]",
+                "tips": "手动输入号码，至少输入1个两位数号码。",
+                "example": "投注方案：58；开奖号码后二位：58，即中后二直选一等奖。",
+                "help": "手动输入一个2位数号码组成一注，所选号码的十位、个位与开奖号码相同，且顺序一致，即为中奖。",
+                "selectarea": {
+                    "type": "input"
+                }
+            }, {
+                "isrx": 0,
+                "showname": "直选和值",
+                "shortname": "exzhixhzh",
+                "parentname": "herzx",
+                "realname": "[直选和值]",
+                "tips": "从0-18中任意选择1个或1个以上的和值号码。",
+                "example": "投注方案：和值1；开奖号码后二位：01,10，即中后二直选。",
+                "help": "所选数值等于开奖号码的十位、个位二个数字相加之和，即为中奖。",
+                "selectarea": {
+                    "type": "digital",
+                    "layout": [{
+                        "balls": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18],
+                        "tools": false,
+                        "cls": "hz"
+                    }]
+                }
+            }, {
+                "isrx": 0,
+                "showname": "大小单双",
+                "shortname": "dxdsh",
+                "parentname": "herzx",
+                "realname": "[大小单双]",
+                "tips": "从十位、个位中的“大、小、单、双”中至少各选一个组成一注。",
+                "example": "投注方案：大单；开奖号码十位与个位：大单，即中后二大小单双一等奖。",
+                "help": "对十位和个位的“大（56789）小（01234）、单（13579）双（02468）”形态进行购买，所选号码的位置、形态与开奖号码的位置、形态相同，即为中奖。",
+                "selectarea": {
+                    "type": "digital",
+                    "layout": [{
+                        "title": "十位",
+                        "balls": ["大", "小", "单", "双"],
+                        "tools": false
+                    }, {
+                        "title": "个位",
+                        "balls": ["大", "小", "单", "双"],
+                        "tools": false
+                    }]
+                }
+            }]
+        }, {
+            "title": "后二星组选",
+            "parentname": "herzux",
+            "columns": [{
+                "isrx": 0,
+                "showname": "复式",
+                "shortname": "exzuxfsh",
+                "parentname": "herzux",
+                "realname": "[组选复式]",
+                "tips": "从0-9中任意选择2个或2个以上号码。",
+                "example": "投注方案：5,8；开奖号码后二位：1个5，1个8 (顺序不限)，即中后二组选一等奖。",
+                "help": "从0-9中选2个号码组成一注，所选号码与开奖号码的十位、个位相同，顺序不限，即中奖。",
+                "selectarea": {
+                    "type": "digital",
+                    "layout": [{
+                        "title": "组选",
+                        "balls": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
+                        "tools": true
+                    }]
+                }
+            }, {
+                "isrx": 0,
+                "showname": "单式",
+                "shortname": "exzuxdsh",
+                "realname": "[组选单式]",
+                "parentname": "herzux",
+                "tips": "手动输入号码，至少输入1个两位数号码。",
+                "example": "投注方案：5,8；开奖号码后二位：1个5，1个8 (顺序不限)，即中后二组选一等奖。",
+                "help": "手动输入一个2位数号码组成一注，所选号码的十位、个位与开奖号码相同，顺序不限，即为中奖。",
+                "selectarea": {
+                    "type": "input"
+                }
+            }]
+        }]
+    }]
+}

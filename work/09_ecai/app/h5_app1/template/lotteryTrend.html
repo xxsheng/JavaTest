@@ -1,0 +1,53 @@
+<div ng-controller="lotteryTrendController" ng-init="search()">
+    <div class="bar bar-header bar-positive">
+        <div class="buttons">
+            <button class="button" on-tap="appCtrl.goback()"><i class="icon ion-arrow-left-a"></i></button>
+        </div>
+        <h1 class="title">{{lotteryName}}</h1>
+    </div>
+    <div style="margin-top: 48px;padding:5px;">
+    	<button ng-class="{true: 'active', false: ''}[displayLost]" class="button button-small button-assertive" style="margin-top:0" on-tap="togglerLost()">遗漏</button>
+    	<button ng-class="{true: 'active', false: ''}[displayLostLine]" class="button button-small button-assertive" style="margin-top:0" on-tap="togglerLostLine()">遗漏条</button>
+    	<button ng-class="{true: 'active', false: ''}[displayChart]" class="button button-small button-assertive" style="margin-top:0" on-tap="togglerChart()">走势</button>
+    	
+    	<button ng-class="{true: 'active', false: ''}[searchObj.command=='latest-50-desc']" 
+    	class="pull-right button button-small button-assertive icon-left ion-ios-pulse" style="margin-top:0" on-tap="search('latest-50-desc')">近50期</button>
+    	
+    	<button ng-class="{true: 'active', false: ''}[searchObj.command=='latest-30-desc']" 
+    	class="pull-right button button-small button-assertive icon-left ion-ios-pulse active" style="margin-top:0;margin-right: 5px;" on-tap="search('latest-30-desc')">近30期</button>
+    </div>
+	<div class="has-header has-footer trend" overflow-scroll="false" has-bouncing="true">
+	    <!-- <ion-refresher pulling-text="下拉刷新" on-refresh="refresh()"></ion-refresher> -->
+	    <table class="trendTable">
+	        <thead>
+	            <tr>
+	                <th><strong class="title">期号</strong></th>
+	                <th ng-repeat="item in layout.title">
+	                	<div><strong class="title">{{item}}</strong></div>
+	                	<div>
+	                		<span class="code title" ng-repeat="code in layout.codes">{{code}}</font></span>
+	                	</div>
+	                </th>
+	            </tr>
+	        </thead>
+	        <tbody>
+	            <tr ng-repeat="item in records track by $index" align="center" ng-init="recordIndex=$index" on-finish-render>
+	                <td>
+	                    {{item.expect.indexOf('-')!=-1?item.expect.split('-')[1]:item.expect}}期
+	                </td>
+	                <td class="content col{{layoutIndex}}" ng-repeat="item1 in layout.title track by $index" ng-init="layoutIndex = $index">
+	                
+                        <span class="code {{codeLostLine[layoutIndex][$index][recordIndex]?'line':''}}"
+                         ng-repeat="lost in codeLost[recordIndex][layoutIndex] track by $index">
+                         
+                         	<i class="{{$index==item.code.split(',')[layoutIndex]?'ball':'lost'}}">
+                         		{{$index==item.code.split(',')[layoutIndex]?item.code.split(',')[layoutIndex]:lost}}
+                         	</i>
+                         </span>
+	                </td>
+	            </tr>
+	        </tbody>
+    	</table>
+	</div>
+</div>
+<commonfooter></commonfooter>

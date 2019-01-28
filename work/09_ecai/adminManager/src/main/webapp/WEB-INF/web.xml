@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" version="3.0">
+	
+	<!-- WebAppRootKey -->
+	<display-name>AdminManager</display-name>
+	<context-param>
+		<param-name>webAppRootKey</param-name>
+		<param-value>AdminManager.root</param-value>
+	</context-param>
+
+	<!--&lt;!&ndash; 配置 Druid 监控信息显示页面 &ndash;&gt;-->
+	<!--<servlet>-->
+		<!--<servlet-name>DruidStatView</servlet-name>-->
+		<!--<servlet-class>com.alibaba.druid.support.http.StatViewServlet</servlet-class>-->
+		<!--<init-param>-->
+			<!--&lt;!&ndash; 允许清空统计数据 &ndash;&gt;-->
+			<!--<param-name>resetEnable</param-name>-->
+			<!--<param-value>false</param-value>-->
+		<!--</init-param>-->
+		<!--<init-param>-->
+			<!--&lt;!&ndash; 用户名 &ndash;&gt;-->
+			<!--<param-name>loginUsername</param-name>-->
+			<!--<param-value>winoffer</param-value>-->
+		<!--</init-param>-->
+		<!--<init-param>-->
+			<!--&lt;!&ndash; 密码 &ndash;&gt;-->
+			<!--<param-name>loginPassword</param-name>-->
+			<!--<param-value>winoffer123</param-value>-->
+		<!--</init-param>-->
+		<!--<init-param>-->
+			<!--<param-name>allow</param-name>-->
+			<!--<param-value>127.0.0.1</param-value>-->
+		<!--</init-param>-->
+	<!--</servlet>-->
+	<!--<servlet-mapping>-->
+		<!--<servlet-name>DruidStatView</servlet-name>-->
+		<!--<url-pattern>/system-stat/*</url-pattern>-->
+	<!--</servlet-mapping>-->
+	
+	<!-- IntrospectorCleanupListener -->
+	<listener>
+		<listener-class>org.springframework.web.util.IntrospectorCleanupListener</listener-class>
+	</listener>
+	
+	<!-- SpringMVC -->
+	<servlet>
+		<servlet-name>SpringMVC</servlet-name>
+		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+		<init-param>
+			<param-name>contextConfigLocation</param-name>
+			<param-value>classpath:config/spring/spring-mvc.xml</param-value>
+		</init-param>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>SpringMVC</servlet-name>
+		<url-pattern>/</url-pattern>
+	</servlet-mapping>
+	
+	<!-- CharacterEncodingFilter -->
+	<filter>
+		<filter-name>CharacterEncodingFilter</filter-name>
+		<filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
+		<init-param>
+			<param-name>encoding</param-name>
+			<param-value>UTF-8</param-value>
+		</init-param>
+		<init-param>
+			<param-name>forceEncoding</param-name>
+			<param-value>false</param-value>
+		</init-param>
+	</filter>
+
+	<!-- SessionTimeoutFilter -->
+	<filter>
+		<filter-name>SessionTimeoutFilter</filter-name>
+		<filter-class>admin.web.helper.filter.SessionTimeoutFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>SessionTimeoutFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+	
+	<!-- DisableUrlSessionFilter -->
+	<filter>
+		<filter-name>DisableUrlSessionFilter</filter-name>
+		<filter-class>admin.web.helper.filter.DisableUrlSessionFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>DisableUrlSessionFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+	
+	<!-- SessionListener -->
+	<listener>
+	    <listener-class>admin.web.helper.session.SessionListener</listener-class>
+	</listener>
+	<session-config>
+		<session-timeout>120</session-timeout>
+	</session-config>
+	
+	<!-- Welcome Page -->
+	<welcome-file-list>
+		<welcome-file>index.jsp</welcome-file>
+	</welcome-file-list>
+</web-app>

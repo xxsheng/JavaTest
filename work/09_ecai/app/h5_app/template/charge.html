@@ -1,0 +1,99 @@
+<div class="chargeContainer" ng-controller="chargeController as chargeCtrl" ng-init="chargeCtrl.listPayment()">
+    <div class="bar bar-header bar-positive">
+        <div class="buttons">
+            <button class="button" on-tap="appCtrl.goback()"><i class="icon ion-arrow-left-a"></i></button>
+        </div>
+        <h1 class="title">充值</h1>
+    </div>
+    <div class="tabs tabs-top charge-top" id="chargeTabs" ng-if="chargeCtrl.showChannelList.length > 0">
+        <a class="tab-item channel-type-wangYing" ng-if="chargeCtrl.wangyinList.length > 0" ng-class="{'active':chargeCtrl.activeWangYing}" on-tap="chargeCtrl.changeTabs('wangYing')">网银</a>
+        <a class="tab-item channel-type-qq" ng-if="chargeCtrl.qqList.length > 0" ng-class="{'active':chargeCtrl.activeQQ}" on-tap="chargeCtrl.changeTabs('qq')">QQ钱包</a>
+        <a class="tab-item channel-type-weChat" ng-if="chargeCtrl.weChatList.length > 0" ng-class="{'active':chargeCtrl.activeWeChat}" on-tap="chargeCtrl.changeTabs('weChat')">微信</a>
+        <a class="tab-item channel-type-alipay" ng-if="chargeCtrl.alipayList.length > 0" ng-class="{'active':chargeCtrl.activeAlipay}" on-tap="chargeCtrl.changeTabs('alipay')">支付宝</a>
+        <a class="tab-item channel-type-jd" ng-if="chargeCtrl.jdList.length > 0" ng-class="{'active':chargeCtrl.activeJD}" on-tap="chargeCtrl.changeTabs('jd')">京东</a>
+    </div>
+    <ion-content class="has-header has-bet-header has-footer" overflow-scroll="false" has-bouncing="true">
+        <div class="row charge-channel" ng-if="chargeCtrl.showChannelList.length > 0" id="chargeChannels">
+            <button class="button button-small channel-id-{{item.id}}" ng-class="{'button-positive':$first}" on-tap="chargeCtrl.changeChannel(item.id)" data-channel-code="{{item.channelCode}}" ng-repeat="item in chargeCtrl.showChannelList">{{item.mobileName}}</button>
+        </div>
+
+        <div class="chargeContent" ng-if="chargeCtrl.showChannelList.length > 0">
+            <div class="list">
+                <label ng-if="!((!chargeCtrl.selectedChannel.banklist.length || chargeCtrl.selectedChannel.banklist[0].type==1)&&chargeCtrl.selectedChannel.subType==2)" class="item item-input item-select" data-tap-disabled="true">
+                    <div class="input-label">
+                        <i class="icon ion-card"></i>&nbsp;充值方式
+                    </div>
+                    <select ng-model="chargeCtrl.selectedChannel.bankco" id="bankselect">
+                        <option ng-init="chargeCtrl.selectedChannel.bankco=chargeCtrl.selectedChannel.banklist[0].code" ng-repeat="item in chargeCtrl.selectedChannel.banklist" value="{{item.code}}" data-bankId="{{item.bankId}}">{{item.bankId|filterBankName}}</option>
+                    </select>
+                    <input type="hidden" id="bankpid" value="{{chargeCtrl.selectedChannel.id}}">
+                    <input type="hidden" id="channelCode" value="{{chargeCtrl.selectedChannel.channelCode}}">
+                </label>
+                <div  ng-if="(!chargeCtrl.selectedChannel.banklist.length || chargeCtrl.selectedChannel.banklist[0].type==1)&&chargeCtrl.selectedChannel.subType==2">
+                 <label class="item item-input" >
+                    <div class="input-label">
+                        <i class="icon ion-social-usd"></i>&nbsp;收款人:
+                    </div>
+                    <span type="text" id="charge_CardName">{{chargeCtrl.selectedChannel.btdata.cardName}}</span>
+                    &nbsp;&nbsp;&nbsp;&nbsp; <button class="button  button-positive" id="charge_CardNameButton"  data-clipboard-action="copy"  data-clipboard-target="#charge_CardName"  >复制</button>
+                </label>
+                
+                <label class="item item-input" >
+                    <div class="input-label">
+                        <iclass="icon ion-social-usd"></i>&nbsp;收款银行:
+                    </div>
+                    <span type="text">{{chargeCtrl.selectedChannel.btdata.bankName}}</span>
+                </label>
+                
+                 <label class="item item-input" >
+                    <div class="input-label">
+                        <iclass="icon ion-social-usd"></i>&nbsp;收款帐号:
+                    </div>
+                    <span type="text" id="charge_CardId">{{chargeCtrl.selectedChannel.btdata.cardId}}</span>
+                      &nbsp;&nbsp;&nbsp;&nbsp; <button class="button  button-positive" id="charge_CardIdButton"  data-clipboard-action="copy"  data-clipboard-target="#charge_CardId"  >复制</button>
+                </label>
+                
+                 <label class="item item-input" >
+                    <div class="input-label">
+                        <iclass="icon ion-social-usd"></i>&nbsp;持卡人姓名:
+                    </div>
+                    <input type="text" value="" maxlength="6" id="btName">
+                </label>
+               
+                <label class="item item-input" >
+                    <div class="input-label">
+                        <iclass="icon ion-social-usd"></i>&nbsp;附言:
+                    </div>
+                    <input type="text" id = "postscript" value="" maxlength="10">
+                </label>
+                
+                </div>
+
+                <label class="item item-input" ng-if="chargeCtrl.selectedChannel.type=1">
+                    <div class="input-label">
+                        <i class="icon ion-social-usd"></i>&nbsp;充值金额
+                    </div>
+                    <input type="text" value="" ng-model="chargeCtrl.selectedChannel.amount">
+                </label>
+                
+                <p class="bpl" ng-if="chargeCtrl.selectedChannel.fixedAmountType!=1">
+                    <span class="text-red">备注:单笔充值最低 <span id="mincharge">{{chargeCtrl.selectedChannel.minUnitRecharge}}</span>元,最高<span id="maxcharge">{{chargeCtrl.selectedChannel.maxUnitRecharge}}</span>元,单日充值总额无上限,充值无手续费。</span>
+                </p>
+
+                <div class="item buttons text-center item-text-wrap" ng-if="chargeCtrl.selectedChannel.fixedAmountType==1" id="amountBtn">
+                    <button class="button button-middle button-money button-money-{{item.money}}" ng-class="{'button-positive':$first}" on-tap="chargeCtrl.changeMoney(item.money)" ng-repeat="item in chargeCtrl.selectedChannel.qrCodes" data-val="{{item.money}}" data-id="{{item.id}}">{{item.money}}</button>
+                </div>
+
+                <p class="bpl" ng-if="chargeCtrl.selectedChannel.fixedAmountType==1">
+                    <span class="text-red">请选择充值金额。单日充值总额无上限,充值无手续费。</span>
+                </p>
+            </div>
+        </div>
+        <div class="row" ng-if="chargeCtrl.showChannelList.length > 0">
+            <div class="col col-full">
+                <button class="button button-block button-positive" on-tap="chargeCtrl.submitCharge()">确定充值</button>
+            </div>
+        </div>
+    </ion-content>
+    <commonfooter></commonfooter>
+</div>

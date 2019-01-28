@@ -1,0 +1,14 @@
+<ion-modal-view>
+    <div class="bar bar-header bar-positive">
+        <h1 class="title">注册二维码</h1>
+        <button class="button" on-tap="agentCtrl.closeQRCodeModal()"><i class="icon ion-close"></i>关闭</button>
+    </div>
+    <ion-content class="has-header has-footer" overflow-scroll="false" has-bouncing="true">
+        <div class="card text-center">
+            <div class="item item-text-wrap">
+                <p>使用手机扫码以下二维码即可进行注册</p>
+            </div>
+            <img src="{{agentCtrl.showQRCodeObj.qrCode}}">
+        </div>
+    </ion-content>
+</ion-modal-view>

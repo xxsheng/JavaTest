@@ -1,0 +1,373 @@
+<ion-side-menus>
+    <div ng-controller="homeController as homeCtrl">
+        <ion-side-menu-content>
+            <div class="bar bar-header bar-positive">
+                <button class="button icon ion-navicon disable-user-behavior" on-tap="homeCtrl.toggleLeftSideMenu()"></button>
+                <div class="title-logo"></div>
+            </div>
+            <ion-content class="has-header has-footer" overflow-scroll="false" has-bouncing="true">
+                <!--轮播图-->
+                <ion-slide-box on-slide-changed="slideHasChanged($index)">
+                    <ion-slide>
+                        <div class="box">
+                            <img src="/static/images/home/banner1.png?v=201708" class="img-responsive" alt="" on-tap="appCtrl.routeto('bet',101)">
+                        </div>
+                    </ion-slide>
+                    <ion-slide>
+                        <div class="box">
+                            <img src="/static/images/home/banner2.png?v=201708" class="img-responsive" alt="" on-tap="appCtrl.routeto('bet',101)">
+                        </div>
+                    </ion-slide>
+                    <!-- <ion-slide>
+                        <div class="box">
+                            <img src="/static/images/home/banner4.jpg?v=201708" class="img-responsive" alt="" on-tap="appCtrl.routeto('promotion', 'wheel')">
+                        </div>
+                    </ion-slide>
+                    <ion-slide>
+                        <div class="box">
+                            <img src="/static/images/home/banner3.jpg?v=201708" class="img-responsive" alt="">
+                        </div>
+                    </ion-slide> -->
+                </ion-slide-box>
+                <!--快捷导航栏-->
+                <div class="quicktool">
+                    <div class="row">
+                        <div class="col col-25" style="flex: 0 0 25%;max-width: 33%;">
+                            <a href="#/charge">
+                                <div class="box">
+                                    <div class="home-recharge"></div>
+                                    <span>账号充值</span>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col col-25" style="flex: 0 0 25%;max-width: 33%;">
+                            <a href="#/withdraw">
+                                <div class="box">
+                                    <div class="home-cash"></div>
+                                    <span>闪电提现</span>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col col-25" style="flex: 0 0 25%;max-width: 33%;">
+                            <a href="#/betrecord/lottery">
+                                <div class="box">
+                                    <div class="home-record"></div>
+                                    <span>游戏记录</span>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col col-25" style="flex: 0 0 25%;max-width: 33%;">
+                            <a href="#/transfer_account">
+                                <div class="box">
+                                    <div class="home-record"></div>
+                                    <span>转账中心</span>
+                                </div>
+                            </a>
+                        </div>
+                        <!-- <div class="col col-25">
+                            <a href="https://chat56.live800.com/live800/chatClient/chatbox.jsp?companyID=971030&configID=161674&jid=2828750180&s=1" target="_blank">
+                                <div class="box">
+                                    <div class="home-service"></div>
+                                    <span>在线客服</span>
+                                </div>
+                            </a>
+                        </div> -->
+                    </div>
+                </div>
+                <!--公告栏-->
+                <div ng-controller="tipController">
+				    <div class="slide">
+				    	<i class="icon ion-speakerphone slideIco"></i>
+				        <ul class="slideUl" ng-init="getSysNoticeList()" style="top:0px;">
+				            <slide-follow id="slide" dataset-data="datasetData"></slide-follow>
+				        </ul>
+				        <a ng-click="showList()" class="notice-more">更多..</a>
+				    </div>
+				    <script id="noticeList-popover.html" type="text/ng-template">
+					<ion-modal-view>
+						<div class="bar bar-header bar-positive">
+        					<h1 class="title">系统公告</h1>
+        					<div class="buttons">
+            					<button class="button" ng-click="listModal.hide()"><i class="icon ion-close"></i>关闭</button>
+        					</div>
+    					</div>
+						<ion-content overflow-scroll="false" has-bouncing="true">
+							<div class="item item-divider">系统公告</div>
+							<div>
+								<ul class="notice-list">
+				            		<li ng-repeat='data in datasetData' ng-click='showContent(data)' class="item item-icon-right">
+										<span>{{data.title}}</span>
+										<span class="pull-right">{{data.date}}</span>
+										<i class="icon ion-ios-arrow-right"></i>
+									</li>
+				        		</ul>
+							</div>
+						</ion-content>
+					</ion-modal-view>
+					</script>
+				    <script id="notice-popover.html" type="text/ng-template">
+					<ion-modal-view>
+						<div class="bar bar-header bar-positive">
+        					<h1 class="title"><i class="icon ion-speakerphone"></i> {{title}}</h1>
+        					<div class="buttons">
+            					<button class="button" ng-click="modal.hide()"><i class="icon ion-close"></i>关闭</button>
+        					</div>
+    					</div>
+						<ion-content overflow-scroll="false" has-bouncing="true">
+							<div class="item item-divider">系统公告</div>
+							<div ng-bind-html="content"></div>
+						</ion-content>
+					</ion-modal-view>
+					</script>
+				</div>
+				
+                <!--热门游戏-->
+                <div class="hotcp">
+                    <div class="row">
+                        <div class="col col-full">
+                            <strong>热门彩票</strong>
+                            <a href="#/lobby" class="pull-right">更多..</a>
+                        </div>
+                    </div>
+                    <div class="displaycp">
+                        <div class="row ">
+                            <div class="col col-33">
+                                <a href="#/bet/101" nav-transition="android" nav-direction="left">
+                                    <div class="box">
+                                        <div class="game-logo">
+                                            <img src="../static/images/home/ssc.png">
+                                            <p>重庆时时彩</p>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col col-33">
+                                <a href="#/bet/118" nav-transition="android" nav-direction="left">
+                                    <div class="box">
+                                        <div class="game-logo">
+                                            <img src="../static/images/home/txffc.png">
+                                            <p>QQ分分彩</p>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col col-33">
+                                <a href="#/bet/310" nav-transition="android" nav-direction="left">
+                                    <div class="box">
+                                        <div class="game-logo">
+                                            <img src="../static/images/home/kl3.png">
+                                            <p>幸运快3</p>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col col-33">
+                                <a href="#/bet/201" nav-transition="android" nav-direction="left">
+                                    <div class="box">
+                                        <div class="game-logo">
+                                            <img src="../static/images/home/11x5.png">
+                                            <p>广东11选5</p>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="row ">
+                            <div class="col col-33">
+                                <a href="/game-launcher?platformId=4&lobby=1&model=1" nav-transition="android" nav-direction="left">
+                                    <div class="box">
+                                        <div class="game-logo">
+                                            <img src="../static/images/home/m_06.png">
+                                            <p>真人娱乐</p>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col col-33">
+                                <a nav-transition="android" nav-direction="left" on-tap="homeCtrl.alert()">
+                                <!--<a href="#/bet/601" nav-transition="android" nav-direction="left">-->
+                                    <div class="box">
+                                        <div class="game-logo">
+                                            <img src="../static/images/home/qita-02.png">
+                                            <p>沙巴体育</p>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col col-33">
+                                <a nav-transition="android" nav-direction="left" on-tap="homeCtrl.alert()">
+                                <!--<a href="#/bet/401" nav-transition="android" nav-direction="left">-->
+                                    <div class="box">
+                                        <div class="game-logo">
+                                            <img src="../static/images/home/qita-01.png">
+                                            <p>棋牌游戏</p>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col col-33">
+                                <a href="/game-launcher?platformId=4&lobby=1&model=1" nav-transition="android" nav-direction="left">
+                                <!--<a href="#/bet/206" nav-transition="android" nav-direction="left">-->
+                                    <div class="box">
+                                        <div class="game-logo">
+                                            <img src="../static/images/home/qita-03.png">
+                                            <p>电子游艺</p>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--&lt;!&ndash;游戏种类&ndash;&gt;-->
+                <!--<div class="hotcp">-->
+                    <!--<div class="row">-->
+                        <!--<div class="col col-full">-->
+                            <!--<strong>游戏种类</strong>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                    <!--<div class="displaycp">-->
+                        <!--<div class="row ">-->
+                            <!--<div class="col col-33">-->
+                                <!--<a href="#/bet/101" nav-transition="android" nav-direction="left">-->
+                                    <!--<div class="box">-->
+                                        <!--<div class="game-logo2">-->
+                                            <!--<img src="../static/images/home/dice.png">-->
+                                            <!--<p>幸运骰子</p>-->
+                                        <!--</div>-->
+                                    <!--</div>-->
+                                <!--</a>-->
+                            <!--</div>-->
+                            <!--<div class="col col-33">-->
+                                <!--<a href="#/bet/101" nav-transition="android" nav-direction="left">-->
+                                    <!--<div class="box">-->
+                                        <!--<div class="game-logo2">-->
+                                            <!--<img src="../static/images/home/casino.png">-->
+                                            <!--<p>真人视讯</p>-->
+                                        <!--</div>-->
+                                    <!--</div>-->
+                                <!--</a>-->
+                            <!--</div>-->
+                            <!--<div class="col col-33">-->
+                                <!--<a href="#/bet/101" nav-transition="android" nav-direction="left">-->
+                                    <!--<div class="box">-->
+                                        <!--<div class="game-logo2">-->
+                                            <!--<img src="../static/images/home/slot.png">-->
+                                            <!--<p>老虎机</p>-->
+                                        <!--</div>-->
+                                    <!--</div>-->
+                                <!--</a>-->
+                            <!--</div>-->
+                            <!--<div class="col col-33">-->
+                                <!--<a href="#/bet/101" nav-transition="android" nav-direction="left">-->
+                                    <!--<div class="box">-->
+                                        <!--<div class="game-logo2">-->
+                                            <!--<img src="../static/images/home/sport.png">-->
+                                            <!--<p>体育投注</p>-->
+                                        <!--</div>-->
+                                    <!--</div>-->
+                                <!--</a>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                <!--</div>-->
+
+            </ion-content>
+            <commonfooter></commonfooter>
+        </ion-side-menu-content>
+
+        <ion-side-menu side="left" class="sidemenu">
+            <div class="side_container">
+                <div class="col center-block balance ">
+                    <span>账户余额:</span>
+                    <p>{{homeCtrl.globalData.lotteryMoney + homeCtrl.globalData.totalMoney|number:2}}</p>
+                </div>
+                <div class="row menu-leftb">
+                    <div class="col col-25" on-tap="appCtrl.goto('home')">
+                        <div class="box">
+                            <div class="side-h-logo"></div>
+                            <span>首页</span>
+                        </div>
+                    </div>
+                    <div class="col col-25" on-tap="appCtrl.goto('member')">
+                        <div class="box">
+                            <div class="side-u-logo"></div>
+                            <span>用户</span>
+                        </div>
+                    </div>
+                    <div class="col col-25" on-tap="appCtrl.goto('recentopen')">
+                        <div class="box">
+                            <div class="side-op-logo"></div>
+                            <span>开奖</span>
+                        </div>
+                    </div>
+                    <div class="col col-25" on-tap="appCtrl.routeto('promotion', 'wheel')">
+                        <div class="box">
+                            <div class="side-at-logo"></div>
+                            <span>活动</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row  menu-leftb">
+                    <div class="col col-25" on-tap="appCtrl.goto('charge')">
+                        <div class="box">
+                            <div class="side-pay-logo"></div>
+                            <span>充值</span>
+                        </div>
+                    </div>
+                    <div class="col col-25" on-tap="appCtrl.goto('withdraw')">
+                        <div class="box">
+                            <div class="side-t-logo"></div>
+                            <span>提现</span>
+                        </div>
+                    </div>
+                    <div class="col col-25" on-tap="appCtrl.goto('transfer')">
+                        <div class="box">
+                            <div class="side-tr-logo"></div>
+                            <span>余额转入</span>
+                        </div>
+                    </div>
+                    <div class="col col-25" on-tap="appCtrl.goto('transfer_account')">
+                        <div class="box">
+                            <div class="side-tr-logo"></div>
+                            <span>转账中心</span>
+                        </div>
+                    </div>
+                    <!-- <div class="col col-25">
+                        <div class="box ">
+                            <a href="https://chat56.live800.com/live800/chatClient/chatbox.jsp?companyID=971030&configID=161674&jid=2828750180&s=1" target="_blank">
+                                <div class="side-ser-logo "></div>
+                                <span>客服</span>
+                            </a>
+                        </div>
+                    </div> -->
+                </div>
+                <ul class="side-list-ul">
+                    <li on-tap="appCtrl.goto('/report/lottery')">
+                        <div class="side-myp">我的报表</div>
+                    </li>
+                    <li on-tap="appCtrl.goto('/betrecord/lottery')">
+                        <div class="side-ber ">投注记录</div>
+                    </li>
+                    <li on-tap="appCtrl.goto('/betrecord/trace')">
+                        <div class="side-tra ">追号记录</div>
+                    </li>
+                    <li on-tap="appCtrl.goto('/chargeRecord/charge')">
+                        <div class="side-payr ">充值记录</div>
+                    </li>
+                    <li on-tap="appCtrl.goto('/chargeRecord/withdraw')">
+                        <div class="side-cah ">提现记录</div>
+                    </li>
+                    <li on-tap="appCtrl.goto('/message/inbox')">
+                        <div class="side-msg">消息中心</div>
+                    </li>
+                    <li on-tap="appCtrl.logout()">
+                        <div class="side-tc">退出</div>
+                    </li>
+                </ul>
+            </div>
+        </ion-side-menu>
+    </div>
+</ion-side-menus>
+
+

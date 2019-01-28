@@ -1,0 +1,92 @@
+.easyweb-pagination {
+	line-height: 32px;
+	font-size: 13px;
+	margin-bottom: 10px;
+	text-align: right;
+	color: #555;
+}
+
+.easyweb-pagination .infos {
+	display: inline;
+	float: left;
+}
+
+.easyweb-pagination .infos .p, .easyweb-pagination .infos .s, .easyweb-pagination .infos .e, .easyweb-pagination .infos .t{
+	color: #4DB3A2;
+}
+
+.easyweb-pagination .pages {
+	display: inline;
+}
+
+.easyweb-pagination .pages > a {
+	cursor: pointer;
+	display: inline-block;
+	text-align: center;
+	margin-left: 2px;
+	margin-right: 2px;
+	color: #4DB3A2;
+	padding-left: 5px;
+	padding-right: 5px;
+	text-decoration: none;
+}
+
+.easyweb-pagination .pages > a.disabled {
+	cursor: default;
+}
+
+.easyweb-pagination .pages > a.selected {
+	cursor: default;
+	background-color: #F3F6F9;
+}
+
+.easyweb-pagination .pages > a.top, .easyweb-pagination .pages > a.end, .easyweb-pagination .pages > a.prev, .easyweb-pagination .pages > a.next {
+	border: 1px solid #E5E9EC;
+	padding-left: 10px;
+	padding-right: 10px;
+	border-radius: 3px;
+	color: #555;
+}
+
+.easyweb-pagination .pages > a.page {
+	text-align: center;
+	border-radius: 3px;
+	border: 1px solid #F3F6F9;
+}
+
+.easyweb-pagination .pages > a.page:hover {
+	
+}
+
+.easyweb-pagination .pages > a.ellipsis {
+	cursor: default;
+}
+
+.easyweb-pagination .go {
+	display: inline;
+	padding-left: 2px;
+	padding-right: 2px;
+}
+
+.easyweb-pagination .go > input[type="text"] {
+	width: 42px;
+	min-height: 33.4px;
+	border: 1px solid #E5E9EC;
+	text-align: center;
+	border-radius: 2px;
+	color: #4DB3A2;
+	padding: 0 !important;
+}
+
+.easyweb-pagination .go .btn-go {
+	cursor: pointer;
+	display: inline-block;
+	text-decoration: none;
+	text-align: center;
+	border: 1px solid #E5E9EC;
+	padding-left: 10px;
+	padding-right: 10px;
+	margin-left: 4px;
+	border-radius: 3px;
+	color: #555;
+}

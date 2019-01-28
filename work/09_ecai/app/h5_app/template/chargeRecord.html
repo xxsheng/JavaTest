@@ -1,0 +1,103 @@
+<div class="ssc-container" ng-controller="chargeRecordController as chargeRecordCtrl">
+    <div class="bar bar-header bar-positive">
+        <div class="buttons">
+            <button class="button" on-tap="appCtrl.goback()"><i class="icon ion-arrow-left-a"></i></button>
+        </div>
+        <h1 class="title">资金明细</h1>
+        <div class="buttons">
+            <button class="button" on-tap="chargeRecordCtrl.searchRecord()"><i class="icon ion-search"></i>查询</button>
+        </div>
+    </div>
+    <div class="tabs tabs-top record-top" id="betrecord">
+        <a class="tab-item active charge" data-type="charge" href="#/chargeRecord/charge">充值记录</a>
+        <a class="tab-item withdraw" data-type="withdraw" href="#/chargeRecord/withdraw">提现记录</a>
+        <a class="tab-item trans" data-type="trans" href="#/chargeRecord/trans">转账记录</a>
+    </div>
+    <ion-content class="has-bet-header has-footer" overflow-scroll="false" has-bouncing="true">
+        <ion-refresher pulling-text="下拉刷新" on-refresh="chargeRecordCtrl.reflesh()"></ion-refresher>
+        <div class="recordContainer">
+            <div class="list">
+                <div class="item item-input item-select" data-tap-disabled="true" ng-if="chargeRecordCtrl.showcharge">
+                    <span class="input-label">选择方式</span>
+                    <select ng-model="chargeRecordCtrl.searchObj.type" class="wp5">
+                        <option value="">全部方式</option>
+                        <option value="1">网银充值</option>
+                        <option value="2">手机充值</option>
+                    </select>
+                </div>
+                <div class="item item-input item-select" data-tap-disabled="true" ng-if="chargeRecordCtrl.showwith">
+                    <span class="input-label">状态</span>
+                    <select ng-model="chargeRecordCtrl.searchObj.status" class="wp5">
+                        <option value="">全部</option>
+                        <option value="0">待处理</option>
+                        <option value="1">已完成</option>
+                        <option value="2">处理中</option>
+                        <option value="3">银行处理中</option>
+                        <option value="4">提现失败</option>
+                        <option value="-1">拒绝支付</option>
+                    </select>
+                </div>
+
+                <div class="row">
+                    <div class="col item-input-inset">
+                        <label class="item-input-wrapper">
+                            <i class="icon ion-bookmark placeholder-icon"></i>
+                            <input type="search" ng-model="chargeRecordCtrl.searchObj.billno" placeholder="请输入订单号">
+                        </label>
+                    </div>
+                </div>
+
+                <div class="row" data-tap-disabled="true">
+                    <div class="item-input-inset">
+                        <label class="item-input-wrapper">
+                            <i class="icon ion-ios-calendar placeholder-icon"></i>
+                            <input type="date" ng-model="chargeRecordCtrl.searchObj.sTime"/>
+                        </label>
+                    </div>
+                    <div class="item-input-inset">
+                        <label class="item-input-wrapper">
+                            <i class="icon ion-ios-calendar placeholder-icon"></i>
+                            <input type="date" ng-model="chargeRecordCtrl.searchObj.eTime"/>
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <ul class="list" ng-if="chargeRecordCtrl.showcharge">
+                <li class="item item-icon-right" ng-repeat="record in chargeRecordCtrl.records">
+                    <p>订单号:{{record.billno}}</p>
+                    <p>充值方式：{{record.type|fileterPaymentChannelType}}</p>
+                    <p>充值金额：{{record.recMoney}}</p>
+                    <p>账户余额：{{record.afterMoney}}</p>
+                    <p>充值日期：{{record.time}}</p>
+                    <p>备注：{{record.infos}}</p>
+                </li>
+            </ul>
+            <ul class="list" ng-if="chargeRecordCtrl.showwith">
+                <li class="item item-icon-right" ng-repeat="record in chargeRecordCtrl.records">
+                    <p>订单号:{{record.billno}}</p>
+                    <p>申请金额：{{record.recMoney}}</p>
+                    <p>到账金额：{{record.money}}</p>
+                    <p>账户余额：{{record.afterMoney}}</p>
+                    <p>取款日期：{{record.time}}</p>
+                    <p>状态:{{record.status|fileterWithdrawType}}</p>
+                    <p>备注：{{record.infos}}</p>
+                </li>
+            </ul>
+            <ul class="list" ng-if="chargeRecordCtrl.showtrans">
+                <li class="item item-icon-right" ng-repeat="record in chargeRecordCtrl.records">
+                    <p>订单号:{{record.bean.billno}}</p>
+                    <p>类型：{{record.bean.type|fileterTransType}}</p>
+                    <p>转出账户：{{record.fromAccount}}</p>
+                    <p>转入账户：{{record.toAccount}}</p>
+                    <p>操作金额：{{record.bean.money}}</p>
+                    <p>账户余额:{{record.bean.afterMoney}}</p>
+                    <p>操作时间：{{record.bean.time}}</p>
+                    <p>备注：{{record.bean.infos}}</p>
+                </li>
+            </ul>
+        </div>
+        <ion-infinite-scroll ng-if="!chargeRecordCtrl.noMorePage" immediate-check="false" on-infinite="chargeRecordCtrl.loadmore(chargeRecordCtrl.page)" distance="10%"></ion-infinite-scroll>
+    </ion-content>
+    <commonfooter></commonfooter>
+</div>
+

@@ -1,0 +1,169 @@
+<div class="ssc-container" ng-controller="agentController as agentCtrl">
+    <div class="bar bar-header bar-positive">
+        <div class="buttons">
+            <button class="button" on-tap="appCtrl.goback()"><i class="icon ion-arrow-left-a"></i></button>
+        </div>
+        <h1 class="title">团队记录</h1>
+        <div class="buttons">
+            <button class="button" on-tap="agentCtrl.searchRecord()"><i class="icon ion-search"></i>查询</button>
+        </div>
+    </div>
+    <div class="tabs tabs-top record-top" id="betrecord">
+        <a class="tab-item active lottery" data-type="bet" href="#/lottery_record/record">彩票记录</a>
+        <a class="tab-item liveslot" data-type="bet" href="#/lottery_record/liveslot">老虎机/真人/体育</a>
+        <a class="tab-item changes" data-type="changes" href="#/lottery_record/changes">帐变记录</a>
+    </div>
+    <ion-content class="has-bet-header has-footer" overflow-scroll="false" has-bouncing="true">
+        <!--下拉刷新-->
+        <ion-refresher pulling-text="下拉刷新" on-refresh="agentCtrl.reflesh()"></ion-refresher>
+        <div class="recordContainer">
+
+            <div class="row">
+                <div class="col item-input-inset">
+                    <label class="item-input-wrapper">
+                        <i class="icon ion-person placeholder-icon"></i>
+                        <input type="search" ng-model="agentCtrl.searchObj.username" placeholder="用户名">
+                    </label>
+                </div>
+            </div>
+
+            <div class="row" data-tap-disabled="true">
+                <div class="col-50 item-input-inset">
+                    <label class="item-input-wrapper">
+                        <i class="icon ion-ios-calendar placeholder-icon"></i>
+                        <input type="date" ng-model="agentCtrl.searchObj.sTime" ng-required="true"/>
+                    </label>
+                </div>
+                <div class="col-50 item-input-inset">
+                    <label class="item-input-wrapper">
+                        <i class="icon ion-ios-calendar placeholder-icon"></i>
+                        <input type="date" ng-model="agentCtrl.searchObj.eTime" ng-required="true"/>
+                    </label>
+                </div>
+            </div>
+
+            <div class="row" ng-if="agentCtrl.showLottery"  data-tap-disabled="true">
+                <div class="item-input-inset">
+                    <select ng-model="agentCtrl.searchObj.lotteryId">
+                        <option value="" selected="selected">游戏类别</option>
+                        <option value="{{item.id}}" ng-repeat="item in agentCtrl.lotterys">{{item.showName}}</option>
+                    </select>
+                </div>
+                <div class="item-input-inset">
+                    <select ng-model="agentCtrl.searchObj.scope" ng-init="agentCtrl.searchObj.scope=1">
+                        <option value="1" ng-selected="true">会员</option>
+                        <option value="2">团队</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="row" ng-if="agentCtrl.showLiveSlot"  data-tap-disabled="true">
+                <div class="item-input-inset">
+                    <select ng-model="agentCtrl.searchObj.platformId">
+                        <option value="4" ng-selected="true">AG</option>
+                        <option value="11">PT</option>
+                        <option value="13">沙巴</option>
+                    </select>
+                </div>
+                <div class="item-input-inset">
+                    <select ng-model="agentCtrl.searchObj.scope" ng-init="agentCtrl.searchObj.scope=1">
+                        <option value="1" ng-selected="true">会员</option>
+                        <option value="2">团队</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="row" ng-if="agentCtrl.showChanges"  data-tap-disabled="true">
+                <div class="item-input-inset">
+                    <select ng-model="agentCtrl.searchObj.account" ng-init="agentCtrl.searchObj.account=2">
+                        <option value="1">主账户</option>
+                        <option value="2" ng-selected="true">彩票账户</option>
+                        <option value="11">PT账户</option>
+                        <option value="4">AG账户</option>
+                        <option value="13">沙巴账户</option>
+                    </select>
+                </div>
+                <div class="item-input-inset">
+                    <select ng-model="agentCtrl.searchObj.type" ng-init="agentCtrl.searchObj.type=6">
+                        <option value="1">充值</option>
+                        <option value="2">取款</option>
+                        <option value="16">取款退回</option>
+                        <option value="3">转入</option>
+                        <option value="4">转出</option>
+                        <option value="15">上下级转账</option>
+                        <option value="5">优惠活动</option>
+                        <option value="6" ng-selected="true">投注</option>
+                        <option value="7">派奖</option>
+                        <option value="8">投注返点</option>
+                        <option value="9">代理返点</option>
+                        <option value="10">撤销订单</option>
+                        <option value="11">会员返水</option>
+                        <option value="13">管理员增</option>
+                        <option value="14">管理员减</option>
+                        <option value="17">积分兑换</option>
+                        <option value="18">支付佣金</option>
+                        <option value="19">获得佣金</option>
+                        <option value="20">退还佣金</option>
+                        <option value="21">红包</option>
+                        <option value="22">日结</option>
+                    </select>
+                </div>
+                <div class="item-input-inset">
+                    <select ng-model="agentCtrl.searchObj.scope" ng-init="agentCtrl.searchObj.scope=1">
+                        <option value="1" ng-selected="true">会员</option>
+                        <option value="2">团队</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="row user-hierarchy row-wrap">
+                <div class="user-level-btn" ng-repeat="username in agentCtrl.userLevels">
+                    <span class="user-level-name" on-tap="agentCtrl.checkChildForRecords(username)">{{username}}</span>
+                    <span class="user-level-tag" ng-if="!$last"><</span>
+                </div>
+            </div>
+
+            <ul class="list" ng-if="agentCtrl.showLottery">
+                <li class="item item-icon-right" ng-repeat="record in agentCtrl.records" on-tap="agentCtrl.checkRecordDetails(record.bean.id)">
+                    <p>用户名：{{record.username}}</p>
+                    <p>订单号：{{record.bean.billno}}</p>
+                    <p>彩种：{{record.lottery}}</p>
+                    <p>玩法：{{record.mname}}</p>
+                    <p ng-if="record.bean.lotteryId != 117">期号：{{record.bean.expect}}</p>
+                    <p>投注金额：<span class="text-red">{{record.bean.money}}</span>元</p>
+                    <p>投注时间：{{record.bean.time}}</p>
+                    <p>奖金：<span class="text-red">{{record.bean.prizeMoney}}</span></p>
+                    <p>开奖状态：<span ng-bind-html="record.bean.status|statusFilter"></span></p>
+                    <i class="icon ion-ios-arrow-right"></i>
+                </li>
+            </ul>
+            <ul class="list" ng-if="agentCtrl.showLiveSlot">
+                <li class="item item-icon-right" ng-repeat="record in agentCtrl.records">
+                    <p>用户名：{{record.username}}</p>
+                    <p>平台：{{record.platform}}</p>
+                    <p>游戏类型：{{record.gameType}}</p>
+                    <p>游戏名：{{record.gameName}}</p>
+                    <p>投注：<span class="text-red">{{record.money|number:1}}</span>元</p>
+                    <p>奖金：<span class="text-red">{{record.prizeMoney|number:1}}</span>元</p>
+                    <p>投注时间：{{record.time}}</p>
+                    <p>派奖时间：{{record.prizeTime}}</p>
+                    <p>状态：<span ng-bind-html="record.status|gameStatusFilter"></span></p>
+                </li>
+            </ul>
+            <ul class="list" ng-if="agentCtrl.showChanges">
+                <li class="item item-icon-right" ng-repeat="record in agentCtrl.records" on-tap="agentCtrl.checktraceDetail({{record}})">
+                    <p>订单号：{{record.bean.billno}}</p>
+                    <p>账户:{{record.account}}</p>
+                    <p>账单类别：{{record.bean.type}}</p>
+                    <p>之前金额：{{record.bean.beforeMoney}}</p>
+                    <p>操作金额：<span class="text-red">{{record.bean.money}}</span>元</p>
+                    <p>剩余金额：{{record.bean.afterMoney}}</p>
+                    <p>操作时间：{{record.bean.time}}</p>
+                    <p>备注：{{record.bean.remarks}}</p>
+                </li>
+            </ul>
+        </div>
+        <ion-infinite-scroll ng-if="!agentCtrl.noMorePage" immediate-check="false" on-infinite="agentCtrl.recordLoadmore(agentCtrl.page)" distance="5%"></ion-infinite-scroll>
+    </ion-content>
+    <commonfooter></commonfooter>
+</div>

@@ -1,0 +1,25 @@
+<ion-modal-view>
+    <div class="bar bar-header bar-positive">
+        <h1 class="title">验证银行卡</h1>
+        <button class="button button-clear button-primary" on-tap="bankCtrl.closeAddBank(3)">关闭</button>
+    </div>
+    <ion-content overflow-scroll="false" has-bouncing="true">
+        <div class="list">
+            <label class="item item-input item-select" id="selectprovince">
+                <input type="hidden" ng-model="bankCtrl.bankobj.id" value="{{}}">
+                <span class="input-label">卡号:</span>
+                <span>中国银行**** **** **** 1111</span>
+            </label>
+            <label class="item item-input">
+                <span class="input-label">资金密码:</span>
+                <input type="text" ng-model="bankCtrl.checkbankobj.fund_password">
+            </label>
+            <div class="row">
+                <div class="col-full">
+                    <button class="button button-assertive button-block" on-tap="bankCtrl.addbank()">锁定</button>
+                </div>
+            </div>
+        </div>
+
+    </ion-content>
+</ion-modal-view>

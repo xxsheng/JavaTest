@@ -1,0 +1,72 @@
+<ion-modal-view>
+        <div class="bar bar-header bar-positive">
+            <h1 class="title">投注详情</h1>
+            <button class="button" on-tap="agentCtrl.closeRecordDetails()"><i class="icon ion-close"></i>关闭</button>
+        </div>
+        <ion-content class="has-header has-footer" overflow-scroll="false" has-bouncing="true">
+            <div class="card">
+                <div class="item item-divider bar-positive text-center">
+                    投注信息
+                </div>
+                <div class="item item-text-wrap padding0">
+                    <table class="table_bordered">
+                        <tbody>
+                            <tr>
+                                <td>用户名</td>
+                                <td colspan="3">{{agentCtrl.currentRecord.username}}</td>
+                            </tr>
+                            <tr>
+                                <td>订单</td>
+                                <td>{{agentCtrl.currentRecord.bean.billno}}</td>
+                                <td>状态</td>
+                                <td>{{agentCtrl.currentRecord.bean.status|statusFilter}}</td>
+                            </tr>
+                            <tr>
+                                <td>彩种</td>
+                                <td>{{agentCtrl.currentRecord.lottery}}</td>
+                                <td>期号</td>
+                                <td>{{agentCtrl.currentRecord.bean.expect}}</td>
+                            </tr>
+                            <tr>
+                                <td>资金模式</td>
+                                <td>{{agentCtrl.currentRecord.bean.model|modelFilter}}</td>
+                                <td>奖金模式</td>
+                                <td>{{agentCtrl.currentRecord.bean.code}}</td>
+                            </tr>
+                            <tr>
+                                <td>注数</td>
+                                <td>{{agentCtrl.currentRecord.bean.nums}}</td>
+                                <td>倍数</td>
+                                <td>{{agentCtrl.currentRecord.bean.multiple}}</td>
+                            </tr>
+                            <tr>
+                                <td>玩法</td>
+                                <td>{{agentCtrl.currentRecord.mname}}</td>
+                                <td>是否追号</td>
+                                <td>{{agentCtrl.currentRecord.bean.chaseStop|stopFileter}}</td>
+                            </tr>
+                            <tr>
+                                <td>投注金额</td>
+                                <td>{{agentCtrl.currentRecord.bean.money}}</td>
+                                <td>中奖金额</td>
+                                <td>{{agentCtrl.currentRecord.bean.prizeMoney}}</td>
+                            </tr>
+                            <tr>
+                                <td>开奖号码</td>
+                                <td colspan="3">{{agentCtrl.currentRecord.bean.openCode}}</td>
+                            </tr>
+                            
+                        </tbody>
+                    </table>
+                </div>
+                <div class="item item-divider text-center">
+                    投注号码
+                </div>
+                <div class="item item-text-wrap">
+                    {{agentCtrl.currentRecord.bean.codes}}
+                </div>
+            </div>
+        </ion-content>
+    </div>
+    <commonfooter></commonfooter>
+</ion-modal-view>

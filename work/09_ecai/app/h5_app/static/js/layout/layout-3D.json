@@ -1,0 +1,335 @@
+{
+    "Layout": [{
+        "title": "三码",
+        "rows": [{
+            "title": "三码直选",
+            "parentname": "smzx",
+            "columns": [{
+                "showname": "复式",
+                "shortname": "sanxzhixfs",
+                "parentname": "smzx",
+                "realname": "[三码_复式]",
+                "tips": "从个、十、百位各选一个号码组成一注。",
+                "example": "",
+                "help": "从百位、十位、个位中选择一个3位数号码组成一注，所选号码与开奖号码相同，且顺序一致，即为中奖。",
+                "selectarea": {
+                    "type": "digital",
+                    "layout": [{
+                        "title": "百位",
+                        "balls": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
+                        "tools": true
+                    }, {
+                        "title": "十位",
+                        "balls": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
+                        "tools": true
+                    }, {
+                        "title": "个位",
+                        "balls": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
+                        "tools": true
+                    }]
+                }
+            }, {
+                "showname": "单式",
+                "parentname": "smzx",
+                "shortname": "sanxzhixds",
+                "realname": "[三码_单式]",
+                "tips": "手动输入号码，至少输入1个三位数号码组成一注。",
+                "example": "",
+                "help": "手动输入一个3位数号码组成一注，所选号码与开奖号码相同，且顺序一致，即为中奖。",
+                "selectarea": {
+                    "type": "input"
+                }
+            }, {
+                "showname": "直选和值",
+                "parentname": "smzx",
+                "shortname": "sanxzhixhz",
+                "realname": "[三码_和值]",
+                "tips": "从0-27中任意选择1个或1个以上号码",
+                "example": "",
+                "help": "所选数值等于开奖号码的三个数字相加之和，即为中奖。",
+                "selectarea": {
+                    "type": "digital",
+                    "layout": [{
+                        "balls": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27],
+                        "tools": false,
+                        "cls": "hz"
+                    }]
+                }
+            }]
+        }, {
+            "title": "三码组选",
+            "parentname": "smzux",
+            "columns": [{
+                "showname": "组三",
+                "parentname": "smzux",
+                "shortname": "sanxzs",
+                "realname": "[三码_组三]",
+                "tips": "从0-9中任意选择2个或2个以上号码。",
+                "example": "",
+                "help": "从0-9中选择2个数字组成两注，所选号码与开奖号码相同，且顺序不限，即为中奖。",
+                "selectarea": {
+                    "type": "digital",
+                    "layout": [{
+                        "title": "组三",
+                        "balls": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
+                        "tools": true
+                    }]
+                }
+            }, {
+                "showname": "组六",
+                "shortname": "sanxzl",
+                "parentname": "smzux",
+                "realname": "[三码_组六]",
+                "tips": "从0-9中任意选择3个或3个以上号码。",
+                "example": "",
+                "help": "从0-9中任意选择3个号码组成一注，所选号码与开奖号码相同，顺序不限，即为中奖。",
+                "selectarea": {
+                    "type": "digital",
+                    "layout": [{
+                        "title": "组六",
+                        "balls": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
+                        "tools": true
+                    }]
+                }
+            }, {
+                "showname": "混合组选",
+                "parentname": "smzux",
+                "shortname": "sanxhhzx",
+                "realname": "[后三码_混合组选]",
+                "tips": "手动输入号码，至少输入1个三位数号码。",
+                "example": "",
+                "help": "键盘手动输入购买号码，3个数字为一注，开奖号码符合组三或组六均为中奖。",
+                "selectarea": {
+                    "type": "input"
+                }
+            }]
+        }]
+    }, {
+        "title": "前二码",
+        "rows": [{
+            "title": "前二码直选",
+            "parentname": "emzx",
+            "columns": [{
+                "showname": "复式",
+                "parentname": "emzx",
+                "shortname": "exzhixfsq",
+                "realname": "[前二码_直选_复式]",
+                "tips": "从百、十位各选一个号码组成一注。",
+                "example": "",
+                "help": "从百位、十位中选择一个2位数号码组成一注，所选号码与开奖号码的百位、十位相同，且顺序一致，即为中奖。",
+                "selectarea": {
+                    "type": "digital",
+                    "layout": [{
+                        "title": "百位",
+                        "balls": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
+                        "tools": true
+                    }, {
+                        "title": "十位",
+                        "balls": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
+                        "tools": true
+                    }]
+                }
+            }, {
+                "showname": "单式",
+                "parentname": "emzx",
+                "shortname": "exzhixdsq",
+                "realname": "[前二码_直选_单式]",
+                "tips": "手动输入号码，至少输入1个两位数号码。",
+                "example": "",
+                "help": "手动输入一个2位数号码组成一注，所选号码的百位、十位与开奖号码相同，且顺序一致，即为中奖。",
+                "selectarea": {
+                    "type": "input"
+                }
+            }, {
+                "showname": "直选和值",
+                "parentname": "emzx",
+                "shortname": "exzhixhzq",
+                "realname": "[前二码_直选_和值]",
+                "tips": "从0-18中任意选择1个或1个以上的和值号码。",
+                "example": "",
+                "help": "所选数值等于开奖号码的百位、十位二个数字相加之和，即为中奖。",
+                "selectarea": {
+                    "type": "digital",
+                    "layout": [{
+                        "balls": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18],
+                        "tools": false,
+                        "cls": "hz"
+                    }]
+                }
+            }]
+        }, {
+            "title": "前二码组选",
+            "parentname": "emzux",
+            "columns": [{
+                "showname": "复式",
+                "parentname": "emzux",
+                "shortname": "exzuxfsq",
+                "realname": "[前二码_组选_复式]",
+                "tips": "从0-9中任意选择2个或2个以上号码。",
+                "example": "",
+                "help": "从0-9中选2个号码组成一注，所选号码与开奖号码的百位、十位相同，顺序不限，即中奖。",
+                "selectarea": {
+                    "type": "digital",
+                    "layout": [{
+                        "title": "组选",
+                        "balls": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
+                        "tools": true
+                    }]
+                }
+            }, {
+                "showname": "单式",
+                "shortname": "exzuxdsq",
+                "parentname": "emzux",
+                "realname": "[前二码_组选_单式]",
+                "tips": "手动输入号码，至少输入1个两位数号码。",
+                "example": "",
+                "help": "手动输入一个2位数号码组成一注，所选号码的百位、十位与开奖号码相同，顺序不限，即为中奖。",
+                "selectarea": {
+                    "type": "input"
+                }
+            }]
+        }]
+    }, {
+        "title": "后二码",
+        "rows": [{
+            "title": "后二码直选",
+            "parentname": "hemzx",
+            "columns": [{
+                "showname": "复式",
+                "shortname": "exzhixfsh",
+                "parentname": "hemzx",
+                "realname": "[后二码_直选_复式]",
+                "tips": "从十、个位各选一个号码组成一注。",
+                "example": "",
+                "help": "从十位、个位中选择一个2位数号码组成一注，所选号码与开奖号码的十位、个位相同，且顺序一致，即为中奖。",
+                "selectarea": {
+                    "type": "digital",
+                    "layout": [{
+                        "title": "十位",
+                        "balls": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
+                        "tools": true
+                    }, {
+                        "title": "个位",
+                        "balls": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
+                        "tools": true
+                    }]
+                }
+            }, {
+                "showname": "单式",
+                "shortname": "exzhixdsh",
+                "parentname": "hemzx",
+                "realname": "[后二码_直选_单式]",
+                "tips": "手动输入号码，至少输入1个两位数号码。",
+                "example": "",
+                "help": "手动输入一个2位数号码组成一注，所选号码的十位、个位与开奖号码相同，且顺序一致，即为中奖。",
+                "selectarea": {
+                    "type": "input"
+                }
+            }, {
+                "showname": "直选和值",
+                "parentname": "hemzx",
+                "shortname": "exzhixhzh",
+                "realname": "[后二码_直选_和值]",
+                "tips": "从0-18中任意选择1个或1个以上的和值号码。",
+                "example": "",
+                "help": "所选数值等于开奖号码的十位、个位二个数字相加之和，即为中奖。",
+                "selectarea": {
+                    "type": "digital",
+                    "layout": [{
+                        "balls": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18],
+                        "tools": false,
+                        "cls": "hz"
+                    }]
+                }
+            }]
+        }, {
+            "title": "后二码组选",
+            "parentname": "hemzux",
+            "columns": [{
+                "showname": "复式",
+                "parentname": "hemzux",
+                "shortname": "exzuxfsh",
+                "realname": "[后二码_组选_复式]",
+                "tips": "从0-9中任意选择2个或2个以上号码。",
+                "example": "",
+                "help": "从0-9中选2个号码组成一注，所选号码与开奖号码的十位、个位相同，顺序不限，即中奖。",
+                "selectarea": {
+                    "type": "digital",
+                    "layout": [{
+                        "title": "组选",
+                        "balls": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
+                        "tools": true
+                    }]
+                }
+            }, {
+                "showname": "单式",
+                "shortname": "exzuxdsh",
+                "parentname": "hemzux",
+                "realname": "[后二码_组选_单式]",
+                "tips": "手动输入号码，至少输入1个两位数号码。",
+                "example": "",
+                "help": "手动输入一个2位数号码组成一注，所选号码的十位、个位与开奖号码相同，顺序不限，即为中奖。",
+                "selectarea": {
+                    "type": "input"
+                }
+            }]
+        }]
+    }, {
+        "title": "定位胆",
+        "rows": [{
+            "title": "定位胆",
+            "parentname": "dwd",
+	    "default": "1",
+            "defaultmethod": "dwd",
+            "columns": [{
+                "showname": "定位胆",
+                "parentname": "dwd",
+                "shortname": "dwd",
+                "realname": "定位胆",
+                "tips": "在百位，十位，个位任意位置上任意选择1个或1个以上号码。",
+                "example": "",
+                "help": "从百位、十位、个位任意位置上至少选择1个以上号码，所选号码与相同位置上的开奖号码一致，即为中奖。",
+                "selectarea": {
+                    "type": "digital",
+                    "layout": [{
+                        "title": "百位",
+                        "balls": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
+                        "tools": true
+                    }, {
+                        "title": "十位",
+                        "balls": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
+                        "tools": true
+                    }, {
+                        "title": "个位",
+                        "balls": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
+                        "tools": true
+                    }]
+                }
+            }]
+        }]
+    }, {
+        "title": "不定胆",
+        "rows": [{
+            "title": "不定胆",
+            "parentname": "bdd",
+            "columns": [{
+                "showname": "一码不定胆",
+                "parentname": "bdd",
+                "shortname": "yimabdw",
+                "realname": "[不定胆_后三一码]",
+                "tips": "从0-9中任意选择1个以上号码。",
+                "example": "",
+                "help": "从0-9中选择1个号码，每注由1个号码组成，只要开奖号码包含所选号码，即为中奖。",
+                "selectarea": {
+                    "type": "digital",
+                    "layout": [{
+                        "title": "不定胆",
+                        "balls": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
+                        "tools": true
+                    }]
+                },
+                "bwd": true
+            }]
+        }]
+    }]
+}

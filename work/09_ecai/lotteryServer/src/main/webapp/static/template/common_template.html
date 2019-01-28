@@ -1,0 +1,3272 @@
+<script type="text/template" id="open_code_slider_tpl">
+    <ul id="openCodeHistory">
+        <# for (var i = 0; i < rows.length; i++) { #>
+            <li class="open_list_item">
+                <#if (showExpect) {#>
+                    <div class="prize_1">No. <span><#=rows[i].expect#> </span>期<br/>开奖号码</div>
+                <#} else {#>
+                    <div class="prize_1">最新开奖号码：</div>
+                <#}#>
+                <div class="prize_2 <#=lottery.shortName#>">
+                    <#for(var j = 0; j < rows[i].code.length; j++){#>
+                        <span data-property="open-code" class="<#=lottery.shortName#>"><#=rows[i].code[j]#></span>
+                    <#}#>
+                </div>
+            </li>
+        <# } #>
+    </ul>
+    
+</script>
+
+<script type="text/template" id="open_code_banner_tpl">
+    <# for (var i = 0; i < rows.length; i++) { #>
+        <li>
+            <#if (showExpect) {#>
+                <#if (rows[i].code.length >= 10) {#>
+                    <div class="date10 expect"><#=rows[i].expect#></div>
+                <#} else {#>
+                    <div class="date expect"><#=rows[i].expect#></div>
+                <#}#>
+            <#}#>
+
+
+            <#if (rows[i].code.length >= 10) {#>
+                <div class="nub10 code">
+                    <#for(var j = 0; j < rows[i].code.length; j++){#>
+                        <span><#=rows[i].code[j]#></span>
+                    <#}#>
+                </div>
+            <#} else {#>
+                <div class="nub code">
+                    <#for(var j = 0; j < rows[i].code.length; j++){#>
+                        <span><#=rows[i].code[j]#></span>
+                    <#}#>
+                </div>
+            <#}#>
+        </li>
+    <# } #>
+</script>
+
+<script type="text/template" id="open_code_history_tpl">
+    <div class="history-code">
+        <table>
+            <# for (var i = 0; i < rows.length; i++) { #>
+                <tr>
+                    <#if (showExpect) {#>
+                        <td class="history-code-expect expect"><#=rows[i].expect#></td>
+                        <#if (rows[i].code.length >= 10) {#>
+                            <td class="history-code-10number code">
+                                <#for(var j = 0; j < rows[i].code.length; j++){#>
+                                    <span><#=rows[i].code[j]#></span>
+                                <#}#>
+                            </td>
+                        <#} else {#>
+                            <td class="history-code-5number code">
+                                <#for(var j = 0; j < rows[i].code.length; j++){#>
+                                <span><#=rows[i].code[j]#></span>
+                                <#}#>
+                            </td>
+                        <#}#>
+                    <#} else {#>
+                        <#if (rows[i].code.length >= 10) {#>
+                            <td class="history-code-10number code full-width" colspan="2">
+                                <#for(var j = 0; j < rows[i].code.length; j++){#>
+                                <span><#=rows[i].code[j]#></span>
+                                <#}#>
+                            </td>
+                        <#} else {#>
+                            <td class="history-code-5number code full-width" colspan="2">
+                                <#for(var j = 0; j < rows[i].code.length; j++){#>
+                                    <span><#=rows[i].code[j]#></span>
+                                <#}#>
+                            </td>
+                        <#}#>
+                    <#}#>
+                </tr>
+            <# } #>
+        </table>
+    </div>
+</script>
+
+<script type="text/template" id="lottery_order_details_tpl">
+    <div class="popup-table">
+        <table class="table">
+            <tbody>
+            <tr>
+                <th>订单号</th>
+                <td><#=bean.billno#></td>
+                <th>状态</th>
+                <td><#=GlobalFun.formatUserBetsStatus(bean.status)#></td>
+            </tr>
+            <tr class="cur">
+                <th>彩种</th>
+                <td><#=lottery#></td>
+                <th>期号</th>
+                <td><#=bean.expect#></td>
+            </tr>
+            <tr>
+                <th>玩法</th>
+                <td><#=mname#></td>
+                <th>注数</th>
+                <td><#=bean.nums#></td>
+            </tr>
+            <tr class="cur">
+                <th>资金模式</th>
+                <td><#=GlobalFun.formatUserBetsModel(bean.model)#></td>
+                <th>倍数</th>
+                <td><#=bean.multiple#>倍</td>
+            </tr>
+            <tr>
+                <th>奖金模式</th>
+                <td><#=bean.point > 0 ? bean.code + ' + 返点' + bean.point.toFixed(1) + '%' : bean.code#></td>
+                <th>中奖追停</th>
+                <td><#echo(bean.chaseStop == 1 ? '是' : '否')#></td>
+            </tr>
+            <tr class="cur">
+                <th>投注金额</th>
+                <td><#=bean.money.toFixed(3)#></td>
+                <th>中奖金额</th>
+                <td><#=(bean.prizeMoney ? bean.prizeMoney : 0).toFixed(3)#></td>
+            </tr>
+            <tr>
+                <th>下单时间</th>
+                <td><#=bean.time#></td>
+                <th>截止时间</th>
+                <td><#=bean.stopTime#></td>
+            </tr>
+            <tr class="cur">
+                <th>开奖号码</th>
+                <td colspan="3">
+                    <# if(bean.openCode) { #>
+                        <#=bean.openCode#>
+                    <# } else { #>
+                        无
+                    <# } #>
+                </td>
+            </tr>
+            <tr>
+                <th>投注内容</th>
+                <td colspan="3">
+                    <div class="long-text codes">
+                        <#=bean.codes#>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+        <div class="btn-group">
+            <# if (bean.type !== 2 && allowCancel) { #>
+                <input type="button" class="button popup-btn-red" value="撤销注单" data-command="cancel-general">
+                <# if (bean.type == 1) { #>
+                    <input type="button" class="button popup-btn-red" data-no="<#=bean.chaseBillno#>" value="撤销追号" data-command="cancel-chase">
+                <# } #>
+            <# } #>
+
+            <input type="button" class="button popup-btn-gray" value="关闭" data-command="close">
+        </div>
+    </div>
+</script>
+
+<script type="text/template" id="lottery_right_banner_tpl">
+    <div class="dside">
+        <div class="dside_box">
+            <!--无订单-->
+            <div class="ticket_dd" id="shoppingNonCar">
+                <div class="ticket_title"><span>购彩篮</span></div>
+                <div class="w_ddd">
+                    <div class="w_dd_box"><i class="icon iconfont">&#xe6c5;</i><span>无投注订单</span></div>
+                </div>
+                <!--<div class="ticket_btom">
+                    <div class="ssop"><span class="none-btn">请先选择并添加订单</span></div>
+                </div>-->
+            </div>
+            <!--有订单-->
+            <div class="ticket_dd" id="shoppingCar" style="display: none;">
+                <div class="ticket_title"><span>购彩篮</span><span class="clear-btn" data-command="clean_all"><i class="icon iconfont">&#xe62b;</i>清空</span></div>
+                <div class="w_dd">
+                    <div class="y_cc_box">
+                        <ul id="shoppingCarList">
+                        </ul>
+                    </div>
+                    <i class="bg-quan1"></i>
+                    <i class="bg-quan2"></i>
+                    <i class="bg-quan3"></i>
+                    <i class="bg-quan4"></i>
+                </div>
+                <div class="ticket_zz">
+					<div class="zz_l" id="statistics">
+                        <span>总投注金额：</span><i data-property="total"><em>￥</em>0</i>
+                    </div>
+                    <div class="ssop"><input type="button" class="bet-btn" value="确认投注" data-command="submit"></div>
+                    <div class="zz_r">
+                        <input type="button" class="btn" id="zh" value="我要追号" data-command="chase">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</script>
+
+<script type="text/template" id="lottery_chase_tpl">
+    <div class="lottery-chase" id="lottery-chase">
+        <div class="chase-top"><span class="main-title">追号</span><span>当前销售第 <span id="global-expect"><#=expect#></span> 期，距离投注截止时间还有 <i data-property="countdown">00:00:00</i></span></div>
+        <div class="chase-box">
+            <div class="chase-tab"><span class="cur tab" data-type="0">利润率追号</span><span class="tab" data-type="1">同倍追号</span><span class="tab" data-type="2">翻倍追号</span></div>
+            <div class="chase-text">
+                <div class="text_tt">
+                    <span>追号期数：<input type="text" name="expect" class="text" value="10" autocomplete="off"></span>
+                    <span>总期数：<i data-property="total-expect">10</i> 期，总追号金额：<i data-property="total-money">0.000</i> 元</span>
+                    <span><em class="chek cheked" data-property="isStop"></em>中奖后停止追号</span>
+                </div>
+                <div class="text_tt option" data-type="0">
+                    <span>起始倍数：<input type="text" name="s0Multiple" value="1" class="text" autocomplete="off" maxlength="5"></span>
+                    <span>最大倍投：<input type="text" name="maxMultiple" value="100" class="text" autocomplete="off" maxlength="5"></span>
+                    <span>最低收益率：<input type="text" name="minProfit" value="30" class="text_cc" autocomplete="off" maxlength="2">%</span>
+                </div>
+                <div class="text_tt option" data-type="1" style="display: none;">
+                    <span>起始倍数：<input type="text" name="s1Multiple" value="1" class="text" autocomplete="off" maxlength="5"></span>
+                </div>
+                <div class="text_tt option" data-type="2" style="display: none;">
+                    <span>起始倍数：<input type="text" name="s2Multiple" value="1" class="text" autocomplete="off" maxlength="5"></span>
+                    <span>隔：<input type="text" name="expTimes" value="1" class="text_cc" autocomplete="off" maxlength="5"></span>
+                    <span>期，倍：<select name="operation" class="operation"><option value="x">x</option><option value="+">+</option></select></span>
+                    <span><input type="text" name="expMultiple" value="2" class="text_cc" autocomplete="off"></span>
+                </div>
+                <div class="btn-group">
+                    <input type="button" class="popup-btn-gray" value="生成追号" data-command="generate">
+                </div>
+            </div>
+            <div class="tab-list">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>选择</th>
+                            <th>期号</th>
+                            <th>倍数</th>
+                            <th>金额（元）</th>
+                            <th>截止时间</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+            </div>
+            <!--<div class="btn-group">-->
+                <!--<input type="button" class="button popup-btn-blue" value="确认投注" data-command="confirm">-->
+                <!--<input type="button" class="button popup-btn-gray" value="关闭" data-command="close">-->
+            <!--</div>-->
+        </div>
+    </div>
+</script>
+
+<script type="text/template" id="redirect_form_tpl">
+    <form action="/RechargeSelfRedirect" target="_blank" method="post" novalidate onsubmit="return true;" style="padding-bottom: 10px;">
+        <input type="hidden" name="pid" value="<#=data.pid#>"/>
+        <input type="hidden"  name="bankco" value="<#=data.bankco#>"/>
+        <input type="hidden"  name="Signature" value="<#=data.Signature#>"/>
+		<input type="hidden"  name="os" value="browser"/>
+        <div class="popup-window">
+            <div class="popup-group">
+                <label class="label">充值金额：</label>
+                <input type="text" name="amount" class="input-text" readonly value="<#=data.amount#>">
+            </div>
+            <div class="popup-group">
+                <label class="label">订单号：</label>
+                <input type="text" name="billno" class="input-text" readonly value="<#=data.billno#>">
+            </div>
+
+            <div class="btn-group">
+                <input type="submit" class="button popup-btn-red" value="开始充值" data-command="start">
+                <input type="button" class="button popup-btn-cancel" value="关闭" data-command="close">
+            </div>
+        </div>
+    </form>
+</script>
+
+<script type="text/template" id="image_popup_tpl">
+    <div class="image-popup">
+        <div class="image-block">
+            <img src="<#=url#>"/>
+        </div>
+        <div class="desc-block">
+            <span><#=desc#></span>
+        </div>
+    </div>
+</script>
+
+<script type="text/template" id="withdraw_banks_tpl">
+    <# for (var i = 0; i < rows.length; i++) { #>
+        <option value="<#=rows[i].id#>" <#echo(i == 0 ? 'selected' : '')#>> <#=rows[i].bankName#> <#=rows[i].cardId#> <#=rows[i].cardName#> </option>
+    <# } #>
+</script>
+
+<script type="text/template" id="accounts_tpl">
+    <# for (var i = 0; i < rows.length; i++) { #>
+        <# if (rows[i].status > -1) { #>
+            <option value="<#=rows[i].id#>" <#echo(selected === i ? 'selected' : '')#>><#=rows[i].name#></option>
+        <# } #>
+    <# } #>
+</script>
+
+<script type="text/template" id="betting_tab_tpl">
+    <#for (var i = 0; i < items.length; i++) {#>
+        <#if (groups[items[i].code]) {#>
+            <span data-index="<#=i#>" class="tab-btn" data-group-code="<#=items[i].code#>"><#=items[i].title#></span>
+        <#}#>
+    <#}#>
+</script>
+
+<script type="text/template" id="betting_condition_tpl">
+    <#
+        var availableRuleIndexes = new Array();
+        for (var i = 0; i < items.length; i++) {
+            var hasRule = false;
+            for (var j = 0; j < items[i].length; j++) {
+                for (var k = 0; k < items[i][j].columns.length; k++) {
+                    if (rules[items[i][j].columns[k].code]) {
+                        hasRule = true;
+                        break;
+                    }
+                }
+                if (hasRule) {
+                    break;
+                }
+            }
+            if (hasRule) {
+                availableRuleIndexes.push(i);
+            }
+        }
+    #>
+    <#for (var i = 0; i < items.length; i++) {#>
+        <#
+            if (window.GlobalFun.inArray(i, availableRuleIndexes) == -1){
+                continue;
+            }
+        #>
+        <dl>
+            <#for (var n = 0; n < items[i].length; n++) {#>
+                <dt><#=items[i][n].title#></dt>
+            <#}#>
+            <dd>
+                <#for (var n = 0; n < items[i].length; n++) {#>
+                    <#for (var k = 0; k < items[i][n].columns.length; k++) {#>
+                        <#if (rules[items[i][n].columns[k].code]) {#>
+                            <span data-pid="<#=i#>" data-col="<#=n#>" data-id="<#=k#>" class="rule-btn" data-rule-code="<#=items[i][n].columns[k].code#>"><#=items[i][n].columns[k].name#></span>
+                        <#}#>
+                    <#}#>
+                <#}#>
+            </dd>
+        </dl>
+    <#}#>
+</script>
+
+<script type="text/template" id="betting_area_tpl">
+    <#if(data.checkbox && data.checkbox.layout && data.checkbox.layout.length > 0){#>
+        <!--任选类-->
+        <div class="betting-checkbox">
+            <#for (var i = 0; i < data.checkbox.layout.length; i++) {#>
+                <dl class="places clearfix">
+                    <dt><#=data.checkbox.layout[i].title#></dt>
+                    <dd>
+                        <#for (var n = 0; n < data.checkbox.layout[i].value.length; n++) {#>
+                        <label>
+                            <input type="checkbox" name="type" value="<#=data.checkbox.layout[i].value[n]#>">
+                            <#=data.checkbox.layout[i].value[n]#>
+                        </label>
+                        <#}#>
+                    </dd>
+                </dl>
+            <#}#>
+        </div>
+    <#}#>
+
+
+
+    <#if(data.select && data.select.layout && data.select.layout.length > 0){#>
+        <#for (var i = 0; i < data.select.layout.length; i++) {#>
+            <#if (data.select.layout[i].cls === 'hz') {#>
+                <!--和值类-->
+                <div class="betting-fieldset">
+                    <fieldset>
+                        <legend>和值</legend>
+                        <#for (var k = 0; k < data.select.layout[i].balls.length; k++) {#>
+                            <span data-val="<#=data.select.layout[i].balls[k]#>" class="ball">
+                                <#=data.select.layout[i].balls[k]#>
+                            </span>
+                        <#}#>
+                    </fieldset>
+                </div>
+            <#} else{#>
+                <!--选择类-->
+                <div class="betting-select">
+                    <ul>
+                        <li <#echo(data.select.layout[i].balls.length > 39 ? ' class="many-codes"' : '')#>>
+                            <dl class="clearfix">
+                                <dt><#=data.select.layout[i].title#></dt>
+                                <# if (data.select.layout[i].trigger) { #>
+                                    <dd class="choose-pannel" choose-type="<#=data.select.layout[i].trigger#>">
+                                <# } else { #>
+                                    <dd class="choose-pannel">
+                                <# } #>
+
+                                <# if (data.select.layout[i].values) { #>
+                                    <#for (var k = 0; k < data.select.layout[i].balls.length; k++) {#>
+                                        <#if(data.select.layout[i].cls){#>
+                                            <span data-val="<#=data.select.layout[i].values[k]#>" class="ball <#=data.select.layout[i].cls#>"><#=data.select.layout[i].balls[k]#></span>
+                                        <#} else if(('' + data.select.layout[i].balls[k]).length > 2){#>
+                                            <span data-val="<#=data.select.layout[i].values[k]#>" class="ball text"><#=data.select.layout[i].balls[k]#></span>
+                                        <#}else{#>
+                                            <span data-val="<#=data.select.layout[i].values[k]#>" class="ball"><#=data.select.layout[i].balls[k]#></span>
+                                        <#}#>
+                                    <#}#>
+                                <# } else { #>
+                                    <#for (var k = 0; k < data.select.layout[i].balls.length; k++) {#>
+                                        <#if(data.select.layout[i].cls){#>
+                                            <span data-val="<#=data.select.layout[i].balls[k]#>" class="ball <#=data.select.layout[i].cls#>"><#=data.select.layout[i].balls[k]#></span>
+                                        <#} else if(('' + data.select.layout[i].balls[k]).length > 2){#>
+                                            <span data-val="<#=data.select.layout[i].balls[k]#>" class="ball text"><#=data.select.layout[i].balls[k]#></span>
+                                        <#}else{#>
+                                            <span data-val="<#=data.select.layout[i].balls[k]#>" class="ball"><#=data.select.layout[i].balls[k]#></span>
+                                        <#}#>
+                                    <#}#>
+                                <# } #>
+                                </dd>
+
+                                <#if (data.select.layout[i].tools) {#>
+                                    <dd class="fast-big tools" style="display:block;">
+                                        <em class="tool-btn" data-command="all">全</em>
+                                        <em class="tool-btn" data-command="big">大</em>
+                                        <em class="tool-btn" data-command="small">小</em>
+                                        <em class="tool-btn" data-command="single">单</em>
+                                        <em class="tool-btn" data-command="double">双</em>
+                                        <em class="tool-btn" data-command="clean">清</em>
+                                    </dd>
+
+                                    <dd class="fast-small tools" style="display:none;">
+                                        <div class="fast-btn" >
+                                        	<span data-command="showFastSmallTools">快速选择<i class="icon iconfont">&#xe61b;</i></span>
+                                        	<div class="ks">
+                                            <i></i>
+                                            <em class="tool-btn" data-command="all">全</em>
+                                            <em class="tool-btn" data-command="big">大</em>
+                                            <em class="tool-btn" data-command="small">小</em>
+                                            <em class="tool-btn" data-command="single">单</em>
+                                            <em class="tool-btn" data-command="double">双</em>
+                                            <em class="tool-btn" data-command="clean">清</em>
+                                        </div>
+                                        </div>
+                                    </dd>
+                                <#}#>
+                            </dl>
+                        </li>
+                    </ul>
+                </div>
+            <#}#>
+        <#}#>
+    <#}#>
+
+
+    <#if(data.textarea){#>
+        <!--输入类-->
+        <div class="betting-textarea">
+            <textarea placeholder="每注号码之间请用一个空格或英文逗号或英文分号隔开（输入的号码会自动排序并去除不合格号码）" id="textarea"></textarea>
+            <i class="icon iconfont bt-close" title="清空内容" data-command="clean">&#xe691;</i>
+        </div>
+    <#}#>
+</script>
+
+<script type="text/template" id="play_options_tpl">
+    <div class="tat_4">选择 <span data-property="num"> 0 </span> 注, 共 <span data-property="total">0</span>  元</div>
+    <div class="tat_2" id="model">
+        <div class="sst">模式：</div>
+        <div class="model_bt">
+            <span data-val="1yuan" data-command="changeModel">1元</span>
+            <span data-val="1jiao" data-command="changeModel">1角</span>
+            <span data-val="1fen" data-command="changeModel">1分</span>
+            <span data-val="1li" data-command="changeModel">1厘</span>
+            <span data-val="yuan" class="cur" data-command="changeModel">2元</span>
+            <span data-val="jiao" data-command="changeModel">2角</span>
+            <span data-val="fen" data-command="changeModel">2分</span>
+            <span data-val="li" data-command="changeModel">2厘</span>
+        </div>
+    </div>
+    <div class="tat_1">
+        <div class="sst">倍数：</div>
+        <div class="ssc">
+            <em class="btn-minus">-</em>
+            <input type="text" class="input-multiple" name="multiple" data-property="multiple" value="1" autocomplete="off" maxlength="5"/>
+            <em class="btn-plus">+</em>
+        </div>
+    </div>
+    <div class="tat_3 adjust-prize" id="adjustPrizeBox">
+        <div class="yuan" id="prizes" data-command="showSlider"><span><b class="text" data-property="code">0</b>/<b class="normal" data-property="point" data-val="0.0">0.0%</b></span><i class="icon iconfont">&#xe61b;</i></div>
+        <!--下拉-->
+        <div class="tt_box" style="display:none;">
+	        <div class="tt" id="sliderBox">
+	            <i></i>
+	            <div class="progress"></div>
+	        </div>
+	    </div>
+    </div>
+
+    <div class="tat_5">
+        <input type="button" class="button_1" value="一键投注" data-command="quick_betting">
+        <input type="button" class="button_2" value="梭哈" data-command="all_betting">
+        <span class="bt-normal" data-command="add_to_cart">添加到购彩篮</span>
+    </div>
+</script>
+
+<script type="text/template" id="cart_list_tpl">
+    <li>
+        <div class="ycc_1"><span class="expect"><#=lottery#>  </span><span class="close user-select-none"><i class="icon iconfont" data-command="delete">&#xe691;</i></span></div>
+        <div class="ycc_2 text-elip"><#=name#> <#=codes#></div>
+        <div class="ycc_2"><#=num#> 注  <#=multiple#> 倍   <#=point#>%</div>
+        <div class="ycc_3"><span class="order-money">订单金额：<i data-property="total"><#=total#></i> 元</span></div>
+    </li>
+</script>
+
+<script type="text/template" id="lottery_user_bets_unopen_tpl">
+    <table>
+        <thead>
+            <tr>
+                <th>彩种</th>
+                <th>玩法</th>
+                <th>期号</th>
+                <th>下单时间</th>
+                <th>投注金额</th>
+                <th>奖金</th>
+                <th width="180px">操作</th>
+            </tr>
+        </thead>
+        <tbody>
+            <#if (rows.length <= 0){#>
+                <tr><td colspan="7"><div class="w"><i class="icon iconfont">&#xe6c5;</i>无投注订单</div></td></tr>
+            <#} else {#>
+                <#for (var i = 0; i < rows.length; i++) {#>
+                    <#
+                        var actions = [];
+                        rows[i].allowCancel && actions.push('<span class="function-btn" data-command="cancel">撤单</span>');
+                        actions.push('<span class="function-btn" data-command="rebet">复投</span>');
+                        actions.push('<span class="function-btn" data-command="details">详情</span>');
+                    #>
+                    <tr data-id="<#=rows[i].bean.id#>">
+                        <td><#=rows[i].lottery#></td>
+                        <td><#=rows[i].mname#></td>
+                        <td><#=rows[i].bean.expect#></td>
+                        <td><#=rows[i].bean.time#></td>
+                        <td><#=rows[i].bean.money.toFixed(3)#></td>
+                        <td><#=(rows[i].bean.prizeMoney ? rows[i].bean.prizeMoney : 0).toFixed(3)#></td>
+                        <td>
+                            <#=actions.join("")#>
+                        </td>
+                    </tr>
+                <#}#>
+            <#}#>
+        </tbody>
+    </table>
+</script>
+
+<script type="text/template" id="lottery_user_bets_opened_tpl">
+    <table>
+        <thead>
+            <tr>
+                <th>彩种</th>
+                <th>玩法</th>
+                <th>期号</th>
+                <th>下单时间</th>
+                <th>投注金额</th>
+                <th>奖金</th>
+                <th>状态</th>
+                <th width="120px">操作</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            <#if (rows.length <= 0){#>
+                <tr><td colspan="8"><div class="w"><i class="icon iconfont">&#xe6c5;</i>无投注订单</div></td></tr>
+            <#} else {#>
+                <#for (var i = 0; i < rows.length; i++) {#>
+                    <#
+                        var actions = [];
+                        actions.push('<span class="function-btn" data-command="rebet">复投</span>');
+                        actions.push('<span class="function-btn" data-command="details">详情</span>');
+                    #>
+                    <tr data-id="<#=rows[i].bean.id#>">
+                        <td><#=rows[i].lottery#></td>
+                        <td><#=rows[i].mname#></td>
+                        <td><#=rows[i].bean.expect#></td>
+                        <td><#=rows[i].bean.time#></td>
+                        <td><#=rows[i].bean.money.toFixed(3)#></td>
+                        <td><#=(rows[i].bean.prizeMoney ? rows[i].bean.prizeMoney : 0).toFixed(3)#></td>
+                        <td><#=GlobalFun.formatUserBetsStatus(rows[i].bean.status)#></td>
+                        <td>
+                            <#=actions.join("")#>
+                        </td>
+                    </tr>
+                <#}#>
+            <#}#>
+        </tbody>
+    </table>
+</script>
+
+<script type="text/template" id="update_password_tpl">
+    <div class="Modify_tc">
+        <div class="Modify_top">修改登录密码</div>
+        <div class="Modify_box">
+            <div class="Modify_text"><span>当前密码：</span><input type="password" class="text"></div>
+            <div class="Modify_text"><span>新密码：</span><input type="password" class="text"></div>
+            <div class="Modify_text"><span>确认密码：</span><input type="password" class="text"></div>
+            <div class="Modify_btn"><input type="button" class="button" value="确定"><input type="button" class="button button_cc" value="关闭"></div>
+        </div>
+    </div>
+</script>
+
+<script type="text/template" id="security_list_tpl">
+    <ul>
+        <li>
+            <div class="security_l">
+                <div class="ser"><i class="icon iconfont">&#xe606;</i><span>异地登录验证</span>
+                    <# if (isLoginValidate) { #>
+                        <em class="cur">已开启</em>
+                    <# } else {#>
+                        <em>未开启</em>
+                    <# } #>
+                </div>
+                <p>开启异地登录验证后，系统检测上次登录地点与本次登录地点不一致时，需要验证银行卡信息。</p>
+            </div>
+            <div class="security_r">
+                <# if (isLoginValidate) { #>
+                    <span class="t_1" data-command="closeLoginValidate"></span>
+                <# } else {#>
+                    <span class="t_1 t_2" data-command="openLoginValidate"></span>
+                <# } #>
+            </div>
+        </li>
+        <li>
+            <div class="security_l">
+                <div class="ser"><i class="icon iconfont">&#xe66e;</i><span>账户姓名</span>
+                    <# if (hasWithdrawName) { #>
+                        <em class="cur">已绑定</em>
+                    <# } else {#>
+                        <em>未绑定</em>
+                    <# } #>
+                </div>
+                <p>取款需要绑定您的银行开户者的姓名，绑定姓名必须使用此账户名下的银行卡进行取款。</p>
+            </div>
+            <div class="security_r">
+                <# if (hasWithdrawName) { #>
+                    <input type="button" class="button_cc" value="已绑定">
+                <# } else {#>
+                    <input type="button" class="button" value="绑定" data-command="bindWithdrawName">
+                <# } #>
+            </div>
+        </li>
+
+        <li>
+            <div class="security_l">
+                <div class="ser"><i class="icon iconfont">&#xe76b;</i><span>登录密码</span><em class="cur">已设置</em></div>
+                <p>建议您使用字母、数字、混合大小写、特殊符号等进行组合，尽量不要使用单一的字母或数字作为密码，设置的密码长度越长越安全。</p>
+            </div>
+            <div class="security_r">
+                <input type="button" class="button" value="修改" data-command="modifyPassword">
+            </div>
+        </li>
+
+        <li>
+            <div class="security_l">
+                <div class="ser"><i class="icon iconfont">&#xe66f;</i><span>安全密保</span>
+                    <# if (hasSecurity) { #>
+                        <em class="cur">已绑定</em>
+                    <# } else {#>
+                        <em>未绑定</em>
+                    <# } #>
+                </div>
+                <p>为了您的账户的资金安全，请不要将密码透露给任何人，并不定期的修改资金密码。</p>
+            </div>
+            <div class="security_r">
+                <# if (hasSecurity) { #>
+                    <input type="button" class="button_cc" value="已绑定">
+                <# } else {#>
+                    <input type="button" class="button" value="绑定" data-command="bindSecurity">
+                <# } #>
+            </div>
+        </li>
+
+        <li>
+            <div class="security_l">
+                <div class="ser"><i class="icon iconfont">&#xe76b;</i><span>资金密码</span>
+                    <# if (hasWithdrawPwd) { #>
+                        <em class="cur">已设置</em>
+                    <# } else {#>
+                        <em>未设置</em>
+                    <# } #>
+                </div>
+                <p>在进行银行卡绑定、转账、提款等使用资金操作需要需要进行的资金密码确认，以提高您的资金安全性。</p>
+            </div>
+            <div class="security_r">
+                <# if (hasWithdrawPwd) { #>
+                    <input type="button" class="button" value="修改" data-command="modifyWithdrawPwd">
+                <# } else {#>
+                    <input type="button" class="button" value="立即设置" data-command="bindWithdrawPwd">
+                <# } #>
+            </div>
+        </li>
+
+        <li>
+            <div class="security_l">
+                <div class="ser"><i class="icon iconfont">&#xe6b2;</i><span>谷歌身份验证器</span>
+                    <# if (hasBindGoogle) { #>
+                        <em class="cur">已绑定</em>
+                    <# } else {#>
+                        <em>未绑定</em>
+                    <# } #>
+                </div>
+                <p>Google身份验证器可以为用户提供像银行宝令一样的动态密码工具，每30秒将自动更新一次动态密码，这样可以保证你的账户更安全。</p>
+            </div>
+            <div class="security_r">
+                <# if (hasBindGoogle) { #>
+                    <input type="button" class="button_cc" value="已绑定">
+                <# } else {#>
+                    <input type="button" class="button" value="绑定" data-command="bindGoogle">
+                <# } #>
+            </div>
+        </li>
+    </ul>
+</script>
+
+<script type="text/template" id="close_login_validate_tpl">
+    <form onsubmit="return false;" novalidate>
+        <div class="popup-window">
+            <input name="cid" type="hidden" value="<#=id#>"/>
+            <div class="popup-title">为确保您的账户安全，请先验证您的银行卡信息。</div>
+            <div class="popup-group-static"><label class="label">开户银行：</label><span class="static-text text-elip" title="<#=bankName#>"><#=bankName#></span></div>
+            <div class="popup-group-static"><label class="label">支行名称：</label><span class="static-text text-elip" title="<#=bankBranch#>"><#=bankBranch#></span></div>
+            <div class="popup-group-static"><label class="label">银行卡号：</label><span class="static-text text-elip" title="<#=cardId#>"><#=cardId#></span></div>
+            <div class="popup-group-static"><label class="label">持卡姓名：</label><span class="static-text text-elip" title="<#=cardName#>"><#=cardName#></span></div>
+            <div class="popup-group"><label class="label">持卡姓名：</label><input type="text" class="input-text" maxlength="30" name="cardName" id="cardName" autofocus autocomplete="off" placeholder="请输入持卡人姓名"></div>
+        </div>
+    </form>
+</script>
+
+<script type="text/template" id="bind_withdraw_name_tpl">
+    <form onsubmit="return false;" novalidate>
+        <div class="popup-window">
+            <div class="popup-title">为确保账户安全，请仔细填写个人信息，绑定后将无法再次修改。</div>
+            <div class="popup-group"><label class="label">账户姓名：</label><input type="text" class="input-text" maxlength="30" name="cardName" id="withdrawName" autofocus autocomplete="off" placeholder="请输入账户姓名"></div>
+        </div>
+    </form>
+</script>
+
+<script type="text/template" id="modify_password_tpl">
+    <form onsubmit="return false;" novalidate>
+        <div class="popup-window">
+            <div class="popup-group"><label class="label">当前密码：</label><input type="password" class="input-text" maxlength="30" name="oldPassword" id="oldPassword" autofocus autocomplete="off" placeholder="请输入当前登录密码"></div>
+            <div class="popup-group"><label class="label">新登录密码：</label><input type="password" class="input-text" maxlength="30" name="newPassword" id="newPassword" autocomplete="off" placeholder="请输入新的登录密码"></div>
+            <div class="popup-group"><label class="label">确认密码：</label><input type="password" class="input-text" maxlength="30" name="rePassword" id="rePassword" autocomplete="off" placeholder="请输入确认密码"></div>
+        </div>
+    </form>
+</script>
+
+<script type="text/template" id="bind_withdraw_password_tpl">
+    <form onsubmit="return false;" novalidate>
+        <div class="popup-window">
+            <input name="sid" type="hidden" value="<#=id#>"/>
+            <div class="popup-group-static">
+                <label class="label">密保问题：</label>
+                <span class="static-text text-elip"><#=key#></span>
+            </div>
+            <div class="popup-group">
+                <label class="label">密保答案：</label>
+                <input type="text" class="input-text" maxlength="30" name="answer" id="answer" autofocus autocomplete="off" placeholder="请输入密保答案">
+            </div>
+            <div class="popup-group">
+                <label class="label">新密码：</label>
+                <input type="password" class="input-text" maxlength="30" name="password" id="password" autocomplete="off" placeholder="请输入新密码">
+            </div>
+            <div class="popup-group">
+                <label class="label">确认密码：</label>
+                <input type="password" class="input-text" maxlength="30" name="rePassword" id="rePassword" autocomplete="off" placeholder="请输入确认密码">
+            </div>
+        </div>
+    </form>
+</script>
+
+<script type="text/template" id="modify_withdraw_password_tpl">
+    <form onsubmit="return false;" novalidate>
+        <div class="popup-window">
+            <div class="popup-group">
+                <label class="label">当前密码：</label>
+                <input type="password" class="input-text" maxlength="30" name="oldPassword" id="oldPassword" autofocus autocomplete="off" placeholder="请输入当前密码">
+            </div>
+            <div class="popup-group">
+                <label class="label">新密码：</label>
+                <input type="password" class="input-text" maxlength="30" name="password" id="password" autocomplete="off" placeholder="请输入新密码">
+            </div>
+            <div class="popup-group">
+                <label class="label">确认密码：</label>
+                <input type="password" class="input-text" maxlength="30" name="rePassword" id="rePassword" autocomplete="off" placeholder="请输入确认密码">
+            </div>
+        </div>
+    </form>
+</script>
+
+<script type="text/template" id="bind_security_tpl">
+    <form onsubmit="return false;" novalidate>
+        <div class="popup-window">
+            <div class="popup-title">
+                为确保账户安全，请仔细填写个人信息，绑定后将无法再次修改。
+            </div>
+            <div class="popup-group">
+                <label class="label">密保问题1：</label>
+                <select class="input-select" id="question1">
+                    <option selected>我最爱看哪部美剧？</option>
+                    <option>我最喜欢吃的美食是？</option>
+                    <option>我最喜欢的球队是？</option>
+                    <option>我最喜欢玩的游戏是？</option>
+                    <option>我最喜欢的颜色是？</option>
+                    <option>我最爱看的电影是？</option>
+                </select>
+            </div>
+            <div class="popup-group">
+                <label class="label">密保答案1：</label>
+                <input type="text" class="input-text" maxlength="30"  id="answer1" autocomplete="off" placeholder="请输入密保答案1" autofocus>
+            </div>
+            <div class="popup-group">
+                <label class="label">密保问题2：</label>
+                <select class="input-select" id="question2">
+                    <option selected>我的座右铭是？</option>
+                    <option>我的幸运数字是？</option>
+                    <option>我父亲的姓名是？</option>
+                    <option>我母亲的姓名是？</option>
+                    <option>我配偶的名字是？</option>
+                </select>
+            </div>
+            <div class="popup-group">
+                <label class="label">密保答案2：</label>
+                <input type="text" class="input-text" maxlength="30"  id="answer2" autocomplete="off" placeholder="请输入密保答案2">
+            </div>
+            <div class="popup-group">
+                <label class="label">密保问题3：</label>
+                <select class="input-select" id="question3">
+                    <option selected>我的出生地是？</option>
+                    <option>我毕业的学校是？</option>
+                    <option>我父亲的生日是？</option>
+                    <option>我母亲的生日是？</option>
+                    <option>我配偶的生日是？</option>
+                </select>
+            </div>
+            <div class="popup-group">
+                <label class="label">密保答案3：</label>
+                <input type="text" class="input-text" maxlength="30"  id="answer3" autocomplete="off" placeholder="请输入密保答案3">
+            </div>
+        </div>
+    </form>
+</script>
+
+<script type="text/template" id="bind_google_tpl">
+    <div class="binding_box">
+        <div class="binding_1">
+            <div class="rwm"><img src="<#=qr#>"></div>
+            <div class="bind">
+                <div class="bind_text"><span>密保问题 :</span><input type="text" class="text" disabled value="<#=key#>"><input name="sid" type="hidden" value="<#=sid#>"/></div>
+                <div class="bind_text"><span>密保答案 :</span><input type="text" class="text" name="answer" maxlength="30" autocomplete="off" autofocus></div>
+                <div class="bind_text"><span>谷歌口令 :</span><input type="text" class="text" name="vCode" maxlength="6" autocomplete="off"></div>
+            </div>
+        </div>
+        <div class="binding_2">
+            <span>下载地址：</span><a href="https://itunes.apple.com/cn/app/google-authenticator/id388497605?mt=8" target="_blank" class="banner-btn">苹果系统 IOS</a><a href="http://shouji.baidu.com/software/3832652.html" target="_blank" class="banner-btn">安卓系统 Android</a>
+        </div>
+        <div class="binding_3">
+            绑定方法：使用谷歌验证器扫描二维码后填写信息进行绑定！<a href="http://jingyan.baidu.com/article/ceb9fb10e38bce8cad2ba0ea.html" target="_blank">点击这里查看安装说明</a>
+        </div>
+        <div class="binding_4">
+            <span>二维码不显示或手机扫描有问题？</span>
+            <p>您也可在谷歌身份验证器中输入您的平台账号及密钥<i> <#=secretKey#> </i>进行绑定，<br>绑定后请在下方点击确定。</p>
+        </div>
+    </div>
+</script>
+
+<script type="text/template" id="account_card_bank_card_tpl">
+    <div class="bank_list">
+        <ul>
+            <li><span>最多可添加<i> 5 </i>张银行卡。</span></li>
+            <li><span>当前还可以添加<em> <#=5-rows.length#> </em>张银行卡。</span></li>
+            <li><span>同一银行卡卡号最多只能解绑<em> 2 </em>次。</span></li>
+            <li><span>新卡绑定<i> 6 </i>小时后才能提款。</span></li>
+            <li><span>同卡号解绑<i> 1 </i>次后，再次绑定需<em> 48 </em>小时后才能提款。</span></li>
+            <li><span>同卡号解绑<i> 2 </i>次后，再次绑定需<em> 120 </em>小时后才能提款。</span></li>
+        </ul>
+    </div>
+    <div class="bank_cen">
+        <#for(var i = 0; i < rows.length; i++){#>
+            <div class="bank_js">
+                <div class="jt_top">
+                    <div class="jt_1"><img src="<#=cdnDomain#>static/images/cw/bank-sm-<#=rows[i].bankId#>.png"></div>
+                    <div class="jt_2"><span><#=rows[i].bankName#><i><#=rows[i].cardId#></i></span></div>
+                    <div class="jt_3"><span>持卡人：<#=rows[i].cardName#></span></div>
+                </div>
+                <div class="jt_bot" data-id="<#=rows[i].id#>"><span>绑定时间：<#=rows[i].time#></span><i class="icon iconfont" data-command="unbindCard" title="解绑银行卡">&#xe62b;</i></div>
+            </div>
+        <#}#>
+        <# if(rows.length < 5){#>
+            <div class="tj_bank"><span data-command="addCard"><div class="bt-add"><i class="icon iconfont">&#xe645;</i></div><br><i>添加银行卡</i></span></div>
+        <#}#>
+    </div>
+</script>
+
+<script type="text/template" id="add_bank_card_tpl">
+    <form onsubmit="return false;" novalidate>
+        <div class="popup-window">
+            <div class="popup-title">
+                为了保障您的资金安全，您所绑定的所有银行卡的持卡人姓名都必须和WINonline账户姓名一致，避免盗号者将您的资金转移到盗号者的银行账户！
+            </div>
+            <div class="popup-group">
+                <label class="label">账户姓名：</label>
+                <input type="text" class="input-text" disabled value="<#=bindCardName#>">
+            </div>
+            <div class="popup-group">
+                <label class="label">开户银行：</label>
+                <select class="input-select" name="bankId">
+                    <# for (var i = 0; i < rows.length; i++) { #>
+                    <option value="<#=rows[i].id#>"><#=rows[i].name#></option>
+                    <# } #>
+                </select>
+            </div>
+            <div class="popup-group">
+                <label class="label">支行名称：</label>
+                <input type="text" class="input-text" maxlength="50"  name="bankBranch" autofocus autocomplete="off" placeholder="请输入支行名称">
+            </div>
+            <div class="popup-group">
+                <label class="label">银行卡号：</label>
+                <input type="text" class="input-text" maxlength="28"  name="cardId" autocomplete="off" oncopy="return false;" onpaste="return false;" oncut="return false;" placeholder="请输入银行卡号">
+            </div>
+            <div class="popup-group">
+                <label class="label">确认卡号：</label>
+                <input type="text" class="input-text" maxlength="28"  name="reCardId" autocomplete="off" oncopy="return false;" onpaste="return false;" oncut="return false;" placeholder="请输入确认银行卡号">
+            </div>
+            <div class="popup-group">
+                <label class="label">资金密码：</label>
+                <input type="password" class="input-text" maxlength="20"  name="withdrawPwd" autocomplete="off" placeholder="请输入资金密码">
+            </div>
+        </div>
+    </form>
+</script>
+
+<script type="text/template" id="pager_tpl">
+    <div class="paging_l">记录总数：<span><#=total#></span>  页数：<span><#=index+1#>/<#=totalPage#></span></div>
+    <div class="paging_r">
+        <#if (index > 0) {#>
+            <span class="btn first-page pager user-select-none" data-num="0">首页</span>
+            <span class="btn prev-page pager user-select-none" data-num="<#= Number(index) - 1 #>">上一页</span>
+        <# } #>
+        <#
+            var startEllipseText = true
+            var endEllipseText = true
+            var index = Number(index)
+            var end = index + parseInt(pageSize / 2)
+            var start = index - parseInt(pageSize / 2)
+            if (index < pageSize) {
+                start = 0
+                end = pageSize
+                endEllipseText = false
+            }
+            if(index >= totalPage - pageSize) {
+                end = totalPage
+                start = totalPage - pageSize
+                startEllipseText = false
+            }
+        #>
+        <# if (endEllipseText) { #>
+            <i>···</i>
+        <# } #>
+        <# for (var i = 0; i < totalPage; i++) { #>
+            <# if (i >= start && i < end) { #>
+                <# if (i == index) { #>
+                    <span class="num pager cur user-select-none" data-num="<#=i#>"><#= i + 1 #></span>
+                <# } else { #>
+                    <span class="num pager user-select-none" data-num="<#=i#>"><#= i + 1 #></span>
+                <# } #>
+            <# } #>
+        <# } #>
+        <# if (startEllipseText) { #>
+            <i>···</i>
+        <# } #>
+        <# if (index < totalPage - 1) { #>
+            <span class="btn next-page pager user-select-none" data-num="<#= Number(index) + 1 #>">下一页</span>
+            <span class="btn tail-page pager user-select-none" data-num="<#= Number(totalPage) - 1 #>">尾页</span>
+        <# } #>
+    </div>
+</script>
+
+<script type="text/template" id="account_login_content_tpl">
+    <div class="tab-list">
+        <table>
+            <thead>
+                <tr>
+                    <th width="30%">登录时间</th>
+                    <th width="30%">IP地址</th>
+                    <th width="40%">登录地址</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </div>
+    <div class="paging"></div>
+</script>
+
+<script type="text/template" id="account_login_list_tpl">
+    <#if (rows.length <= 0){#>
+        <tr><td colspan="3"><div class="w"><i class="icon iconfont">&#xe6c5;</i>无记录</div></td></tr>
+    <#} else {#>
+        <#for(var i = 0; i < rows.length; i++){#>
+            <tr>
+                <td><#=rows[i].time#></td>
+                <td><#=rows[i].ip#></td>
+                <td><#=rows[i].address#></td>
+            </tr>
+        <#}#>
+    <#}#>
+</script>
+
+<script type="text/template" id="channel_tab_tpl">
+    <#for(var i = 0; i < channels.length; i++){#>
+        <# if (i == 0) { #>
+            <span class="cur tab" data-channel-id="<#= channels[i].id #>"><#= channels[i].frontName #></span>
+        <#}else{#>
+            <span class="tab" data-channel-id="<#= channels[i].id #>"><#= channels[i].frontName #></span>
+        <# } #>
+    <#}#>
+</script>
+
+<script type="text/template" id="channel_content_tpl">
+    <# if (channel.fixedQRAmount == '1' && GlobalFun.isManualScanChannel(channel.type, channel.subType)) { #>
+        <div class="text_cc">
+            <span class="label">存款金额：</span>
+            <# for (var i = 0; i < channel.qrCodes.length; i++) { #>
+                <# if (i === 0) { #>
+                    <span data-amount="<#=channel.qrCodes[i].money#>" data-qrCodeId="<#=channel.qrCodes[i].id#>" class="fixed-amount cur"><#=channel.qrCodes[i].money#></span>
+                <# } else { #>
+                    <span data-amount="<#=channel.qrCodes[i].money#>" data-qrCodeId="<#=channel.qrCodes[i].id#>" class="fixed-amount"><#=channel.qrCodes[i].money#></span>
+                <# } #>
+            <# } #>
+        </div>
+    <# } else { #>
+        <div class="text_cc">
+            <span class="label">存款金额：</span>
+            <input type="text" class="text force-digit" name="inputAmount" autocomplete="off" autofocus maxlength="6" min="<#=channel.minUnitRecharge#>" min="<#=channel.maxUnitRecharge#>" placeholder="请输入存款金额">
+        </div>
+        <div class="ts"><div class="tishi">?</div>存款金额必须在<span><#=channel.minUnitRecharge#></span>-<span><#=channel.maxUnitRecharge#></span>元之间</div>
+        <div class="fina_tab">
+            <# if (channel.maxUnitRecharge >= 100) { #> <span data-val="100" data-command="fastAmount">100</span>  <# } #>
+            <# if (channel.maxUnitRecharge >= 500) { #> <span data-val="500" data-command="fastAmount">500</span>  <# } #>
+            <# if (channel.maxUnitRecharge >= 1000) { #> <span data-val="1000" data-command="fastAmount">1000</span>  <# } #>
+            <# if (channel.maxUnitRecharge >= 2000) { #> <span data-val="2000" data-command="fastAmount">2000</span>  <# } #>
+            <# if (channel.maxUnitRecharge >= 5000) { #> <span data-val="5000" data-command="fastAmount">5000</span>  <# } #>
+            <# if (channel.maxUnitRecharge >= 10000) { #> <span data-val="10000" data-command="fastAmount">10000</span>  <# } #>
+            <# if (channel.maxUnitRecharge >= 30000) { #> <span data-val="30000" data-command="fastAmount">30000</span>  <# } #>
+            <# if (channel.maxUnitRecharge >= 50000) { #> <span data-val="50000" data-command="fastAmount">50000</span>  <# } #>
+        </div>
+    <# } #>
+
+    <div class="text_cc">
+        <span class="cur label">支付方式：</span>
+        <div class="bank">
+            <# if (GlobalFun.isWeChatChannel(channel.type, channel.subType)) { #>
+                <i class="cur" data-bankId="-1" data-bankco="WECHAT"><div></div><img src="<#=cdnDomain#>static/images/cw/wechat.png"><em>微信支付</em></i>
+            <# } else if (GlobalFun.isAliPayChannel(channel.type, channel.subType)) { #>
+                <i class="cur" data-bankId="-1" data-bankco="ALIPAY"><div></div><img src="<#=cdnDomain#>static/images/cw/alipay.png"><em>支付宝</em></i>
+            <# } else if (GlobalFun.isQQChannel(channel.type, channel.subType)) { #>
+                <i class="cur" data-bankId="-1" data-bankco="QQ"><div></div><img src="<#=cdnDomain#>static/images/cw/qq.png"><em>QQ钱包</em></i>
+            <# } else if (GlobalFun.isSpeedChannel(channel.type, channel.subType)) { #>
+                <i class="cur" data-bankId="-1" data-bankco="SPEED"><div></div><img src="<#=cdnDomain#>static/images/cw/ylpay.png"><em>快捷支付</em></i>
+            <# } else if (GlobalFun.isJDChannel(channel.type, channel.subType)) { #>
+                <i class="cur" data-bankId="-1" data-bankco="JDPAY"><div></div><img src="<#=cdnDomain#>static/images/cw/jd.png"><em>京东钱包</em></i>
+			   <# } else if (channel.type==1 &&channel.subType==2) { #>
+                <i class="cur" data-bankId="-1" data-bankco="JDPAY"><div></div><img src="<#=cdnDomain#>static/images/cw/ylpay.png"><em>平台直充</em></i>
+			 <# } 
+			 else { #>
+                <# for (var i = 0; i < channel.banklist.length; i++) { #>
+                    <# if (i === 0) { #>
+                        <i class="cur" data-bankId="<#=channel.banklist[i].bankId#>" data-bankco="<#=channel.banklist[i].code#>"><div></div><img src="<#=cdnDomain#>static/images/cw/bank-sm-<#=channel.banklist[i].bankId#>.png"><em><#=GlobalFun.formatBankName(channel.banklist[i].bankId)#></em></i>
+                    <# } else { #>
+                        <i data-bankId="<#=channel.banklist[i].bankId#>" data-bankco="<#=channel.banklist[i].code#>"><div></div><img src="<#=cdnDomain#>static/images/cw/bank-sm-<#=channel.banklist[i].bankId#>.png"><em><#=GlobalFun.formatBankName(channel.banklist[i].bankId)#></em></i>
+                    <# } #>
+                <# } #>
+            <# } #>
+        </div>
+    </div>
+    <div class="fina_btn"><span class="btn-gray-big" data-command="next">下一步</span></div>
+</script>
+
+<script type="text/template" id="withdraw_content_tpl">
+    <div class="finance_tab"><span class="cur">提款</span></div>
+    <div class="warmth">
+
+        <span><p><b>提款时间：</b>早上 10:00 至 凌晨 2:00；</p><p><b>注意事项：</b>每天前五次提款免收手续费，提款超过五次，每次按照提款金额的1%收取手续费，最高25元，单笔提款金额为<#=minWithdrawals#> ~ <#=maxWithdrawals#> 元。</p></span>
+    </div>
+    <div class="finance_text">
+        <div class="text_cc">
+            <span class="label">可提金额：</span>
+            <b><#=availableMoney.toFixed(2)#></b>
+        </div>
+        <div class="text_cc">
+            <span class="label">提款金额：</span>
+            <input name="amount" type="text" class="text" autocomplete="off" autofocus placeholder="请输入提款金额">
+        </div>
+        <div class="text_cc" name="cardId">
+            <span class="label">银行选择：</span>
+            <select name="withdrawBank">
+                <# for (var i = 0; i < cList.length; i++) { #>
+                    <option value="<#=cList[i].id#>" <#echo(i == 0 ? 'selected' : '')#>> <#=cList[i].bankName#> <#=cList[i].cardId#> <#=cList[i].cardName#> </option>
+                <# } #>
+            </select>
+        </div>
+        <div class="text_cc"><span class="label">资金密码：</span><input type="password" name="withdrawPwd" class="text" autocomplete="off" placeholder="请输入资金密码"></div>
+        <div class="fina_btn"><input type="button" class="btn-gray-big" value="提交" data-command="submit"></div>
+    </div>
+</script>
+
+<script type="text/template" id="transfer_content_tpl">
+    <div class="finance_tab"><span class="cur">资金转换</span></div>
+    <div class="finance_text">
+        <div class="text_cc">
+            <span class="label">转出账户：</span>
+            <select name="transferOut">
+                <# for (var i = 0; i < rows.length; i++) { #>
+                    <# if (rows[i].status > -1) { #>
+                        <option value="<#=rows[i].id#>" <#echo(0 === i ? 'selected' : '')#>><#=rows[i].name#></option>
+                    <# } #>
+                <# } #>
+            </select>
+        </div>
+        <div class="text_cc">
+            <span class="label">转入账户：</span>
+            <select name="transferIn">
+                <# for (var i = 0; i < rows.length; i++) { #>
+                    <# if (rows[i].status > -1) { #>
+                        <option value="<#=rows[i].id#>" <#echo(1 === i ? 'selected' : '')#>><#=rows[i].name#></option>
+                    <# } #>
+                <# } #>
+            </select>
+        </div>
+        <div class="text_cc"><span class="label">转换金额：</span><input name="amount" type="text" class="text" autofocus autocomplete="off" data-min="1" placeholder="请输入转换金额"></div>
+        <div class="fina_btn"><input type="button" class="btn-gray-big" value="提交" data-command="submit"></div>
+    </div>
+</script>
+
+<script type="text/template" id="funds_recharge_record_content_tpl">
+    <div class="way_box">
+        <span class="condition">充值方式：
+            <select name="type">
+                <option value="">全部</option>
+                <option value="1">网银充值</option>
+                <option value="2">手机充值</option>
+            </select>
+        </span>
+        <span class="condition">订单号：<input type="text" class="text" name="billno" autocomplete="off"></span>
+        <span class="condition">时间：<i><input type="text" class="text_cc" name="sTime" id="rechargeRecordSTime" autocomplete="off" readonly></i></span>
+        <span class="condition">至：<i><input type="text" class="text_cc" name="eTime" id="rechargeRecordETime" autocomplete="off" readonly></i></span>
+        <span class="btn-gray-small" data-command="search">搜索</span>
+    </div>
+
+    <div class="tab-list">
+        <table>
+            <thead>
+            <tr>
+                <th width="20%">订单号</th>
+                <th width="20%">充值方式</th>
+                <th width="20%">金额</th>
+                <th width="20%">账户余额</th>
+                <th width="20%">充值时间</th>
+            </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </div>
+    <div class="paging"></div>
+</script>
+
+<script type="text/template" id="funds_recharge_record_list_tpl">
+    <#if (rows.length <= 0){#>
+        <tr><td colspan="5"><div class="w"><i class="icon iconfont">&#xe6c5;</i>无记录</div></td></tr>
+    <#} else {#>
+        <#for(var i = 0; i < rows.length; i++){#>
+            <tr>
+                <td><#=rows[i].billno#></td>
+                <td><#=GlobalFun.formatPaymentChannelType(rows[i].type)#></td>
+                <td><#=rows[i].recMoney.toFixed(2)#></td>
+                <td><#=rows[i].afterMoney.toFixed(2)#></td>
+                <td><#=rows[i].time#></td>
+            </tr>
+        <#}#>
+    <#}#>
+</script>
+
+<script type="text/template" id="funds_withdraw_record_content_tpl">
+    <div class="way_box">
+        <span class="condition">状态：
+            <select name="status">
+                <option value="">全部</option>
+                <option value="0">待处理</option>
+                <option value="1">已完成</option>
+                <option value="2">处理中</option>
+                <option value="3">银行处理中</option>
+                <option value="4">提现失败</option>
+                <option value="-1">拒绝支付</option>
+            </select>
+        </span>
+        <span class="condition">订单号：<input type="text" class="text" name="billno" autocomplete="off"></span>
+        <span class="condition">时间：<i><input type="text" class="text_cc" name="sTime" id="withdrawRecordSTime" autocomplete="off" readonly></i></span>
+        <span class="condition">至：<i><input type="text" class="text_cc" name="eTime" id="withdrawRecordETime" autocomplete="off" readonly></i></span>
+        <span class="btn-gray-small" data-command="search">搜索</span>
+    </div>
+
+    <div class="tab-list">
+        <table>
+            <thead>
+            <tr>
+                <th width="18%">订单号</th>
+                <th width="16%">申请金额</th>
+                <th width="16%">到账金额</th>
+                <th width="16%">账户余额</th>
+                <th width="18%">提款时间</th>
+                <th width="16%">状态</th>
+            </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </div>
+    <div class="paging"></div>
+</script>
+
+<script type="text/template" id="funds_withdraw_record_list_tpl">
+    <#if (rows.length <= 0){#>
+        <tr><td colspan="6"><div class="w"><i class="icon iconfont">&#xe6c5;</i>无记录</div></td></tr>
+    <#} else {#>
+        <#for(var i = 0; i < rows.length; i++){#>
+            <tr>
+                <td><#=rows[i].billno#></td>
+                <td><#=rows[i].money.toFixed(2)#></td>
+                <td><#=rows[i].recMoney.toFixed(2)#></td>
+                <td><#=rows[i].afterMoney.toFixed(2)#></td>
+                <td><#=rows[i].time#></td>
+                <td><#=GlobalFun.formatUserWithdrawalsStatus(rows[i].status)#></td>
+            </tr>
+        <#}#>
+    <#}#>
+</script>
+
+<script type="text/template" id="funds_transfer_record_content_tpl">
+    <div class="way_box">
+        <span class="condition">时间：<i><input type="text" class="text_cc" name="sTime" id="transferRecordSTime" autocomplete="off" readonly></i></span>
+        <span class="condition">至：<i><input type="text" class="text_cc" name="eTime" id="transferRecordETime" autocomplete="off" readonly></i></span>
+        <span class="btn-gray-small" data-command="search">搜索</span>
+    </div>
+
+    <div class="tab-list">
+        <table>
+            <thead>
+            <tr>
+                <th width="15%">订单号</th>
+                <th width="10%">类型</th>
+                <th width="10%">转出账户</th>
+                <th width="10%">转入账户</th>
+                <th width="10%">操作金额</th>
+                <th width="10%">账户余额</th>
+                <th width="15%">提款时间</th>
+                <th>备注</th>
+            </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </div>
+    <div class="paging"></div>
+</script>
+
+<script type="text/template" id="funds_transfer_record_list_tpl">
+    <#if (rows.length <= 0){#>
+        <tr><td colspan="8"><div class="w"><i class="icon iconfont">&#xe6c5;</i>无记录</div></td></tr>
+    <#} else {#>
+        <#for(var i = 0; i < rows.length; i++){#>
+            <tr>
+                <td><#=rows[i].bean.billno#></td>
+                <td><#=GlobalFun.formatUserTransfersType(rows[i].bean.type)#></td>
+                <td><#=rows[i].fromAccount#></td>
+                <td><#=rows[i].toAccount#></td>
+                <td><#=rows[i].bean.money.toFixed(2)#></td>
+                <td><#=rows[i].bean.afterMoney.toFixed(2)#></td>
+                <td><#=rows[i].bean.time#></td>
+                <td class="text-elip" title="<#=rows[i].bean.infos#>">
+                    <#=rows[i].bean.infos#>
+                </td>
+            </tr>
+        <#}#>
+    <#}#>
+</script>
+
+<script type="text/template" id="report_main_content_tpl">
+    <div class="way_box">
+        <span class="condition">用户名：<input type="text" class="text" name="username" maxlength="20" autocomplete="off"></span>
+        <span class="condition">时间：<i><input type="text" class="text_cc" name="sTime" id="reportMainSTime" autocomplete="off" readonly></i></span>
+        <span class="condition">至：<i><input type="text" class="text_cc" name="eTime" id="reportMainETime" autocomplete="off" readonly></i></span>
+        <span class="btn-gray-small" data-command="search">搜索</span>
+    </div>
+
+    <div class="tab-list">
+        <table>
+            <thead>
+            <tr>
+                <th width="15%">用户名</th>
+                <th width="14%">存款</th>
+                <th width="14%">提款</th>
+                <th width="14%">转入</th>
+                <th width="14%">转出</th>
+                <th width="15%">上下级转账（存）</th>
+                <th width="15%">上下级转账（提）</th>
+            </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </div>
+    <div class="paging"></div>
+</script>
+
+<script type="text/template" id="report_main_list_tpl">
+    <#if (rows.length <= 0){#>
+        <tr><td colspan="7"><div class="w"><i class="icon iconfont">&#xe6c5;</i>无记录</div></td></tr>
+    <#} else {#>
+        <# for (var i = 1; i < rows.length; i++) { #>
+            <tr>
+                <td>
+                    <span class="link-red" data-command="showLowers" data-user="<#=rows[i].name#>"><#=rows[i].name#></span>
+                </td>
+                <td class="tar"><#=GlobalFun.formatMoneyStatus2(rows[i].recharge)#></td>
+                <td class="tar"><#=GlobalFun.formatMoneyStatus2(rows[i].withdrawals)#></td>
+                <td class="tar"><#=GlobalFun.formatMoneyStatus2(rows[i].transIn)#></td>
+                <td class="tar"><#=GlobalFun.formatMoneyStatus2(rows[i].transOut)#></td>
+                <td class="tar"><#=GlobalFun.formatMoneyStatus2(rows[i].accountIn)#></td>
+                <td class="tar"><#=GlobalFun.formatMoneyStatus2(rows[i].accountOut)#></td>
+            </tr>
+        <# } #>
+        <tr>
+            <td>总计</td>
+            <td class="tar"><#=GlobalFun.formatMoneyStatus2(rows[0].recharge)#></td>
+            <td class="tar"><#=GlobalFun.formatMoneyStatus2(rows[0].withdrawals)#></td>
+            <td class="tar"><#=GlobalFun.formatMoneyStatus2(rows[0].transIn)#></td>
+            <td class="tar"><#=GlobalFun.formatMoneyStatus2(rows[0].transOut)#></td>
+            <td class="tar"><#=GlobalFun.formatMoneyStatus2(rows[0].accountIn)#></td>
+            <td class="tar"><#=GlobalFun.formatMoneyStatus2(rows[0].accountOut)#></td>
+        </tr>
+    <#}#>
+</script>
+
+<script type="text/template" id="report_lottery_content_tpl">
+    <div class="way_box">
+        <span class="condition">用户名：<input type="text" class="text" name="username" maxlength="20" autocomplete="off"></span>
+        <span class="condition">时间：<i><input type="text" class="text_cc" name="sTime" id="reportLotterySTime" autocomplete="off" readonly></i></span>
+        <span class="condition">至：<i><input type="text" class="text_cc" name="eTime" id="reportLotteryETime" autocomplete="off" readonly></i></span>
+        <span class="btn-gray-small" data-command="search">搜索</span>
+    </div>
+
+    <div class="tab-list">
+        <table>
+            <thead>
+            <tr>
+                <th width="12.5%">用户名</th>
+                <th width="12.5%">充值</th>
+                <th width="12.5%">提现</th>
+                <th width="12.5%">投注</th>
+                <th width="12.5%">派奖</th>
+                <th width="12.5%">返点</th>
+                <th width="12.5%">优惠</th>
+                <th width="12.5%">盈利</th>
+            </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </div>
+    <div class="paging"></div>
+</script>
+
+<script type="text/template" id="report_lottery_list_tpl">
+    <#if (rows.length <= 0){#>
+        <tr><td colspan="8"><div class="w"><i class="icon iconfont">&#xe6c5;</i>无记录</div></td></tr>
+    <#} else {#>
+        <# for (var i = 1; i < rows.length; i++) { #>
+            <#var profit = rows[i].prize + rows[i].spendReturn + rows[i].proxyReturn + rows[i].activity + rows[i].rechargeFee - rows[i].billingOrder#>
+            <tr>
+                <td>
+                    <span class="link-red" data-command="showLowers" data-user="<#=rows[i].name#>"><#=rows[i].name#></span>
+                </td>
+                <td class="tar"><#=GlobalFun.formatMoneyStatus2(rows[i].cashIn)#></td>
+                <td class="tar"><#=GlobalFun.formatMoneyStatus2(rows[i].cashOut)#></td>
+                <td class="tar"><#=GlobalFun.formatMoneyStatus2(rows[i].billingOrder)#></td>
+                <td class="tar"><#=GlobalFun.formatMoneyStatus2(rows[i].prize)#></td>
+                <td class="tar"><#=GlobalFun.formatMoneyStatus2(rows[i].spendReturn + rows[i].proxyReturn)#></td>
+                <td class="tar"><#=GlobalFun.formatMoneyStatus2(rows[i].activity + rows[i].rechargeFee)#></td>
+                <td class="tar"><#=GlobalFun.formatMoneyStatus(profit)#></td>
+            </tr>
+        <# } #>
+        <# var profit = rows[0].prize + rows[0].spendReturn + rows[0].proxyReturn + rows[0].activity  + rows[0].rechargeFee- rows[0].billingOrder #>
+        <tr>
+            <td>总计</td>
+            <td class="tar"><#=GlobalFun.formatMoneyStatus2(rows[0].cashIn)#></td>
+            <td class="tar"><#=GlobalFun.formatMoneyStatus2(rows[0].cashOut)#></td>
+            <td class="tar"><#=GlobalFun.formatMoneyStatus2(rows[0].billingOrder)#></td>
+            <td class="tar"><#=GlobalFun.formatMoneyStatus2(rows[0].prize)#></td>
+            <td class="tar"><#=GlobalFun.formatMoneyStatus2(rows[0].spendReturn + rows[0].proxyReturn)#></td>
+            <td class="tar"><#=GlobalFun.formatMoneyStatus2(rows[0].activity + rows[0].rechargeFee)#></td>
+            <td class="tar"><#=GlobalFun.formatMoneyStatus(profit)#></td>
+        </tr>
+    <#}#>
+</script>
+
+<script type="text/template" id="report_game_content_tpl">
+    <div class="way_box">
+        <span class="condition">用户名：<input type="text" class="text" name="username" maxlength="20" autocomplete="off"></span>
+        <span class="condition">时间：<i><input type="text" class="text_cc" name="sTime" id="reportGameSTime" autocomplete="off" readonly></i></span>
+        <span class="condition">至：<i><input type="text" class="text_cc" name="eTime" id="reportGameETime" autocomplete="off" readonly></i></span>
+        <span class="btn-gray-small" data-command="search">搜索</span>
+    </div>
+
+    <div class="tab-list">
+        <table>
+            <thead>
+            <tr>
+                <th width="12.5%">用户名</th>
+                <th width="12.5%">转入</th>
+                <th width="12.5%">转出</th>
+                <th width="12.5%">投注</th>
+                <th width="12.5%">派奖</th>
+                <th width="12.5%">返水/返点</th>
+                <th width="12.5%">优惠</th>
+                <th width="12.5%">盈利</th>
+            </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </div>
+    <div class="paging"></div>
+</script>
+
+<script type="text/template" id="report_game_list_tpl">
+    <#if (rows.length <= 0){#>
+        <tr><td colspan="8"><div class="w"><i class="icon iconfont">&#xe6c5;</i>无记录</div></td></tr>
+    <#} else {#>
+        <# for (var i = 1; i < rows.length; i++) { #>
+            <#var profit = rows[i].prize + rows[i].waterReturn + rows[i].proxyReturn + rows[i].activity - rows[i].billingOrder#>
+            <tr>
+                <td>
+                    <span class="link-red" data-command="showLowers" data-user="<#=rows[i].name#>"><#=rows[i].name#></span>
+                </td>
+                <td class="tar"><#=GlobalFun.formatMoneyStatus2(rows[i].transIn)#></td>
+                <td class="tar"><#=GlobalFun.formatMoneyStatus2(rows[i].transOut)#></td>
+                <td class="tar"><#=GlobalFun.formatMoneyStatus2(rows[i].billingOrder)#></td>
+                <td class="tar"><#=GlobalFun.formatMoneyStatus2(rows[i].prize)#></td>
+                <td class="tar"><#=GlobalFun.formatMoneyStatus2(rows[i].waterReturn + rows[i].proxyReturn)#></td>
+                <td class="tar"><#=GlobalFun.formatMoneyStatus2(rows[i].activity)#></td>
+                <td class="tar"><#=GlobalFun.formatMoneyStatus(profit)#></td>
+            </tr>
+        <# } #>
+        <# var profit = rows[0].prize + rows[0].waterReturn + rows[0].proxyReturn + rows[0].activity - rows[0].billingOrder #>
+        <tr>
+            <td>总计</td>
+            <td class="tar"><#=GlobalFun.formatMoneyStatus2(rows[0].transIn)#></td>
+            <td class="tar"><#=GlobalFun.formatMoneyStatus2(rows[0].transOut)#></td>
+            <td class="tar"><#=GlobalFun.formatMoneyStatus2(rows[0].billingOrder)#></td>
+            <td class="tar"><#=GlobalFun.formatMoneyStatus2(rows[0].prize)#></td>
+            <td class="tar"><#=GlobalFun.formatMoneyStatus2(rows[0].waterReturn + rows[0].proxyReturn)#></td>
+            <td class="tar"><#=GlobalFun.formatMoneyStatus2(rows[0].activity)#></td>
+            <td class="tar"><#=GlobalFun.formatMoneyStatus(profit)#></td>
+        </tr>
+    <#}#>
+</script>
+
+<script type="text/template" id="report_lottery_record_content_tpl">
+    <div class="way_box">
+        <span class="condition">彩票：
+            <select name="lotteryId">
+                <option value="">全部</option>
+                <#for (var i = 0; i < lotteries.length; i++) {#>
+                    <option value="<#=lotteries[i].id#>"><#=lotteries[i].showName#></option>
+                <#}#>
+            </select>
+        </span>
+        <span class="condition">状态：
+            <select name="status">
+                <option value="">全部</option>
+                <option value="0">未开奖</option>
+                <option value="1">未中奖</option>
+                <option value="2">已中奖</option>
+                <option value="-1">已撤单</option>
+            </select>
+        </span>
+        <span class="condition">期号：<input type="text" class="text" name="expect" maxlength="30" autocomplete="off"></span>
+        <span class="condition">时间：<i><input type="text" class="text_cc" name="sTime" id="reportLotteryRecordSTime" autocomplete="off" readonly></i></span>
+        <span class="condition">至：<i><input type="text" class="text_cc" name="eTime" id="reportLotteryRecordETime" autocomplete="off" readonly></i></span>
+        <span class="btn-gray-small" data-command="search">搜索</span>
+    </div>
+
+    <div class="tab-list">
+        <table>
+            <thead>
+            <tr>
+                <th width="10%">彩票</th>
+                <th width="12%">玩法</th>
+                <th width="10%">期号</th>
+                <th width="15%">订单号</th>
+                <th width="13%">下单时间</th>
+                <th width="9%">投注金额</th>
+                <th width="9%">奖金</th>
+                <th width="8%">状态</th>
+                <th>操作</th>
+            </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </div>
+    <div class="paging"></div>
+</script>
+
+<script type="text/template" id="report_lottery_record_list_tpl">
+    <#if (rows.length <= 0){#>
+        <tr><td colspan="9"><div class="w"><i class="icon iconfont">&#xe6c5;</i>无记录</div></td></tr>
+    <#} else {#>
+        <#for (var i = 0; i < rows.length; i++) {#>
+            <#
+                var actions = [];
+                rows[i].allowCancel && actions.push('<span class="function-btn" data-command="cancel">撤单</span>');
+                actions.push('<span class="function-btn" data-command="rebet">复投</span>');
+                actions.push('<span class="function-btn" data-command="details">详情</span>');
+            #>
+            <tr data-id="<#=rows[i].bean.id#>">
+                <td><#=rows[i].lottery#></td>
+                <td><#=rows[i].mname#></td>
+                <td><#=rows[i].bean.expect#></td>
+                <td><#=rows[i].bean.billno#></td>
+                <td><#=rows[i].bean.time#></td>
+                <td><#=rows[i].bean.money.toFixed(3)#></td>
+                <td><#=(rows[i].bean.prizeMoney ? rows[i].bean.prizeMoney : 0).toFixed(3)#></td>
+                <td><#=GlobalFun.formatUserBetsStatus(rows[i].bean.status)#></td>
+                <td>
+                    <#=actions.join("")#>
+                </td>
+            </tr>
+        <#}#>
+    <#}#>
+</script>
+
+<script type="text/template" id="report_game_record_content_tpl">
+    <div class="way_box">
+        <span class="condition">平台：
+            <select name="platformId">
+                <option value="">全部</option>
+                <option value="4">AG</option>
+                <option value="5">BBIN</option>
+                <option value="11">PT</option>
+                <option value="14">QT</option>
+                <option value="13">沙巴</option>
+            </select>
+        </span>
+        <span class="condition">时间：<i><input type="text" class="text_cc" name="sTime" id="reportGameRecordSTime" autocomplete="off" readonly></i></span>
+        <span class="condition">至：<i><input type="text" class="text_cc" name="eTime" id="reportGameRecordETime" autocomplete="off" readonly></i></span>
+        <span class="btn-gray-small" data-command="search">搜索</span>
+    </div>
+
+    <div class="tab-list">
+        <table>
+            <thead>
+            <tr>
+                <th width="10%">平台</th>
+                <th width="15%">游戏类别</th>
+                <th>游戏名</th>
+                <th width="8%">投注</th>
+                <th width="8%">奖金</th>
+                <th width="15%">投注时间</th>
+                <th width="15%">派奖时间</th>
+                <th width="8%">状态</th>
+            </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </div>
+    <div class="paging"></div>
+</script>
+
+<script type="text/template" id="report_game_record_list_tpl">
+    <#if (rows.length <= 0){#>
+        <tr><td colspan="8"><div class="w"><i class="icon iconfont">&#xe6c5;</i>无记录</div></td></tr>
+    <#} else {#>
+        <# for (var i = 0; i < rows.length; i++) { #>
+            <tr data-id="<#=rows[i].id#>">
+                <td>
+                    <#=rows[i].platform#>
+                </td>
+                <td>
+                    <#=rows[i].gameType#>
+                </td>
+                <td>
+                    <#=rows[i].gameName#>
+                </td>
+                <td>
+                    <#=rows[i].money.toFixed(1)#>
+                </td>
+                <td>
+                    <#=rows[i].prizeMoney.toFixed(1)#>
+                </td>
+                <td>
+                    <#=rows[i].time#>
+                </td>
+                <td>
+                    <#=rows[i].prizeTime ? rows[i].prizeTime : ''#>
+                </td>
+                <td>
+                    <#=GlobalFun.formatGameStatus(rows[i].status)#>
+                </td>
+            </tr>
+        <# } #>
+    <#}#>
+</script>
+
+<script type="text/template" id="report_chase_record_content_tpl">
+    <div class="way_box">
+        <span class="condition">彩票：
+            <select name="lotteryId">
+                <option value="">全部</option>
+                <#for (var i = 0; i < lotteries.length; i++) {#>
+                    <option value="<#=lotteries[i].id#>"><#=lotteries[i].showName#></option>
+                <#}#>
+            </select>
+        </span>
+        <span class="condition">状态：
+            <select name="status">
+                <option value="">全部</option>
+                <option value="0">未开奖</option>
+                <option value="1">未中奖</option>
+                <option value="2">已中奖</option>
+                <option value="-1">已撤单</option>
+            </select>
+        </span>
+        <span class="condition">期号：<input type="text" class="text" name="expect" maxlength="30" autocomplete="off"></span>
+        <span class="condition">时间：<i><input type="text" class="text_cc" name="sTime" id="reportChaseRecordSTime" autocomplete="off" readonly></i></span>
+        <span class="condition">至：<i><input type="text" class="text_cc" name="eTime" id="reportChaseRecordETime" autocomplete="off" readonly></i></span>
+        <span class="btn-gray-small" data-command="search">搜索</span>
+    </div>
+
+    <div class="tab-list">
+        <table>
+            <thead>
+            <tr>
+                <th width="12%">彩票</th>
+                <th width="15%">玩法</th>
+                <th width="10%">期号</th>
+                <th width="15%">订单号</th>
+                <th width="13%">下单时间</th>
+                <th width="10%">投注金额</th>
+                <th width="8%">状态</th>
+                <th>操作</th>
+            </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </div>
+    <div class="paging"></div>
+</script>
+
+<script type="text/template" id="report_chase_record_list_tpl">
+    <#if (rows.length <= 0){#>
+        <tr><td colspan="8"><div class="w"><i class="icon iconfont">&#xe6c5;</i>无记录</div></td></tr>
+    <#} else {#>
+        <#for (var i = 0; i < rows.length; i++) {#>
+            <#
+                var actions = [];
+                actions.push('<span class="function-btn" data-command="rebet">复投</span>');
+                actions.push('<span class="function-btn" data-command="details">详情</span>');
+            #>
+            <tr data-id="<#=rows[i].bean.id#>">
+                <td><#=rows[i].lottery#></td>
+                <td><#=rows[i].mname#></td>
+                <td><#=rows[i].bean.expect#></td>
+                <td><#=rows[i].bean.billno#></td>
+                <td><#=rows[i].bean.time#></td>
+                <td><#=rows[i].bean.money.toFixed(3)#></td>
+                <td><#=GlobalFun.formatUserBetsStatus(rows[i].bean.status)#></td>
+                <td>
+                    <#=actions.join("")#>
+                </td>
+            </tr>
+        <#}#>
+    <#}#>
+</script>
+
+<script type="text/template" id="report_bill_record_content_tpl">
+    <div class="way_box">
+        <span class="condition">账户：
+            <select name="account">
+                <option value="">全部</option>
+                <option value="1">主账户</option>
+                <option value="2">彩票账户</option>
+                <option value="4">AG</option>
+                <option value="5">BBIN</option>
+                <option value="11">PT</option>
+                <option value="14">QT</option>
+                <option value="13">沙巴</option>
+            </select>
+        </span>
+        <span class="condition">类型：
+            <select name="type">
+                <option value="">全部</option>
+                <option value="1">充值</option>
+                <option value="2">取款</option>
+                <option value="16">取款退回</option>
+                <option value="3">转入</option>
+                <option value="4">转出</option>
+                <option value="15">上下级转账</option>
+                <option value="5">优惠活动</option>
+                <option value="6" selected>投注</option>
+                <option value="7">派奖</option>
+                <option value="8">投注返点</option>
+                <option value="9">代理返点</option>
+                <option value="10">撤销订单</option>
+                <option value="11">会员返水</option>
+                <option value="13">管理员增</option>
+                <option value="14">管理员减</option>
+                <option value="22">日结</option>
+                <option value="23">转账</option>
+            </select>
+        </span>
+        <span class="condition">时间：<i><input type="text" class="text_cc" name="sTime" id="reportBillRecordSTime" autocomplete="off" readonly></i></span>
+        <span class="condition">至：<i><input type="text" class="text_cc" name="eTime" id="reportBillRecordETime" autocomplete="off" readonly></i></span>
+        <span class="btn-gray-small" data-command="search">搜索</span>
+    </div>
+
+    <div class="tab-list">
+        <table>
+            <thead>
+            <tr>
+                <th width="20%">账户</th>
+                <th width="20%">类型</th>
+                <th width="10%">操作金额</th>
+                <th width="10%">余额</th>
+                <th width="20%">操作时间</th>
+                <th width="20%">备注</th>
+            </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </div>
+    <div class="paging"></div>
+</script>
+
+<script type="text/template" id="report_bill_record_list_tpl">
+    <#if (rows.length <= 0){#>
+        <tr><td colspan="6"><div class="w"><i class="icon iconfont">&#xe6c5;</i>无记录</div></td></tr>
+    <#} else {#>
+        <# for (var i = 0; i < rows.length; i++) { #>
+            <tr data-id="<#=rows[i].bean.refId#>" data-remarks="<#=rows[i].bean.remarks#>">
+                <td>
+                    <#=rows[i].account#>
+                </td>
+                <td>
+                    <#=GlobalFun.formatUserBillType(rows[i].bean.type)#>
+                </td>
+                <td class="tar">
+                    <#=rows[i].bean.money.toFixed(3)#>
+                </td>
+                <td class="tar">
+                    <#=rows[i].bean.afterMoney.toFixed(3)#>
+                </td>
+                <td>
+                    <#=rows[i].bean.time#>
+                </td>
+                <td>
+                    <span class="function-btn" data-command="remarks">详情</span>
+                </td>
+            </tr>
+        <# } #>
+    <#}#>
+</script>
+
+<script type="text/template" id="proxy_lottery_record_content_tpl">
+    <div class="way_box">
+        <span class="condition">彩票：
+            <select name="lotteryId">
+                <option value="">全部</option>
+                <#for (var i = 0; i < lotteries.length; i++) {#>
+                    <option value="<#=lotteries[i].id#>"><#=lotteries[i].showName#></option>
+                <#}#>
+            </select>
+        </span>
+        <span class="condition">状态：
+            <select name="status">
+                <option value="">全部</option>
+                <option value="0">未开奖</option>
+                <option value="1">未中奖</option>
+                <option value="2">已中奖</option>
+                <option value="-1">已撤单</option>
+            </select>
+        </span>
+        <span class="condition">用户名：<input type="text" class="text" name="username" maxlength="30" autocomplete="off"></span>
+        <span class="condition">期号：<input type="text" class="text" name="expect" maxlength="30" autocomplete="off"></span>
+        <span class="condition">时间：<i><input type="text" class="text_cc" name="sTime" id="proxyLotteryRecordSTime" autocomplete="off" readonly></i></span>
+        <span class="condition">至：<i><input type="text" class="text_cc" name="eTime" id="proxyLotteryRecordETime" autocomplete="off" readonly></i></span>
+        <span class="btn-gray-small" data-command="search">搜索</span>
+    </div>
+
+    <div class="tab-list">
+        <table>
+            <thead>
+            <tr>
+                <th width="15%">用户名</th>
+                <th width="15%">彩票</th>
+                <th width="14%">玩法</th>
+                <th width="10%">期号</th>
+                <th width="14%">下单时间</th>
+                <th width="9%">投注金额</th>
+                <th width="9%">奖金</th>
+                <th width="5%">状态</th>
+                <th>操作</th>
+            </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </div>
+    <div class="paging"></div>
+</script>
+
+<script type="text/template" id="proxy_lottery_record_list_tpl">
+    <#if (rows.length <= 0){#>
+        <tr><td colspan="9"><div class="w"><i class="icon iconfont">&#xe6c5;</i>无记录</div></td></tr>
+    <#} else {#>
+        <#for (var i = 0; i < rows.length; i++) {#>
+            <#
+                var actions = [];
+                actions.push('<span class="function-btn" data-command="details">详情</span>');
+            #>
+            <tr data-id="<#=rows[i].bean.id#>">
+                <td><span class="link-red" data-user="<#=rows[i].username#>" data-command="showUserOrder"><#=rows[i].username#></span></td>
+                <td><#=rows[i].lottery#></td>
+                <td><#=rows[i].mname#></td>
+                <td><#=rows[i].bean.expect#></td>
+                <td><#=rows[i].bean.time#></td>
+                <td><#=rows[i].bean.money.toFixed(3)#></td>
+                <td><#=(rows[i].bean.prizeMoney ? rows[i].bean.prizeMoney : 0).toFixed(3)#></td>
+                <td><#=GlobalFun.formatUserBetsStatus(rows[i].bean.status)#></td>
+                <td>
+                    <#=actions.join("")#>
+                </td>
+            </tr>
+        <#}#>
+    <#}#>
+</script>
+
+<script type="text/template" id="proxy_game_record_content_tpl">
+    <div class="way_box">
+        <span class="condition">平台：
+            <select name="platformId">
+                <option value="">全部</option>
+                <option value="4">AG</option>
+                <option value="5">BBIN</option>
+                <option value="11">PT</option>
+                <option value="14">QT</option>
+                <option value="13">沙巴</option>
+            </select>
+        </span>
+        <span class="condition">用户名：<input type="text" class="text" name="username" maxlength="30" autocomplete="off"></span>
+        <span class="condition">时间：<i><input type="text" class="text_cc" name="sTime" id="proxyGameRecordSTime" autocomplete="off" readonly></i></span>
+        <span class="condition">至：<i><input type="text" class="text_cc" name="eTime" id="proxyGameRecordETime" autocomplete="off" readonly></i></span>
+        <span class="btn-gray-small" data-command="search">搜索</span>
+    </div>
+
+    <div class="tab-list">
+        <table>
+            <thead>
+            <tr>
+                <th width="15%">用户</th>
+                <th width="10%">平台</th>
+                <th width="14%">游戏类别</th>
+                <th>游戏名</th>
+                <th width="8%">投注</th>
+                <th width="8%">奖金</th>
+                <th width="14%">投注时间</th>
+                <th width="7%">状态</th>
+            </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </div>
+    <div class="paging"></div>
+</script>
+
+<script type="text/template" id="proxy_game_record_list_tpl">
+    <#if (rows.length <= 0){#>
+        <tr><td colspan="8"><div class="w"><i class="icon iconfont">&#xe6c5;</i>无记录</div></td></tr>
+    <#} else {#>
+        <# for (var i = 0; i < rows.length; i++) { #>
+            <tr data-id="<#=rows[i].id#>">
+                <td>
+                    <#=rows[i].platform#>
+                </td>
+                <td>
+                    <span class="link-red" data-user="<#=rows[i].username#>" data-command="showUserOrder"><#=rows[i].username#></span>
+                </td>
+                <td>
+                    <#=rows[i].gameType#>
+                </td>
+                <td>
+                    <#=rows[i].gameName#>
+                </td>
+                <td>
+                    <#=rows[i].money.toFixed(1)#>
+                </td>
+                <td>
+                    <#=rows[i].prizeMoney.toFixed(1)#>
+                </td>
+                <td>
+                    <#=rows[i].time#>
+                </td>
+                <td>
+                    <#=GlobalFun.formatGameStatus(rows[i].status)#>
+                </td>
+            </tr>
+        <# } #>
+    <#}#>
+</script>
+
+<script type="text/template" id="proxy_bill_record_content_tpl">
+    <div class="way_box">
+        <span class="condition">账户：
+            <select name="account">
+                <option value="">全部</option>
+                <option value="1">主账户</option>
+                <option value="2">彩票账户</option>
+                <option value="4">AG</option>
+                <option value="5">BBIN</option>
+                <option value="11">PT</option>
+                <option value="14">QT</option>
+                <option value="13">沙巴</option>
+            </select>
+        </span>
+        <span class="condition">类型：
+            <select name="type">
+                <option value="1">充值</option>
+                <option value="2">取款</option>
+                <option value="16">取款退回</option>
+                <option value="3">转入</option>
+                <option value="4">转出</option>
+                <option value="15">上下级转账</option>
+                <option value="5">优惠活动</option>
+                <option value="6" selected>投注</option>
+                <option value="7">派奖</option>
+                <option value="8">投注返点</option>
+                <option value="9">代理返点</option>
+                <option value="10">撤销订单</option>
+                <option value="11">会员返水</option>
+                <option value="13">管理员增</option>
+                <option value="14">管理员减</option>
+                <option value="22">日结</option>
+            </select>
+        </span>
+        <span class="condition">用户名：<input type="text" class="text" name="username" maxlength="30" autocomplete="off"></span>
+        <span class="condition">时间：<i><input type="text" class="text_cc" name="sTime" id="proxyBillRecordSTime" autocomplete="off" readonly></i></span>
+        <span class="condition">至：<i><input type="text" class="text_cc" name="eTime" id="proxyBillRecordETime" autocomplete="off" readonly></i></span>
+        <span class="btn-gray-small" data-command="search">搜索</span>
+    </div>
+
+    <div class="tab-list">
+        <table>
+            <thead>
+            <tr>
+                <th width="15%">用户</th>
+                <th width="10%">账户</th>
+                <th width="15%">类型</th>
+                <th width="10%">操作金额</th>
+                <th width="10%">余额</th>
+                <th width="15%">操作时间</th>
+                <th>备注</th>
+            </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </div>
+    <div class="paging"></div>
+</script>
+
+<script type="text/template" id="proxy_bill_record_list_tpl">
+    <#if (rows.length <= 0){#>
+        <tr><td colspan="7"><div class="w"><i class="icon iconfont">&#xe6c5;</i>无记录</div></td></tr>
+    <#} else {#>
+        <# for (var i = 0; i < rows.length; i++) { #>
+            <tr data-id="<#=rows[i].bean.refId#>" data-remarks="<#=rows[i].bean.remarks#>">
+                <td>
+                    <span class="link-red" data-user="<#=rows[i].username#>" data-command="showUserData"><#=rows[i].username#></span>
+                </td>
+                <td>
+                    <#=rows[i].account#>
+                </td>
+                <td>
+                    <#=GlobalFun.formatUserBillType(rows[i].bean.type)#>
+                </td>
+                <td class="tar">
+                    <#=rows[i].bean.money.toFixed(3)#>
+                </td>
+                <td class="tar">
+                    <#=rows[i].bean.afterMoney.toFixed(3)#>
+                </td>
+                <td>
+                    <#=rows[i].bean.time#>
+                </td>
+                <td>
+                    <span class="function-btn" data-command="remarks">详情</span>
+                </td>
+            </tr>
+        <# } #>
+    <#}#>
+</script>
+
+<script type="text/template" id="proxy_index_content_tpl">
+    <div class="way_box">
+        <em data-val="-2" data-command="fastDate">最近三天</em>
+        <em data-val="-6" data-command="fastDate">最近七天</em>
+        <em data-val="-30" data-command="fastDate">最近一个月</em>
+        <span class="condition">时间：<i><input type="text" class="text_cc" name="sTime" id="proxyIndexSTime" autocomplete="off" readonly></i></span>
+        <span class="condition">至：<i><input type="text" class="text_cc" name="eTime" id="proxyIndexETime" autocomplete="off" readonly></i></span>
+        <span class="btn-gray-small" data-command="search">搜索</span>
+    </div>
+    <div class="fun_list">
+        <ul>
+            <li><span>投注</span><b data-property="totalLotteryBillingOrder">Loading...</b></li>
+            <li><span>派奖</span><b data-property="totalLotteryPrize">Loading...</b></li>
+            <li><span>返点</span><b data-property="totalLotteryProxyReturn">Loading...</b></li>
+            <li><span>注册人数</span><b data-property="totalRegister">Loading...</b></li>
+            <li><span>充值</span><b data-property="totalRecharge">Loading...</b></li>
+            <li><span>取款</span><b data-property="totalWithdraw">Loading...</b></li>
+        </ul>
+    </div>
+    <div class="figure">
+        <div class="figure_top">
+            <i class="cur" data-type="totalLotteryBillingOrder" data-command="show"><b></b>投注</i>
+            <i data-type="totalLotteryPrize" data-command="show"><b></b>派奖</i>
+            <i data-type="totalLotteryProxyReturn" data-command="show"><b></b>返点</i>
+            <i data-type="totalRegister" data-command="show"><b></b>注册人数</i>
+            <i data-type="totalRecharge" data-command="show"><b></b>充值</i>
+            <i data-type="totalWithdraw" data-command="show"><b></b>取款</i>
+        </div>
+    </div>
+    <div id="chart" style="height: 410px"></div>
+</script>
+
+<script type="text/template" id="proxy_account_manual_content_tpl">
+    <div class="warmth"><span><p>为提高服务器效率，系统将自动清理注册一个月没有充值，或两个月未登录，并且金额低于10元的账户。</p></span></div>
+    <div class="finance_text">
+        <div class="text_cc">
+            <span class="label">账户类型：</span>
+            <div class="player">
+                <i class="cur" data-type="1" data-command="changeType"><b></b><em>代理</em></i>
+                <i data-type="2" data-command="changeType"><b></b><em>玩家</em></i>
+            </div>
+        </div>
+        <div class="text_cc">
+            <span class="label">用户名：</span>
+            <input name="username" type="text" class="text" autocomplete="off" maxlength="12" autofocus>
+        </div>
+        <div class="text_cc">
+            <span class="label">账号返点：</span>
+            <div class="tt" id="codeSliderBox">
+                <div class="slider-bar"></div>
+            </div>
+        </div>
+        <div class="text_cc">
+            <span class="label">快速设置：</span>
+            <div class="jj">
+                <i class="jj_1" data-command="minus">-</i>
+                <input name="code" type="text" class="jj_cc" autocomplete="off" maxlength="4">
+                <i class="jj_2" data-command="plus">+</i>
+            </div>
+        </div>
+        <div class="fina_btn"><input type="button" class="btn-gray-big" value="确定" data-command="submitManual"></div>
+    </div>
+</script>
+
+<script type="text/template" id="proxy_account_webLink_content_tpl">
+    <div class="warmth"><span><p>为提高服务器效率，系统将自动清理注册一个月没有充值，或两个月未登录，并且金额低于10元的账户。</p></span></div>
+
+    <div class="finance_text">
+        <div class="text_cc">
+            <span class="label">账户类型：</span>
+            <div class="player">
+                <i class="cur" data-type="1" data-command="changeType"><b></b><em>代理</em></i>
+                <i data-type="2" data-command="changeType"><b></b><em>玩家</em></i>
+            </div>
+        </div>
+        <div class="text_cc">
+            <span class="label">设备类型：</span>
+            <select name="deviceType">
+                <option value="1" selected>网页</option>
+                <option value="2">手机</option>
+            </select>
+        </div>
+        <div class="text_cc">
+            <span class="label">有效期：</span>
+            <select name="days">
+                <option value="0" selected>永久有效</option>
+                <option value="1">1天</option>
+                <option value="7">7天</option>
+                <option value="30">30天</option>
+            </select>
+        </div>
+        <div class="text_cc">
+            <span class="label">账号返点：</span>
+            <div class="tt" id="codeSliderBox">
+                <div class="slider-bar"></div>
+            </div>
+        </div>
+        <div class="text_cc">
+            <span class="label">快速设置：</span>
+            <div class="jj">
+                <i class="jj_1" data-command="minus">-</i>
+                <input name="code" type="text" class="jj_cc" autocomplete="off" maxlength="4">
+                <i class="jj_2" data-command="plus">+</i>
+            </div>
+        </div>
+        <div class="fina_btn"><input type="button" class="btn-gray-big" value="确定" data-command="submitWebLink"></div>
+    </div>
+</script>
+
+<script type="text/template" id="proxy_account_webLinkManager_content_tpl">
+    <div class="list_box">
+        <div class="tab-list">
+            <table>
+                <thead>
+                    <th>链接</th>
+                    <th width="8%">开户类型</th>
+                    <th width="8%">账号返点</th>
+                    <th width="13%">过期时间</th>
+                    <th width="8%">操作</th>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
+        <div class="paging"></div>
+    </div>
+</script>
+
+<script type="text/template" id="proxy_account_mobileLinkManager_content_tpl">
+    <div class="list_box">
+        <div class="tab-list">
+            <table>
+                <thead>
+                    <th>二维码</th>
+                    <th width="8%">开户类型</th>
+                    <th width="8%">账号返点</th>
+                    <th width="13%">过期时间</th>
+                    <th width="8%">操作</th>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
+        <div class="paging"></div>
+    </div>
+</script>
+
+<script type="text/template" id="proxy_account_webLinkManager_list_tpl">
+    <#if (rows.length <= 0){#>
+        <tr><td colspan="5"><div class="w"><i class="icon iconfont">&#xe6c5;</i>无记录</div></td></tr>
+    <#} else {#>
+        <# for (var i = 0; i < rows.length; i++) { #>
+            <tr>
+                <td class="text-elip">
+                    <a class="link-red" href="<#=link#><#=rows[i].code#>"  target="_blank"><#=link#><#=rows[i].code#></a>
+                </td>
+                <td>
+                    <#=GlobalFun.formatUserType(rows[i].type)#>
+                </td>
+                <td>
+                    <#=(rows[i].locatePoint*20)+1800#>
+                </td>
+                <td>
+                    <#=rows[i].expTime||'永久有效'#>
+                </td>
+                <td>
+                    <span class="function-btn" data-command="delLink" data-id="<#=rows[i].id#>">删除</span>
+                </td>
+            </tr>
+        <# } #>
+    <#}#>
+</script>
+
+<script type="text/template" id="proxy_account_mobileLinkManager_list_tpl">
+    <#if (rows.length <= 0){#>
+        <tr><td colspan="5"><div class="w"><i class="icon iconfont">&#xe6c5;</i>无记录</div></td></tr>
+    <#} else {#>
+        <# for (var i = 0; i < rows.length; i++) { #>
+            <tr>
+                <td>
+                    <div class="qr-code-small-list cursor" title="点击查看二维码" data-command="showQRCode">
+                        <img src="<#=rows[i].qrCode#>" class="qr-code-big-list">
+                    </div>
+                </td>
+                <td>
+                    <#=GlobalFun.formatUserType(rows[i].type)#>
+                </td>
+                <td>
+                    <#=(rows[i].locatePoint*20)+1800#>
+                </td>
+                <td>
+                    <#=rows[i].expTime||'永久有效'#>
+                </td>
+                <td>
+                    <span class="function-btn" data-command="delMobileLink" data-id="<#=rows[i].id#>">删除</span>
+                </td>
+            </tr>
+        <# } #>
+    <#}#>
+</script>
+
+<script type="text/template" id="add_user_success_tpl">
+    <div class="popup-window">
+        <div class="popup-title">用户创建成功</div>
+        <div class="popup-group">
+            <label class="label">用户名：</label>
+            <input type="text" class="input-text" disabled value="<#=username#>" style="min-width: 257px;">
+            <span class="function-btn" data-clipboard-text="<#=username#>" id="copyManualUsername">复制</span>
+        </div>
+        <div class="popup-group">
+            <label class="label">初始密码：</label>
+            <input type="text" class="input-text" disabled value="a123456">
+        </div>
+        <div class="popup-group">
+            <label class="label">账号返点：</label>
+            <input type="text" class="input-text" disabled value="<#=code#>">
+        </div>
+    </div>
+</script>
+
+<script type="text/template" id="add_weblink_success_tpl">
+    <div class="popup-window">
+        <div class="popup-title">注册链接创建成功</div>
+        <div class="popup-group">
+            <label class="label">注册地址：</label>
+            <input type="text" class="input-text" disabled value="<#=link#>" style="min-width: 257px;">
+            <span class="function-btn" data-clipboard-text="<#=link#>" id="copyWebLink">复制</span>
+        </div>
+        <div class="popup-group">
+            <label class="label">账号返点：</label>
+            <input type="text" class="input-text" disabled value="<#=code#>">
+        </div>
+    </div>
+</script>
+
+<script type="text/template" id="proxy_team_content_tpl">
+    <div class="way_box">
+        <span class="condition">
+            范围：
+            <select name="scope">
+                <option value="1" selected>会员</option>
+                <option value="3">直属</option>
+                <option value="2">团队</option>
+            </select>
+        </span>
+        <span class="condition">用户名：<input type="text" class="text" name="username" maxlength="30" autocomplete="off"></span>
+        <span class="condition">余额：<input type="text" class="text" name="minMoney" maxlength="8" autocomplete="off"></span>
+        <span class="condition">至：<input type="text" class="text" name="maxMoney" maxlength="8" autocomplete="off"></span>
+        <span class="btn-gray-small" data-command="search">搜索</span>
+    </div>
+
+    <div class="tab-list">
+        <table>
+            <thead>
+            <tr>
+                <th width="15%">用户名</th>
+                <th width="8%">类型</th>
+                <th width="8%">账户余额</th>
+                <th width="8%">团队余额</th>
+                <th width="8%">团队人数</th>
+                <th width="8%">团队在线</th>
+                <th width="8%">返点</th>
+                <th width="15%">最后登录</th>
+                <th width="8%">状态</th>
+                <th>操作</th>
+            </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </div>
+    <div class="paging"></div>
+</script>
+
+<script type="text/template" id="proxy_team_list_tpl">
+    <#if (rows.length <= 0){#>
+        <tr><td colspan="10"><div class="w"><i class="icon iconfont">&#xe6c5;</i>无记录</div></td></tr>
+    <#} else {#>
+        <#for (var i = 0; i < rows.length; i++) {#>
+            <tr data-username="<#=rows[i].username#>">
+                <td>
+                    <span class="link-red" data-command="showLowers" data-user="<#=rows[i].username#>"><#=rows[i].username#></span>
+                </td>
+                <td><#=GlobalFun.formatUserType(rows[i].type)#></td>
+                <td><#=(rows[i].totalMoney + rows[i].lotteryMoney).toFixed(2)#></td>
+                <td><#=(rows[i].teamTotalBalance + rows[i].teamLotteryBalance).toFixed(2)#></td>
+                <td><#=rows[i].totalUser#></td>
+                <td><#=rows[i].onlineUser#></td>
+                <td><#=rows[i].code#></td>
+                <td><#=echo(rows[i].loginTime ? rows[i].loginTime : '从未登录过')#></td>
+                <td><#=GlobalFun.formatUserOnlineStatus(rows[i].onlineStatus)#></td>
+                <td>
+                    <span class="function-btn" data-command="quota_point">升点</span>
+                    <span class="function-btn" data-command="recharge">转账</span>
+                </td>
+            </tr>
+        <#}#>
+    <#}#>
+</script>
+
+<script type="text/template" id="edit_lower_point_tpl">
+    <form onsubmit="return false;" novalidate>
+        <div class="popup-window">
+            <input type="hidden" name="username" value="<#=username#>">
+
+            <div class="popup-group">
+                <label class="label">用户名：</label>
+                <input type="text" class="input-text" disabled value="<#=lBean.username#>">
+            </div>
+            <div class="popup-group">
+                <label class="label">当前等级：</label>
+                <input type="text" class="input-text" disabled value="<#=lBean.code#>">
+            </div>
+            <div class="popup-group">
+                <label class="label">调整等级：</label>
+                <div class="input-slider">
+                    <div class="slider-bar" style="width: 260px!important;"></div>
+                </div>
+                <input type="hidden" name="code">
+                <span data-property="code" class="slider-text"></span>
+            </div>
+        </div>
+    </form>
+</script>
+
+<script type="text/template" id="recharge_to_member_tpl">
+    <form onsubmit="return false;" novalidate>
+        <div class="popup-window">
+            <input type="hidden" name="sid" value="<#=sBean.id#>">
+            <input type="hidden" name="username" value="<#=username#>">
+
+            <div class="popup-group">
+                <label class="label">充值用户：</label>
+                <input type="text" class="input-text" disabled value="<#=username#>">
+            </div>
+            <div class="popup-group">
+                <label class="label">密保问题：</label>
+                <input type="text" class="input-text" disabled value="<#=sBean.key#>">
+            </div>
+            <div class="popup-group">
+                <label class="label">密保答案：</label>
+                <input type="text" name="answer" class="input-text" placeholder="请输入密保答案" autocomplete="off" autofocus maxlength="50">
+            </div>
+            <div class="popup-group">
+                <label class="label">转账类型：</label>
+                <select class="input-select" name="transferType">
+                    <option value="1" selected>充值</option>
+                    <option value="5">活动</option>
+                    <option value="12">分红</option>
+                </select>
+            </div>
+            <div class="popup-group">
+                <label class="label">主账余额：</label>
+                <input type="text" class="input-text color-red" disabled value="<#=availableMoney.toFixed(2)#>">
+            </div>
+            <div class="popup-group">
+                <label class="label">充值金额：</label>
+                <input type="text" name="amount" class="input-text" placeholder="请输入充值金额" autocomplete="off" maxlength="10">
+            </div>
+            <div class="popup-group">
+                <label class="label">资金密码：</label>
+                <input type="password" name="withdrawPwd" class="input-text" placeholder="请输入资金密码" autocomplete="off" maxlength="50">
+            </div>
+        </div>
+    </form>
+</script>
+
+<script type="text/template" id="proxy_online_content_tpl">
+    <div class="tab-list">
+        <table>
+            <thead>
+            <tr>
+                <th width="15%">用户名</th>
+                <th width="8%">类型</th>
+                <th width="8%">账户余额</th>
+                <th class="text-elip">层级关系</th>
+                <th width="15%">最后登录</th>
+                <th width="12%">操作</th>
+            </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </div>
+    <div class="paging"></div>
+</script>
+
+<script type="text/template" id="proxy_online_list_tpl">
+    <#if (rows.length <= 0){#>
+        <tr><td colspan="6"><div class="w"><i class="icon iconfont">&#xe6c5;</i>无记录</div></td></tr>
+    <#} else {#>
+
+        <# for (var i = 0; i < rows.length; i++) { #>
+            <tr data-name="<#=rows[i].username#>">
+                <td><#=rows[i].username#></td>
+                <td><#=GlobalFun.formatUserType(rows[i].type)#></td>
+                <td><#=(rows[i].totalMoney + rows[i].lotteryMoney).toFixed(2)#></td>
+                <td class="text-elip">
+                    <#=rows[i].levelUsers.reverse().join(' > ')#>
+                </td>
+                <td><#=echo(rows[i].loginTime ? rows[i].loginTime : '从未登录过')#></td>
+                <td>
+                    <a class="function-btn" href="proxy-lottery-record?username=<#=rows[i].username#>">订单</a>
+                    <a class="function-btn" href="proxy-bill-record?username=<#=rows[i].username#>">账单</a>
+                </td>
+            </tr>
+        <# } #>
+    <#}#>
+</script>
+
+<script type="text/template" id="proxy_salary_bill_content_tpl">
+    <div class="list_box">
+        <div class="way_box">
+            <span class="condition">范围：
+                <select name="proxySalaryBillScope">
+                    <option value="1" selected>会员</option>
+                    <option value="2">团队</option>
+                </select>
+            </span>
+            <span class="condition">用户名：<input type="text" class="text" name="proxySalaryBillUsername" maxlength="20" autocomplete="off"></span>
+            <span class="condition">时间：<i><input type="text" class="text_cc" name="proxySalaryBillSTime" id="proxySalaryBillSTime" autocomplete="off" readonly></i></span>
+            <span class="condition">至：<i><input type="text" class="text_cc" name="proxySalaryBillETime" id="proxySalaryBillETime" autocomplete="off" readonly></i></span>
+            <span class="btn-gray-small" data-command="searchProxySalaryBill">搜索</span>
+        </div>
+        <div class="tab-list">
+             <table>
+                <thead>
+                    <tr>
+                        <th width="15%">用户名</th>
+                        <th width="15%">投注</th>
+						<th width="15%">盈利</th>
+                        <th width="10%">比例</th>
+                        <th width="10%">有效会员</th>
+                        <th width="10%">金额</th>
+                        <th width="10%">日期</th>
+                        <th width="10%">状态</th>
+                        <th width="10%">操作</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+        <div class="paging"></div>
+    </div>
+</script>
+
+<script type="text/template" id="proxy_salary_bill_list_tpl">
+    <#if (rows.length <= 0){#>
+        <tr><td colspan="9"><div class="w"><i class="icon iconfont">&#xe6c5;</i>无记录</div></td></tr>
+    <#} else {#>
+        <# for (var i = 0; i < rows.length; i++) { #>
+            <tr data-id="<#=rows[i].id#>">
+                <td>
+                    <#if(rows[i].username == username) {#>
+                        <span class="link-red" data-command="showProxySalaryBillLowers" data-user="<#=rows[i].username#>"><#=rows[i].username#>(自己)</span>
+                    <#} else {#>
+                        <span class="link-red" data-command="showProxySalaryBillLowers" data-user="<#=rows[i].username#>"><#=rows[i].username#></span>
+                    <#}#>
+                </td>
+                <td>
+                    <#=rows[i].billingOrder.toFixed(2)#>
+                </td>
+				<td>
+                    <#=rows[i].thisLoss.toFixed(2)#>
+                </td>
+                <td>
+                    <#=rows[i].scale#>%
+                </td>
+                <td>
+                    <#=rows[i].validUser#>
+                </td>
+                <td>
+                    <#=rows[i].userAmount.toFixed(2)#>
+                </td>
+                <td>
+                    <#=rows[i].indicateDate#>
+                </td>
+                <td>
+                    <#=GlobalFun.formatDailySettleBillStatus(rows[i].status)#>
+                </td>
+                <td>
+                    <span class="function-btn" data-command="proxySalaryBillDetails">详情</span>
+                </td>
+            </tr>
+        <# } #>
+    <#}#>
+</script>
+
+<script type="text/template" id="proxy_salary_bill_details_tpl">
+    <div class="popup-table">
+        <table class="table">
+            <tbody>
+                <tr>
+                    <th width="20%">用户名</th>
+                    <td width="33%"><#=data.username#></td>
+                    <th width="20%">日结比例</th>
+                    <td width="27%"><#=(data.scale * 100).toFixed(1)#>%</td>
+                </tr>
+                <tr>
+                    <th width="20%">最低有效人数</th>
+                    <td width="33%"><#=data.minValidUser#></td>
+                    <th width="20%">实际有效人数</th>
+                    <td width="27%"><#=data.validUser#></td>
+                </tr>
+                <tr>
+                    <th width="20%">投注</th>
+                    <td width="33%"><#=data.billingOrder.toFixed(1)#></td>
+                    <th width="20%">盈利</th>
+                    <td width="27%"><#=data.thisLoss.toFixed(1)#></td>
+                </tr>
+                <tr>
+                    <th width="20%">下级共需发放</th>
+                    <td width="33%"><#=data.lowerTotalAmount.toFixed(1)#></td>
+                    <th width="20%">下级累计发放</th>
+                    <td width="27%"><#=data.lowerPaidAmount.toFixed(1)#></td>
+                </tr>
+                <tr>
+                    <th width="20%">金额</th>
+                    <td width="33%"><#=data.userAmount.toFixed(1)#></td>
+                    <th width="20%">下级累计发放</th>
+                    <td width="27%"><#=data.totalReceived.toFixed(1)#></td>
+                </tr>
+                <tr>
+					<th width="20%">日期</th>
+                    <td width="33%"><#=data.indicateDate#></td>
+                    <th width="20%">状态</th>
+                    <td width="27%"><#=GlobalFun.formatDailySettleBillStatus(data.status)#></td>
+                </tr>
+                <tr>
+                    <th width="20%">备注</th>
+                    <td width="80%" colspan="3"><#=data.remarks ? data.remarks : '无'#></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</script>
+
+<script type="text/template" id="proxy_salary_manager_content_tpl">
+    <div class="list_box">
+        <div class="way_box">
+            <span class="condition">范围：
+                <select name="proxySalaryManagerScope">
+                    <option value="1" selected>会员</option>
+                    <option value="2">团队</option>
+                </select>
+            </span>
+            <span class="condition">用户名：<input type="text" class="text" name="proxySalaryManagerUsername" maxlength="20" autocomplete="off"></span>
+            <span class="btn-gray-small" data-command="searchProxySalaryManager">搜索</span>
+        </div>
+        <div class="tab-list">
+            <table>
+                <thead>
+                <tr>
+					<th width="15%">用户名</th>
+                    <th width="50%">日结条款</th>
+                    <th width="15%">处理时间</th>
+                    <th width="15%">状态</th>
+                    <th width="10%">操作</th>
+                </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+        <div class="paging"></div>
+    </div>
+</script>
+
+<script type="text/template" id="proxy_salary_manager_list_tpl">
+    <#if (rows.length <= 0){#>
+        <tr><td colspan="6"><div class="w"><i class="icon iconfont">&#xe6c5;</i>无记录</div></td></tr>
+    <#} else {#>
+        <# for (var i = 0; i < rows.length; i++) { #>
+            <tr data-id="<#=rows[i].id#>">
+                <td>
+                    <#if(rows[i].username == username) {#>
+                        <span class="link-red" data-command="showProxySalaryManagerLowers" data-user="<#=rows[i].username#>"><#=rows[i].username#>(自己)</span>
+                    <#} else {#>
+                        <span class="link-red" data-command="showProxySalaryManagerLowers" data-user="<#=rows[i].username#>"><#=rows[i].username#></span>
+                    <#}#>
+                </td>
+                <td>
+                    <#var sales = rows[i].salesLevel.split(',');
+                    var loss = rows[i].lossLevel.split(',');
+                    var scale = rows[i].scaleLevel.split(',');
+					var users = rows[i].userLevel.split(',');
+                    var showHtml = '';
+					var showtitle = '';
+                    for(var j = 0; j < sales.length; j++){
+                    	showHtml +=  '条款(' + (j + 1) + ')： 销量 >=' + sales[j] + 'W；   亏损 >= ' + loss[j] + 'W    人数 >= ；'+ users[j] +'；分红比例：' + scale[j] + '%</br>';
+						showtitle +=   '条款(' + (j + 1) + ')： 销量 >=' + sales[j] + 'W；   亏损 >= ' + loss[j] + 'W    人数 >= ；'+ users[j] +'；分红比例：' + scale[j] + '%\n';
+                    }#>
+                <span title="<#=showtitle#>"><#=showHtml#></span>
+                </td>
+                <td>
+                    <#=rows[i].agreeTime == null ? '待同意' : rows[i].agreeTime#>
+                </td>
+                <td>
+                    <#=GlobalFun.formatDailySettleStatus(rows[i].status)#>
+                </td>
+                <td>
+                    <# if (rows[i].status == 2 && rows[i].username == username) { #>
+                        <span class="function-btn" data-command="agree">同意</span>
+                        <span class="function-btn" data-command="deny">拒绝</span>
+                    <# }#>
+                </td>
+            </tr>
+        <# } #>
+    <#}#>
+</script>
+
+<script type="text/template" id="proxy_salary_request_content_tpl">
+    <div class="finance_text">
+		<div class="alert-warning">
+				<h5>
+					1.销量单位：万；亏损单位：万；日结比例：%（1=1%）。<br>
+					2.上下级允许相同条款。<br>
+					3.签署规则：销量、亏损大于等于上级某条款，并且日结比例小于等于上级某条款。<br>
+				</h5>
+		</div>
+        <div class="text_tt">
+            <span class="label">用户名：</span>
+            <i><input type="text" name="proxySalaryRequestUsername" class="text" placeholder="请先选择用户" disabled readonly><em class="flie_box" data-command="chooseUser">选择用户</em></i>
+            <span class="reset-btn" data-command="clearUser">清空选择</span>
+        </div>
+		
+		<div class="text_cc" id="addView">
+				<div class="level-group">
+				<span class="label" style="width:100px;">日结条款 1：</span>
+            	<span class="label" style="width:100px;">销量（W）：</span>
+                <input name="proxySalaryRequestSales" type="text" style="width:110px;" class="text" maxlength="4" value="0" disabled="disabled">
+				<span class="label" style="width:100px;">亏损（W）：</span>
+                <input name="proxySalaryRequestLoss" type="text" style="width:110px;" class="text" autocomplete="off" maxlength="4" value="0" disabled="disabled">
+				<span class="label" style="width:100px;">人数：</span>
+                <input name="proxySalaryRequestUser" type="text" style="width:110px;" class="text" autocomplete="off" maxlength="4" value="0" disabled="disabled">
+				<span class="label" style="width:100px;">比例（%）：</span>
+                <input name="proxySalaryRequestScale" type="text" style="width:110px;" class="text" autocomplete="off" maxlength="4" value="0" disabled="disabled">
+				<div class="num" data-property="proxySalaryRequestLevelDesc">（范围：销量(W) 0 ~ 0；亏损(W) 0 ~ 0；人数 0 ~ 0；比例(%) ：0 ~ 0）</div>
+				</div>
+        </div>
+
+        <!--<div class="text_cc">
+            <span class="label">有效人数：</span>
+            <input type="text" name="proxySalaryRequestMinValidUser" class="text" placeholder="请输入最低有效人数" maxlength="4">
+            <div class="num" data-property="proxySalaryRequestMinValidUserDesc">（可分配范围 0 ~ 0）</div>
+        </div>-->
+        <div class="fina_btn"><input type="button" class="btn-gray-big" value="确定" data-command="submitRequest"></div>
+    </div>
+</script>
+
+<script type="text/template" id="proxy_dividend_bill_content_tpl">
+    <div class="list_box">
+        <div class="way_box">
+            <span class="condition">范围：
+                <select name="proxyDividendBillScope">
+                    <option value="1" selected>会员</option>
+                    <option value="2">团队</option>
+                </select>
+            </span>
+            <span class="condition">状态：
+                <select name="proxyDividendBillStatus">
+                    <option value="" selected>全部</option>
+                    <option value="1">已发放</option>
+                    <option value="2">核对中</option>
+                    <option value="3">待领取</option>
+                    <option value="4">已拒绝</option>
+                    <option value="5">未达标</option>
+                    <option value="6">余额不足</option>
+                    <option value="7">部分领取</option>
+                    <option value="8">已过期</option>
+                </select>
+            </span>
+            <span class="condition">用户名：<input type="text" class="text" name="proxyDividendBillUsername" maxlength="20" autocomplete="off"></span>
+            <span class="condition">时间：<i><input type="text" class="text_cc" name="proxyDividendBillSTime" id="proxyDividendBillSTime" autocomplete="off" readonly></i></span>
+            <span class="condition">至：<i><input type="text" class="text_cc" name="proxyDividendBillETime" id="proxyDividendBillETime" autocomplete="off" readonly></i></span>
+            <span class="btn-gray-small" data-command="searchProxyDividendBill">搜索</span>
+        </div>
+        <div class="tab-list">
+             <table>
+                <thead>
+                    <tr>
+                        <th width="15%">用户名</th>
+                        <th width="10%">投注</th>
+                        <th width="10%">亏损</th>
+                        <th width="10%">比例</th>
+                        <th width="10%">金额</th>
+                        <th>周期</th>
+                        <th width="10%">状态</th>
+                        <th width="10%">操作</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+        <div class="paging"></div>
+    </div>
+</script>
+
+<script type="text/template" id="proxy_dividend_bill_list_tpl">
+    <#if (rows.length <= 0){#>
+        <tr><td colspan="8"><div class="w"><i class="icon iconfont">&#xe6c5;</i>无记录</div></td></tr>
+    <#} else {#>
+        <# for (var i = 0; i < rows.length; i++) { #>
+            <tr data-id="<#=rows[i].bean.id#>" data-availableAmount="<#=rows[i].bean.availableAmount.toFixed(4)#>" data-userAmount="<#=rows[i].bean.userAmount.toFixed(4)#>" data-totalReceived="<#=rows[i].bean.totalReceived.toFixed(4)#>" data-lowerTotalAmount="<#=rows[i].bean.lowerTotalAmount.toFixed(4)#>" data-lowerPaidAmount="<#=rows[i].bean.lowerPaidAmount.toFixed(4)#>">
+                <td>
+                    <#if(rows[i].username == username) {#>
+                        <span class="link-red" data-command="showProxyDividendBillLowers" data-user="<#=rows[i].username#>"><#=rows[i].username#>(自己)</span>
+                    <#} else {#>
+                        <span class="link-red" data-command="showProxyDividendBillLowers" data-user="<#=rows[i].username#>"><#=rows[i].username#></span>
+                    <#}#>
+                </td>
+                <td>
+                    <#=rows[i].bean.billingOrder.toFixed(1)#>
+                </td>
+                <td>
+                    <#=rows[i].bean.thisLoss.toFixed(1)#>
+                </td>
+                <td>
+                    <#=parseInt(rows[i].bean.scale)#>%
+                </td>
+                <td>
+                    <#=rows[i].bean.userAmount.toFixed(1)#>
+                </td>
+                <td>
+                    <#=rows[i].bean.indicateStartDate#>~<#=rows[i].bean.indicateEndDate#>
+                </td>
+                <td>
+                    <#=GlobalFun.formatDividendBillStatus(rows[i].bean.status)#>
+                </td>
+                <td>
+                    <span class="function-btn" data-command="proxyDividendBillDetails">详情</span>
+                    <# if ((rows[i].bean.status == 3 || rows[i].bean.status == 7) && rows[i].username == username && rows[i].bean.availableAmount > 0) { #>
+                        <span class="function-btn" data-command="proxyDividendBillCollect">领取</span>
+                    <#}#>
+                </td>
+            </tr>
+        <# } #>
+    <#}#>
+</script>
+
+<script type="text/template" id="proxy_dividend_bill_details_tpl">
+    <div class="popup-table">
+        <table class="table">
+            <tbody>
+                <tr>
+                    <th width="20%">用户名</th>
+                    <td width="33%"><#=data.username#></td>
+                    <th width="20%">分红比例</th>
+                    <td width="27%"><#=parseInt((data.bean.scale * 100))#>%</td>
+                </tr>
+                <tr>
+                    <th width="20%">最低有效人数</th>
+                    <td width="33%"><#=data.bean.minValidUser#></td>
+                    <th width="20%">实际有效人数</th>
+                    <td width="27%"><#=data.bean.validUser#></td>
+                </tr>
+                <tr>
+                    <th width="20%">投注</th>
+                    <td width="33%"><#=data.bean.billingOrder.toFixed(2)#></td>
+                    <th width="20%">本次亏损</th>
+                    <td width="27%"><#=data.bean.thisLoss.toFixed(2)#></td>
+                </tr>
+                <tr>
+                    <th width="20%">上半月亏损</th>
+                    <td width="33%"><#=data.bean.lastLoss.toFixed(2)#></td>
+                    <th width="20%">累计亏损</th>
+                    <td width="27%"><#=data.bean.totalLoss.toFixed(2)#></td>
+                </tr>
+                <tr>
+                    <th width="20%">下级共需发放</th>
+                    <td width="33%"><#=data.bean.lowerTotalAmount.toFixed(2)#></td>
+                    <th width="20%">下级累计发放</th>
+                    <td width="27%"><#=data.bean.lowerPaidAmount.toFixed(2)#></td>
+                </tr>
+                <tr>
+                    <th width="20%">账单计算金额</th>
+                    <td width="33%" title="账单计算金额 = 累计亏损 &times; 分红比例"><#=data.bean.calAmount.toFixed(2)#></td>
+                    <th width="20%" title="应得金额 = 账单计算金额 - 下级共需发放">应得金额</th>
+                    <td width="27%"><#=data.bean.userAmount.toFixed(2)#></td>
+                </tr>
+                <tr>
+                    <th width="20%">周期</th>
+                    <td width="33%"><#=data.bean.indicateStartDate#>~<#=data.bean.indicateEndDate#></td>
+                    <th width="20%">状态</th>
+                    <td width="27%"><#=GlobalFun.formatDividendBillStatus(data.bean.status)#></td>
+                </tr>
+                <tr>
+                    <th width="20%">目前可领取</th>
+                    <td width="33%"><#=data.bean.availableAmount.toFixed(2)#></td>
+                    <th width="20%">累计领取</th>
+                    <td width="27%"><#=data.bean.totalReceived.toFixed(2)#></td>
+                </tr>
+                <tr>
+                    <th width="20%">备注</th>
+                    <td width="80%" colspan="3"><#=data.bean.remarks ? data.bean.remarks : '无'#></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</script>
+
+<script type="text/template" id="proxy_dividend_bill_collect_tpl">
+    <form onsubmit="return false;" novalidate>
+        <div class="popup-window">
+            <div class="popup-group">
+                <label class="label">分红金额：</label>
+                <input type="text" class="input-text" disabled value="<#=data.userAmount.toFixed(2)#>">
+            </div>
+            <div class="popup-group">
+                <label class="label">累计领取：</label>
+                <input type="text" class="input-text" disabled value="<#=data.totalReceived.toFixed(2)#>">
+            </div>
+            <div class="popup-group">
+                <label class="label">可领取：</label>
+                <input type="text" class="input-text" disabled value="<#=data.availableAmount.toFixed(2)#>">
+            </div>
+        </div>
+    </form>
+</script>
+
+<script type="text/template" id="proxy_dividend_manager_content_tpl">
+    <div class="list_box">
+        <div class="way_box">
+            <span class="condition">范围：
+                <select name="proxyDividendManagerScope">
+                    <option value="1" selected>会员</option>
+                    <option value="2">团队</option>
+                </select>
+            </span>
+            <span class="condition">用户名：<input type="text" class="text" name="proxyDividendManagerUsername" maxlength="20" autocomplete="off"></span>
+            <span class="btn-gray-small" data-command="searchProxyDividendManager">搜索</span>
+        </div>
+        <div class="tab-list">
+            <table>
+                <thead>
+                <tr>
+                    <th width="10%">用户名</th>
+                    <th width="15%">结算类型</th>
+                    <th width="45%">分红条款</th>
+                    <!--<th width="15%">最低有效会员</th>-->
+                    <th width="15%">处理时间</th>
+                    <th width="10%">状态</th>
+                    <th width="10%">操作</th>
+                </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+        <div class="paging"></div>
+    </div>
+</script>
+
+<script type="text/template" id="proxy_dividend_manager_list_tpl">
+    <#if (rows.length <= 0){#>
+        <tr><td colspan="6"><div class="w"><i class="icon iconfont">&#xe6c5;</i>无记录</div></td></tr>
+    <#} else {#>
+        <# for (var i = 0; i < rows.length; i++) { #>
+            <tr data-id="<#=rows[i].id#>">
+                <td>
+                    <#if(rows[i].username == username) {#>
+                        <span class="link-red" data-command="showProxyDividendManagerLowers" data-user="<#=rows[i].username#>"><#=rows[i].username#>(自己)</span>
+                    <#} else {#>
+                        <span class="link-red" data-command="showProxyDividendManagerLowers" data-user="<#=rows[i].username#>"><#=rows[i].username#></span>
+                    <#}#>
+                </td>
+				<td>
+                    <#if(rows[i].fixed == 0) {#>
+                        浮动比例
+                    <#} else {#>
+                        固定比例
+                    <#}#>
+                </td>
+                <td>
+					<#var sales = rows[i].salesLevel.split(',');
+                    var loss = rows[i].lossLevel.split(',');
+                    var scale = rows[i].scaleLevel.split(',');
+					var users = rows[i].userLevel.split(',');
+                    var showHtml = '';
+					var showtitle =''; 	
+                    for(var j = 0; j < sales.length; j++){
+                    	showHtml +=  '条款(' + (j + 1) + ')： 销量 >=' + sales[j] + 'W；   亏损 >= ' + loss[j] + 'W    人数 >= ；'+ users[j] +'；分红比例：' + scale[j] + '%</br>';
+						showtitle +=   '条款(' + (j + 1) + ')： 销量 >=' + sales[j] + 'W；   亏损 >= ' + loss[j] + 'W    人数 >= ；'+ users[j] +'；分红比例：' + scale[j] + '%\n';
+                    }#>
+                <span title="<#=showtitle#>"><#=showHtml#></span>
+                </td>
+                <!--<td>
+                    <#if(rows[i].minValidUser <= 0) {#>
+                        无限制
+                    <#} else {#>
+                        <#=rows[i].minValidUser#>
+                    <#}#>
+                </td>-->
+                <td>
+                    <#=rows[i].agreeTime == null ? '待同意' : rows[i].agreeTime#>
+                </td>
+                <td>
+                    <#=GlobalFun.formatDividendStatus(rows[i].status)#>
+                </td>
+                <td>
+                    <# if (rows[i].status == 2 && rows[i].username == username) { #>
+                        <span class="function-btn" data-command="agree">同意</span>
+                        <span class="function-btn" data-command="deny">拒绝</span>
+                    <# }#>
+                </td>
+            </tr>
+        <# } #>
+    <#}#>
+</script>
+
+<script type="text/template" id="proxy_dividend_request_content_tpl">
+    <div class="finance_text">
+		<div class="alert-warning">
+				<h5>
+					1.销量单位：万；亏损单位：万；分红比例：%（10=10%）。<br>
+					2.上下级允许相同条款。<br>
+					3.签署规则：销量、亏损大于等于上级某条款，并且分红比例小于等于上级某条款。<br>
+				</h5>
+		</div>
+        <div class="text_tt">
+            <span class="label" style="width:100px;">用户名：</span>
+            <i><input type="text" name="proxyDividendRequestUsername" class="text" placeholder="请先选择用户" disabled readonly><em class="flie_box" data-command="chooseUser">选择用户</em></i>
+            <span class="reset-btn" data-command="clearUser">清空选择</span>
+        </div>
+        <div class="text_cc" id="addView">
+				<div class="level-group">
+				<span class="label" style="width:100px;">分红条款 1：</span>
+            	<span class="label" style="width:100px;">销量（W）：</span>
+                <input name="proxyDividendRequestSales" type="text" style="width:110px;" class="text" maxlength="4" value="0" disabled="disabled">
+				<span class="label" style="width:100px;">亏损（W）：</span>
+                <input name="proxyDividendRequestLoss" type="text" style="width:110px;" class="text" autocomplete="off" maxlength="4" value="0" disabled="disabled">
+				<span class="label" style="width:100px;">用户：</span>
+                <input name="proxyDividendRequestUser" type="text" style="width:110px;" class="text" autocomplete="off" maxlength="4" value="0" disabled="disabled">
+				<span class="label" style="width:100px;">比例（%）：</span>
+                <input name="proxyDividendRequestScale" type="text" style="width:110px;" class="text" autocomplete="off" maxlength="4" value="0" disabled="disabled">
+				<div class="num" data-property="proxyDividendRequestLevelDesc">（范围：销量(W) 0 ~ 0；亏损(W) 0 ~ 0；人数 0 ~ 0；比例(%) ：0 ~ 0）</div>
+				</div>
+        </div>
+        <!--<div class="text_cc">
+            <span class="label" style="width:100px;">周期有效人数：</span>
+            <input type="text" name="proxyDividendRequestMinValidUser" class="text" placeholder="请输入最低有效人数" maxlength="4">
+            <div class="num" data-property="proxyDividendRequestMinValidUserDesc">（可分配范围 0 ~ 0）</div>
+        </div>-->
+        <div class="fina_btn"><input type="button" class="btn-gray-big" value="确定" data-command="submitRequest"></div>
+    </div>
+</script>
+
+<script type="text/template" id="single_choose_member_content_tpl">
+     <div class="member_box">
+         <div class="member_1">
+             <span class="label">搜索会员：</span>
+             <i><input name="username" type="text" class="text" placeholder="会员名称" autocomplete="off" maxlength="20"></i><span class="btn-gray-small" data-command="search">搜索</span>
+         </div>
+         <div class="member_2">
+             <span>会员列表：</span>
+         </div>
+         <div class="member_3" id="scroll_container">
+             <# for (var i = 0; i < list.length; i++) { #>
+                <i>
+                     <span class="chek"></span>
+                     <em><#=list[i].username#></em>
+                 </i>
+             <# } #>
+         </div>
+     </div>
+</script>
+
+<script type="text/template" id="choose_member_content_tpl">
+     <div class="member_box">
+         <div class="member_1">
+             <span class="label">搜索会员：</span>
+             <i><input name="username" type="text" class="text" placeholder="会员名称" autocomplete="off" maxlength="20"></i><span class="btn-gray-small" data-command="search">搜索</span>
+         </div>
+         <div class="member_2">
+             <span>会员列表：</span>
+             <i>
+                 <span class="chek" data-command="selectAll"></span>
+                 全部选择
+             </i>
+             <i class="summary" data-property="summary">最多选择100，当前选择：0</i>
+         </div>
+         <div class="member_3" id="scroll_container">
+             <# for (var i = 0; i < list.length; i++) { #>
+                <i>
+                     <span class="chek"></span>
+                     <em><#=list[i].username#></em>
+                 </i>
+             <# } #>
+         </div>
+     </div>
+</script>
+
+<script type="text/template" id="choose_member_list_tpl">
+    <# for (var i = 0; i < list.length; i++) { #>
+        <i>
+            <span class="chek"></span>
+            <em><#=list[i].username#></em>
+        </i>
+    <# } #>
+</script>
+
+<script type="text/template" id="message_inbox_content_tpl">
+    <div class="way_box">
+        <span class="btn-red-small disabled" data-command="deleteSelected">删除</span>
+    </div>
+
+    <div class="tab-list">
+        <table>
+            <thead>
+                <tr>
+                    <th style="width: 55px;"><div class="chek" data-command="selectAll"></div></th>
+                    <th>主题</th>
+                    <th width="15%">发件人</th>
+                    <th width="15%">发送时间</th>
+                    <th width="15%">状态</th>
+                    <th width="15%">操作</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </div>
+    <div class="paging"></div>
+</script>
+
+<script type="text/template" id="message_outbox_content_tpl">
+    <div class="way_box">
+        <span class="btn-red-small disabled" data-command="deleteSelected">删除</span>
+    </div>
+
+    <div class="tab-list">
+        <table>
+            <thead>
+                <tr>
+                    <th style="width: 55px;"><div class="chek" data-command="selectAll"></div></th>
+                    <th>主题</th>
+                    <th width="15%">收件人</th>
+                    <th width="15%">发送时间</th>
+                    <th width="15%">状态</th>
+                    <th width="15%">操作</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </div>
+    <div class="paging"></div>
+</script>
+
+<script type="text/template" id="message_sys_content_tpl">
+    <div class="way_box">
+        <span class="btn-red-small disabled" data-command="deleteSelected">删除</span>
+    </div>
+
+    <div class="tab-list">
+        <table>
+            <thead>
+                <tr>
+                    <th style="width: 55px;"><div class="chek" data-command="selectAll"></div></th>
+                    <th width="15%">类型</th>
+                    <th>内容</th>
+                    <th width="15%">消息时间</th>
+                    <th width="15%">状态</th>
+                    <th width="15%">操作</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </div>
+    <div class="paging"></div>
+</script>
+
+<script type="text/template" id="message_list_tpl">
+    <#if (rows.length <= 0){#>
+        <tr><td colspan="6"><div class="w"><i class="icon iconfont">&#xe6c5;</i>无记录</div></td></tr>
+    <#} else {#>
+        <#for(var i = 0; i < rows.length; i++){#>
+            <tr data-id="<#=rows[i].bean.id#>" <# if (rows[i].bean.toStatus == 0 && type === 'inbox') { #>class="fwb"<# } #>>
+                <td>
+                    <div class="chek" data-id="<#=rows[i].bean.id#>" data-command="selectSingle"></div>
+                </td>
+                <td class="text-elip" style="padding: 0 10px;">
+                    <#=rows[i].bean.subject#>
+                </td>
+                <td>
+                    <# if (type === 'inbox') { #>
+                        <#=rows[i].fromUser#>
+                    <# } else { #>
+                        <#=rows[i].toUser#>
+                    <# } #>
+                </td>
+                <td>
+                    <#=rows[i].bean.time#>
+                </td>
+                <td data-type="status">
+                    <# if (rows[i].bean.fromStatus == -1) { #>
+                        <#=GlobalFun.formatUserMessageStatus(rows[i].bean.fromStatus)#>
+                    <# } else { #>
+                        <#=GlobalFun.formatUserMessageStatus(rows[i].bean.toStatus)#>
+                    <# } #>
+                </td>
+                <td>
+                    <span class="function-btn" data-index="<#=i#>" data-command="details">查看</span>
+                    <span class="function-btn" data-index="<#=i#>" data-command="delete">删除</span>
+                </td>
+            </tr>
+        <#}#>
+    <#}#>
+</script>
+
+<script type="text/template" id="sys_message_list_tpl">
+    <#if (rows.length <= 0){#>
+        <tr><td colspan="6"><div class="w"><i class="icon iconfont">&#xe6c5;</i>无记录</div></td></tr>
+    <#} else {#>
+        <#for(var i = 0; i < rows.length; i++){#>
+        <tr data-id="<#=rows[i].id#>" <# if (rows[i].status == 0) { #>class="fwb"<# } #>>
+                <td>
+                    <div class="chek" data-id="<#=rows[i].id#>" data-command="selectSingle"></div>
+                </td>
+                <td><#=GlobalFun.formatUserSysMessageType(rows[i].type)#></td>
+                <td class="text-elip" style="padding: 0 10px;">
+                    <#=rows[i].content#>
+                </td>
+                <td><#=rows[i].time#></td>
+                <td data-type="status">
+                    <#=GlobalFun.formatUserMessageStatus(rows[i].status)#>
+                </td>
+                <td>
+                    <span class="function-btn" data-index="<#=i#>" data-command="details">查看</span>
+                    <span class="function-btn" data-index="<#=i#>" data-command="delete">删除</span>
+                </td>
+            </tr>
+        <#}#>
+    <#}#>
+</script>
+
+<script type="text/template" id="message_detail_tpl">
+    <div class="popup-table">
+        <table class="table">
+            <tr>
+                <th>发件人</th>
+                <td><#=author#></td>
+            </tr>
+            <tr>
+                <th>标题</th>
+                <td>
+                    <span style="width: 100%;" class="text-elip"><#=title#></span>
+                </td>
+            </tr>
+            <tr>
+                <th>时间</th>
+                <td><#=date#></td>
+            </tr>
+            <tr>
+                <th>内容</th>
+                <td>
+                    <div class="message content">
+                        <#=content#>
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </div>
+</script>
+
+<script type="text/template" id="message_new_content_tpl">
+    <div class="text_cc">
+        <span class="label">收件人：</span>
+        <div class="player">
+            <i class="cur" data-type="upper" data-command="changeType"><b></b><em>上级</em></i>
+            <i data-type="lower" data-command="changeType"><b></b><em>下级</em></i>
+            <i data-type="system" data-command="changeType"><b></b><em>系统</em></i>
+        </div>
+    </div>
+
+    <div class="text_tt" data-type="toUsersGroup" style="display: none;">
+        <span class="label">用户名：</span>
+        <i>
+            <input type="text" name="toUsers" class="text" disabled readonly>
+            <em class="flie_box" data-command="chooseUser">选择用户</em>
+        </i>
+        <span class="reset-btn" data-command="clearUser">清空选择</span>
+    </div>
+
+    <div class="text_cc">
+        <span class="label">主题：</span>
+        <input type="text" name="sendSubject" class="text_ss" autocomplete="off" maxlength="120">
+    </div>
+    <div class="text_cc">
+        <span class="label">内容：</span>
+        <textarea name="sendContent" autocomplete="off" maxlength="512"></textarea>
+    </div>
+
+
+    <div class="fina_btn"><input type="button" class="btn-gray-big" value="发送" data-command="submit"></div>
+
+
+    <!--<div class="fina_btn"><a href="#" class="cur">发送</a></div>-->
+</script>
+
+<script type="text/template" id="bankTransfer_form_tpl">
+	<form action="#" name = "addBankTransfersFrom"  target="_blank" method="post" novalidate onsubmit="return false;" style="padding-bottom: 10px;">
+	<div style = "margin-left:100px;margin-bottom: 10px;">
+        <input type="hidden" name="pid" value="<#=data.pid#>"/>
+        <input type="hidden"  name="bankId" value="<#=data.bankId#>"/>
+ 		<input type="hidden"  name="amount" value="<#=amount#>"/>	
+		
+        <div class="popup-window">
+		
+			<div class="popup-group">
+                <label class="label">收款人：</label>
+				<span><#=data.cardName#></span>
+            </div>
+			 <div class="popup-group">
+                <label class="label">收款银行：</label>
+				<span><#=data.bankName#></span>
+            </div>
+			<div class="popup-group">
+                <label class="label">转帐金额：</label>
+				<span><#=amount#></span>
+				<span style = "color:#FF0000;margin-left:5px;">*请与转帐金额保持一致，否则影响上分</span>
+            </div>
+			 <div class="popup-group">
+                <label class="label">收款帐号：</label>
+				<span><#=data.cardId#></span>
+            </div>
+			 <div class="popup-group">
+                <label class="label">真实姓名：</label>
+                <input type="text" name="name" class="input-text" minlength="2" maxlength="16"><span  style = "color:#FF0000;margin-left:5px;" >*请填写持卡人姓名</span>
+            </div>
+			 <div class="popup-group">
+                <label class="label">附言：</label>
+                <input type="text" name="postscript" class="input-text" minlength="2"   maxlength="20"><span  style = "color:#FF0000;margin-left:5px;" >*请填写转帐时间如1102或附言</span>
+            </div>
+	
+             <div class="btn-group">
+				<span class="btn-gray-big" name ="addBankTransfer" style = "margin-left:100px;" >已经转帐,提醒平台上分</span>
+            </div>
+ 			<div class="btn-group">
+				<div style=" margin-top: 35px; color: #777d83; font-size: 14px;">	
+				<b>线下入帐说明：</b>    
+			    <p>1.线下入帐支持多种 (银行卡转帐，支付宝转帐，微信转帐)。</p>       
+				 <p>2.银行卡转帐:登入网银复制收款卡号及收款人填写附言或备注-&gt;转帐完成提交充值订单。</p>		
+				<p>3.支付宝:登入支付宝点击[转帐到银行卡]-&gt;转帐完成提交充值订单。</p>        
+				<p>4.微信:点击微信首页面右上角的“+”按钮，并在下拉菜单中，点击“收付款” 点击[转帐到银行卡]-&gt;转帐完成提交充值订单。</p>
+			 </div>
+			</div>
+        </div>
+	<div>
+</from>
+</script>
+

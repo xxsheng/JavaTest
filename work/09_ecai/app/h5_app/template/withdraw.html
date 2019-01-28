@@ -1,0 +1,51 @@
+<div class="memberContainer" ng-controller="withdrawController as withdrawCtrl" >
+    <div class="bar bar-header bar-positive">
+        <div class="buttons">
+            <button class="button" on-tap="appCtrl.goback()"><i class="icon ion-arrow-left-a"></i></button>
+        </div>
+        <h1 class="title">申请提款</h1>
+    </div>
+
+    <ion-content class="has-header has-footer" overflow-scroll="false" has-bouncing="true">
+        <div class="list">
+            <p class="p05">单笔<span>{{withdrawCtrl.bankAccept.minWithdrawals}}</span>~<span>{{withdrawCtrl.bankAccept.maxWithdrawals}}</span>元。</p>
+            <div class="item item-input">
+                <label class="input-label">&nbsp;可提余额：</label>
+                <span>{{withdrawCtrl.bankAccept.availableMoney|number:0}}</span>
+                <div class="item-button-right inline" data-tap-disabled="true">
+                    <button class="button button-assertive button-small" on-tap="withdrawCtrl.transferAll()">资金归集</button>
+                </div>
+            </div>
+            <div class="item item-input">
+                <label class="input-label">&nbsp;主账余额：</label>
+                <span>{{withdrawCtrl.bankAccept.totalMoney|number:0}}</span>
+            </div>
+            <div class="item item-input">
+                <label class="input-label">&nbsp;彩账余额：</label>
+                <span>{{withdrawCtrl.bankAccept.lotteryMoney|number:0}}</span>
+            </div>
+            <div class="item item-input">
+                <label class="input-label">&nbsp;提款金额：</label>
+                <input type="text" ng-model="withdrawCtrl.withdrawObj.amount">
+            </div>
+            <div class="item item-input item-select" data-tap-disabled="true">
+                <label class="input-label">&nbsp;收款卡号：</label>
+                <!--<select ng-model="withdrawCtrl.withdrawObj.cid">-->
+                    <!--<option value="{{item.id}}" ng-repeat="item in withdrawCtrl.bankAccept.cList" ng-selected="item.id==withdrawCtrl.withdrawObj.cid">{{item.bankName}}{{item.cardId}}{{item.cardName}}</option>-->
+                <!--</select>-->
+                <select ng-model="withdrawCtrl.withdrawObj.cid" ng-options="item.id as (item.bankName+item.cardId+item.cardName) for item in withdrawCtrl.bankAccept.cList">
+                </select>
+            </div>
+            <div class="item item-input">
+                <label class="input-label">&nbsp;资金密码：</label>
+                <input type="password" ng-model="withdrawCtrl.withdrawObj.withdrawPwd">
+            </div>
+        </div>
+        <div class="row">
+        	<div class="col col-full">
+        		<button class="button button-block button-positive" on-tap="withdrawCtrl.submitWithdraw()">提交</button>
+        	</div>
+        </div>
+    </ion-content>
+    <commonfooter></commonfooter>
+</div>

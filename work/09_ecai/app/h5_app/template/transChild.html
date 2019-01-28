@@ -1,0 +1,52 @@
+<ion-modal-view>
+    <div class="bar bar-header bar-positive">
+        <h1 class="title">下级转账</h1>
+        <div class="buttons">
+            <button class="button icon ion-close" on-tap="agentCtrl.close_trans()">关闭</button>
+        </div>
+    </div>
+    <ion-content class="has-header has-footer" overflow-scroll="false" has-bouncing="true">
+        <ul class="list">
+            <li class="item item-input">
+                <span class="input-label">充值用户：</span>
+                <span id="username">{{agentCtrl.transInfo.username}}</span>
+            </li>
+            <li class="item item-input">
+                <span class="input-label">昵称：</span>
+                <span id="nickname">{{agentCtrl.transInfo.nickname}}</span>
+            </li>
+            <li class="item item-input">
+                <span class="input-label">密保问题:</span>
+                <span>{{agentCtrl.transInfo.sBean.key}}</span>
+            </li>
+            <li class="item item-input">
+                <span class="input-label">密保答案:</span>
+                <input type="text" ng-model="agentCtrl.transObj.answer">
+            </li>
+            <li class="item item-input item-select" data-tap-disabled="true">
+                <span class="input-label">转账类型:</span>
+                <select ng-model="agentCtrl.transObj.transferType" ng-init="agentCtrl.transObj.transferType=1">
+                    <option value="1" ng-selected="true">充值</option>
+                    <option value="5">活动</option>
+                    <option value="12">分红</option>
+                </select>
+            </li>
+            <li class="item">
+                <p>主账户余额：{{agentCtrl.transInfo.availableMoney|number:2}}</p>
+            </li>
+            <li class="item item-input">
+                <span class="input-label">充值金额:</span>
+                <input type="number" ng-model="agentCtrl.transObj.amount">
+            </li>
+            <li class="item item-input">
+                <span class="input-label">资金密码:</span>
+                <input type="password" ng-model="agentCtrl.transObj.withdrawPwd">
+            </li>
+        </ul>
+        <div class="row">
+            <div class="col col-full">
+                <button class="button button-block button-positive" on-tap="agentCtrl.confirmTrans()">确定</button>
+            </div>
+        </div>
+    </ion-content>
+</ion-modal-view>

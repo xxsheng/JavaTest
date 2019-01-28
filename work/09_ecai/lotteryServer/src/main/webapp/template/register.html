@@ -1,0 +1,66 @@
+<ion-content class="has-header" overflow-scroll="false" has-bouncing="true" ng-controller="registerController as registerCtrl">
+    <div class="logo-login">
+        <img src="../static/images/login/logo-b.png" width="190" height="auto">
+    </div>
+    <form id="login_form">
+        <div class="list list-inset wind-wt">
+            <label class="item item-input">
+                <input type="text" placeholder="用户名" name="username" ng-keypress="oneKeyClearUsernameEvent($event)" ng-model="registerCtrl.registerObj.username" ng-focus="registerCtrl.showUsernameClearBtn = true" ng-blur="registerCtrl.showUsernameClearBtn = false">
+                <i class="icon ion-close-circled placeholder-icon delete-bt" on-tap="registerCtrl.registerObj.username = ''" ng-if="registerCtrl.showUsernameClearBtn == true && registerCtrl.registerObj.username != ''"></i>
+            </label>
+
+            <label class="item item-input">
+                <input type="password" placeholder="登录密码" name="password" ng-keypress="oneKeyClearPasswordEvent($event)" ng-model="registerCtrl.registerObj.password" ng-focus="registerCtrl.showPasswordClearBtn = true" ng-blur="registerCtrl.showPasswordClearBtn = false">
+                <i class="icon ion-close-circled placeholder-icon delete-bt" on-tap="registerCtrl.registerObj.password = ''" ng-if="registerCtrl.showPasswordClearBtn == true && registerCtrl.registerObj.password != ''"></i>
+            </label>
+
+            <label class="item item-input">
+                <input type="password" placeholder="重复密码" name="rePassword" ng-keypress="oneKeyClearRePasswordEvent($event)" ng-model="registerCtrl.registerObj.rePassword" ng-focus="registerCtrl.showRePasswordClearBtn = true" ng-blur="registerCtrl.showRePasswordClearBtn = false">
+                <i class="icon ion-close-circled placeholder-icon delete-bt" on-tap="registerCtrl.registerObj.rePassword = ''" ng-if="registerCtrl.showRePasswordClearBtn == true && registerCtrl.registerObj.rePassword != ''"></i>
+            </label>
+
+            <label class="item item-input">
+                <input type="text" placeholder="验证码" name="checkcode" class="checkcode"  ng-model="registerCtrl.registerObj.checkcode" maxlength="4">
+                <img src="/RegistCode" class="checkcode" id="registercode" on-tap="registerCtrl.refreshCheckCode()">
+            </label>
+
+            <button class="button button-block button-positive" on-tap="registerCtrl.register()">注册</button>
+            <div class="forget">
+                <a href="index.html">已有账号？点击这里直接登录</a>
+            </div>
+        </div>
+    </form>
+</ion-content>
+
+
+
+
+<!--<div class="bar bar-header bar-positive">-->
+    <!--<h1 class="title">天下娱乐注册</h1>-->
+    <!--<a href="http://www.baidu.com" class="button icon ion-headphone" target="_blank">联系客服</a>-->
+<!--</div>-->
+<!--<ion-content class="has-header" overflow-scroll="false" has-bouncing="true" ng-controller="registerController as registerCtrl">-->
+    <!--<form id="login_form">-->
+        <!--<div class="list list-inset">-->
+            <!--<label class="item item-input">-->
+                <!--<input type="text" placeholder="用户名" name="username" ng-keypress="oneKeyClearUsernameEvent($event)" ng-model="registerCtrl.registerObj.username" ng-focus="registerCtrl.showUsernameClearBtn = true" ng-blur="registerCtrl.showUsernameClearBtn = false">-->
+                <!--<i class="icon ion-close-circled placeholder-icon p05" on-tap="registerCtrl.registerObj.username = ''" ng-if="registerCtrl.showUsernameClearBtn == true && registerCtrl.registerObj.username != ''"></i>-->
+            <!--</label>-->
+
+            <!--<label class="item item-input">-->
+                <!--<input type="password" placeholder="密码" name="password" ng-keypress="oneKeyClearPasswordEvent($event)" ng-model="registerCtrl.registerObj.password" ng-focus="registerCtrl.showPasswordClearBtn = true" ng-blur="registerCtrl.showPasswordClearBtn = false">-->
+                <!--<i class="icon ion-close-circled placeholder-icon p05" on-tap="registerCtrl.registerObj.password = ''" ng-if="registerCtrl.showPasswordClearBtn == true && registerCtrl.registerObj.password != ''"></i>-->
+            <!--</label>-->
+
+            <!--<label class="item item-input">-->
+                <!--<input type="text" placeholder="验证码" name="checkcode"  ng-model="registerCtrl.registerObj.checkcode" maxlength="4">-->
+                <!--<img src="/RegistCode" class="checkcode" id="registercode" on-tap="registerCtrl.refreshCheckCode()">-->
+            <!--</label>-->
+
+            <!--<button class="button button-block button-positive" on-tap="registerCtrl.register()">注册</button>-->
+        <!--</div>-->
+    <!--</form>-->
+<!--</ion-content>-->
+<!--<div class="bar bar-footer bar-positive">-->
+    <!--<div class="title"><a href="index.html">已有账号，登录</a></div>-->
+<!--</div>-->

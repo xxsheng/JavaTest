@@ -1,0 +1,13 @@
+<div ng-controller="lotteryTrendController">
+    <div class="bar bar-header bar-positive">
+        <div class="buttons">
+            <button class="button" on-tap="appCtrl.goback()"><i class="icon ion-arrow-left-a"></i></button>
+        </div>
+        <h1 class="title">{{lotteryId}}</h1>
+    </div>
+
+	<ion-content class="has-header has-footer" overflow-scroll="false" has-bouncing="true">
+	    <ion-refresher pulling-text="下拉刷新" on-refresh="refresh()"></ion-refresher>
+	</ion-content>
+</div>
+<commonfooter></commonfooter>

@@ -1,0 +1,13 @@
+<div class="ssc-list-f">
+    <ion-content overflow-scroll="false" has-bouncing="true">   
+        <div class="lt-list-c">
+            <div class="ssc-list-c clearfix" ng-repeat="item in betCtrl.gameMethods">
+                <div>{{item.title}}</div>
+                <ul id="subplaylist">
+                    <li class="playitem" ng-repeat="subitem in item.columns" data-parent={{item.parentname}} data-method={{subitem.shortname}}>{{subitem.showname}}</li>
+                </ul>
+            </div>
+ 
+        </div>
+    </ion-content>
+</div>

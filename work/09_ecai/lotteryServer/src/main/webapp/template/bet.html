@@ -1,0 +1,272 @@
+<ion-side-menus>
+    <!-- 中间内容 -->
+    <div ng-controller="betController as betCtrl">
+        <ion-side-menu-content>
+            <div class="ssc-container" id="betContainer">
+                <div class="bar bar-header bar-positive">
+                    <button class="button icon ion-navicon" on-tap="betCtrl.toggleLeftSideMenu()"></button>
+                    <h1 on-tap="betCtrl.opencpPopover()" class="title">{{::betCtrl.lottery.showName}} <i class="icon ion-arrow-down-b"></i>
+                <input type="hidden" id="gameId" value="{{betCtrl.lottery.id}}">
+                </h1>
+                    <button class="button icon ion-clipboard tracerecord" on-tap="appCtrl.goto('/betrecord/lottery')"></button>
+                </div>
+                <ion-content class="has-header has-footer2" overflow-scroll="false" has-bouncing="true">
+                    <!--下拉刷新-->
+                    <ion-refresher pulling-text="下拉刷新" on-refresh="betCtrl.refresh()"></ion-refresher>
+                    <div class="ssc-nav">
+                        <div class="row">
+                            <div class="col col-full" on-tap="betCtrl.openPopover()">
+                                <span>{{betCtrl.currentGame.cname_cn}}</span>
+                                <i class="icon ion-chevron-right icon-size12"></i>
+                                <span>{{betCtrl.currentGame.name_cn}}</span>
+                                <input type="hidden" id="method" value="{{betCtrl.currentGame.method}}">
+                                <input type="hidden" id="isrx" value="{{betCtrl.currentGame.isrx}}">
+                                <input type="hidden" id="cptype" value="{{betCtrl.currentGame.cptype}}">
+                                <i class="icon ion-chevron-right icon-size12"></i>
+                                <i class="pull-right icon ion-arrow-down-b fs16"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ssc-issue" id="collopseHistory">
+                        <div class="row">
+                            <div class="col col-full">
+                                <span ng-if="!betCtrl.hideexpect">第&nbsp;<strong class="text-red" id="issue">{{betCtrl.server.expect}}</strong>&nbsp;期</span>
+                                <span ng-if="!betCtrl.hideexpect">截止时间:&nbsp;<i class="icon ion-clock"></i>&nbsp;<strong id="countdown" class="text-red">{{timer}}</strong></span>
+                                <i class="pull-right icon ion-arrow-down-b fs16" id="collopseIcon"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cq-open-his-c hidden" id="collopse">
+                        <div class="head">
+                            <ul>
+                                <li>开奖期号</li>
+                                <li>开奖号码</li>
+                            </ul>
+                        </div>
+                        <div class="code">
+                            <ul ng-repeat="item in betCtrl.historyNumbers|limitTo:5" class="lottery-{{betCtrl.lottery.shortName}}">
+                                <li>{{item.expect}}</li>
+                                <li>{{item.code}}</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="bet-area" id="betArea">
+                        <div class="row">
+                            <div class="col col-full playintro">
+                                <span>玩法奖金：<strong class="text-red">{{betCtrl.currentGame.prize|number:3}}</strong>元</span>
+                                <span class="pull-right" on-tap="betCtrl.openIntro()">玩法介绍</span>
+                                <div class="cqssc-intrologo pull-right"></div>
+                            </div>
+                        </div>
+                        <!--投注区域-->
+                        <div class="cp-bet" ng-if="betCtrl.booleanObj.isInput">
+                            <div id="selposition" class="sel-position selposition num-selposition" ng-if="betCtrl.booleanObj.isRXinput">
+                                <ul class="clearfix">
+                                    <li ng-repeat="item in betCtrl.rxarray track by $index">
+                                        <div data-position="{{item.id}}" ng-class="{'active':item.id==='1'}">{{item.title}}</div>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="ssc-lottery ssc-digital" ng-repeat="item in betCtrl.layout">
+                                <div>
+                                    <div class="num-type-name">{{item.title}}</div>
+                                    <ul class="ssc-num-typeul quick" id="quickpick" ng-if="betCtrl.booleanObj.isTools&&item.title!='胆码'">
+                                        <li data-command="all">
+                                            <div>全</div>
+                                        </li>
+                                        <li data-command="big">
+                                            <div>大</div>
+                                        </li>
+                                        <li data-command="small">
+                                            <div>小</div>
+                                        </li>
+                                        <li data-command="single">
+                                            <div>奇</div>
+                                        </li>
+                                        <li data-command="double">
+                                            <div>偶</div>
+                                        </li>
+                                        <li data-command="clean">
+                                            <div>清</div>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <ul class="lottery-num-ul clearfix" data-maxpic={{item.maxpic}} data-enname={{item.title_en}} ng-class="{'lt-teshuhao':betCtrl.booleanObj.isSpecial}">
+                                    <li ng-if="item.showBallsAsValue" class="ball text" data-enname={{item.title_en}} ng-repeat="citem in item.nums" data-val={{citem}}>
+                                        <div class="ball-num">{{citem}}</div>
+                                    </li>
+                                    <li ng-if="!item.showBallsAsValue" class="ball text" data-enname={{item.title_en}} ng-repeat="citem in item.nums" data-val={{citem|valueFiler}}>
+                                        <div class="ball-num">{{citem}}</div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="cp-bet" ng-if="!betCtrl.booleanObj.isInput">
+                            <div class="ssc-lottery ssc-input lt-input-view">
+                                <div>
+                                    <div class="num-type-name">手动输入</div>
+                                    <ul id="selposition" class="ssc-inp-place selposition" ng-if="betCtrl.booleanObj.isRXinput">
+                                        <li ng-repeat="item in betCtrl.rxarray track by $index">
+                                            <div data-position="{{item.id}}" ng-class="{'active':item.id==='1'}">{{item.title}}</div>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="input-textarea clearfix">
+                                    <!-- <div class="sel-position-inp " ng-if="betCtrl.booleanObj.isRXinput">您选择了<span>0</span>个位置，系统根据位置组合成<span>0</span>个方案</div> -->
+                                    <textarea id="textarea" class="input-bet-num" placeholder="说明：每一注号码之间的间隔符支持 回车 空格[] 逗号[,]"></textarea>
+                                    <div on-tap="betCtrl.clearText()" class="input-clear">清除文本框</div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--倍数模式-->
+                        <div class="ssc-b-m">
+                            <div class="ssc-beishu">
+                                <div>倍数</div>
+                                <div class="min-plus">
+                                    <div id="minus" class="icon-minus">-</div>
+                                    <input class="multiple-text" id="multiple" name="multiple" contenteditable="true" value="1">
+                                    <div id="plus" class="icon-plus">+</div>
+                                </div>
+                            </div>
+                            <div class="ssc-moshi">
+                                <div>模式</div>
+                                <div class="yuan-jiao-fen" id="yjfl">
+                                    <div data-value="0.5" data-val="1yuan" id="model_1yuan">1元</div>
+                                   <!--  <div data-value="0.05" data-val="1jiao" id="model_1jiao">1角</div>
+                                    <div data-value="0.005" data-val="1fen" id="model_1fen">1分</div>
+                                    <div data-value="0.0005" data-val="1li" id="model_1li">1厘</div> -->
+                                    <div data-value="1" data-val="yuan" class="active" id="model_yuan">2元</div>
+                                    <!-- <div data-value="0.1" data-val="jiao" id="model_jiao">2角</div>
+                                    <div data-value="0.01" data-val="fen" id="model_fen">2分</div>
+                                    <div data-value="0.001" data-val="li" id="model_li">2厘</div> -->
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bet-cnt-btns">
+                            <div class="bet-c-btn1" on-tap="betCtrl.quickbet()">一键投注</div>
+                            <div class="bet-c-btn2" on-tap="betCtrl.allbet()">唆哈投注</div>
+                        </div>
+                        <div>
+                            <label class="item range">
+                                <span id="prize_group"></span>
+                                <input type="range" step="2" min="1800" value="1954" max="1954" id="modeajust">
+                                <span id="point">0.0%</span>
+                            </label>
+                        </div>
+                    </div>
+                </ion-content>
+                <div class="cqssc-footer">
+                    <ul class="hall-ft-ul">
+                        <li id="add_to_cart">
+                            <div class="add-icon"></div>
+                            <div class="add-cart-txt">
+                                <span class="f15"><span id="nums" data-field="num">0</span><span class="text-white">注</span><span data-field="multiple">1</span><span class="text-white">倍</span><span id="total" data-field="total">0.0000</span> <span class="text-white">元</span></span>
+                            </div>
+                        </li>
+                        <li>
+                            <div></div>
+                            <div class="lh-cart" id="gotoCart">
+                                <div>
+                                    <div>号码篮</div>
+                                    <div id="cart-note-num" class="cart-note-num hidden">0</div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </ion-side-menu-content>
+        <!-- 左侧菜单 -->
+        <ion-side-menu side="left" class="sidemenu">
+            <div class="side_container">
+                <div class="col center-block balance ">
+                    <span>账户余额:</span>
+                    <p>{{betCtrl.globalData.lotteryMoney + betCtrl.globalData.totalMoney|number:2}}</p>
+                </div>
+                <div class="row menu-leftb">
+                    <div class="col col-25" on-tap="appCtrl.goto('home')">
+                        <div class="box">
+                            <div class="side-h-logo"></div>
+                            <span>首页</span>
+                        </div>
+                    </div>
+                    <div class="col col-25" on-tap="appCtrl.goto('member')">
+                        <div class="box">
+                            <div class="side-u-logo"></div>
+                            <span>用户</span>
+                        </div>
+                    </div>
+                    <div class="col col-25" on-tap="appCtrl.goto('recentopen')">
+                        <div class="box">
+                            <div class="side-op-logo"></div>
+                            <span>开奖</span>
+                        </div>
+                    </div>
+                    <div class="col col-25" on-tap="appCtrl.routeto('promotion', 'wheel')">
+                        <div class="box">
+                            <div class="side-at-logo"></div>
+                            <span>活动</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row  menu-leftb">
+                    <div class="col col-25" on-tap="appCtrl.goto('charge')">
+                        <div class="box">
+                            <div class="side-pay-logo"></div>
+                            <span>充值</span>
+                        </div>
+                    </div>
+                    <div class="col col-25" on-tap="appCtrl.goto('withdraw')">
+                        <div class="box">
+                            <div class="side-t-logo"></div>
+                            <span>提现</span>
+                        </div>
+                    </div>
+                    <div class="col col-25" on-tap="appCtrl.goto('transfer')">
+                        <div class="box">
+                            <div class="side-tr-logo"></div>
+                            <span>余额转入</span>
+                        </div>
+                    </div>
+                    <div class="col col-25" on-tap="appCtrl.goto('transfer_account')">
+                        <div class="box">
+                            <div class="side-tr-logo"></div>
+                            <span>转账中心</span>
+                        </div>
+                    </div>
+                    <!--<div class="col col-25">
+                        <div class="box ">
+                            <a href="https://chat56.live800.com/live800/chatClient/chatbox.jsp?companyID=971030&configID=161674&jid=2828750180&s=1" target="_blank">
+                                <div class="side-ser-logo "></div>
+                                <span>客服</span>
+                            </a>
+                        </div>
+                    </div>-->
+                </div>
+                <ul class="side-list-ul">
+                    <li on-tap="appCtrl.goto('/report/lottery')">
+                        <div class="side-myp">我的报表</div>
+                    </li>
+                    <li on-tap="appCtrl.goto('/betrecord/lottery')">
+                        <div class="side-ber ">投注记录</div>
+                    </li>
+                    <li on-tap="appCtrl.goto('/betrecord/trace')">
+                        <div class="side-tra ">追号记录</div>
+                    </li>
+                    <li on-tap="appCtrl.goto('/chargeRecord/charge')">
+                        <div class="side-payr ">充值记录</div>
+                    </li>
+                    <li on-tap="appCtrl.goto('/chargeRecord/withdraw')">
+                        <div class="side-cah ">提现记录</div>
+                    </li>
+                    <li on-tap="appCtrl.goto('/message/inbox')">
+                        <div class="side-msg">消息中心</div>
+                    </li>
+                    <li on-tap="appCtrl.logout()">
+                        <div class="side-tc">退出</div>
+                    </li>
+                </ul>
+            </div>
+        </ion-side-menu>
+    </div>
+</ion-side-menus>

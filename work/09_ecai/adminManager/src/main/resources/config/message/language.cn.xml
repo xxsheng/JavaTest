@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+	<!-- 
+		A-B
+		前面的A代表信息类型: 0/1/2 0:正确信息 1:错误信息 2:返回值信息
+		后面的B代表信息内容: 保留1000内的信息 表示系统固定异常
+	-->
+	<entry key="0-1"><![CDATA[登录成功！]]></entry>
+	<entry key="0-2"><![CDATA[退出成功！]]></entry>
+	<entry key="0-3"><![CDATA[查询成功！]]></entry>
+	<entry key="0-4"><![CDATA[上传成功！]]></entry>
+	<entry key="0-5"><![CDATA[操作成功！]]></entry>
+	<entry key="0-6"><![CDATA[保存成功！]]></entry>
+
+	<entry key="1-1"><![CDATA[登录失败！]]></entry>
+	<entry key="1-2"><![CDATA[退出失败！]]></entry>
+	<entry key="1-3"><![CDATA[查询失败！]]></entry>
+	<entry key="1-4"><![CDATA[上传失败！]]></entry>
+	<entry key="1-5"><![CDATA[操作失败！]]></entry>
+	<entry key="1-6"><![CDATA[保存失败！]]></entry>
+	<entry key="1-7"><![CDATA[数据不存在！]]></entry>
+	<entry key="1-8"><![CDATA[非法数据！]]></entry>
+
+	<entry key="2-1"><![CDATA[未知错误！]]></entry>
+	<entry key="2-2"><![CDATA[参数错误！]]></entry>
+	<entry key="2-3"><![CDATA[用户名或密码错误！]]></entry>
+	<entry key="2-4"><![CDATA[您没有权限进行此操作，请联系管理员！]]></entry>
+	<entry key="2-5"><![CDATA[登录密码错误！]]></entry>
+	<entry key="2-6"><![CDATA[您还没有登录！]]></entry>
+	<entry key="2-7"><![CDATA[用户已存在！]]></entry>
+	<entry key="2-8"><![CDATA[请填写合法的数字！]]></entry>
+	<entry key="2-9"><![CDATA[请填写正确的返点！]]></entry>
+	<entry key="2-10"><![CDATA[您没有登录权限，请联系管理员！]]></entry>
+	<entry key="2-11"><![CDATA[旧密码输入错误！]]></entry>
+	<entry key="2-12"><![CDATA[资金密码输入错误！]]></entry>
+	<entry key="2-21"><![CDATA[账号冻结！]]></entry>
+	<entry key="2-22"><![CDATA[密码输入错误3次,系统已经自动冻结！]]></entry>
+	<entry key="2-23"><![CDATA[您的ip不允许登录！]]></entry>
+	<entry key="2-24"><![CDATA[Google动态密码错误!]]></entry>
+	<entry key="2-25"><![CDATA[您已绑定Google动态密码!]]></entry>
+	<entry key="2-26"><![CDATA[所在角色已被禁用,无法登录!]]></entry>
+	<entry key="2-27"><![CDATA[请先绑定谷歌!]]></entry>
+	<entry key="2-28"><![CDATA[参数重复!]]></entry>
+	<entry key="2-29"><![CDATA[您即将修改的数据与原数据一致，无需修改!]]></entry>
+	<entry key="2-30"><![CDATA[请输入备注!]]></entry>
+	<entry key="2-31"><![CDATA[内部招商账号请使用管理员进行操作!]]></entry>
+	<entry key="2-32"><![CDATA[用户不存在!]]></entry>
+	<entry key="2-33"><![CDATA[不允许操作总账号!]]></entry>
+	<entry key="2-34"><![CDATA[不允许操作关联账号!]]></entry>
+	<entry key="2-35"><![CDATA[备注过长!]]></entry>
+	<entry key="2-36"><![CDATA[不允许操作该内部招商账号!]]></entry>
+	<entry key="2-37"><![CDATA[该操作必须使用管理员账号操作!]]></entry>
+	<entry key="2-38"><![CDATA[数据处于非法状态，不可操作!]]></entry>
+	<entry key="2-39"><![CDATA[不允许操作该招商账号!]]></entry>
+	<entry key="2-40"><![CDATA[不允许操作该直属账号!]]></entry>
+	<entry key="2-41"><![CDATA[资金密码设置过于简单，不允许使用!]]></entry>
+	<entry key="2-42"><![CDATA[登录密码设置过于简单，不允许使用!]]></entry>
+	<entry key="2-43"><![CDATA[请先解锁您的资金密码!]]></entry>
+
+	<entry key="2-1011"><![CDATA[银行卡开户行不能为空！]]></entry>
+	<entry key="2-1012"><![CDATA[银行卡姓名不能为空！]]></entry>
+	<entry key="2-1013"><![CDATA[银行卡号不能为空！]]></entry>
+	<entry key="2-1014"><![CDATA[银行卡号填写有误，请核对后重新输入！]]></entry>
+	<entry key="2-1015"><![CDATA[该银行卡已被其他用户所绑定！]]></entry>
+	<entry key="2-1016"><![CDATA[该账号没有完善绑定资料！]]></entry>
+
+	<entry key="2-2012"><![CDATA[上级用户必须为代理！]]></entry>
+	<entry key="2-2013"><![CDATA[上级代理用户不存在！]]></entry>
+	<entry key="2-2014"><![CDATA[返点必须高于自身返点！]]></entry>
+	<entry key="2-2015"><![CDATA[返点必须不高于上级返点！]]></entry>
+	<entry key="2-2016"><![CDATA[代理级别不够，不能分配高于代理级别的配额！]]></entry>
+	<entry key="2-2017"><![CDATA[配额必须高于代理已分配的配额！]]></entry>
+	<entry key="2-2018"><![CDATA[玩家无法分配配额！]]></entry>
+	<entry key="2-2019"><![CDATA[该订单不存在或已经处理完成！]]></entry>
+	<entry key="2-2020"><![CDATA[该订单未被锁定，请先锁定后在处理！]]></entry>
+	<entry key="2-2021"><![CDATA[该订单已被其他用户锁定！]]></entry>
+	<entry key="2-2022"><![CDATA[系统检测到该用户存在刷活动嫌疑！]]></entry>
+	<entry key="2-2023"><![CDATA[该订单未通过审核！]]></entry>
+	<entry key="2-2024"><![CDATA[暂不允许从上级转移到下级！]]></entry>
+	<entry key="2-2025"><![CDATA[待转移线路已经是目标线路直属下级了,不需要再进行转移操作！]]></entry>
+	<entry key="2-2026"><![CDATA[不允许创建该账号等级！]]></entry>
+	<entry key="2-2027"><![CDATA[打款状态必须为正在打款！]]></entry>
+	<entry key="2-2028"><![CDATA[待转会员余额不足，可用余额为%s！]]></entry>
+	<entry key="2-2029"><![CDATA[用户名只能输入字母开头的6~12位字符！]]></entry>
+
+	<entry key="2-2100"><![CDATA[开奖号码格式错误！]]></entry>
+	<entry key="2-2101"><![CDATA[还没有过销售期，不能手动添加开奖号码！]]></entry>
+	<entry key="2-2102"><![CDATA[您必须先设置腾讯分分彩%s的开奖号码，否则系统无法判断是否应撤单！]]></entry>
+
+	<entry key="2-2200"><![CDATA[您选择的彩种已经配置了限额！]]></entry>
+	<entry key="2-2201"><![CDATA[您输入的用户名不存在！]]></entry>
+	<entry key="2-2202"><![CDATA[您输入的关联上级不存在！]]></entry>
+	<entry key="2-2203"><![CDATA[不能关联系统总账号%s！]]></entry>
+	<entry key="2-2204"><![CDATA[请输入关联会员！]]></entry>
+	<entry key="2-2205"><![CDATA[账号中不能存在上下级关系,无法操作！]]></entry>
+	<entry key="2-2206"><![CDATA[该会员不是关联账号,无法操作！]]></entry>
+	<entry key="2-2207"><![CDATA[最多关联%s个会员！]]></entry>
+	<entry key="2-2208"><![CDATA[账号%s不是内部招商账号！]]></entry>
+	<entry key="2-2209"><![CDATA[请输入大于等于0小于等于1的关联返点百分比！]]></entry>
+	<entry key="2-2210"><![CDATA[不允许关联会员本身！]]></entry>
+	<entry key="2-2211"><![CDATA[不允许重复关联！]]></entry>
+	<entry key="2-2212"><![CDATA[您输入的关联会员%s不存在！]]></entry>
+	<entry key="2-2213"><![CDATA[关联会员中%s是%s的上级,无法操作！]]></entry>
+
+	<entry key="2-1000"><![CDATA[充值成功，但账单写入失败！]]></entry>
+
+	<entry key="2-3000"><![CDATA[用户处于非正常状态，不可发放！]]></entry>
+	<entry key="2-3001"><![CDATA[数据不存在或非可操作状态！]]></entry>
+	<entry key="2-3002"><![CDATA[该分红账单目前并无欠款或已经由系统扣发，不可操作！]]></entry>
+	<entry key="2-3003"><![CDATA[您必须先审核其上级%s的分红账单！]]></entry>
+	<entry key="2-3004"><![CDATA[该数据已审核！]]></entry>
+	<entry key="2-3005"><![CDATA[暂只支持拒绝内部招商账号的分红账单！]]></entry>
+	<entry key="2-3006"><![CDATA[日结比例不在范围值内！]]></entry>
+	<entry key="2-3007"><![CDATA[该用户已拥有契约日结配置！]]></entry>
+	<entry key="2-3008"><![CDATA[未找到上级契约日结配置！]]></entry>
+	<entry key="2-3009"><![CDATA[分红条款错误！]]></entry>
+	<entry key="2-3010"><![CDATA[该用户已拥有契约分红配置！]]></entry>
+	<entry key="2-3011"><![CDATA[未找到上级契约分红配置！]]></entry>
+	<entry key="2-3012"><![CDATA[无法编辑,请确认该用户账号等级是否正确！（注：上下级最多相差1个等级）]]></entry>
+	<entry key="2-3013"><![CDATA[该用户不是招商，无法操作！]></entry>
+
+	<entry key="2-4000"><![CDATA[代付请求失败,发生未知异常,系统不会修改订单,请前往第三方后台查询订单状态！]]></entry>
+	<entry key="2-4001"><![CDATA[代付请求失败,连接异常,请前往第三方后台查询订单状态！]]></entry>
+	<entry key="2-4002"><![CDATA[代付请求失败,第三方返回：%s！]]></entry>
+	<entry key="2-4003"><![CDATA[代付请求失败,签名异常！]]></entry>
+	<entry key="2-4004"><![CDATA[代付请求失败,用户姓名为空！]]></entry>
+	<entry key="2-4005"><![CDATA[代付请求失败,备注过长！]]></entry>
+	<entry key="2-4006"><![CDATA[代付请求失败,请求发送成功但返回数据为空！]]></entry>
+	<entry key="2-4007"><![CDATA[代付请求失败,请求发送成功但解析返回数据失败,%s！]]></entry>
+	<entry key="2-4008"><![CDATA[代付请求成功,但返回数据签名与服务器签名不匹配,系统自动将单改为成功,请前往第三方后台查询订单状态！]]></entry>
+	<entry key="2-4009"><![CDATA[代付请求成功,但银行未处理,系统自动将单改为成功,请前往第三方后台查询订单状态！]]></entry>
+	<entry key="2-4010"><![CDATA[代付请求成功,但银行处理失败,系统自动将单改为成功,请前往第三方后台查询订单状态！]]></entry>
+	<entry key="2-4011"><![CDATA[代付请求失败,未找到用户银行卡！]]></entry>
+	<entry key="2-4012"><![CDATA[代付请求失败,不支持该类银行卡,请手动处理！]]></entry>
+	<entry key="2-4013"><![CDATA[代付请求成功,但出现未知银行状态%s,系统自动将单改为成功,请前往第三方后台查询订单状态！]]></entry>
+	<entry key="2-4014"><![CDATA[代付请求成功,但返回空订单号,系统不会修改订单,请前往第三方后台查询订单状态！]]></entry>
+	<entry key="2-4015"><![CDATA[未找到通道编码为%s的支付渠道配置！]]></entry>
+	<entry key="2-4016"><![CDATA[刷新间隔不能低于3秒！]]></entry>
+	<entry key="2-4017"><![CDATA[订单正在代付中，无法再次代付！]]></entry>
+
+	<entry key="2-7000"><![CDATA[创建PT用户失败，用户名已存在，请重试！]]></entry>
+	<entry key="2-7001"><![CDATA[用户在PT方不存在，请重试！]]></entry>
+	<entry key="2-7002"><![CDATA[用户在PT方被冻结，请重试！]]></entry>
+	<entry key="2-7003"><![CDATA[您当前不允许使用PT，请重试！]]></entry>
+	<entry key="2-7004"><![CDATA[连接PT时发生未知错误，请重试！]]></entry>
+	<entry key="2-7005"><![CDATA[PT余额不足！]]></entry>
+	<entry key="2-7006"><![CDATA[重复转账单，请重试！]]></entry>
+	<entry key="2-7007"><![CDATA[暂不支持的平台！]]></entry>
+	<entry key="2-7008"><![CDATA[参数不完整！]]></entry>
+	<entry key="2-7009"><![CDATA[平台PT余额不足，请重试！]]></entry>
+
+	<entry key="2-8000"><![CDATA[连接AG时发生未知错误,请重试！]]></entry>
+	<entry key="2-8001"><![CDATA[连接AG时发生网络错误,请重试！]]></entry>
+	<entry key="2-8002"><![CDATA[创建AG账号失败,可能是密码不正确或账号已存在！]]></entry>
+	<entry key="2-8003"><![CDATA[您的用户在AG方不存在,请联系客服！]]></entry>
+	<entry key="2-8004"><![CDATA[重复转账,请稍候再试！]]></entry>
+	<entry key="2-8005"><![CDATA[余额不足,无法转账！]]></entry>
+	<entry key="2-8006"><![CDATA[%s]]></entry>
+	<entry key="2-8007"><![CDATA[无效的转账金额]]></entry>
+	<entry key="2-8008"><![CDATA[转账失败,请稍候再试！]]></entry>
+	<entry key="2-8009"><![CDATA[只能输入整数！]]></entry>
+	<entry key="2-8010"><![CDATA[需首次登录游戏！]]></entry>
+	<entry key="2-8011"><![CDATA[密码长度为6-16位！]]></entry>
+</properties>

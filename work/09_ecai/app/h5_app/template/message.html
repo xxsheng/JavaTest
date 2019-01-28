@@ -1,0 +1,72 @@
+<div class="ssc-container" ng-controller="messageController as messageCtrl">
+    <div class="bar bar-header bar-positive">
+        <div class="buttons">
+            <button class="button" on-tap="appCtrl.goback()"><i class="icon ion-arrow-left-a"></i></button>
+        </div>
+        <h1 class="title">消息中心</h1>
+    </div>
+    <div class="tabs tabs-top record-top" id="betrecord">
+        <a class="tab-item inbox bet" data-type="inbox" href="#/message/inbox">收件箱</a>
+        <a class="tab-item outbox" data-type="outbox" href="#/message/outbox">发件箱</a>
+        <a class="tab-item send" data-type="send" href="#/message/send">发消息</a>
+        <a class="tab-item sysmsg" data-type="sysmsg" href="#/message/sysmsg">系统消息</a>
+    </div>
+    <ion-content class="has-bet-header has-footer" overflow-scroll="false" has-bouncing="true">
+        <!--下拉刷新-->
+        <ion-refresher ng-if="!messageCtrl.showsend" pulling-text="下拉刷新" on-refresh="messageCtrl.reflesh()"></ion-refresher>
+        <div class="messageContainer">
+            <ul class="list" ng-if="messageCtrl.showinbox">
+                <li class="item item-icon-right" ng-repeat="message in messageCtrl.messages">
+                    <p on-tap="messageCtrl.checkDetail(message)">主题:{{message.bean.subject}}</p>
+                    <p on-tap="messageCtrl.checkDetail(message)">收件人：{{message.toUser}}</p>
+                    <p on-tap="messageCtrl.checkDetail(message)">发件时间：{{message.bean.time}}</p>
+                    <p on-tap="messageCtrl.checkDetail(message)">状态：{{message.bean.toStatus|readFilter}}</p>
+                    <p>操作：<button class="button button-positive button-small" on-tap="messageCtrl.delmsg(message.bean.id)">删除</button></p>
+                    <i class="icon ion-ios-arrow-right" on-tap="messageCtrl.checkDetail(message)"></i>
+                </li>
+            </ul>
+            <ul class="list" ng-if="messageCtrl.showoutbox">
+                <li class="item item-icon-right" ng-repeat="message in messageCtrl.messages">
+                    <p on-tap="messageCtrl.checkDetail(message)">主题:{{message.bean.subject}}</p>
+                    <p on-tap="messageCtrl.checkDetail(message)">收件人：{{message.toUser}}</p>
+                    <p on-tap="messageCtrl.checkDetail(message)">发件时间：{{message.bean.time}}</p>
+                    <p on-tap="messageCtrl.checkDetail(message)">状态：{{message.bean.toStatus|readFilter}}</p>
+                    <p>操作：<button class="button button-positive button-small" on-tap="messageCtrl.delmsg(message.bean.id)">删除</button></p>
+                    <i class="icon ion-ios-arrow-right" on-tap="messageCtrl.checkDetail(message)"></i>
+                </li>
+            </ul>
+            <ul class="list" ng-if="messageCtrl.showsend">
+                <ion-radio ng-model="messageCtrl.sendObj.target" ng-value="'upper'">上级代理</ion-radio>
+                <ion-radio ng-model="messageCtrl.sendObj.target" ng-value="'lower'">下级会员</ion-radio>
+                <ion-radio ng-model="messageCtrl.sendObj.target" ng-value="'system'">系统管理员</ion-radio>
+                <div class="item item-input" ng-if="messageCtrl.sendObj.target==='lower'">
+                    <span class="input-label">收件人列表</span>
+                    <input type="text" id="contract_username" value="{{agentCtrl.initData.username}}" placeholder="点击选择" ng-model="messageCtrl.sendObj.toUsers" on-tap="messageCtrl.pickuser()" >
+                </div>
+                <li class="item item-input">
+                    <span>主题：</span>
+                    <input type="text" ng-model="messageCtrl.sendObj.subject">
+                </li>
+                <li class="item item-input">
+                    <span>消息内容：</span>
+                    <textarea name="" ng-model="messageCtrl.sendObj.content"></textarea>
+                </li>
+                <li class="item">
+                    <button class="button button-positive button-block" on-tap='messageCtrl.send()'>发送</button>
+                </li>
+            </ul>
+            <ul class="list" ng-if="messageCtrl.showsysmsg">
+                <li class="item item-icon-right" ng-repeat="message in messageCtrl.messages">
+                    <p on-tap="messageCtrl.checkDetail(message)">类型:{{message.type|systemFilter}}</p>
+                    <p on-tap="messageCtrl.checkDetail(message)">内容：{{message.content}}</p>
+                    <p on-tap="messageCtrl.checkDetail(message)">消息时间：{{message.time}}</p>
+                    <p on-tap="messageCtrl.checkDetail(message)">状态：{{message.status|readFilter}}</p>
+                    <p>操作：<button class="button button-positive button-small" on-tap="messageCtrl.delmsg(message.id)">删除</button></p>
+                    <i class="icon ion-ios-arrow-right" on-tap="messageCtrl.checkSysMessageDetail(message)"></i>
+                </li>
+            </ul>
+        </div>
+        <ion-infinite-scroll ng-if="!messageCtrl.noMorePage&&!messageCtrl.showsend" immediate-check="false" on-infinite="messageCtrl.loadmore(messageCtrl.page)" distance="10%"></ion-infinite-scroll>
+    </ion-content>
+    <commonfooter></commonfooter>
+</div>

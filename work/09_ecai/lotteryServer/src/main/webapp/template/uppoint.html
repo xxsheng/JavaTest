@@ -1,0 +1,36 @@
+<ion-modal-view>
+    <div class="bar bar-header bar-positive">
+        <h1 class="title">配额升点</h1>
+        <button class="button" on-tap="agentCtrl.closePoint()">关闭</button>
+    </div>
+    <ion-content class="has-header has-footer" overflow-scroll="false" has-bouncing="true">
+        <ul class="list card">
+            <li class="item">
+                <span>用户名：</span>
+                <span id="username">{{agentCtrl.pointObj.lBean.username}}</span>
+            </li>
+             <li class="item">
+                <span>账号返点:</span>
+                <span>{{agentCtrl.pointObj.lBean.code}}</span>
+            </li>
+             <li class="item">
+                <span>余额:</span>
+                <span>{{agentCtrl.pointObj.lBean.totalMoney + agentCtrl.pointObj.lBean.lotteryMoney|number:2}}</span>
+            </li>
+        </ul>
+        <div class="list">
+            <div class="item item-input">
+                <span>调整返点</span>
+                <input type="text" id="locatePoint" value="{{agentCtrl.pointObj.lBean.code}}">
+            </div>
+            <div class="item">
+                <span>调整范围<span id="minpoint">{{agentCtrl.pointObj.lBean.code}}</span>~<span id="maxpoint">{{agentCtrl.pointObj.uCode.code}}</span></span>
+            </div>
+        </div>
+        <div class="row">
+                <div class="col col-full">
+                    <button class="button button-block button-positive" on-tap="agentCtrl.cofirmConfig()">确定</button>
+                </div>
+            </div>
+    </ion-content>
+</ion-modal-view>

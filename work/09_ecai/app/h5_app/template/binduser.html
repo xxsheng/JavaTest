@@ -1,0 +1,25 @@
+<div class="pwdContainer" ng-controller='pwdController as pwdCtrl'>
+    <div class="bar bar-header bar-positive">
+        <div class="buttons">
+            <button class="button" on-tap="appCtrl.goback()"><i class="icon ion-arrow-left-a"></i></button>
+        </div>
+        <h1 class="title">绑定账户姓名</h1>
+    </div>
+    <ion-content class="has-header has-footer" overflow-scroll="false" has-bouncing="true">
+    <form id="pwd-manage">
+        <div class="list">
+            <label class="item item-input">
+                <span class="input-label">账户姓名:</span>
+                <input type="text" placeholder="账户姓名" ng-model="pwdCtrl.userObj.withdrawName">
+            </label>
+            <p class="binduserp">温馨提示：为了保障您的资金安全，您所绑定的所有银行卡的持卡人姓名都必须和天下娱乐账户姓名一致，避免盗号者将您的资金转移到盗号者的银行账户！</p>
+            <div class="row">
+                <div class="col col-full">
+                    <button class="button button-block button-positive" on-tap="pwdCtrl.bindUser()">确定绑定</button>
+                </div>
+            </div>
+        </div>
+        </form>
+    </ion-content>
+</div>
+<commonfooter></commonfooter>

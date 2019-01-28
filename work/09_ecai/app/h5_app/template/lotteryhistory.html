@@ -1,0 +1,36 @@
+<div ng-controller="lotteryHistoryController as historyCtrl">
+    <div class="bar bar-header bar-positive">
+        <div class="buttons">
+            <button class="button" on-tap="appCtrl.goback()"><i class="icon ion-arrow-left-a"></i></button>
+        </div>
+        <h1 class="title">{{historyCtrl.lottery.showName}}</h1>
+    </div>
+
+<ion-content class="has-header has-footer" overflow-scroll="false" has-bouncing="true">
+    <ion-refresher pulling-text="下拉刷新" on-refresh="historyCtrl.refresh()"></ion-refresher>
+    <table class="lottery-history-table">
+        <thead>
+            <tr>
+                <th>开奖期号</th>
+                <th>开奖号码</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="item in historyCtrl.records" align="center">
+                <td ng-if="historyCtrl.lottery.id==117">
+                    无
+                </td>
+                <td ng-if="historyCtrl.lottery.id!=117">
+                    {{item.expect}}
+                </td>
+                <td>
+                    <ul on-tap="appCtrl.routeto('bet',{{historyCtrl.lottery.id}})">
+                        <li ng-repeat="ball in item.code.split(',') track by $index">{{ball}}</li>
+                    </ul>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</ion-content>
+</div>
+<commonfooter></commonfooter>

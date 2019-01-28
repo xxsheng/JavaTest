@@ -1,0 +1,50 @@
+/*彩票导航*/
+.aside-wrapper{position:fixed;top:0px;bottom:0;left:0;width:230px;background-color:#777d83;z-index:5;overflow: hidden;}
+.asides-wrapper{position:fixed;top:0px;bottom:0;right:0;width:350px;background-color:#777d83;z-index:5;overflow: hidden;}
+.section-wrapper{position:absolute;top:0px;right:0;bottom:0px;left:230px;overflow:hidden;z-index:3;}
+.aside-wrapper .menu-list{width: 250px;}
+.aside-menu{width: 200px;}
+.aside-wrapper.aside-wrapper .menu{width: 230px;}
+.menu-list{position: absolute;top: 0px;left: 0px;bottom: 0px;overflow: hidden;overflow-y: auto;}
+.aside-menu{height: 50px;background: #4f555d; overflow: hidden;line-height: 50px;color: #bec1c4;position: relative;padding-left: 60px;}
+.aside-menu i{position: absolute;top: 0px;left: 20px;color: #bec1c4;}
+.menu dt{line-height: 50px;height: 50px;position: relative;color: #bec1c4; padding-left: 60px;font-weight: normal;text-align: left;cursor: pointer;}
+.menu dt:hover{background: #62686f;}
+.menu dt img{position: absolute;top: 10px;left: 15px;width: 28px;}
+.menu dt label{position: absolute;top: 0px;left: 15px;}
+.menu dt label i{position: static;top: inherit;right: inherit;}
+.menu dt i{display: inline-block;position: absolute;top: 0px;right: 24px;font-size: 20px;color: #9ba0a3;margin-left: 4px;}
+.menu dd{background: #62686f;padding: 5px 0px;display: none;border-left:2px solid #f30d31;}
+.menu dd a{display: block;line-height: 40px;padding-left: 60px;color: #bec1c4;font-size: 12px;}
+.menu dd a.current{background:#4f555c url("../images/nav8.png") 25px 16px no-repeat;color: #FFFFff;font-size: 12px;background-size: 8px 8px;}
+.menu dd a:hover{color: #fff;}
+.menu dt:hover span{color: #fff;}
+.menu dt.op{color: #FFFFff;background-color: #62686f;border-left:2px solid #f30d31;}
+
+@media (max-width:1360px) {
+    .aside-wrapper{width: 60px;
+        transition:width 0.5s;
+        -moz-transition:width 0.5s;
+        -webkit-transition:width 0.5s;
+        -o-transition:width 0.5s;
+    }
+    .aside-menu,.menu{padding-left: 0px;}
+    .aside-menu span{display: none;}
+    .menu dt{padding: 0px;}
+    .menu dt span,.menu dt i{display: none;}
+    .menu dt label i{display: inline-block;}
+    .menu dd a{padding-left: 13px;white-space: nowrap;text-overflow: ellipsis;overflow: hidden;width: 45px;}
+    .menu dd a.current{background-color: #4f555c; background-image: none;}
+    .aside-wrapper:hover{width: 230px;}
+    .aside-wrapper:hover .menu-list{width: 250px;}
+    .aside-wrapper:hover .aside-menu,.aside-wrapper:hover .menu{width: 230px;}
+    .aside-wrapper:hover .aside-menu{padding-left: 60px;}
+    .aside-wrapper:hover  .menu dd a{width: 100%;}
+    .aside-wrapper:hover  .aside-menu span{display: inline-block;}
+    .aside-wrapper:hover  .menu dt{padding-left: 60px;}
+    .aside-wrapper:hover .menu dt span,.aside-wrapper:hover .menu dt i{display: inline-block;}
+    .aside-wrapper:hover .menu dd a{padding-left: 60px;}
+    .aside-wrapper:hover  .menu dd a.current{background:#4f555c url("../images/nav8.png") 25px 16px no-repeat; background-size: 8px 8px;}
+    .section-wrapper{left: 60px;}
+}
+/*彩票导航*/

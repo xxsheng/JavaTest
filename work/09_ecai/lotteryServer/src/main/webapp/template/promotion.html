@@ -1,0 +1,64 @@
+<div class="promotionContainer" ng-controller="promoController as promoCtrl">
+    <div class="bar bar-header bar-positive">
+        <div class="buttons">
+            <button class="button" on-tap="appCtrl.goback()"><i class="icon ion-arrow-left-a"></i></button>
+        </div>
+        <h1 class="title">幸运大转盘活动</h1>
+    </div>
+
+    <ion-content class="has-header has-footer" overflow-scroll="false" has-bouncing="true">
+        <div class="list card">
+            <img class="full-image" src="/static/images/home/banner4.jpg?v=201712">
+            <div class="item item-text-wrap">
+                <h2>幸运大转盘活动</h2>
+                <p>参与“幸运大转盘”抽奖活动，最高2888等您拿！</p>
+            </div>
+            <div class="item item-body text-center">
+                <table class="table_bordered">
+                    <tbody>
+                        <tr>
+                            <td width="50%">当前消费</td>
+                            <td width="50%"><span class="assertive">{{promoCtrl.data.todayCost|number:0}}</span></td>
+                        </tr>
+                        <tr>
+                            <td>剩余消费</td>
+                            <td><span class="assertive">{{promoCtrl.data.remainCost|number:0}}</span></td>
+                        </tr>
+                        <tr>
+                            <td>中奖金额</td>
+                            <td><span class="assertive">{{promoCtrl.data.todayPrize|number:0}}</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="row clearfix mt20">
+                    <button class="button button-block button-positive" ng-if="promoCtrl.data.enabled === true && promoCtrl.data.todayDrew === false && promoCtrl.data.remainCost <= 0" on-tap="promoCtrl.doWheel()">立即抽奖</button>
+                    <button class="button button-block button-assertive" ng-if="promoCtrl.data.enabled === true && promoCtrl.data.todayDrew === false && promoCtrl.data.remainCost > 0">消费未达标</button>
+                    <button class="button button-block button-assertive" ng-if="promoCtrl.data.enabled === true && promoCtrl.data.todayDrew === true">今日已参与</button>
+                    <button class="button button-block button-assertive" ng-if="promoCtrl.data.enabled === false">活动未开启</button>
+                </div>
+            </div>
+            <div class="item item-body">
+                <h3>活动详情</h3>
+                <p>本平台所有会员，消费满10000元，即可参与“幸运大转盘”抽奖活动，最高2888等您拿！</p>
+                <h3>活动说明</h3>
+                <p>
+                    1. 会员消费10,000元以上即可参与幸运大转盘抽奖活动，100%中奖，抽奖金额18-2888不等。
+                </p>
+                <p>
+                    2. 满足活动要求后，必须在当天参与活动，隔天则自动清零并重新计算。
+                </p>
+                <p>
+                    3. 禁止同IP多账户参与此活动（同一IP只限一个账户参与此活动）。
+                </p>
+                <p>
+                    4. 活动只针对彩票流水，真人视讯和老虎机流水不计算在内。
+                </p>
+                <p>
+                    5. 天下娱乐保留对活动的最终解释权和修改权，祝大家游戏愉快。
+                </p>
+            </div>
+        </div>
+    </ion-content>
+    <commonfooter></commonfooter>
+</div>
+

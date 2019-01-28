@@ -1,0 +1,19 @@
+<div ng-controller="recentOpenController as recentCtrl">
+<div class="bar bar-header bar-positive">
+    <h1 class="title">开奖号码</h1>
+</div>
+<ion-content class="has-header has-footer" overflow-scroll="false" has-bouncing="true">
+    <div class="openlottery-item" ng-repeat="item in recentCtrl.openList">
+        <div>
+            <div on-tap="appCtrl.routeto('lotteryhistory',{{item.lotteryId}})">{{item.name}}&nbsp;&nbsp;&nbsp;<span ng-if="item.lotteryId!=117">第&nbsp;<span class="op-g-issue">{{item.expect}}</span>&nbsp;期</span>
+            </div>
+            <div on-tap="appCtrl.routeto('bet',{{item.lotteryId}})">前往投注</div>
+        </div>
+        <div class="clearfix">
+            <div class="common-ball active" ng-repeat="ball in item.balls track by $index" on-tap="appCtrl.routeto('lotteryhistory',{{item.lotteryId}})">{{ball}}</div>
+        </div>
+        <!-- <a href="javascript:;" ng-click="appCtrl.routeto('trend',{{item.lotteryId}})" class="button button-small button-assertive icon-left ion-ios-pulse trendBtn">走势图</a> -->
+    </div>
+</ion-content>
+</div>
+<commonfooter></commonfooter>

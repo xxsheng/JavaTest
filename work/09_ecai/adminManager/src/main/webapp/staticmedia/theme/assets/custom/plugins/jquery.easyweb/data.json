@@ -1,0 +1,11 @@
+{
+	"error": 0,
+	"totalCount": 1000,
+	"data": [{
+		"name": "zhangsan",
+		"age": 28
+	}, {
+		"name": "lisi",
+		"age": 22
+	}]
+}

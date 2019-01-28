@@ -1,0 +1,54 @@
+<ion-modal-view>
+<div class="bar bar-header bar-positive">
+    <h1 class="title">详细内容</h1>
+    <button class="button" on-tap="messageCtrl.close_message()">关闭</button>
+</div>
+<ion-content class="has-header has-footer" overflow-scroll="false" has-bouncing="true">
+    <div class="list card" ng-if="messageCtrl.showinbox">
+        <div class="item">
+            <span>收件人:</span>
+            <span>{{messageCtrl.messageObj.toUser}}</span>
+        </div>
+        <div class="item">
+            <span>标题:</span>
+            <span>{{messageCtrl.messageObj.bean.subject}}</span>
+        </div>
+        <div class="item item-text-wrap">
+            <span>内容:</span>
+            <span>{{messageCtrl.messageObj.bean.content}}</span>
+        </div>
+        <div class="item">
+            <span>时间:</span>
+            <span>{{messageCtrl.messageObj.bean.time}}</span>
+        </div>
+    </div>
+    <div class="list card" ng-if="messageCtrl.showoutbox">
+        <div class="item">
+            <span>发件人:</span>
+            <span>{{messageCtrl.messageObj.toUser}}</span>
+        </div>
+        <div class="item">
+            <span>标题:</span>
+            <span>{{messageCtrl.messageObj.bean.subject}}</span>
+        </div>
+        <div class="item item-text-wrap">
+            <span>内容:</span>
+            <span>{{messageCtrl.messageObj.bean.content}}</span>
+        </div>
+        <div class="item">
+            <span>时间:</span>
+            <span>{{messageCtrl.messageObj.bean.time}}</span>
+        </div>
+    </div>
+    <div class="list card" ng-if="messageCtrl.showsysmsg">
+        <div class="item item-text-wrap">
+            <span>内容:</span>
+            <span>{{messageCtrl.messageObj.content}}</span>
+        </div>
+        <div class="item">
+            <span>时间:</span>
+            <span>{{messageCtrl.messageObj.time}}</span>
+        </div>
+    </div>
+</ion-content>
+</ion-modal-view>

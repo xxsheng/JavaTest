@@ -1,0 +1,31 @@
+<div class="memberContainer" ng-controller="transferAccountController as transCtrl" >
+    <div class="bar bar-header bar-positive">
+        <button class="button icon ion-arrow-left-c" on-tap="appCtrl.goback()"></button>
+        <h1 class="title">转账中心</h1>
+    </div>
+    <ion-content class="has-header has-footer" overflow-scroll="false" has-bouncing="true">
+        <div class="list">
+            <div class="item item-input">
+                <label class="input-label">&nbsp;转入账户：</label>
+                <input type="text" ng-model="transCtrl.transObj.userName">
+                <!--<div class="item-button-right inline" data-tap-disabled="true">-->
+                    <!--<button class="button button-assertive button-small" on-tap="transCtrl.transferAll()">资金归集</button>-->
+                <!--</div>-->
+            </div>
+            <div class="item item-input">
+                <label class="input-label">&nbsp;转入金额：</label>
+                <input type="text" ng-model="transCtrl.transObj.amount">
+            </div>
+            <div class="item item-input">
+                <label class="input-label">&nbsp;资金密码:</label>
+                <input type="password" ng-model="transCtrl.transObj.withdrawPwd">
+            </div>
+        </div>
+        <div class="row">
+        	<div class="col col-full">
+        		<button class="button button-block button-positive" on-tap="transCtrl.submitTransferAccount()">提交</button>
+        	</div>
+        </div>
+    </ion-content>
+    <commonfooter></commonfooter>
+</div>

@@ -1,0 +1,264 @@
+{
+    "Layout": [{
+        "title": "二不同号",
+        "rows": [{
+            "title": "二不同号",
+            "parentname": "ebth",
+            "default": "1",
+            "defaultmethod": "ebthdx",
+            "columns": [{
+                "showname": "标准选号",
+                "shortname": "ebthdx",
+                "parentname": "ebth",
+                "realname": "[二不同号_标准选号]",
+                "tips": "从1-6中任意选择2个或2个以上号码。",
+                "example": "投注方案：2,5；开奖号码中出现：1个2、1个5 (顺序不限)，即中奖。",
+                "help": "从1-6中任意选择2个号码组成一注，顺序不限。开奖号码中出现所选的两个号码即为中奖。",
+                "selectarea": {
+                    "type": "digital",
+                    "layout": [{
+                        "title": "号码",
+                        "balls": [1, 2, 3, 4, 5, 6]
+                    }]
+                }
+            }, {
+                "showname": "手动选号",
+                "shortname": "ebthds",
+                "parentname": "ebth",
+                "realname": "[二不同号_手动选号]",
+                "tips": "手动输入号码，至少输入1-6中两个不同的数字组成一注号码。",
+                "example": "投注方案：56；开奖号码：536，即中奖。",
+                "help": "开奖号码中至少包含所输入的两个数字即为中奖。",
+                "selectarea": {
+                    "type": "input"
+                }
+            }, {
+                "showname": "胆拖选号",
+                "shortname": "ebthdt",
+                "parentname": "ebth",
+                "realname": "[二不同号_胆拖选号]",
+                "tips": "从1-6中任意选择1个胆码以及1个以上的号码作为拖码。",
+                "example": "从1-6中任意选择1个胆码以及1个以上的号码作为拖码。",
+                "help": "从1-6中选择一个胆码和至少一个拖码，如果开奖号码中不重复数字至少包含胆码所选号码即为中奖",
+                "selectarea": {
+                    "type": "digital",
+                    "layout": [{
+                        "title": "胆码",
+                        "title_en": "danma",
+                        "maxpic": "1",
+                        "balls": [1, 2, 3, 4, 5, 6],
+                        "trigger": "only"
+                    }, {
+                        "title": "拖码",
+                        "balls": [1, 2, 3, 4, 5, 6]
+                    }]
+                }
+            }]
+        }]
+    }, {
+        "title": "二同号",
+        "rows": [{
+            "title": "二同号单选",
+            "parentname": "eth",
+            "columns": [{
+                "showname": "标准选号",
+                "parentname": "eth",
+                "shortname": "ethdx",
+                "realname": "[二同号_标准选号]",
+                "tips": "选择1个对子（11,22,33,44,55,66）和1个不同号码(1,2,3,4,5,6)投注。",
+                "example": "投注方案：112；开奖号码为112,121,211中任意一个，即中奖。",
+                "help": "选择1个对子（11,22,33,44,55,66）和1个不同号码(1,2,3,4,5,6)投注，选号与开奖号码一致即中奖。",
+                "selectarea": {
+                    "type": "digital",
+                    "layout": [{
+                        "title": "二同号",
+                        "title_en": "ertonghao",
+                        "maxpic": "1",
+                        "balls": ["11", "22", "33", "44", "55", "66"],
+                        "values": [1, 2, 3, 4, 5, 6],
+                        "trigger": "only"
+                    }, {
+                        "title": "不同号",
+                        "balls": [1, 2, 3, 4, 5, 6]
+                    }]
+                }
+            }, {
+                "showname": "手动选号",
+                "shortname": "ethds",
+                "parentname": "eth",
+                "realname": "[二同号_手动选号]",
+                "tips": "手动输入号码，至少输入1个三位数号码组成一注。",
+                "example": "投注方案：112；开奖号码为112,121,211中任意一个，即中奖。",
+                "help": "手动输入号码，至少输入1个三位数号码，选号与开奖号码一致即中奖。",
+                "selectarea": {
+                    "type": "input"
+                }
+            }]
+        }, {
+            "title": "二同号复选",
+            "parentname": "ethfux",
+            "columns": [{
+                "showname": "二同号复选",
+                "shortname": "ethfx",
+                "parentname": "ethfux",
+                "realname": "[二同号_复选]",
+                "tips": "选择对子(11*,22*,33*,44*,55*,66*)进行投注。",
+                "example": "投注方案：11*；开奖号码为：112,211,121,即中奖。",
+                "help": "选择对子(11*,22*,33*,44*,55*,66*)投注，开奖号码中包含选择的对子即中奖。",
+                "selectarea": {
+                    "type": "digital",
+                    "layout": [{
+                        "title": "二同号",
+                        "balls": ["11*", "22*", "33*", "44*", "55*", "66*"],
+                        "values": [1, 2, 3, 4, 5, 6],
+                        "cls": "medium"
+                    }]
+                }
+            }]
+        }]
+    }, {
+        "title": "三不同号",
+        "rows": [{
+            "title": "三不同号",
+            "parentname": "sbth",
+            "columns": [{
+                "showname": "标准选号",
+                "shortname": "sbthdx",
+                "parentname": "sbth",
+                "realname": "[三不同号_标准选号]",
+                "tips": "选择任意三个或以上的号码进行投注。",
+                "example": "投注方案：2,5,6；开奖号码中出现：1个2、1个5、1个6(顺序不限)即中奖。",
+                "help": "从1-6中任意选择3个或3个以上不相同号码组成一注，顺序不限，若其中三位与开奖号码相同即为中奖。",
+                "selectarea": {
+                    "type": "digital",
+                    "layout": [{
+                        "title": "号码",
+                        "balls": [1, 2, 3, 4, 5, 6]
+                    }]
+                }
+            }, {
+                "showname": "手动选号",
+                "parentname": "sbth",
+                "shortname": "sbthds",
+                "realname": "[三不同号_手动选号]",
+                "tips": "对三个各不相同的号码进行投注。",
+                "example": "投注方案：258；开奖号码中出现：1个2、1个5、1个8 (顺序不限)，即中奖。。",
+                "help": "手动输入1-6中任意选择3个不相同号码组成一注，顺序不限，若开奖号码与所选号码相同，即为中奖。",
+                "selectarea": {
+                    "type": "input"
+                }
+            }]
+        }]
+    }, {
+        "title": "三同号",
+        "rows": [{
+            "title": "三同号单选",
+            "parentname": "sth",
+            "columns": [{
+                "showname": "三同号单选",
+                "shortname": "sthdx",
+                "parentname": "sth",
+                "realname": "[三同号单选]",
+                "tips": "选择任意一组以上三位相同的号码。",
+                "example": "投注方案：222；开奖号码为：3个2，即中奖。",
+                "help": "从111,222,333,444,555，666中选择任意一组或一组以上的号码，若和开奖号相同即为中奖。",
+                "selectarea": {
+                    "type": "digital",
+                    "layout": [{
+                        "title": "号码",
+                        "balls": ["111", "222", "333", "444", "555", "666"],
+                        "values": [1, 2, 3, 4, 5, 6],
+                        "cls": "medium"
+                    }]
+                }
+            }]
+        }, {
+            "title": "三同号通选",
+            "parentname": "sthtx",
+            "columns": [{
+                "showname": "三同号通选",
+                "parentname": "sthtx",
+                "shortname": "sthtx",
+                "realname": "[三同号通选]",
+                "tips": "对所有三同号（111,222,333,444,555,666）进行投注。",
+                "example": "投注方案：通选；开奖号码中出现：222或3个其他数字，即中奖。",
+                "help": "投注后，开奖号码为任意数字的三重号，即为中奖。",
+                "selectarea": {
+                    "type": "digital",
+                    "layout": [{
+                        "title": "胆码",
+                        "balls": ["111", "222", "333", "444", "555", "666"],
+                        "cls": "medium",
+                        "trigger": "all",
+                        "showBallsAsValue": true
+                    }]
+                }
+            }]
+        }]
+    }, {
+        "title": "三连号",
+        "rows": [{
+            "title": "三连号通选",
+            "parentname": "slhtongx",
+            "columns": [{
+                "showname": "三连号通选",
+                "parentname": "slhtongx",
+                "shortname": "slhtx",
+                "realname": "[三同号连选]",
+                "tips": "对所有三个相连的号码进行投注。",
+                "example": "投注方案：三连号通选 开奖号码：123或234或345或456   即为中奖",
+                "help": "开奖号码为3连号（123,234,345,456）即为中奖",
+                "selectarea": {
+                    "type": "digital",
+                    "layout": [{
+                        "title": "号码",
+                        "balls": ["123", "234", "345", "456"],
+                        "cls": "medium",
+                        "trigger": "all",
+                        "showBallsAsValue": true
+                    }]
+                }
+            }]
+        }]
+    }, {
+        "title": "和值",
+        "rows": [{
+            "title": "和值",
+            "parentname": "hzhi",
+            "columns": [{
+                "showname": "和值",
+                "shortname": "hezhi",
+                "realname": "[和值]",
+                "parentname": "hzhi",
+                "tips": "从3-18中任意选择1个或1个以上号码。",
+                "example": "投注方案：和值4；开奖号码：112,即中奖。",
+                "help": "所选数值等于开奖号码三个数字相加之和，即为中奖。注意:和值为3或18一等奖；4或17二等奖；5或16三等奖；6或15四等奖；7或14五等奖；8或13六等奖；9或12七等奖；10或11八等奖。",
+                "selectarea": {
+                    "type": "digital",
+                    "layout": [{
+                        "balls": [3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18],
+                        "cls": "hz"
+                    }]
+                }
+            },{
+            	"isrx": 0,
+                "showname": "总和大小单双",
+                "shortname": "hzdxds",
+                "parentname": "hzhi",
+                "realname": "[总和大小单双]",
+                "tips": "从总和大、小、单、双中任意选择1个号码形态组成一注。",
+                "example": "投注方案：总和大。开奖号码：166，开奖号码的总和13，即中总和大。",
+                "help": "从总和大、小、单、双中任意选择1个号码形态组成一注，只要所选形态与开奖号码3位数号码总和(大（11-18）、小（3-10）、单（奇数）、双（偶数）形态相同，即为中奖。",
+                "selectarea": {
+                    "type": "digital",
+                    "layout": [{
+                        "title": "总和大小单双",
+                        "balls": ["总和大", "总和小", "总和单", "总和双"],
+                        "tools": false,
+                        "showBallsAsValue": true
+                    }]
+                }
+            }]
+        }]
+    }]
+}

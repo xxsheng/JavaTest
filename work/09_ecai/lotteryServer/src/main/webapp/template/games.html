@@ -1,0 +1,35 @@
+<ion-side-menus>
+    <div ng-controller="gamesController as gamesCtrl">
+        <ion-side-menu-content>
+            <div class="bar bar-header bar-positive">
+            	<button class="button icon ion-navicon" on-tap="gamesCtrl.toggleLeftSideMenu()"></button>
+                <h1 class="title">PT电子游戏</h1>
+            </div>
+            <ion-content class="has-header has-footer" overflow-scroll="false" has-bouncing="true">
+                <div class="list">
+                    <div class="item item-input-inset">
+                        <label class="item-input-wrapper">
+                            <input type="text" placeholder="游戏名称" ng-model="gamesCtrl.type">
+                        </label>
+                    </div>
+                    <div class="item item-avatar" ng-repeat="item in gamesCtrl.games|filter:gamesCtrl.type">
+                		<img src="https://hswap.hongshanyule7.com{{item.imgUrl}}" alt="">
+                		<a target="_blank" href="/game-launcher?platformId=11&gameCode={{item.gameCode}}&h5=true">
+                		<h2>{{item.gameName}}</h2>
+                		<p>进入游戏>></p>
+                		</a>
+                	</div>
+                </div>
+            </ion-content>
+            <commonfooter></commonfooter>
+        </ion-side-menu-content>
+        <ion-side-menu side="left">
+            <div class="list">
+            	<div class="item divided">
+            		<span><i class="icon ion-ios-keypad-outline"></i>游戏分类</span>
+            	</div>
+                <div class="item item-icon-left" ng-repeat="item in gamesCtrl.gameTypes" on-tap="gamesCtrl.switchGames(item.id)"><i class="icon ion-android-star-outline"></i>{{item.typeName}}</div>
+            </div>
+        </ion-side-menu>
+    </div>
+</ion-side-menus>

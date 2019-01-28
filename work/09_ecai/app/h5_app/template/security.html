@@ -1,0 +1,63 @@
+<div class="pwdContainer" ng-controller='pwdController as pwdCtrl'>
+    <div class="bar bar-header bar-positive">
+        <div class="buttons">
+            <button class="button" on-tap="appCtrl.goback()"><i class="icon ion-arrow-left-a"></i></button>
+        </div>
+        <h1 class="title">绑定安全密保</h1>
+    </div>
+    <ion-content class="has-header has-footer" overflow-scroll="false" has-bouncing="true">
+    <form id="pwd-manage">
+        <div class="list" data-tap-disabled="true">
+            <label class="item item-input item-select" data-tap-disabled="true">
+                <span class="input-label">密保问题1:</span>
+                <select ng-model="pwdCtrl.securityObj.question1" id="">
+                    <option selected="selected">我最爱看哪部美剧？</option>
+                    <option>我最喜欢吃的美食是？</option>
+                    <option>我最喜欢的球队是？</option>
+                    <option>我最喜欢玩的游戏是？</option>
+                    <option>我最喜欢的颜色是？</option>
+                    <option>我最爱看的电影是？</option>
+                </select>
+            </label>
+            <label class="item item-input">
+                <span class="input-label">密保答案1:</span>
+                <input type="text" placeholder="密保答案" ng-model="pwdCtrl.securityObj.answer1">
+            </label>
+            <label for="" class="item item-input item-select" data-tap-disabled="true">
+                <span class="input-label">密保问题2</span>
+                <select ng-model="pwdCtrl.securityObj.question2" id="">
+                    <option>我的座右铭是？</option>
+                    <option>我的幸运数字是？</option>
+                    <option>我父亲的姓名是？</option>
+                    <option>我母亲的姓名是？</option>
+                    <option>我配偶的名字是？</option>
+                </select>
+            </label>
+            <label class="item item-input">
+                <span class="input-label">密保答案2:</span>
+                <input type="text" placeholder="密保答案" ng-model="pwdCtrl.securityObj.answer2">
+            </label>
+            <label class="item item-input item-select" data-tap-disabled="true">
+                <span class="input-label">密保问题3:</span>
+                <select ng-model="pwdCtrl.securityObj.question3" id="">
+                    <option selected="">我的出生地是？</option>
+                    <option>我毕业的学校是？</option>
+                    <option>我父亲的生日是？</option>
+                    <option>我母亲的生日是？</option>
+                    <option>我配偶的生日是？</option>
+                </select>
+            </label>
+            <label class="item item-input">
+                <span class="input-label">密保答案3:</span>
+                <input type="text" placeholder="密保答案3" ng-model="pwdCtrl.securityObj.answer3">
+            </label>
+            <div class="row">
+                <div class="col col-full">
+                    <button class="button button-block button-positive" on-tap="pwdCtrl.setSecurity()">确定绑定</button>
+                </div>
+            </div>
+        </div>
+        </form>
+    </ion-content>
+</div>
+<commonfooter></commonfooter>

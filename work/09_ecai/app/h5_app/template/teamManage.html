@@ -1,0 +1,68 @@
+<div class="teamcontainer" ng-controller="agentController as agentCtrl">
+    <div class="bar bar-header bar-positive">
+        <div class="buttons">
+            <button class="button" on-tap="appCtrl.goback()"><i class="icon ion-arrow-left-a"></i></button>
+        </div>
+        <h1 class="title">团队管理</h1>
+        <div class="buttons">
+            <button class="button" on-tap="agentCtrl.searchteam()"><i class="icon ion-search"></i>查询</button>
+        </div>
+    </div>
+
+    <ion-content class="has-header has-footer" overflow-scroll="false" has-bouncing="true">
+        <!--下拉刷新-->
+        <ion-refresher pulling-text="下拉刷新" on-refresh="agentCtrl.reflesh()"></ion-refresher>
+
+        <div class="recordContainer">
+            <div class="row">
+                <div class="col item-input-inset">
+                    <label class="item-input-wrapper">
+                        <i class="icon ion-person placeholder-icon"></i>
+                        <input type="search" ng-model="agentCtrl.teamObj.username" placeholder="用户名">
+                    </label>
+                </div>
+            </div>
+
+            <div class="row" data-tap-disabled="true">
+                <div class="item-input-inset">
+                    <select ng-model="agentCtrl.teamObj.scope" ng-init="agentCtrl.teamObj.scope=3">
+                        <option value="1">会员</option>
+                        <option value="3" ng-selected="true">直属</option>
+                        <option value="2">团队</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <div class="row user-hierarchy row-wrap">
+            <div class="user-level-btn" ng-repeat="username in agentCtrl.teamData.userLevels">
+                <span class="user-level-name" on-tap="agentCtrl.checkChild(username)">{{username}}</span>
+                <span class="user-level-tag" ng-if="!$last"><</span>
+            </div>
+        </div>
+
+        <div class="team_work">
+            <div class="row" ng-repeat="item in agentCtrl.userList">
+                <div class="col col-75">
+                    <p><span>用户名：</span><button on-tap="agentCtrl.checkChild(item.username)" class="button button-positive button-small">{{item.username}}</button></p>
+                    <p><span>账户类别:</span>{{item.type|typeFilter}}</p>
+                    <p><span>余额:</span>{{item.totalMoney+item.lotteryMoney|number:2}}</p>
+                    <p><span>账号等级：</span>{{item.code}}</p>
+                    <p><span>团队余额：</span>{{item.teamLotteryBalance+item.teamTotalBalance|number:2}}</p>
+                    <p><span>团队人数：</span>{{item.totalUser}}</p>
+                    <p><span>团队在线：</span>{{item.onlineUser}}</p>
+                    <p><span>最后登录：</span>{{item.loginTime ? item.loginTime : '从未登录过'}}</p>
+                    <p><span>状态:</span>{{item.onlineStatus|onlineFileter}}</p>
+                </div>
+                <div class="col lpt">
+                    <button on-tap="agentCtrl.configPoint(item.username)" class="button button-assertive button-small">升点</button>
+                    <button class="button button-assertive button-small" on-tap="agentCtrl.childTrans(item.username, item.nickname)">转账</button>
+                    <button class="button button-assertive button-small" on-tap="agentCtrl.checkChild(item.username)">下级</button>
+                </div>
+            </div>
+        </div>
+
+        <ion-infinite-scroll ng-if="!agentCtrl.noMorePage" immediate-check="false" on-infinite="agentCtrl.teamManagerloadmore(agentCtrl.page)" distance="10%"></ion-infinite-scroll>
+    </ion-content>
+    <commonfooter></commonfooter>
+</div>

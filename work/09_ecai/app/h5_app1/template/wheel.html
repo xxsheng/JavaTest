@@ -1,0 +1,18 @@
+<ion-modal-view>
+    <div class="bar bar-header bar-positive">
+        <h1 class="title">幸运大转盘活动</h1>
+        <div class="buttons">
+            <button class="button" ng-click="promoCtrl.closeWheelModal()"><i class="icon ion-close"></i>关闭</button>
+        </div>
+    </div>
+    <div class="zhuanpan-bg"></div>
+    <ion-content overflow-scroll="false" has-bouncing="true">
+        <div class="row">
+            <div class="zhuanpan">
+                <img class="zp1" src="/static/images/home/zp1.png">
+                <img class="{{promoCtrl.drawObj.drawBtnClass}}" src="/static/images/home/zp2.png" id="zp2">
+                <img class="zp3" src="/static/images/home/zp3.png" on-tap="promoCtrl.startDrawWheel()" id="zp3">
+            </div>
+        </div>
+    </ion-content>
+</ion-modal-view>

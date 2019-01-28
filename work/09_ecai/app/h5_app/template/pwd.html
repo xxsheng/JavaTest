@@ -1,0 +1,88 @@
+<div class="pwdContainer" ng-controller='pwdController as pwdCtrl'>
+    <div class="bar bar-header bar-positive">
+        <div class="buttons">
+            <button class="button" on-tap="appCtrl.goback()"><i class="icon ion-arrow-left-a"></i></button>
+        </div>
+        <h1 class="title" ng-if="pwdCtrl.modLoginPwdFlag">修改登录密码</h1>
+        <h1 class="title" ng-if="pwdCtrl.bindWithdrawPwdFlag">设置资金密码</h1>
+        <h1 class="title" ng-if="pwdCtrl.modWithdrawPwdFlag">修改资金密码</h1>
+    </div>
+
+    <ion-content class="has-header has-footer" overflow-scroll="false" has-bouncing="true">
+        <div class="list">
+            <form id="pwd-manage">
+                <div ng-if="pwdCtrl.modLoginPwdFlag">
+                    <label class="item item-input">
+                        <span class="input-label">当前密码：</span>
+                        <input type="password" placeholder="当前登录密码" ng-model="pwdCtrl.modLoginPwdObj.oldLoginPassword">
+                    </label>
+                    <label class="item item-input">
+                        <span class="input-label">新登录密码：</span>
+                        <input type="password" placeholder="新登录密码" ng-model="pwdCtrl.modLoginPwdObj.newLoginPassword">
+                    </label>
+                    <p class="mpc">
+                        <span>6-20位字符，可使用字母加数字加特殊字符。</span>
+                    </p>
+                    <label class="item item-input">
+                        <span class="input-label">确定新密码：</span>
+                        <input type="password" placeholder="新再次确认您的新登录密码" ng-model="pwdCtrl.modLoginPwdObj.reLoginPassword">
+                    </label>
+                    <div class="row">
+                        <div class="col col-full">
+                            <button class="button button-block button-positive" on-tap="pwdCtrl.modLoginPwd()">确定修改</button>
+                        </div>
+                    </div>
+                </div>
+                <div ng-if="pwdCtrl.bindWithdrawPwdFlag">
+                    <label class="item item-input">
+                        <span class="input-label">密保问题:</span>
+                        <span>{{pwdCtrl.question}}</span>
+                    </label>
+                    <label class="item item-input">
+                        <span class="input-label">密保答案:</span>
+                        <input type="text" placeholder="请输入您的密保答案" ng-model="pwdCtrl.bindWithdrawPwdObj.answer">
+                    </label>
+                    <label class="item item-input">
+                        <span class="input-label">资金密码：</span>
+                        <input type="password" placeholder="请输入新的资金密码" ng-model="pwdCtrl.bindWithdrawPwdObj.newWithdrawPassword">
+                    </label>
+                    <p class="mpc">
+                        <span>6-20位字符，可使用字母加数字加特殊字符。</span>
+                    </p>
+                    <label class="item item-input">
+                        <span class="input-label">确定新密码：</span>
+                        <input type="password" placeholder="新再次确认您的新资金密码"  ng-model="pwdCtrl.bindWithdrawPwdObj.reWithdrawPassword">
+                    </label>
+                    <div class="row">
+                        <div class="col col-full">
+                            <button class="button button-block button-positive" on-tap="pwdCtrl.bindWithdrawPwd()">确定设置</button>
+                        </div>
+                    </div>
+                </div>
+                <div ng-if="pwdCtrl.modWithdrawPwdFlag">
+                    <label class="item item-input">
+                        <span class="input-label">当前密码：</span>
+                        <input type="password" placeholder="当前资金密码" ng-model="pwdCtrl.modWithdrawPwdObj.oldModWithdrawPassword">
+                    </label>
+                    <label class="item item-input">
+                        <span class="input-label">新资金密码：</span>
+                        <input type="password" placeholder="新资金密码" ng-model="pwdCtrl.modWithdrawPwdObj.newModWithdrawPassword">
+                    </label>
+                    <p class="mpc">
+                        <span>6-20位字符，可使用字母加数字加特殊字符。</span>
+                    </p>
+                    <label class="item item-input">
+                        <span class="input-label">确认密码：</span>
+                        <input type="password" placeholder="新再次确认您的新资金密码" ng-model="pwdCtrl.modWithdrawPwdObj.reModWithdrawPassword">
+                    </label>
+                    <div class="row">
+                        <div class="col col-full">
+                            <button class="button button-block button-positive" on-tap="pwdCtrl.modWithdrawPwd()">确定修改</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </ion-content>
+</div>
+<commonfooter></commonfooter>

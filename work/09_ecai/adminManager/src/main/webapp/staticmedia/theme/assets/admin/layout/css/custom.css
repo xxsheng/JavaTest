@@ -1,0 +1,378 @@
+/* here you can put your own css to customize and override the theme */
+.error-body {
+	background-color: #E5E9EC !important;
+}
+.error-container {
+	width: 420px;
+	margin-left: auto;
+	margin-right: auto;
+}
+.error-container .error-number {
+    color: #7BBBD6;
+    font-size: 120px;
+    text-align: center;
+    line-height: 130px;
+}
+.error-container .error-number.error-404 {
+	color: #7BBBD6;
+}
+.error-container .error-number.error-500 {
+	color: #EC8C8C;
+}
+.error-container .error-description {
+    font-size: 32px;
+    text-align: center;
+    font-weight: 300;
+}
+.error-container .error-description-mini {
+    font-size: 18px;
+    text-align: center;
+    font-weight: 300;
+}
+.page-header .page-header-menu .hor-menu.hor-menu-light .navbar-nav > li .dropdown-menu li > a {
+	padding-left: 18px;
+}
+.page-header .page-header-menu .hor-menu.hor-menu-light .navbar-nav > li .dropdown-menu li > a > i {
+	color: #000;
+}
+.align-center {
+	text-align: center;
+}
+.align-left {
+	text-align: left !important;
+}
+.align-right {
+	text-align: right !important;
+}
+.input-range .from {
+	border-right: 1px solid #fff;
+}
+.input-range .from:focus {
+	border-right: 1px solid #888;
+}
+.input-range .to {
+	border-left: 1px solid #fff;
+}
+.input-range .to:focus {
+	border-left: 1px solid #888;
+}
+.input-range .symbol {
+	padding-left: 0;
+	padding-right: 0;
+	background-color: #fff;
+	border-left: none;
+	border-right: none;
+	min-width: 16px;
+}
+.input-xmedium {
+	width: 200px !important;
+}
+.btn.fixed{
+	width: 81.4px !important;
+	text-align: center;
+}
+.input-group-addon.fixed {
+	width: 80.4px !important;
+	text-align: center;
+}
+.input-group-addon.no-bg {
+	background: none;
+	border: none;
+}
+tr.align-center th,
+tr.align-center td {
+	text-align: center;
+}
+th.one {
+	width: 80px;
+}
+th.two {
+	width: 140px;
+}
+th.three {
+	width: 200px;
+}
+th.four {
+	width: 260px;
+}
+th.five {
+	width: 320px;
+}
+th.six {
+	width: 380px;
+}
+th.checked {
+	width: 40px;
+}
+tr.checked {
+	background-color: #ffffea !important;
+}
+tr.highlight {
+	background-color: #ffffd5 !important;
+}
+.bs-select.form-control {
+	z-index: auto;
+}
+.bootstrap-select .dropdown-menu {
+	z-index: 999 !important;
+}
+.bs-searchbox, .bs-actionsbox {
+	overflow: hidden;
+	padding: 6px 8px 7px 8px;
+}
+.table.black > thead > tr > th,
+.table.black > tbody > tr > td {
+	color: #333;
+}
+.table > tbody > tr > td > i {
+	width: 18px;
+	text-align: center !important;
+}
+.console {
+	border: 1px solid #ccc;
+	padding: 10px;
+}
+.console .line {
+	line-height: 24px;
+}
+.console .line > i.danger {
+	color: #ff0000;
+	font-style: normal;
+}
+.console .line > i.success {
+	color: #00ff00;
+	font-style: normal;
+}
+.console .line .action {
+	padding: 0 5px;
+}
+.break-word {
+	word-wrap: break-word;
+	word-break:break-all;
+}
+.tree {
+	cursor: pointer;
+}
+textarea.noresize {
+	border: 1px solid #e6e6e6;
+	width: 100%;
+	height: 100%;
+	resize: none;
+	line-height: 20px;
+	white-space: pre-wrap;
+	word-wrap: break-word;
+}
+.daterangepicker .ranges .btn {
+	width: 77px;
+	margin-top: 8px;	
+}
+.daterangepicker .ranges .btn.cancelBtn {
+	margin-left: 2px;
+}
+.daterangepicker_end_input {
+	padding-left: 5px !important;
+}
+.daterangepicker .ranges input[type="text"] {
+	width: 77px !important;
+}
+table.simple {
+	border-top: 1px solid #ddd;
+	border-left: 1px solid #ddd;
+	width: 100%;
+	color: #555;
+}
+table.simple tr td {
+	border-bottom: 1px solid #ddd;
+	border-right: 1px solid #ddd;
+	padding: 15px 10px;
+}
+
+table.simple tr td.text {
+	text-align: right;
+	width: 10%;
+}
+table.simple tr td {
+	width: 15%;
+}
+
+table.stat {
+	border-top: 1px solid #ddd;
+	border-left: 1px solid #ddd;
+	width: 100%;
+	color: #555;
+}
+table.stat thead > tr > td,
+table.stat tbody > tr > td {
+	border-bottom: 1px solid #ddd;
+	border-right: 1px solid #ddd;
+	padding: 15px 10px;
+}
+table.stat thead > tr > td.text {
+	text-align: center;
+	font-weight: bold;
+}
+table.stat tbody > tr > td.text {
+	text-align: right;
+}
+table.stat tbody > tr > td.value {
+	
+}
+.table.table-light > thead > tr {
+	background-color: #eee;
+}
+.table.table-light > thead > tr > th,
+.table.table-light > tbody > tr > td {
+	color: #555;
+	border: 1px solid #ddd !important;
+	
+}
+.radio-inline, .checkbox-inline {
+	padding-left: 0;
+}
+.dropdown-menu {
+    min-width: 116px;
+}
+.page-content-wrapper .page-content {
+	margin-left: 0 !important;
+}
+.main-frame-wrapper {
+	margin: 0;
+	padding: 0;
+	font-size: 0;
+	margin-left: 195px;
+}
+.main-frame-wrapper > iframe {
+	border: none;
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	height: 100%;
+}
+
+td span.custom-loading {
+	width: 16px;
+	height: 16px;
+	display: inline-block;
+	background-image: url("../../../global/img/input-spinner.gif");
+	vertical-align: -3px;
+	display: none;
+}
+
+a.static-link {
+	text-decoration: none;
+}
+
+.page-header.navbar .top-toolbar > .text {
+	height: 68px;
+	line-height: 66px; 
+	font-size: 24px; 
+	color: #666;
+	float: left;
+	padding: 0 20px;
+}
+
+.page-header.navbar .top-toolbar > .button-group {
+	height: 68px;
+	line-height: 66px; 
+	font-size: 24px; 
+	color: #666;
+	float: left;
+	padding: 0 20px;
+}
+
+.page-header.navbar .top-toolbar > .button-group > .btn-history {
+	color: #00a8e9;
+	text-decoration: none;
+}
+
+.page-header.navbar .top-toolbar > .button-group > .btn-history:hover {
+	color: #12b5ff;
+}
+
+.page-header.navbar .top-toolbar > .button-group > .btn-history > i.fa {
+	font-size: 42px;
+	cursor: pointer;
+	vertical-align: -6px;
+}
+.loadImg{background: rgba(255,255,255,.3) url(../../../global/img/input-spinner.gif) no-repeat 50% 50%;position: relative; height: 17px; padding-left:20px;}
+
+.loader{position:absolute;top:0;left:0;right:0;bottom:0;background:rgba(255,255,255,.3) url(../../../global/img/input-spinner.gif) no-repeat 50% 50%; z-index: 999;}
+
+.user-direction {
+	padding: 0px;
+	background-color: #ffffff;
+	margin-bottom: 0px;
+	margin-left: 0px;
+}
+.user-direction:before, .page-bar:after {
+	content: " ";
+	display: table;
+}
+.user-direction:after {
+	clear: both;
+}
+.user-direction .page-breadcrumb {
+	display: inline-block;
+	float: left;
+	padding: 0;
+	margin: 0;
+	list-style: none;
+}
+.user-direction .page-breadcrumb > li {
+	display: inline-block;
+}
+.ie8 .user-direction .page-breadcrumb > li {
+	margin-right: 1px;
+}
+.user-direction .page-breadcrumb > li > a,
+.user-direction .page-breadcrumb > li > span {
+	/*color: #888;*/
+	font-size: 14px;
+	text-shadow: none;
+}
+.user-direction .page-breadcrumb > li > i {
+	color: #aaa;
+	font-size: 14px;
+	text-shadow: none;
+}
+.user-direction .page-breadcrumb > li > i[class^="icon-"],
+.user-direction .page-breadcrumb > li > i[class*="icon-"] {
+	color: #8c8c8c;
+}
+.user-direction .page-toolbar {
+	display: inline-block;
+	float: right;
+}
+.user-direction .page-toolbar .btn-fit-height {
+	padding-top: 9px;
+	padding-bottom: 9px;
+}
+.user-direction .page-toolbar .btn.btn-default {
+	border-color: #eee;
+	color: #999;
+}
+.user-direction .page-toolbar .btn.btn-default > i {
+	color: #999;
+}
+.user-direction .page-toolbar .btn.btn-sm {
+	margin-top: 0px;
+}
+.user-direction .page-toolbar .btn-dashboard-daterange {
+	padding: 8px 16px 8px 16px;
+}
+.user-direction .page-toolbar .btn-dashboard-daterange > i[class^="icon-"] {
+	position: relative;
+	font-size: 20px;
+	opacity: 0.8;
+	filter: alpha(opacity=80);
+	top: 2px;
+}
+.user-direction .page-toolbar .btn-dashboard-daterange > i.fa-angle-down {
+	font-size: 16px;
+	opacity: 0.8;
+	filter: alpha(opacity=80);
+}
+.mt10{margin-top: 10px;}
+.ml10{margin-left: 10px;}
+.mt2{margin-top: 2px;}
+.ml2{margin-left: 2px;}

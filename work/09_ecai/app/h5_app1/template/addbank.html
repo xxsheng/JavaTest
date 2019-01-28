@@ -1,0 +1,46 @@
+<ion-modal-view>
+    <div class="bar bar-header bar-positive">
+        <h1 class="title">添加银行卡</h1>
+        <button class="button" on-tap="bankCtrl.closeAddBank()"><i class="icon ion-close"></i>关闭</button>
+    </div>
+
+<ion-content class="has-header has-footer" overflow-scroll="false" has-bouncing="true">
+    <form id="pwd-manage">
+        <div class="list" data-tap-disabled="true">
+            <label for="" class="item item-input item-select">
+                <span class="input-label">选择开户行</span>
+                <select ng-model="bankCtrl.bankObj.bankId">
+                    <option ng-repeat="item in bankCtrl.banklist" value="{{item.id}}">
+                    	{{item.name}}
+                    </option>
+                </select>
+            </label>
+            <label class="item item-input">
+                <span class="input-label">支行名称:</span>
+                <input type="text" placeholder="支行名称" ng-model="bankCtrl.bankObj.bankBranch">
+            </label>
+            <label class="item item-input">
+                <span class="input-label">持卡人姓名:</span>
+                <span>{{bankCtrl.bankCardName}}</span>
+            </label>
+            <label class="item item-input">
+                <span class="input-label">银行卡号:</span>
+                <input type="text" placeholder="银行卡号" ng-model="bankCtrl.bankObj.cardId">
+            </label>
+            <label class="item item-input">
+                <span class="input-label">确认卡号:</span>
+                <input type="text" placeholder="银行卡号" ng-model="bankCtrl.bankObj.confirmBankcard">
+            </label>
+            <label class="item item-input">
+                <span class="input-label">资金密码:</span>
+                <input type="password" placeholder="资金密码" ng-model="bankCtrl.bankObj.withdrawPwd">
+            </label>
+            <div class="row">
+                <div class="col col-full">
+                    <button class="button button-block button-positive" on-tap="bankCtrl.createNewBank()">确定添加</button>
+                </div>
+            </div>
+        </div>
+    </form>
+</ion-content>
+</ion-modal-view>

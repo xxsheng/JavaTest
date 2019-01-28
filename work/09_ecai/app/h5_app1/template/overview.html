@@ -1,0 +1,98 @@
+<div class="ssc-container" ng-controller="agentController as agentCtrl">
+    <div class="bar bar-header bar-positive">
+        <div class="buttons">
+            <button class="button" on-tap="appCtrl.goback()"><i class="icon ion-arrow-left-a"></i></button>
+        </div>
+        <h1 class="title">代理总览</h1>
+    </div>
+    <ion-content class="has-header has-footer" overflow-scroll="false" has-bouncing="true">
+        <div class="row" style="padding:0 20px 10px 20px">
+            <div class="col col-33" style="margin-right:10px;">
+                <button id="recent3" class="button button-positive button-block button-small" on-tap="agentCtrl.dateSearch(3,'recent3')">最近三天</button>
+            </div>
+            <div class="col col-33"  style="margin-right:10px;">
+                <button id="recent7" class="button button-block button-small" on-tap="agentCtrl.dateSearch(7,'recent7')">最近七天</button>
+            </div>
+            <div class="col col-33"  style="margin-right:10px;">
+                <button id="recent30" class="button button-block button-small" on-tap="agentCtrl.dateSearch(30,'recent30')">最近一个月</button>
+            </div>
+        </div>
+        <div class="recordContainer">
+            <ul class="list">
+                <li class="item item-icon-right">
+                    团队余额：
+                    <span class="badge badge-assertive">{{agentCtrl.viewData.totalBalance+agentCtrl.viewData.lotteryBalance|number:2}}</span>
+                </li>
+                <li class="item item-icon-right">
+                    团队人数：
+                    <span class="badge badge-assertive">{{agentCtrl.viewData.totalUser}}</span>
+                </li>
+                <li class="item item-icon-right">
+                    注册人数：
+                    <span class="badge badge-assertive">{{agentCtrl.viewData.totalRegister}}</span>
+                </li>
+                <li class="item item-icon-right">
+                    充值人数：
+                    <span class="badge badge-assertive">{{agentCtrl.viewData.totalRechargePerson}}</span>
+                </li>
+                <li class="item item-icon-right">
+                    当前在线人数
+                    <span class="badge badge-assertive">{{agentCtrl.viewData.onlineUser}}</span>
+                </li>
+                <li class="item item-icon-right">
+                    团队充值
+                    <span class="badge badge-assertive">{{agentCtrl.viewData.totalRecharge|number:2}}</span>
+                </li>
+                <li class="item item-icon-right">
+                    团队取款
+                    <span class="badge badge-assertive">{{agentCtrl.viewData.totalWithdraw|number:2}}</span>
+                </li>
+                <li class="item item-icon-right">
+                    团队综合盈亏
+                    <span class="badge badge-assertive">{{agentCtrl.viewData.totalProfit|number:2}}</span>
+                </li>
+                <li class="item item-icon-right">
+                    充值手续费
+                    <span class="badge badge-assertive">{{agentCtrl.viewData.totalRechargeFee|number:2}}</span>
+                </li>
+                <li class="item item-icon-right">
+                    彩票投注总额
+                    <span class="badge badge-assertive">{{agentCtrl.viewData.totalLotteryBillingOrder|number:2}}</span>
+                </li>
+                <li class="item item-icon-right">
+                    彩票中奖总额
+                    <span class="badge badge-assertive">{{agentCtrl.viewData.totalLotteryPrize|number:2}}</span>
+                </li>
+                <li class="item item-icon-right">
+                    团队撤单总额
+                    <span class="badge badge-assertive">{{agentCtrl.viewData.totalLotteryCancelOrder|number:2}}</span>
+                </li>
+                <li class="item item-icon-right">
+                    团队彩票返点
+                    <span class="badge badge-assertive">{{agentCtrl.viewData.totalLotterySpendReturn+agentCtrl.viewData.totalLotteryProxyReturn|number:2}}</span>
+                </li>
+                <li class="item item-icon-right">
+                    团队活动总额
+                    <span class="badge badge-assertive">{{agentCtrl.viewData.totalLotteryActivity|number:2}}</span>
+                </li>
+                <li class="item item-icon-right">
+                    团队彩票盈亏
+                    <span class="badge badge-assertive">{{agentCtrl.viewData.totalLotteryProfit|number:2}}</span>
+                </li>
+                <li class="item item-icon-right">
+                    老虎机投注总额
+                    <span class="badge badge-assertive">{{agentCtrl.viewData.totalGameBillingOrder|number:2}}</span>
+                </li>
+                <li class="item item-icon-right">
+                    老虎机团队盈亏
+                    <span class="badge badge-assertive">{{agentCtrl.viewData.totalGameProfit|number:2}}</span>
+                </li>
+                <li class="item item-icon-right">
+                    老虎机团队返点
+                    <span class="badge badge-assertive">{{agentCtrl.viewData.totalGameWaterReturn+agentCtrl.viewData.totalGameProxyReturn|number:2}}</span>
+                </li>
+            </ul>
+        </div>
+    </ion-content>
+    <commonfooter></commonfooter>
+</div>

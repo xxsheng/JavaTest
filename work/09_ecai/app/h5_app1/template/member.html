@@ -1,0 +1,170 @@
+<div class="memberContainer" ng-controller="memberController as memberContrl">
+    <div class="bar bar-header bar-positive">
+        <h1 class="title">个人中心</h1>
+    </div>
+
+    <div class="tabs tabs-top charge-top" id="">
+        <a class="tab-item" href="#/charge">充值</a>
+        <a class="tab-item" href="#/withdraw">提现</a>
+        <a class="tab-item" href="#/transfer">转账</a>
+    </div>
+    <ion-content class="has-header has-bet-header has-footer" overflow-scroll="false" has-bouncing="true">
+        <div class="card">
+            <div class="item item-icon-left">
+                <i class="icon ion-person"></i>
+                <span>账号：{{memberContrl.userBean.username}}({{memberContrl.userBean.code}})</span>
+            </div>
+            <div class="item item-icon-left">
+                <i class="icon ion-card"></i>
+                <span>主账户余额：{{memberContrl.userBean.totalMoney|number:2}}</span>
+            </div>
+            <div class="item item-icon-left">
+                <i class="icon ion-card"></i>
+                <span>彩票余额：{{memberContrl.userBean.lotteryMoney|number:2}}</span>
+            </div>
+            <div class="item item-icon-left">
+                <i class="icon ion-ios-world"></i>
+                <span>上次登录：{{memberContrl.userBean.loginTime}}</span>
+            </div>
+            <div class="item item-icon-left" ng-if="memberContrl.bean.uMsgCount + memberContrl.bean.uSysMsgCount > 0" on-tap="appCtrl.goto('/message/inbox')">
+                <i class="icon ion-ios-email"></i>
+                <span>您有{{memberContrl.bean.uMsgCount + memberContrl.bean.uSysMsgCount}}未读消息,点击查看</span>
+            </div>
+        </div>
+        <div class="card">
+            <div class="item item-divider">
+                报表中心
+            </div>
+            <a href="#/report/lottery" class="item item-icon-left item-icon-right">
+                <i class="icon ion-ios-list-outline"></i> 彩票报表
+                <i class="icon ion-ios-arrow-right"></i>
+            </a>
+            <a href="#/report/game" class="item item-icon-left item-icon-right">
+                <i class="icon ion-ios-list-outline"></i> 老虎机/真人/体育报表
+                <i class="icon ion-ios-arrow-right"></i>
+            </a>
+            <a href="#/report/main" class="item item-icon-left item-icon-right">
+                <i class="icon ion-ios-list-outline"></i> 主账户报表
+                <i class="icon ion-ios-arrow-right"></i>
+            </a>
+            <a href="#/betrecord/lottery" class="item item-icon-left item-icon-right">
+                <i class="icon ion-ios-list-outline"></i> 我的彩票记录
+                <i class="icon ion-ios-arrow-right"></i>
+            </a>
+            <a href="#/betrecord/game" class="item item-icon-left item-icon-right">
+                <i class="icon ion-ios-list-outline"></i> 我的老虎机/真人/体育记录
+                <i class="icon ion-ios-arrow-right"></i>
+            </a>
+            <a href="#/betrecord/trace" class="item item-icon-left item-icon-right">
+                <i class="icon ion-ios-list-outline"></i> 我的追号记录
+                <i class="icon ion-ios-arrow-right"></i>
+            </a>
+            <a href="#/betrecord/changes" class="item item-icon-left item-icon-right">
+                <i class="icon ion-ios-list-outline"></i> 我的账变记录
+                <i class="icon ion-ios-arrow-right"></i>
+            </a>
+        </div>
+        <div class="card">
+            <div class="item item-divider">
+                安全中心
+            </div>
+            <a ng-href="{{memberContrl.booleanObj.hasWithdrawName?'':'#/binduser'}}" class="item item-icon-left item-icon-right">
+                <i class="icon ion-document"></i> 绑定账户姓名
+                <span ng-if="memberContrl.booleanObj.hasWithdrawName" class="text-green">(已绑定)</span>
+                <span ng-if="!memberContrl.booleanObj.hasWithdrawName" class="text-red">(未绑定)</span>
+                <i class="icon ion-ios-arrow-right"></i>
+            </a>
+            <a href="#/pwd/login" class="item item-icon-left item-icon-right">
+                <i class="icon ion-locked"></i> 登录密码
+                <span class="text-green">(已设置)</span>
+                <i class="icon ion-ios-arrow-right"></i>
+            </a>
+            <a ng-href="{{memberContrl.booleanObj.hasSecurity?'':'#/security'}}" class="item item-icon-left item-icon-right">
+                <i class="icon ion-lock-combination"></i> 安全密保
+                <span ng-if="memberContrl.booleanObj.hasSecurity" class="text-green">(已绑定)</span>
+                <span ng-if="!memberContrl.booleanObj.hasSecurity" class="text-red">(未绑定)</span>
+                <i class="icon ion-ios-arrow-right"></i>
+            </a>
+            <a href="#/pwd/bindWithdrawPwd" class="item item-icon-left item-icon-right" ng-if="!memberContrl.booleanObj.hasWithdrawPwd">
+                <i class="icon ion-lock-combination"></i> 资金密码
+                <span class="text-red">(未设置)</span>
+                <i class="icon ion-ios-arrow-right"></i>
+            </a>
+            <a href="#/pwd/modWithdrawPwd" class="item item-icon-left item-icon-right" ng-if="memberContrl.booleanObj.hasWithdrawPwd">
+                <i class="icon ion-lock-combination"></i> 资金密码
+                <span class="text-green">(已设置)</span>
+                <i class="icon ion-ios-arrow-right"></i>
+            </a>
+            <a ng-href="{{memberContrl.booleanObj.hasBindGoogle?'':'#/googleBind'}}" class="item item-icon-left item-icon-right">
+                <i class="icon ion-lock-combination"></i> 谷歌身份验证器
+                <span ng-if="memberContrl.booleanObj.hasBindGoogle" class="text-green">(已绑定)</span>
+                <span ng-if="!memberContrl.booleanObj.hasBindGoogle" class="text-red">(未绑定)</span>
+                <i class="icon ion-ios-arrow-right"></i>
+            </a>
+        </div>
+        <div class="card">
+            <div class="item item-divider">
+                账户中心
+            </div>
+            <a ng-href="#/message/inbox" class="item item-icon-left item-icon-right">
+                <i class="icon ion-ios-email"></i> 消息中心
+                <i class="icon ion-ios-arrow-right"></i>
+            </a>
+            <a href="#/bankcard" class="item item-icon-left item-icon-right">
+                <i class="icon ion-card"></i> 银行卡管理
+                <i class="icon ion-ios-arrow-right"></i>
+            </a>
+        </div>
+        <div class="card">
+            <div class="item item-divider">
+                充提记录
+            </div>
+            <a href="#/chargeRecord/charge" class="item item-icon-left item-icon-right">
+                <i class="icon ion-ios-list-outline"></i> 充值记录
+                <i class="icon ion-ios-arrow-right"></i>
+            </a>
+            <a href="#/chargeRecord/withdraw" class="item item-icon-left item-icon-right">
+                <i class="icon ion-ios-list-outline"></i> 提现记录
+                <i class="icon ion-ios-arrow-right"></i>
+            </a>
+            <a href="#/chargeRecord/trans" class="item item-icon-left item-icon-right">
+                <i class="icon ion-ios-list-outline"></i> 转账记录
+                <i class="icon ion-ios-arrow-right"></i>
+            </a>
+        </div>
+        <div class="card" ng-if="memberContrl.userBean.type === 1 || memberContrl.userBean.type === 3">
+            <div class="item item-divider">
+                代理中心
+            </div>
+            <a href="#/overview/viewall" class="item item-icon-left item-icon-right">
+                <i class="icon ion-person-stalker"></i> 代理总览
+                <i class="icon ion-ios-arrow-right"></i>
+            </a>
+            <a href="#/createAccount/manul" class="item item-icon-left item-icon-right">
+                <i class="icon ion-person-stalker"></i> 开户中心
+                <i class="icon ion-ios-arrow-right"></i>
+            </a>
+            <a href="#/team_manage/teamManage" class="item item-icon-left item-icon-right">
+                <i class="icon ion-person-stalker"></i> 团队管理
+                <i class="icon ion-ios-arrow-right"></i>
+            </a>
+            <a href="#/online_member/online" class="item item-icon-left item-icon-right">
+                <i class="icon ion-person-stalker"></i> 在线会员
+                <i class="icon ion-ios-arrow-right"></i>
+            </a>
+            <a href="#/lottery_record/record" class="item item-icon-left item-icon-right">
+                <i class="icon ion-ios-list-outline"></i> 团队游戏记录
+                <i class="icon ion-ios-arrow-right"></i>
+            </a>
+             <a href="#/settle_bill/contractbill" class="item item-icon-left item-icon-right">
+                <i class="icon ion-ios-list-outline"></i> 契约日结
+                <i class="icon ion-ios-arrow-right"></i>
+            </a>
+            <a href="#/bonus_bill/bonusbill" class="item item-icon-left item-icon-right">
+                <i class="icon ion-cash"></i> 契约分红
+                <i class="icon ion-ios-arrow-right"></i>
+            </a>
+        </div>
+    </ion-content>
+    <commonfooter></commonfooter>
+</div>

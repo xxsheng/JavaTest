@@ -1,0 +1,162 @@
+<div class="ssc-container" ng-controller="reportController as reportCtrl">
+    <div class="bar bar-header bar-positive">
+        <div class="buttons">
+            <button class="button" on-tap="appCtrl.goback()"><i class="icon ion-arrow-left-a"></i></button>
+        </div>
+        <h1 class="title">报表中心</h1>
+        <div class="buttons">
+            <button class="button" on-tap="reportCtrl.search()"><i class="icon ion-search"></i>查询</button>
+        </div>
+    </div>
+
+    <div class="tabs tabs-top record-top">
+        <a ng-class="{true: 'tab-item active', false: 'tab-item'}[reportCtrl.type == 'lottery']" href="#/report/lottery">彩票报表</a>
+        <a ng-class="{true:'tab-item active',false:'tab-item'}[reportCtrl.type == 'game']" href="#/report/game">老虎机/真人报表</a>
+        <a ng-class="{true:'tab-item active',false:'tab-item'}[reportCtrl.type == 'main']" href="#/report/main">主账户报表</a>
+    </div>
+    <ion-content class="has-bet-header has-footer" overflow-scroll="false" has-bouncing="true">
+        <!--下拉刷新-->
+        <ion-refresher pulling-text="下拉刷新" on-refresh="reportCtrl.refresh()"></ion-refresher>
+        <div class="recordContainer">
+            <div class="row">
+                <div class="col-66 item-input-inset">
+                    <label class="item-input-wrapper">
+                        <i class="icon ion-person placeholder-icon"></i>
+                        <input type="search" ng-model="reportCtrl.searchObj.username" placeholder="用户名">
+                    </label>
+                </div>
+
+                <div class="col-34 item-input-inset padding-right">
+                    <button class="button button-assertive button-small" on-tap="reportCtrl.checkUpper()">返回上级</button>
+                </div>
+            </div>
+            <div class="row" data-tap-disabled="true">
+                <div class="col-50 item-input-inset">
+                    <label class="item-input-wrapper">
+                        <i class="icon ion-ios-calendar placeholder-icon"></i>
+                        <input type="date" ng-model="reportCtrl.searchObj.sTime" ng-required="true"/>
+                    </label>
+                </div>
+                <div class="col-50 item-input-inset">
+                    <label class="item-input-wrapper">
+                        <i class="icon ion-ios-calendar placeholder-icon"></i>
+                        <input type="date" ng-model="reportCtrl.searchObj.eTime" ng-required="true"/>
+                    </label>
+                </div>
+            </div>
+
+            <div class="row user-hierarchy row-wrap">
+                <div class="user-level-btn" ng-repeat="username in reportCtrl.userLevels">
+                    <span class="user-level-name" on-tap="reportCtrl.checkchild(username)">{{username}}</span>
+                    <span class="user-level-tag" ng-if="!$last"><</span>
+                </div>
+            </div>
+
+            <ul class="list" ng-if="reportCtrl.type == 'lottery'">
+                <div class="item" ng-repeat="record in reportCtrl.records">
+                    <table class="table_bordered text-center">
+                        <tbody>
+                            <tr>
+                                <td ng-if="record.hasMore===true" colspan="4" width="100%">
+                                    <button on-tap="reportCtrl.checkchild(record.name)"
+                                            class="button button-positive button-small btn_small">{{record.name}}</button>
+                                </td>
+                                <td ng-if="record.hasMore===false" colspan="4" width="100%">{{record.name}}</td>
+                            </tr>
+                            <tr>
+                                <td width="10%">充值</td>
+                                <td width="40%">{{record.cashIn|number:2}}</td>
+                                <td width="10%">提现</td>
+                                <td width="40%">{{record.cashOut|number:2}}</td>
+                            </tr>
+                            <tr>
+                                <td width="10%">投注</td>
+                                <td width="40%">{{record.billingOrder|number:2}}</td>
+                                <td width="10%">派奖</td>
+                                <td width="40%">{{record.prize|number:2}}</td>
+                            </tr>
+                            <tr>
+                                <td width="10%">返点</td>
+                                <td width="40%">{{record.proxyReturn+record.spendReturn|number:2}}</td>
+                                <td width="10%">优惠</td>
+                                <td width="40%">{{record.activity+record.rechargeFee|number:2}}</td>
+                            </tr>
+                            <tr>
+                                <td width="10%">盈利</td>
+                                <td width="90%" colspan="3" ng-bind-html="record.prize+record.proxyReturn+record.spendReturn+record.activity+record.rechargeFee-record.billingOrder|number:2|amountColorFilter"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </ul>
+            <ul class="list" ng-if="reportCtrl.type == 'game'">
+                <div class="item" ng-repeat="record in reportCtrl.records">
+                    <table class="table_bordered text-center">
+                        <tbody>
+                            <tr>
+                                <td ng-if="record.hasMore===true" colspan="4" width="100%">
+                                    <button on-tap="reportCtrl.checkchild(record.name)"
+                                            class="button button-positive button-small btn_small">{{record.name}}</button>
+                                </td>
+                                <td ng-if="record.hasMore===false" colspan="4" width="100%">{{record.name}}</td>
+                            </tr>
+                            <tr>
+                                <td width="10%">投注</td>
+                                <td width="40%">{{record.billingOrder|number:2}}</td>
+                                <td width="10%">派奖</td>
+                                <td width="40%">{{record.prize|number:2}}</td>
+                            </tr>
+                            <tr>
+                                <td width="10%">返点</td>
+                                <td width="40%">{{record.proxyReturn+record.waterReturn|number:2}}</td>
+                                <td width="10%">优惠</td>
+                                <td width="40%">{{record.activity|number:2}}</td>
+                            </tr>
+                            <tr>
+                                <td width="10%">盈利</td>
+                                <td width="90%" colspan="3" ng-bind-html="record.prize+record.proxyReturn+record.waterReturn+record.activity-record.billingOrder|number:2|amountColorFilter"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </ul>
+            <ul class="list" ng-if="reportCtrl.type == 'main'">
+                <div class="item" ng-repeat="record in reportCtrl.records">
+                    <table class="table_bordered text-center scroll-bar-h">
+                        <tbody>
+                            <tr>
+                                <td ng-if="record.hasMore===true" colspan="4" width="100%">
+                                    <button on-tap="reportCtrl.checkchild(record.name)"
+                                            class="button button-positive button-small btn_small">{{record.name}}</button>
+                                </td>
+                                <td ng-if="record.hasMore===false" colspan="4" width="100%">{{record.name}}</td>
+                            </tr>
+                            <tr>
+                                <td width="15%">充值</td>
+                                <td width="35%">{{record.recharge|number:2}}</td>
+                                <td width="15%">取款</td>
+                                <td width="35%" colspan="3">{{record.withdrawals|number:2}}</td>
+                            </tr>
+                            <tr>
+                                <td width="15%">转入</td>
+                                <td width="35%">{{record.transIn|number:2}}</td>
+                                <td width="15%">转出</td>
+                                <td width="35%">{{record.transOut|number:2}}</td>
+                            </tr>
+                            <tr>
+                                <td width="15%">上下级转账(存)</td>
+                                <td width="85%" colspan="3">{{record.accountIn|number:2}}</td>
+                            </tr>
+                            <tr>
+                                <td width="15%">上下级转账(取)</td>
+                                <td width="85%" colspan="3">{{record.accountOut|number:2}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </ul>
+        </div>
+        <ion-infinite-scroll ng-if="reportCtrl.hasMore" immediate-check="false" on-infinite="reportCtrl.loadmore(reportCtrl.page)" distance="10%"></ion-infinite-scroll>
+    </ion-content>
+    <commonfooter></commonfooter>
+</div>

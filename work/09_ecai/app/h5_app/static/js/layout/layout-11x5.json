@@ -1,0 +1,625 @@
+{
+    "Layout": [{
+        "title": "三码",
+        "rows": [{
+            "title": "前三直选",
+            "parentname": "qszx",
+            "columns": [{
+                "showname": "复式",
+                "parentname": "qszx",
+                "shortname": "sanmzhixfsq",
+                "realname": "[前三直选_复式]",
+                "tips": "从第一位、第二位、第三位中至少各选择1个号码。",
+                "example": "",
+                "help": "从01-11共11个号码中选择3个不重复的号码组成一注，所选号码与当期顺序摇出的5个号码中的前3个号码相同，且顺序一致，即为中奖。",
+                "selectarea": {
+                    "type": "digital",
+                    "layout": [{
+                        "title": "第一位",
+                        "balls": ["01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11"],
+                        "tools": true
+                    }, {
+                        "title": "第二位",
+                        "balls": ["01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11"],
+                        "tools": true
+                    }, {
+                        "title": "第三位",
+                        "balls": ["01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11"],
+                        "tools": true
+                    }]
+                }
+            }, {
+                "showname": "单式",
+                "parentname": "qszx",
+                "shortname": "sanmzhixdsq",
+                "realname": "[前三直选_单式]",
+                "tips": "手动输入号码，至少输入1个三位数号码组成一注。",
+                "example": "",
+                "help": "手动输入3个号码组成一注，所输入的号码与当期顺序摇出的5个号码中的前3个号码相同，且顺序一致，即为中奖。",
+                "selectarea": {
+                    "type": "input"
+                }
+            }]
+        }, {
+            "title": "前三组选",
+            "parentname": "qszux",
+            "columns": [{
+                "showname": "复式",
+                "parentname": "qszux",
+                "shortname": "sanmzuxfsq",
+                "realname": "[前三组选_复式]",
+                "tips": "从0-9中任意选择3个或3个以上号码。",
+                "example": "",
+                "help": "从01-11中共11个号码中选择3个号码，所选号码与当期顺序摇出的5个号码中的前3个号码相同，顺序不限，即为中奖。",
+                "selectarea": {
+                    "type": "digital",
+                    "layout": [{
+                        "title": "选号",
+                        "balls": ["01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11"],
+                        "tools": true
+                    }]
+                }
+            }, {
+                "showname": "单式",
+                "shortname": "sanmzuxdsq",
+                "parentname": "qszux",
+                "realname": "[前三组选_单式]",
+                "tips": "手动输入号码，至少输入1个三位数号码组成一注。",
+                "example": "",
+                "help": "手动输入3个号码组成一注，所输入的号码与当期顺序摇出的5个号码中的前3个号码相同，顺序不限，即为中奖。",
+                "selectarea": {
+                    "type": "input"
+                }
+            }]
+        }]
+    }, {
+        "title": "二码",
+        "rows": [{
+            "title": "前二直选",
+            "parentname": "qezx",
+            "columns": [{
+                "showname": "复式",
+                "shortname": "ermzhixfsq",
+                "parentname": "qezx",
+                "realname": "[前二直选_复式]",
+                "tips": "从第一位、第二位中至少各选择1个号码。",
+                "example": "",
+                "help": "从01-11共11个号码中选择2个不重复的号码组成一注，所选号码与当期顺序摇出的5个号码中的前2个号码相同，且顺序一致，即为中奖。",
+                "selectarea": {
+                    "type": "digital",
+                    "layout": [{
+                        "title": "第一位",
+                        "balls": ["01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11"],
+                        "tools": true
+                    }, {
+                        "title": "第二位",
+                        "balls": ["01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11"],
+                        "tools": true
+                    }]
+                }
+            }, {
+                "showname": "单式",
+                "shortname": "ermzhixdsq",
+                "parentname": "qezx",
+                "realname": "[前二直选_单式]",
+                "tips": "手动输入号码，至少输入1个两位数号码组成一注。",
+                "example": "",
+                "help": "手动输入2个号码组成一注，所输入的号码与当期顺序摇出的5个号码中的前2个号码相同，且顺序一致，即为中奖。",
+                "selectarea": {
+                    "type": "input"
+                }
+            }]
+        }, {
+            "title": "前二组选",
+            "parentname": "qezux",
+            "columns": [{
+                "showname": "复式",
+                "parentname": "qezux",
+                "shortname": "ermzuxfsq",
+                "realname": "[前二组选_复式]",
+                "tips": "从0-9中任意选择2个或2个以上号码。",
+                "example": "",
+                "help": "从01-11中共11个号码中选择2个号码，所选号码与当期顺序摇出的5个号码中的前2个号码相同，顺序不限，即为中奖。",
+                "selectarea": {
+                    "type": "digital",
+                    "layout": [{
+                        "title": "选号",
+                        "balls": ["01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11"],
+                        "tools": true
+                    }]
+                }
+            }, {
+                "showname": "单式",
+                "shortname": "ermzuxdsq",
+                "parentname": "qezux",
+                "realname": "[前二组选_单式]",
+                "tips": "手动输入号码，至少输入1个两位数号码组成一注。",
+                "example": "",
+                "help": "手动输入2个号码组成一注，所输入的号码与当期顺序摇出的5个号码中的前2个号码相同，顺序不限，即为中奖。",
+                "selectarea": {
+                    "type": "input"
+                }
+            }]
+        }]
+    }, {
+        "title": "不定胆",
+        "rows": [{
+            "title": "不定胆",
+            "parentname": "bdd",
+            "columns": [{
+                "showname": "前三位",
+                "shortname": "bdw",
+                "parentname": "bdd",
+                "realname": "[不定胆_前三位]",
+                "tips": "从01-11中任意选择1个或1个以上号码。",
+                "example": "",
+                "help": "从01-11中共11个号码中选择1个号码，每注由1个号码组成，只要当期顺序摇出的第一位、第二位、第三位开奖号码中包含所选号码，即为中奖。",
+                "selectarea": {
+                    "type": "digital",
+                    "layout": [{
+                        "title": "选号",
+                        "balls": ["01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11"],
+                        "tools": true
+                    }]
+                }
+            }]
+        }]
+    }, {
+        "title": "定位胆",
+        "rows": [{
+            "title": "定位胆",
+            "parentname": "dwd",
+	    "default": "1",
+	    "defaultmethod": "dwd",
+            "columns": [{
+                "showname": "定位胆",
+                "shortname": "dwd",
+                "realname": "[定位胆]",
+                "parentname": "dwd",
+                "tips": "从第一位，第二位，第三位任意位置上任意选择1个或1个以上号码。",
+                "example": "",
+                "help": "从第一位，第二位，第三位任意1个位置或多个位置上选择1个号码，所选号码与相同位置上的开奖号码一致，即为中奖。",
+                "selectarea": {
+                    "type": "digital",
+                    "layout": [{
+                        "title": "第一位",
+                        "balls": ["01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11"],
+                        "tools": true
+                    }, {
+                        "title": "第二位",
+                        "balls": ["01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11"],
+                        "tools": true
+                    }, {
+                        "title": "第三位",
+                        "balls": ["01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11"],
+                        "tools": true
+                    }]
+                }
+            }]
+        }]
+    }, {
+        "title": "趣味型",
+        "rows": [{
+            "title": "趣味型",
+            "parentname": "qwx",
+            "columns": [{
+                "showname": "定单双",
+                "shortname": "dds",
+                "parentname": "qwx",
+                "realname": "[定单双]",
+                "tips": "从不同的单双组合中任意选择1个或1个以上的组合。",
+                "example": "",
+                "help": "从5种单双个数组合中选择1种组合，当期开奖号码的单双个数与所选单双组合一致，即为中奖。",
+                "selectarea": {
+                    "type": "digital",
+                    "layout": [{
+                        "title": "定单双",
+                        "balls": ["5单0双", "4单1双", "3单2双", "2单3双", "1单4双", "0单5双"],
+                        "tools": false,
+                        "showBallsAsValue": true
+                    }]
+                }
+            }, {
+                "showname": "猜中位",
+                "shortname": "czw",
+                "parentname": "qwx",
+                "realname": "[猜中位]",
+                "tips": "从3-9中任意选择1个或1个以上数字。",
+                "example": "",
+                "help": "从3-9中选择1个号码进行购买，所选号码与5个开奖号码按照大小顺序排列后的第3个号码相同，即为中奖。",
+                "selectarea": {
+                    "type": "digital",
+                    "layout": [{
+                        "title": "猜中位",
+                        "balls": ["03", "04", "05", "06", "07", "08", "09"],
+                        "tools": true
+                    }]
+                }
+            }]
+        }]
+    }, {
+        "title": "任选",
+        "rows": [{
+            "title": "任选复式",
+            "parentname": "rxfs",
+            "columns": [{
+                "showname": "一中一",
+                "parentname": "rxfs",
+                "shortname": "rx1fs",
+                "realname": "[任选复式_一中一]",
+                "tips": "从01-11中任意选择1个或1个以上号码。",
+                "example": "",
+                "help": "从01-11共11个号码中选择1个号码进行购买，只要当期顺序摇出的5个开奖号码中包含所选号码，即为中奖。",
+                "selectarea": {
+                    "type": "digital",
+                    "layout": [{
+                        "title": "一中一",
+                        "balls": ["01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11"],
+                        "tools": true
+                    }]
+                }
+            }, {
+                "showname": "二中二",
+                "parentname": "rxfs",
+                "shortname": "rx2fs",
+                "realname": "[任选复式_二中二]",
+                "tips": "从01-11中任意选择2个或2个以上号码。",
+                "example": "",
+                "help": "从01-11共11个号码中选择2个号码进行购买，只要当期顺序摇出的5个开奖号码中包含所选号码，即为中奖。",
+                "selectarea": {
+                    "type": "digital",
+                    "layout": [{
+                        "title": "二中二",
+                        "balls": ["01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11"],
+                        "tools": true
+                    }]
+                }
+            }, {
+                "showname": "三中三",
+                "parentname": "rxfs",
+                "shortname": "rx3fs",
+                "realname": "[任选复式_三中三]",
+                "tips": "从01-11中任意选择3个或3个以上号码。",
+                "example": "",
+                "help": "从01-11共11个号码中选择3个号码进行购买，只要当期顺序摇出的5个开奖号码中包含所选号码，即为中奖。",
+                "selectarea": {
+                    "type": "digital",
+                    "layout": [{
+                        "title": "三中三",
+                        "balls": ["01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11"],
+                        "tools": true
+                    }]
+                }
+            }, {
+                "showname": "四中四",
+                "parentname": "rxfs",
+                "shortname": "rx4fs",
+                "realname": "[任选复式_四中四]",
+                "tips": "从01-11中任意选择4个或4个以上号码。",
+                "example": "",
+                "help": "从01-11共11个号码中选择4个号码进行购买，只要当期顺序摇出的5个开奖号码中包含所选号码，即为中奖。",
+                "selectarea": {
+                    "type": "digital",
+                    "layout": [{
+                        "title": "四中四",
+                        "balls": ["01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11"],
+                        "tools": true
+                    }]
+                }
+            }, {
+                "showname": "五中五",
+                "parentname": "rxfs",
+                "shortname": "rx5fs",
+                "realname": "[任选复式_五中五]",
+                "tips": "从01-11中任意选择5个或5个以上号码。",
+                "example": "",
+                "help": "从01-11共11个号码中选择5个号码进行购买，只要当期顺序摇出的5个开奖号码中包含所选号码，即为中奖。",
+                "selectarea": {
+                    "type": "digital",
+                    "layout": [{
+                        "title": "五中五",
+                        "balls": ["01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11"],
+                        "tools": true
+                    }]
+                }
+            }, {
+                "showname": "六中五",
+                "parentname": "rxfs",
+                "shortname": "rx6fs",
+                "realname": "[任选复式_六中五]",
+                "tips": "从01-11中任意选择6个或6个以上号码。",
+                "example": "",
+                "help": "从01-11共11个号码中选择6个号码进行购买，只要当期顺序摇出的5个开奖号码中包含所选号码，即为中奖。",
+                "selectarea": {
+                    "type": "digital",
+                    "layout": [{
+                        "title": "六中五",
+                        "balls": ["01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11"],
+                        "tools": true
+                    }]
+                }
+            }, {
+                "showname": "七中五",
+                "parentname": "rxfs",
+                "shortname": "rx7fs",
+                "realname": "[任选复式_七中五]",
+                "tips": "从01-11中任意选择7个或7个以上号码。",
+                "example": "",
+                "help": "从01-11共11个号码中选择7个号码进行购买，只要当期顺序摇出的5个开奖号码中包含所选号码，即为中奖。",
+                "selectarea": {
+                    "type": "digital",
+                    "layout": [{
+                        "title": "七中五",
+                        "balls": ["01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11"],
+                        "tools": true
+                    }]
+                }
+            }, {
+                "showname": "八中五",
+                "parentname": "rxfs",
+                "shortname": "rx8fs",
+                "realname": "[任选复式_八中五]",
+                "tips": "从01-11中任意选择8个或8个以上号码。",
+                "example": "",
+                "help": "从01-11共11个号码中选择8个号码进行购买，只要当期顺序摇出的5个开奖号码中包含所选号码，即为中奖。",
+                "selectarea": {
+                    "type": "digital",
+                    "layout": [{
+                        "title": "八中五",
+                        "balls": ["01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11"],
+                        "tools": true
+                    }]
+                }
+            }]
+        }, {
+            "title": "任选单式",
+            "parentname": "rxds",
+            "columns": [{
+                "showname": "一中一",
+                "shortname": "rx1ds",
+                "realname": "[任选单式_一中一]",
+                "tips": "手动输入号码，从01-11中任意输入1个号码组成一注。",
+                "example": "",
+                "help": "从01-11中手动输入1个号码进行购买，只要当期顺序摇出的5个开奖号码中包含所选号码，即为中奖。",
+                "selectarea": {
+                    "type": "input"
+                }
+            }, {
+                "showname": "二中二",
+                "parentname": "rxds",
+                "shortname": "rx2ds",
+                "realname": "[任选单式_二中二]",
+                "tips": "手动输入号码，从01-11中任意输入2个号码组成一注。",
+                "example": "",
+                "help": "从01-11共11中手动输入2个号码进行购买，只要当期顺序摇出的5个开奖号码中包含所选号码，即为中奖。",
+                "selectarea": {
+                    "type": "input"
+                }
+            }, {
+                "showname": "三中三",
+                "parentname": "rxds",
+                "shortname": "rx3ds",
+                "realname": "[任选单式_三中三]",
+                "tips": "手动输入号码，从01-11中任意输入3个号码组成一注。。",
+                "example": "",
+                "help": "从01-11共11中手动输入3个号码进行购买，只要当期顺序摇出的5个开奖号码中包含所选号码，即为中奖。",
+                "selectarea": {
+                    "type": "input"
+                }
+            }, {
+                "showname": "四中四",
+                "parentname": "rxds",
+                "shortname": "rx4ds",
+                "realname": "[任选单式_四中四]",
+                "tips": "手动输入号码，从01-11中任意输入4个号码组成一注。",
+                "example": "",
+                "help": "从01-11共11中手动输入4个号码进行购买，只要当期顺序摇出的5个开奖号码中包含所选号码，即为中奖。",
+                "selectarea": {
+                    "type": "input"
+                }
+            }, {
+                "showname": "五中五",
+                "parentname": "rxds",
+                "shortname": "rx5ds",
+                "realname": "[任选单式_五中五]",
+                "tips": "手动输入号码，从01-11中任意输入5个号码组成一注。",
+                "example": "",
+                "help": "从01-11共11中手动输入5个号码进行购买，只要当期顺序摇出的5个开奖号码中包含所选号码，即为中奖。",
+                "selectarea": {
+                    "type": "input"
+                }
+            }, {
+                "showname": "六中五",
+                "parentname": "rxds",
+                "shortname": "rx6ds",
+                "realname": "[任选单式_六中五]",
+                "tips": "手动输入号码，从01-11中任意输入6个号码组成一注。",
+                "example": "",
+                "help": "从01-11共11中手动输入6个号码进行购买，只要当期顺序摇出的5个开奖号码中包含所选号码，即为中奖。",
+                "selectarea": {
+                    "type": "input"
+                }
+            }, {
+                "showname": "七中五",
+                "parentname": "rxds",
+                "shortname": "rx7ds",
+                "realname": "[任选单式_七中五]",
+                "tips": "手动输入号码，从01-11中任意输入7个号码组成一注。",
+                "example": "",
+                "help": "从01-11共11中手动输入7个号码进行购买，只要当期顺序摇出的5个开奖号码中包含所选号码，即为中奖。",
+                "selectarea": {
+                    "type": "input"
+                }
+            }, {
+                "showname": "八中五",
+                "parentname": "rxds",
+                "shortname": "rx8ds",
+                "realname": "[任选单式_八中五]",
+                "tips": "手动输入号码，从01-11中任意输入8个号码组成一注。",
+                "example": "",
+                "help": "从01-11共11中手动输入8个号码进行购买，只要当期顺序摇出的5个开奖号码中包含所选号码，即为中奖。",
+                "selectarea": {
+                    "type": "input"
+                }
+            }]
+        },{
+            "title": "任选拖胆",
+            "parentname": "rxtd",
+            "columns": [{
+                "showname": "二中二",
+                "parentname": "rxtd",
+                "shortname": "rxtd2",
+                "realname": "[任选拖胆_二中二]",
+                "tips": "分别从胆码和拖码的01-11中，至少选择1个胆码和1个拖码组成一注。",
+                "example": "如：选择胆码 08，选择拖码 06，开奖号码为 06 08 11 09 02，即为中奖。",
+                "help": "分别从胆码和拖码的01-11中，至少选择1个胆码和1个拖码组成一注，只要当期顺序摇出的5个开奖号码中同时包含所选的1个胆码和1个拖码，所选胆码必须全中，即为中奖。",
+                "selectarea": {
+                    "type": "digital",
+                    "layout": [{
+                        "title": "胆码",
+                        "balls": ["01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11"],
+                        "title_en": "danma",
+                        "maxpic": "1",
+                        "tools": false
+                    },{
+                        "title": "拖码",
+                        "balls": ["01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11"],
+                        "tools": true
+                    }]
+                }
+            }, {
+                "showname": "三中三",
+                "parentname": "rxtd",
+                "shortname": "rxtd3",
+                "realname": "[任选拖胆_三中三]",
+                "tips": "分别从胆码和拖码的01-11中，至少选择1个胆码和2个拖码组成一注。",
+                "example": "如：选择胆码 08，选择拖码 06 11，开奖号码为 06 08 11 09 02，即为中奖。",
+                "help": "分别从胆码和拖码的01-11中，至少选择1个胆码和2个拖码组成一注，只要当期顺序摇出的5个开奖号码中同时包含所选的1个胆码和2个拖码，所选胆码必须全中，即为中奖。",
+                "selectarea": {
+                    "type": "digital",
+                    "layout": [{
+                        "title": "胆码",
+                        "balls": ["01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11"],
+                        "title_en": "danma",
+                        "maxpic": "2",
+                        "tools": false
+                    },{
+                        "title": "拖码",
+                        "balls": ["01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11"],
+                        "tools": true
+                    }]
+                }
+            }, {
+                "showname": "四中四",
+                "parentname": "rxtd",
+                "shortname": "rxtd4",
+                "realname": "[任选拖胆_四中四]",
+                "tips": "分别从胆码和拖码的01-11中，至少选择1个胆码和3个拖码组成一注。",
+                "example": "如：选择胆码 08，选择拖码 06 09 11，开奖号码为 06 08 11 09 02，即为中奖。",
+                "help": "分别从胆码和拖码的01-11中，至少选择1个胆码和3个拖码组成一注，只要当期顺序摇出的5个开奖号码中同时包含所选的1个胆码和3个拖码，所选胆码必须全中，即为中奖。",
+                "selectarea": {
+                    "type": "digital",
+                    "layout": [{
+                        "title": "胆码",
+                        "balls": ["01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11"],
+                        "title_en": "danma",
+                        "maxpic": "3",
+                        "tools": false
+                    },{
+                        "title": "拖码",
+                        "balls": ["01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11"],
+                        "tools": true
+                    }]
+                }
+            }, {
+                "showname": "五中五",
+                "parentname": "rxtd",
+                "shortname": "rxtd5",
+                "realname": "[任选复式_五中五]",
+                "tips": "分别从胆码和拖码的01-11中，至少选择1个胆码和4个拖码组成一注。",
+                "example": "如：选择胆码 08，选择拖码 02 06 09 11，开奖号码为  06 08 11 09 02，即为中奖。",
+                "help": "分别从胆码和拖码的01-11中，至少选择1个胆码和4个拖码组成一注，只要当期顺序摇出的5个开奖号码中同时包含所选的1个胆码和4个拖码，所选胆码必须全中，即为中奖。",
+                "selectarea": {
+                    "type": "digital",
+                    "layout": [{
+                        "title": "胆码",
+                        "balls": ["01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11"],
+                        "title_en": "danma",
+                        "maxpic": "4",
+                        "tools": false
+                    },{
+                        "title": "拖码",
+                        "balls": ["01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11"],
+                        "tools": true
+                    }]
+                }
+            }, {
+                "showname": "六中五",
+                "parentname": "rxtd",
+                "shortname": "rxtd6",
+                "realname": "[任选拖胆_六中五]",
+                "tips": "分别从胆码和拖码的01-11中，至少选择1个胆码和5个拖码组成一注。",
+                "example": "如：选择胆码 08，选择拖码 01 02 05 06 09 11，开奖号码为 06 08 11 09 02，即为中奖。",
+                "help": "分别从胆码和拖码的01-11中，至少选择1个胆码和5个拖码组成一注，只要当期顺序摇出的5个开奖号码同时存在于胆码和拖码的任意组合中，即为中奖。",
+                "selectarea": {
+                    "type": "digital",
+                    "layout": [{
+                        "title": "胆码",
+                        "balls": ["01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11"],
+                        "title_en": "danma",
+                        "maxpic": "5",
+                        "tools": false
+                    },{
+                        "title": "拖码",
+                        "balls": ["01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11"],
+                        "tools": true
+                    }]
+                }
+            }, {
+                "showname": "七中五",
+                "parentname": "rxtd",
+                "shortname": "rxtd7",
+                "realname": "[任选拖胆_七中五]",
+                "tips": "分别从胆码和拖码的01-11中，至少选择1个胆码和6个拖码组成一注。",
+                "example": "如：选择胆码 08，选择拖码 01 02 05 06 07 09 11，开奖号码为 06 08 11 09 02，即为中奖。",
+                "help": "分别从胆码和拖码的01-11中，至少选择1个胆码和6个拖码组成一注，只要当期顺序摇出的5个开奖号码同时存在于胆码和拖码的任意组合中，即为中奖。",
+                "selectarea": {
+                    "type": "digital",
+                    "layout": [{
+                        "title": "胆码",
+                        "balls": ["01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11"],
+                        "title_en": "danma",
+                        "maxpic": "6",
+                        "tools": false
+                    },{
+                        "title": "拖码",
+                        "balls": ["01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11"],
+                        "tools": true
+                    }]
+                }
+            }, {
+                "showname": "八中五",
+                "parentname": "rxtd",
+                "shortname": "rxtd8",
+                "realname": "[任选拖胆_八中五]",
+                "tips": "分别从胆码和拖码的01-11中，至少选择1个胆码和7个拖码组成一注。",
+                "example": "如：选择胆码 08，选择拖码 01 02 03 05 06 07 09 11，开奖号码为 06 08 11 09 02，即为中奖。",
+                "help": "分别从胆码和拖码的01-11中，至少选择1个胆码和7个拖码组成一注，只要当期顺序摇出的5个开奖号码中同时包含所选1个胆码和任意4个拖码，即为中奖。",
+                "selectarea": {
+                    "type": "digital",
+                    "layout": [{
+                        "title": "胆码",
+                        "balls": ["01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11"],
+                        "title_en": "danma",
+                        "maxpic": "7",
+                        "tools": false
+                    },{
+                        "title": "拖码",
+                        "balls": ["01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11"],
+                        "tools": true
+                    }]
+                }
+            }]
+        }]
+    }]
+}

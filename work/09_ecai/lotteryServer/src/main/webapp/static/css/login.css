@@ -1,0 +1,65 @@
+::-webkit-input-placeholder {color:#989ea4!important;}
+::-moz-placeholder {color:#989ea4!important;;}
+:-ms-input-placeholder {color:#989ea4!important;;}
+.login-bg{background:#50565f url("../images/login-bg.jpg") no-repeat center; background-size: cover;}
+.login_top{ width:1200px; margin:0 auto; overflow:hidden;padding-top: 20px;}
+.login_top .login_logo{ display: inline-block;margin-top: -28px;}
+.login_top a{ float:right; width:128px; height:38px; font-size:14px; color:#666; text-align:center; line-height:38px; border:solid 1px #666; border-radius:20px;margin-left: 32px;}
+.login{width: 1200px; height: 390px; margin: auto;}
+.login-box{width: 350px; float: right; background: #fff; height: 390px; margin-top: 10%;}
+.login-box h1{border-bottom: 1px solid #dedede;line-height: 70px;color: #333840;padding-left: 25px;font-size: 18px;font-weight: normal;}
+.login-form{border: 1px solid #dedede;margin: 30px 30px 5px;border-radius: 4px;}
+.login-form-inline{border-bottom: 1px solid #dedede;height: 50px;overflow: hidden;position: relative;}
+.login-form-inline span{color: #777d83;font-size: 12px;padding-left: 16px;display: inline-block;line-height: 50px;width: 55px;float: left;}
+.login-form .form-control{width: 210px;float: left;padding-top: 2px;}
+.login-form .form-control .txt{width: 100%;height: 46px;line-height: 46px;border: 0px;font-size: 14px;color: #777d83;padding-left: 16px;}
+.login-form .code-inline{border-bottom: 0px;}
+.code-inline .form-control{width:145px;}
+/*.code-inline .code{display: inline-block;float: left;padding-top: 10px;padding-left: 3px;cursor: pointer;}*/
+.imgCode{width: 62px;height: 31px;display: inline-block;float: right;cursor: pointer;margin: 10px 5px 0 0;*margin: 10px 5px 0 0;}
+.login-box .form-info{padding: 16px 36px;color: #4f555c;font-size: 12px;position: relative;}
+.login-box .form-info .kefu{text-decoration: underline;color: #f42535;cursor: pointer;}
+.login-box .form-action{padding: 5px 30px 0px;}
+    
+.btn-login{background: -webkit-linear-gradient(top,#fc5f5a,#cd2a23);width: 100%;outline: 0px; height: 40px;color: #FFFFff;font-size: 12px;text-align: center;cursor: pointer;border-radius: 4px;border: 0px;}
+.login-box .btn-login:hover{}
+.login-info{width: 350px;float: right;text-align: center;color: #c2c3c4;background:#2c3138 url("../images/login.jpg") bottom  no-repeat;height: 390px;}
+.login-info .logo{padding: 50px 0px 0px;float: none;}
+.login-info .logo2{padding: 80px 0px 0px;float: none;}
+.login-info .logo img{width: 140px;margin-left: 0px;}
+.login-info .logo2 img{width: 140px;margin-left: 16px;}
+.login-info p{padding-bottom: 30px;font-size: 12px;}
+.login-info i{font-size: 12px;padding-right: 4px;}
+.login-info h6{font-size: 14px;padding:0px 0px 10px;color: #FFFFff;}
+.login-info .ewm{height: 140px; width: 140px;}
+.login-box .form-info .ck{display: inline-block;background: url("../images/reg2.jpg") center no-repeat;width: 16px;height: 16px;margin-right: 2px;position: relative;top:2px;cursor: pointer;}
+.login-box .form-info .ck.cur{background: url("../images/reg1.jpg") center no-repeat;}
+.login-box .form-info .nor{color: #4f555c;text-decoration: underline;cursor: pointer;}
+.login-box .form-info .nor:hover{color: #ee002f;}
+.form-info .demouser {
+    text-decoration: underline;
+    color: #f42535;
+    cursor: pointer;
+    padding-right: 10px;
+}
+
+.client{ margin-top:50px; text-align:center;}
+.client a,.client .app-btn{ display:inline-block; width:138px; height:42px; text-align:center; line-height:42px; color:#fff; font-size:13px; border:solid 1px #5d606b; border-radius:20px;cursor: pointer;}
+.client a.cur{ margin-left:14px;}
+.client a span{ font-size:18px; margin-right:5px;}
+
+.register{height: 440px;}
+.register .login-box{height: 440px;}
+
+.botom_login{ width:100%; padding:10px 0; border-top:solid 1px #393a45; text-align:center; font-size:14px; color:#999;position: absolute;bottom: 0px;}
+.botom_login .llp{ margin-top:10px; text-align:center;}
+.botom_login .llp a{ display:inline-block; margin-right:20px; color:#999;}
+.botom_login .llp i{ margin-right:5px;}
+
+@media screen and (max-width: 1400px) {
+    .login-box{margin-top: 0px !important;}
+}
+
+#demouser{
+	cursor: pointer;
+}

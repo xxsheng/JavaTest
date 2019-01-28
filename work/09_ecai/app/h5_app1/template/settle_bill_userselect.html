@@ -1,0 +1,18 @@
+<ion-modal-view>
+    <div class="bar bar-header bar-positive">
+        <button class="button" on-tap="settleBillCtrl.confirm_pick_member()"><i class="icon ion-checkmark"></i>确定</button>
+        <h1 class="title">我的会员</h1>
+        <button class="button" on-tap="settleBillCtrl.closeUserModal()"><i class="icon ion-close"></i>关闭</button>
+    </div>
+    <ion-content class="has-header has-footer" overflow-scroll="false" has-bouncing="true">
+        <div class="list list-inset">
+            <label class="item item-input">
+                <i class="icon ion-search placeholder-icon"></i>
+                <input type="text" placeholder="Search" ng-model='searchMember'>
+            </label>
+        </div>
+        <ion-list id="memberlist">
+            <ion-radio ng-model="settleBillCtrl.userObj"  ng-value="'{{item.username}}'" ng-repeat="item in settleBillCtrl.members|filter:searchMember">{{item.username}}</ion-radio>
+        </ion-list>
+    </ion-content>
+</ion-modal-view>

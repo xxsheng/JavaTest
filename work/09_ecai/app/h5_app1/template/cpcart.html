@@ -1,0 +1,64 @@
+<div class="cartContainer" ng-controller="cartController as cartCtrl">
+    <div class="bar bar-header bar-positive">
+        <div class="buttons">
+            <button class="button" on-tap="cartCtrl.back()"><i class="icon ion-arrow-left-a"></i></button>
+        </div>
+        <h1 class="title">购彩车</h1>
+        <div class="buttons">
+            <button class="button" on-tap="cartCtrl.clearCart()"><i class="icon ion-trash-a"></i>清空</button>
+        </div>
+    </div>
+    <ion-content class="has-header has-cart-footer" id="cpcart" overflow-scroll="false" has-bouncing="true">
+        <div class="betcart-tab-c">
+            <ul>
+                <li data-index="1" class="active">普通投注</li>
+                <li on-tap="cartCtrl.trace()">我要追号</li>
+                <li on-tap="appCtrl.goback()">继续选号</li>
+            </ul>
+        </div>
+        <div class="bet-cart-open">
+            <span>{{cartCtrl.currentObj.cpname}}</span>&nbsp;距&nbsp;<span id="issue" class="cart-cur-issue text-red">{{cartCtrl.currentObj.issue}}</span> &nbsp;期截止:&nbsp;&nbsp;
+            <span class="cart-open-time  text-red">{{timer}}</span>
+        </div>
+        <div class="betcart-list">
+            <div class="betcat-item betcart-item0" ng-repeat="item in cartCtrl.cartlist">
+                <div class="betcat-item-t">
+                    <div>{{item.name_cn}}</div>
+                    <div>
+                        共&nbsp;<span>{{item.zhushu}}</span>&nbsp;注
+                    </div>
+                </div>
+                <div class="betcat-item-num">
+                    <span>{{item.codes}}</span>
+                </div>
+                <div class="betcat-item-del" on-tap="cartCtrl.delSingleCart($index+1)">
+                    删除
+                </div>
+                <div class="betcat-item-m">
+                    <div>
+                        <div class="betcat-min icon-minus" on-tap="">-</div>
+                        <input class="betcat-mult" ng-model="item.times" value="{{item.times}}">
+                        <input type="hidden" id="baseMoney" value="{{item.permoney}}">
+                        <!-- <input type="hidden" id="stringobj" value="{{item}}"> -->
+                        <input type="hidden" id="index" value={{$index}}>
+                        <div class="betcat-plus" on-tap="">+</div>
+                        <div>&nbsp;倍， 共&nbsp;
+                        </div>
+                        <div class="betcat-money">{{item.money}}</div>
+                        <div>&nbsp;元</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </ion-content>
+    <div class="bet-cart-footer">
+        <div class="betcart-t">
+            <span style="margin-left: 12px">&nbsp;</span> 共&nbsp;
+            <span style="color: rgb(99,154,247)" class="cart-total-bet">{{cartCtrl.currentObj.totalNums}}</span> &nbsp;注，&nbsp;投注总额:&nbsp;&nbsp;
+            <span style="color:rgb(228,63,63)" class="cart-total-money">{{cartCtrl.currentObj.totalMoney}}</span>&nbsp;元
+        </div>
+        <div class="betcart-btn" on-tap="cartCtrl.betsubmit()">
+            立即投注
+        </div>
+    </div>
+</div>
