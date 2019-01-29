@@ -27,7 +27,7 @@ public class MessageServiceImpl implements MessageService {
 	@Override
 	public int insertSelective(Message record) {
 		// TODO Auto-generated method stub
-		return 0;
+		return messageMapper.insertSelective(record);
 	}
 
 }

@@ -38,6 +38,9 @@
       #{delFlag,jdbcType=INTEGER})
   </insert>
   <insert id="insertSelective" parameterType="com.xxq.messgaeborad.entity.Message" >
+  	<selectKey keyProperty="id" resultType="string" order="BEFORE">
+  		select replace(uuid(), '-', '') as id from dual
+  	</selectKey>
     insert into message
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >

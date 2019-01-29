@@ -1,7 +1,10 @@
 package com.xxq.messgaeborad.mapper;
 
+import org.springframework.stereotype.Repository;
+
 import com.xxq.messgaeborad.entity.Message;
 
+@Repository
 public interface MessageMapper {
     int deleteByPrimaryKey(String id);
 

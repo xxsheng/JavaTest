@@ -15,3 +15,10 @@ server:
   port: 80
   session-timeout: 1800
   
+mybatis: 
+  configuration:
+    map-underscore-to-camel-case: true
+  mapper-locations: mapping/**/*Mapper.xml
+  typeAliasesPackage: com.xxq.messageborad.entity
+
+  

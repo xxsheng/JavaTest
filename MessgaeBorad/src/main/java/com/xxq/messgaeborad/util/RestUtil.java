@@ -39,9 +39,13 @@ public class RestUtil {
 		this.data = data;
 	}
 
-	@Override
-	public String toString() {
-		return "RestUtil{" + "status=" + status + ",msg='" + msg + '\'' + ",data=" + data + "}";
-	}
+	 @Override
+	    public String toString() {
+	        return "RestUtil{" +
+	                "status=" + status + 
+	                ", msg='" + msg + '\'' +
+	                ", data=" + data +
+	                '}';
+	    }
 
 }

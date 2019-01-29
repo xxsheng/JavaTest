@@ -45,7 +45,7 @@
 	
 	<dependency>
 		<groupId>org.springframework.boot</groupId>
-		<artifactId>sprig-boot-starter-aop</artifactId>
+		<artifactId>spring-boot-starter-aop</artifactId>
 	</dependency>
 	
 	<dependency>
