@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN" "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<generatorConfiguration>
+  	<classPathEntry location="A:\apache-maven-3.5.4-bin\Maven\repository\mysql\mysql-connector-java\5.1.29\mysql-connector-java-5.1.29.jar"/>
+  	<context id="Messageboard" targetRuntime="Mybatis3">
+  		<commentGenerator>
+  			<property name="suppressDate" value="value"/>
+  			<!-- 是否去掉注释 true 是 false 否 -->
+  			<property name="suppressAllComments" value="true"/>
+  		</commentGenerator>
+  		<!-- 数据库连接url userid password -->
+  		<jdbcConnection driverClass="com.mysql.jdbc.Driver" connectionURL="jdbc:mysql://127.0.0.1:3306/messageboard" userId="root" password="root">
+  		</jdbcConnection>
+  		<javaTypeResolver>
+  			<property name="forceBigDecimals" value="false"/>
+  		</javaTypeResolver>
+  		
+  		<!-- 生成模型的包名和位置 -->
+  		<javaModelGenerator targetPackage="com.xxq.messgaeborad.entity" targetProject="src/main/java">
+  			<property name="enableSubPackages" value="true"/>
+  			<property name="trimStrings" value="true"/>
+  		</javaModelGenerator>
+  		
+  		<!-- 生成映射文件的包名和位置 -->
+  		<sqlMapGenerator targetPackage="mapping.messageboard" targetProject="src/main/resources">
+  			<property name="enableSubPackages" value="true"/>
+  		</sqlMapGenerator>
+  		
+  		<!-- 生成dao的包名和位置 -->
+  		<javaClientGenerator targetPackage="com.xxq.messgaeborad.mapper" type="XMLMAPPER" targetProject="src/main/java">
+  			<property name="enableSubPackages" value="true"/>
+  		</javaClientGenerator>
+  		
+  		<table tableName="message" domainObjectName="Message" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table>
+  	</context>
+</generatorConfiguration>
