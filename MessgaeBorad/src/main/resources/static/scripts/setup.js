@@ -121,7 +121,7 @@ function checkPhone(phonenumber) {
 }
 
 //===================================================以下可改=================================================
-var prefix = "http://localhost:10001";
+var prefix = "http://life.xueyouzhang.club/";
 
 function sendMessage() {
     // receive the provided data
@@ -154,7 +154,7 @@ function sendMessage() {
         type: "POST",
         url: prefix+'/message/insert',
         data: dataString,
-        dataType: 'jsonp',
+        dataType: 'json',
         success: function (restUtil) {
             if (restUtil.status == 20001) {
                 var errors = '<ul><li>';
