@@ -121,7 +121,7 @@ function checkPhone(phonenumber) {
 }
 
 //===================================================以下可改=================================================
-var prefix = "http://localhost";
+var prefix = "http://localhost:10001";
 
 function sendMessage() {
     // receive the provided data
