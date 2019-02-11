@@ -121,7 +121,10 @@ function checkPhone(phonenumber) {
 }
 
 //===================================================以下可改=================================================
-var prefix = "http://life.xueyouzhang.club/";
+// 部署环境
+//var prefix = "http://life.xueyouzhang.club/";
+// 本地环境
+var prefix = "http://localhost:10001";
 
 function sendMessage() {
     // receive the provided data

@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration  scan="true" scanPeriod="60 seconds" debug="false">
+    <contextName>messageboard</contextName>
+    <!--设定上下文名称，据说可有可无-->
+
+    <!--输出到控制台 ConsoleAppender -->
+    <appender name="console" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <!--输出的样式-->
+            <!--格式化输出：%d:表示日期    %thread:表示线程名     %-5level:级别从左显示5个字符宽度  %msg:日志消息    %n:是换行符-->
+            <pattern>%black(%contextName) %red(%d{yyyy-MM-dd HH:mm:ss}) %green([%thread]) %highlight(%-5level) %boldMagenta(%logger) - %cyan(%msg%n)</pattern>
+        </encoder>
+       <!--<filter class="ch.qos.logback.classic.filter.ThresholdFilter">-->
+            <!--<level>ERROR</level>-->
+       <!--</filter>-->
+    </appender>
+
+    <!--%d{HH: mm:ss.SSS}——日志输出时间-->
+    <!--%contextName ——contextName标签定义的名字，用于区分不同的服务。我一般写自己的服务名-->
+    <!--%thread——输出日志的进程名字，这在Web应用以及异步任务处理中很有用-->
+    <!--%-5level——日志级别，并且使用5个字符靠左对齐-->
+    <!--%logger{36}——日志输出者的名字-->
+    <!--%msg——日志消息-->
+    <!--%n——平台的换行符-->
+    <!--ThresholdFilter为系统定义的拦截器，例如我们用ThresholdFilter来过滤掉ERROR级别以下的日志不输出到文件中。如果不用记得注释掉，不然你控制台会发现没日志~-->
+
+
+    <!--按天生成日志到文件-->
+    <appender name="logFile"  class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <Prudent>true</Prudent>
+        <!--如果只是想要 Info 级别的日志，只是过滤 info 还是会输出 Error 日志，因为 Error 的级别高，-->
+        <!--所以我们使用下面的策略，可以避免输出 Error 的日志-->
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <!--过滤 Error-->
+            <level>ERROR</level>
+            <!--匹配到就禁止-->
+            <onMatch>DENY</onMatch>
+            <!--没有匹配到就允许-->
+            <onMismatch>ACCEPT</onMismatch>
+        </filter>
+
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <!--生成日志文件的路径-->
+            <FileNamePattern>
+                log/%d{yyyy-MM-dd}/%d{yyyy-MM-dd}.log
+            </FileNamePattern>
+            <!--只保留最近90天的日志-->
+            <maxHistory>90</maxHistory>
+            <!--用来指定日志文件的上限大小，那么到了这个值，就会删除旧的日志-->
+            <totalSizeCap>1GB</totalSizeCap>
+        </rollingPolicy>
+        <layout class="ch.qos.logback.classic.PatternLayout">
+            <Pattern>
+                %d{yyyy-MM-dd HH:mm:ss} %contextName [%thread] %-5level %logger{36} -%msg%n
+            </Pattern>
+        </layout>
+       <!--<filter class="ch.qos.logback.classic.filter.ThresholdFilter">-->
+            <!--<level>ERROR</level>-->
+       <!--</filter>-->
+    </appender>
+
+    <logger name="com.xxq" additivity="false">
+        <appender-ref ref="console"/>
+        <appender-ref ref="logFile" />
+    </logger>
+
+    <!--<loger>用来设置某一个包或者具体的某一个类的日志打印级别、以及指定<appender>。-->
+    <!--<loger>仅有一个name属性，一个可选的level和一个可选的addtivity属性。-->
+
+    <!--name:用来指定受此loger约束的某一个包或者具体的某一个类。   我这里是监听所有的包-->
+    <!--level:用来设置打印级别，大小写无关：TRACE, DEBUG, INFO, WARN, ERROR, ALL 和 OFF，还有一个特俗值INHERITED或者同义词NULL，-->
+        <!--代表强制执行上级的级别。如果未设置此属性，那么当前loger将会继承上级的级别。-->
+    <!--addtivity:是否向上级loger传递打印信息。默认是true。-->
+
+    <!--指定日志输出级别-->
+    <root level="error">
+        <appender-ref ref="console"/>
+        <appender-ref ref="logFile" />
+    </root>
+
+</configuration>
