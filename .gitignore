@@ -30,3 +30,5 @@ hs_err_pid*
 target
 .metadata
 .recommenders
+#日志文件
+log
