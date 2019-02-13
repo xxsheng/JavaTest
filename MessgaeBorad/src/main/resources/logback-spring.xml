@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <configuration  scan="true" scanPeriod="60 seconds" debug="false">
-    <contextName>messageboard</contextName>
+    <contextName>messageBorad</contextName>
     <!--设定上下文名称，据说可有可无-->
 
     <!--输出到控制台 ConsoleAppender -->
     <appender name="console" class="ch.qos.logback.core.ConsoleAppender">
+    	<!-- <withJansi>true</withJansi> -->
         <encoder>
             <!--输出的样式-->
             <!--格式化输出：%d:表示日期    %thread:表示线程名     %-5level:级别从左显示5个字符宽度  %msg:日志消息    %n:是换行符-->
@@ -59,7 +60,7 @@
        <!--</filter>-->
     </appender>
 
-    <logger name="com.xxq" additivity="false">
+    <logger name="com.byk" additivity="false">
         <appender-ref ref="console"/>
         <appender-ref ref="logFile" />
     </logger>
@@ -73,7 +74,7 @@
     <!--addtivity:是否向上级loger传递打印信息。默认是true。-->
 
     <!--指定日志输出级别-->
-    <root level="error">
+    <root level="info">
         <appender-ref ref="console"/>
         <appender-ref ref="logFile" />
     </root>

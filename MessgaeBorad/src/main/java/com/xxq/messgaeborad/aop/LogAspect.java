@@ -8,7 +8,9 @@ import java.util.Arrays;
 import javax.servlet.http.HttpServletRequest;
 
 import org.aspectj.lang.JoinPoint;
+import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.AfterReturning;
+import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.annotation.Pointcut;
@@ -28,7 +30,7 @@ import org.springframework.web.context.request.ServletRequestAttributes;
 @Component
 public class LogAspect {
 
-	private Logger logger = LoggerFactory.getLogger(this.getClass());
+	private Logger logger = LoggerFactory.getLogger(LogAspect.class);
 	
 	/**
 	 * @author xiaxiuqiang
@@ -69,6 +71,17 @@ public class LogAspect {
 	@AfterReturning(returning = "ret", pointcut = "logPointCut()") //returning的值和doAfterReturning的参数名一致
 	public void doAfterReturning(Object ret) {
 		//处理完请求，返回内容（返回值太过复杂时，打印的是对象物理存储空间的地址）
-		logger.debug("返回值：" + ret);
+		logger.info("返回值：" + ret);
+	}
+	
+	@Around("logPointCut()")
+	public Object doAround(ProceedingJoinPoint pjp) throws Throwable {
+		long startTime  = System.currentTimeMillis();
+		// obj为方法返回值
+		Object obj = pjp.proceed();
+		
+		logger.info("耗时：" + (System.currentTimeMillis() - startTime));
+		return obj;
+		
 	}
 }

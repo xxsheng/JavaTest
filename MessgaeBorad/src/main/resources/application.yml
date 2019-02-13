@@ -23,7 +23,10 @@ spring:
           starttls: 
             enable: true
             required: true      
-          
+  output:
+    ansi:
+      enabled: always 
+            
 server:
   port: 10001
   session-timeout: 1800
@@ -33,5 +36,12 @@ mybatis:
     map-underscore-to-camel-case: true
   mapper-locations: mapping/**/*Mapper.xml
   typeAliasesPackage: com.xxq.messageborad.entity 
-     
+  
+debug: false
+
+#如果logback中设置了日志级别 此处可不设置
+#logging:
+#  level:
+#    root: info
+ 
     
