@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.warm.share.mapper.ArticleUserMapper">
+
+
+    <sql id="selectArticleUser">
+        select A.id            as article_id,
+               A.title         as article_title,
+               A.release_time  as article_release_time,
+               A.content       as article_content,
+               U.id            as user_id,
+               U.phone         as user_phone,
+               U.name          as user_name,
+               U.sex           as user_sex,
+               U.register_time as user_register_time
+        from article A
+                 left join `user` U on A.user_id = U.id
+    </sql>
+
+
+    <resultMap id="articleUser" type="com.warm.share.model.ArticleUser">
+        <id property="id" column="article_id" />
+        <result property="title" column="article_title" />
+        <result property="releaseTime" column="article_release_time" />
+        <result property="content" column="article_content" />
+        <association property="user" javaType="com.warm.share.entity.User">
+            <id property="id" column="user_id" />
+            <result property="phone" column="user_phone" />
+            <result property="name" column="user_name" />
+            <result property="sex" column="user_sex" />
+            <result property="registerTime" column="user_register_time" />
+        </association>
+    </resultMap>
+
+
+    <select id="getArticleUserBy" parameterType="long" resultMap="articleUser">
+        <include refid="selectArticleUser" />
+        where A.id=#{articleId}
+    </select>
+    <select id="getHotArticles" resultMap="articleUser">
+        <include refid="selectArticleUser" />
+        order by A.release_time desc,A.id desc
+        limit #{param1},#{param2}
+    </select>
+
+    <insert id="insertArticles" parameterType="java.util.List">
+        insert into article (title, content, user_id, release_time)
+        values
+        <foreach collection="list" separator="," item="item">
+            (#{item.title},#{item.content},#{item.userId},#{item.releaseTime} )
+        </foreach>
+    </insert>
+
+
+</mapper>

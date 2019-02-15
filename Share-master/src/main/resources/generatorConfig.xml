@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE generatorConfiguration
+    PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+    "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+    <context id="MySqlContext" targetRuntime="MyBatis3" defaultModelType="flat">
+        <property name="beginningDelimiter" value="`" />
+        <property name="endingDelimiter" value="`" />
+        <property name="javaFileEncoding" value="UTF-8" />
+        <!-- 为模型生成序列化方法-->
+        <plugin type="org.mybatis.generator.plugins.SerializablePlugin" />
+        <!-- 为生成的Java模型创建一个toString方法 -->
+        <plugin type="org.mybatis.generator.plugins.ToStringPlugin" />
+        <commentGenerator>
+            <!-- 是否去除自动生成的注释 true：是 ： false:否 -->
+            <property name="suppressAllComments" value="true" />
+        </commentGenerator>
+
+        <jdbcConnection driverClass="com.mysql.jdbc.Driver"
+            connectionURL="jdbc:mysql://localhost:3306/share?characterEncoding=utf-8" userId="root"
+            password="Secret123456789">
+            <property name="nullCatalogMeansCurrent" value="true" />
+        </jdbcConnection>
+
+        <javaModelGenerator targetPackage="com.warm.share.entity" targetProject="src/main/java" />
+
+        <sqlMapGenerator targetPackage="com.warm.share.mapper.gmapper"
+            targetProject="src/main/resources" />
+
+        <javaClientGenerator type="XMLMAPPER" targetPackage="com.warm.share.mapper.gmapper"
+            targetProject="src/main/java" />
+        <!--生成全部表tableName设为%-->
+
+        <!-- 要生成那些表(更改tableName和domainObjectName就可以) -->
+        <table tableName="article" domainObjectName="Article">
+            <generatedKey column="id" sqlStatement="MySql" identity="true" />
+        </table>
+
+        <table tableName="comment" domainObjectName="Comment" />
+
+        <table tableName="user" domainObjectName="User" >
+            <generatedKey column="id" sqlStatement="MySql" identity="true" />
+        </table>
+
+
+    </context>
+</generatorConfiguration>
